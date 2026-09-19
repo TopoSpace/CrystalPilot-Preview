@@ -2,8 +2,31 @@
 name = "crystalpilot"
 version = "0.1.0"
 description = "Agent-driven single-crystal X-ray structure solution and refinement workbench"
+readme = "README.md"
 license = {file = "LICENSE"}
+authors = [{ name = "TopoSpace" }]
 requires-python = ">=3.11"
+keywords = [
+    "crystallography",
+    "single-crystal",
+    "x-ray-diffraction",
+    "structure-refinement",
+    "shelx",
+    "cctbx",
+    "model-context-protocol",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: Other/Proprietary License",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Physics",
+]
 dependencies = [
     "numpy",
     "scipy",
@@ -15,16 +38,21 @@ dependencies = [
 
 [project.optional-dependencies]
 server = ["fastapi", "uvicorn[standard]", "websockets"]
-# Codex app-server harness (ADR-001). Pinned: 0.x SDK, narrow adapter surface.
+# Codex app-server harness. The SDK is pinned: the adapter surface is narrow
+# and each kernel version is probed before the pin moves.
 workbench = ["openai-codex==0.147.0", "psutil>=5.9", "python-docx", "pypdf"]
-# Agentic refinement workbench: MCP typed-tool server + ligand chemistry.
-# mcp pinned <2: the 2.x SDK dropped the low-level explicit-inputSchema tool
-# API our ToolRegistry bridge requires (see workbench/MCP_NOTES.md).
+# Refinement workbench: MCP typed-tool server and ligand chemistry.
+# mcp is pinned below 2: the 2.x SDK dropped the low-level explicit-inputSchema
+# tool API that the ToolRegistry bridge requires.
 refine = ["mcp>=1.2,<2", "rdkit>=2024.3.3"]
 dev = ["pytest", "ruff"]
 
 [project.scripts]
 crystalpilot = "crystalpilot.cli:main"
+
+[project.urls]
+Repository = "https://github.com/TopoSpace/CrystalPilot-Preview"
+Issues = "https://github.com/TopoSpace/CrystalPilot-Preview/issues"
 
 [build-system]
 requires = ["setuptools>=68"]

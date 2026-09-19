@@ -287,7 +287,7 @@ deep-research 的抓取层全部成功（25 份一手来源，每条声明附源
 
 ## 8. 第二轮调研（第 11–18 章）带来的系统含义
 
-第二轮按 `workdir/knowledge-gap-register.md` 逐条补缺。本节只写**对系统设计有直接后果**的部分；知识本身见 `docs/KNOWLEDGE-SCXRD-expert-practice.md` 第二部分。
+第二轮按 `workdir/knowledge-gap-register.md` 逐条补缺。本节只写**对系统设计有直接后果**的部分；知识本身见 `docs/scxrd-expert-practice.md` 第二部分。
 
 > **引用约定**：本节里形如 §11.x–§18.x 的编号指**知识库文档**的小节；指本稿自己的章节时一律写成"本稿 §…"。
 

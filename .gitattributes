@@ -1,0 +1,20 @@
+# Normalise line endings in the repository; check out with the platform default.
+* text=auto
+
+# Scripts that must keep a specific line ending wherever they are checked out.
+*.sh   text eol=lf
+*.ps1  text eol=crlf
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+
+# Binary assets.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.icns binary
+*.zip  binary
+*.pdf  binary
+*.woff binary
+*.woff2 binary

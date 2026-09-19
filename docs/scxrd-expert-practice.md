@@ -1,6 +1,6 @@
 # 单晶结构解析专家知识库（SCXRD Expert Practice）
 
-> 本文是 2026-09-03 调研的**知识侧完整记录**，与 `docs/RESEARCH-2026-09-scxrd-expert-knowledge.md`（那份是"知识 × CrystalPilot 现状"的对照分析与路线图）配套但独立。
+> 本文是 2026-09-03 调研的**知识侧完整记录**，与 `docs/scxrd-expert-knowledge-review.md`（那份是"知识 × CrystalPilot 现状"的对照分析与路线图）配套但独立。
 > 这一份不谈我们的代码，只整理**领域本身**：厂家/设备/软件的操作规程、人类专家的流程与判断依据、失败模式与识别方法。
 > 目标读者是要仔细研读的人，因此**所有关键论断都附一手来源的英文原文引语**（verbatim，不翻译、不改写），中文是解释。
 
@@ -3105,4 +3105,4 @@ Spek, A. L. (2015). *PLATON SQUEEZE: a tool for the calculation of the disordere
 
 ### B.6 与本知识库配套的另一份文档
 
-`docs/RESEARCH-2026-09-scxrd-expert-knowledge.md`，把本知识库的内容对照 CrystalPilot 现状（AGENTS 模板、技能卡、70 个 MCP 工具、历次战役），给出过拟合诊断、知识编码原则与 P0–P2 路线图。**本文是"领域知识"，那一份是"我们该怎么办"。**
+`docs/scxrd-expert-knowledge-review.md`，把本知识库的内容对照 CrystalPilot 现状（AGENTS 模板、技能卡、70 个 MCP 工具、历次战役），给出过拟合诊断、知识编码原则与 P0–P2 路线图。**本文是"领域知识"，那一份是"我们该怎么办"。**

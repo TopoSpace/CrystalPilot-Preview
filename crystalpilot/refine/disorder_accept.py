@@ -22,7 +22,7 @@ quantity with an uncertainty, and three readings are possible:
                  -> `inconclusive` (these data do not determine the ratio;
                                   restrain and re-refine, or say so)
 
-Encoding principles (docs/RESEARCH-2026-09-scxrd-expert-knowledge.md §4)
+Encoding principles (docs/scxrd-expert-knowledge-review.md §4)
 are the same ones shelxl_lst.py follows:
 
 * P3  every number is computed from what is in front of us. The U_eq

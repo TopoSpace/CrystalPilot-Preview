@@ -9,6 +9,12 @@
 <p align="center"><strong>Development Preview</strong></p>
 
 <p align="center">
+  <img alt="Python 3.11+" src="https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white">
+  <img alt="Windows and Linux" src="https://img.shields.io/badge/platform-Windows%20%7C%20Linux-555555">
+  <img alt="License: non-commercial academic" src="https://img.shields.io/badge/license-non--commercial%20academic-6A5ACD">
+</p>
+
+<p align="center">
 A local workbench in which a language-model agent solves and refines single-crystal X-ray structures<br>
 through typed crystallographic tools, while you watch the crystal, the node tree and the numbers change.
 </p>
@@ -184,7 +190,7 @@ The restart script is the supported way to start or restart the service. It runs
 
 ### Linux
 
-See [docs/INSTALL-LINUX.md](docs/INSTALL-LINUX.md) for the locked dependency set, the isolated kernel installation, the vendor programs and the detached server commands.
+See [docs/install-linux.md](docs/install-linux.md) for the locked dependency set, the isolated kernel installation, the vendor programs and the detached server commands.
 
 ### Providers and keys
 
@@ -192,7 +198,7 @@ See [docs/INSTALL-LINUX.md](docs/INSTALL-LINUX.md) for the locked dependency set
 
 ### A first test
 
-The user guide, [docs/USER-GUIDE-2026-09-06.md](docs/USER-GUIDE-2026-09-06.md), walks through the interface and lists the data sets the group uses for self-tests. `scripts/run_live.py` creates a project from a data folder, writes the priors, sends a brief and prints the URL to watch.
+The user guide, [docs/user-guide.md](docs/user-guide.md), walks through the interface and lists the data sets the group uses for self-tests. `scripts/run_live.py` creates a project from a data folder, writes the priors, sends a brief and prints the URL to watch.
 
 ## Repository layout
 
@@ -222,12 +228,12 @@ Diffraction data, frames, models and deliveries stay on the machine that runs th
 
 ## Documentation
 
-- [docs/USER-GUIDE-2026-09-06.md](docs/USER-GUIDE-2026-09-06.md): the interface, controls, settings, test data and troubleshooting (Chinese).
-- [docs/INSTALL-LINUX.md](docs/INSTALL-LINUX.md): server installation on Linux.
+- [docs/user-guide.md](docs/user-guide.md): the interface, controls, settings, test data and troubleshooting (Chinese).
+- [docs/install-linux.md](docs/install-linux.md): server installation on Linux.
 - [ARCHITECTURE.md](ARCHITECTURE.md): layers, contracts and the dated change record.
-- [docs/CAPABILITIES-2026-09.md](docs/CAPABILITIES-2026-09.md): the analysis capabilities and how each was verified.
-- [docs/VALIDATION-2026-09-interactions.md](docs/VALIDATION-2026-09-interactions.md) and [docs/VALIDATION-2026-09-topology-pores.md](docs/VALIDATION-2026-09-topology-pores.md): known-answer checks of the interaction and topology engines against deposited data.
-- [docs/KNOWLEDGE-SCXRD-expert-practice.md](docs/KNOWLEDGE-SCXRD-expert-practice.md): the expert-practice knowledge base the agent's skill cards were distilled from.
+- [docs/capabilities.md](docs/capabilities.md): the analysis capabilities and how each was verified.
+- [docs/validation-interactions.md](docs/validation-interactions.md) and [docs/validation-topology-pores.md](docs/validation-topology-pores.md): known-answer checks of the interaction and topology engines against deposited data.
+- [docs/scxrd-expert-practice.md](docs/scxrd-expert-practice.md): the expert-practice knowledge base the agent's skill cards were distilled from.
 
 ## Acknowledgements
 

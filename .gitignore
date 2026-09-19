@@ -1,4 +1,4 @@
-# ==== SECRETS — never commit ====
+# ==== Secrets: never commit ====
 testAPI.txt
 *.key
 .env

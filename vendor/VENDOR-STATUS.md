@@ -1,7 +1,8 @@
 # 厂商/生态软件集成状态（2026-08-31）
 
-授权边界（用户 2026-08-31）：只装 H 盘；免费+需注册的可装（注册步骤留给
-用户）；明确付费的排除。vendor/ 目录 gitignore，二进制永不入库。
+约定：第三方程序只安装到本仓库的 `vendor/` 目录（已列入 .gitignore，二进制
+永不入库）；免费或需注册的程序可以接入（注册步骤由使用者自行完成），明确
+收费的程序不纳入。
 
 ## 已安装（免登录免付费，开箱即用）
 
@@ -40,7 +41,7 @@
 - 实弹复核（2026-09-04，benchmark/known_answers）：MOF-5 → **pcu**、
   HKUST-1 → **tbo**、ZIF-8 → **sod**、UiO-66 → **fcu**、NU-1000 → **csq**、
   双重互穿 MOF-5 → 两个分量都是 **pcu**。见
-  `docs/VALIDATION-2026-09-topology-pores.md`
+  `docs/validation-topology-pores.md`
 
 ### superflip（vendor/superflip/superflip.exe）
 - 来源：https://superflip.fzu.cz/download/superflip_win.zip

@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use CrystalPilot in published work, please cite it as below."
+type: software
+title: "CrystalPilot"
+abstract: "A local workbench in which a language-model agent solves and refines single-crystal X-ray structures through typed crystallographic tools."
+authors:
+  - name: "TopoSpace"
+version: "0.1.0"
+date-released: "2026-09-19"
+repository-code: "https://github.com/TopoSpace/CrystalPilot-Preview"
+license-url: "https://github.com/TopoSpace/CrystalPilot-Preview/blob/main/LICENSE"
+keywords:
+  - crystallography
+  - single-crystal X-ray diffraction
+  - structure solution
+  - structure refinement
+  - SHELX
+  - language-model agents

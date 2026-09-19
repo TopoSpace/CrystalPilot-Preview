@@ -8,7 +8,7 @@ Q-peak list (analysis of variance, most disagreeable reflections) was never
 looked at by any tool; agents SHELL-grepped job.lst for it or, more often,
 never saw it at all.
 
-Knowledge basis (docs/KNOWLEDGE-SCXRD-expert-practice.md):
+Knowledge basis (docs/scxrd-expert-practice.md):
 
 * §2.7  K = Mean[Fo^2]/Mean[Fc^2] high for the weakest reflections, plus
         "for all of the most disagreeable reflections Fo >> Fc", plus a
@@ -28,7 +28,7 @@ Knowledge basis (docs/KNOWLEDGE-SCXRD-expert-practice.md):
 * §17.5 IUCr editorial criterion "Poor convergence - maximum shift/s.u. >
         1.5", with the four directions the editors ask about.
 
-Encoding principles (docs/RESEARCH-2026-09-scxrd-expert-knowledge.md §4):
+Encoding principles (docs/scxrd-expert-knowledge-review.md §4):
 
 * P3  every number is computed from the table in front of us; no case
       constants, and the "how far is far" reference is the table's OWN
