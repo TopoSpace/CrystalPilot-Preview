@@ -1,6 +1,6 @@
 {
   "frames_dir": "H:\\CrystalPilot\\workdir\\dials\\lcyst\\data",
-  "dials_env": "C:\\Users\\lenovo\\miniforge3\\envs\\dials",
+  "dials_env": "C:\\Users\\username\\miniforge3\\envs\\dials",
   "stages": {
     "import_frames": {
       "completed_at": "2026-08-29 03:11:01",

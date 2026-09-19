@@ -34,13 +34,13 @@
     {
       "sample": "sucrose",
       "project": "H:\\CrystalPilot-campaigns\\upgrade-20260907\\calibration\\sucrose",
-      "source": "D:\\Copilot Desktop\\Local Repo\\copilot-worktrees\\CrystalPilot\\topospace-vigilant-couscous\\benchmark\\public\\sucrose",
+      "source": "D:\\worktrees\\CrystalPilot\\topospace-vigilant-couscous\\benchmark\\public\\sucrose",
       "calls": [
         {
           "tool": "import_cif_model",
           "arguments": {
-            "cif_path": "D:\\Copilot Desktop\\Local Repo\\copilot-worktrees\\CrystalPilot\\topospace-vigilant-couscous\\benchmark\\public\\sucrose\\ref_cif.cif",
-            "hkl_path": "D:\\Copilot Desktop\\Local Repo\\copilot-worktrees\\CrystalPilot\\topospace-vigilant-couscous\\benchmark\\public\\sucrose\\sf.cif"
+            "cif_path": "D:\\worktrees\\CrystalPilot\\topospace-vigilant-couscous\\benchmark\\public\\sucrose\\ref_cif.cif",
+            "hkl_path": "D:\\worktrees\\CrystalPilot\\topospace-vigilant-couscous\\benchmark\\public\\sucrose\\sf.cif"
           },
           "ok": true,
           "error": null,
@@ -91,13 +91,13 @@
     {
       "sample": "CuBTC_framework",
       "project": "H:\\CrystalPilot-campaigns\\upgrade-20260907\\calibration\\CuBTC_framework",
-      "source": "D:\\Copilot Desktop\\Local Repo\\copilot-worktrees\\CrystalPilot\\topospace-vigilant-couscous\\benchmark\\public\\CuBTC_framework",
+      "source": "D:\\worktrees\\CrystalPilot\\topospace-vigilant-couscous\\benchmark\\public\\CuBTC_framework",
       "calls": [
         {
           "tool": "import_cif_model",
           "arguments": {
-            "cif_path": "D:\\Copilot Desktop\\Local Repo\\copilot-worktrees\\CrystalPilot\\topospace-vigilant-couscous\\benchmark\\public\\CuBTC_framework\\ref_cif.cif",
-            "hkl_path": "D:\\Copilot Desktop\\Local Repo\\copilot-worktrees\\CrystalPilot\\topospace-vigilant-couscous\\benchmark\\public\\CuBTC_framework\\sf.cif"
+            "cif_path": "D:\\worktrees\\CrystalPilot\\topospace-vigilant-couscous\\benchmark\\public\\CuBTC_framework\\ref_cif.cif",
+            "hkl_path": "D:\\worktrees\\CrystalPilot\\topospace-vigilant-couscous\\benchmark\\public\\CuBTC_framework\\sf.cif"
           },
           "ok": true,
           "error": null,

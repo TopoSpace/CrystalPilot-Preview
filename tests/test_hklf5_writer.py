@@ -149,7 +149,7 @@ def test_compose_intensity_divisor():
 
 
 _PROBE = Path(r"H:/CrystalPilot/workdir/hklf5_probe")
-_DIALS_PY = Path(r"C:/Users/lenovo/miniforge3/envs/dials/python.exe")
+_DIALS_PY = Path(r"C:/Users/username/miniforge3/envs/dials/python.exe")
 
 
 @pytest.mark.skipif(

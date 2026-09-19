@@ -228,7 +228,7 @@
 ### 主人拍板（2026-09-03 深夜）
 
 - **同意 §2.4 第二档**：先修工具层 P0，再做 v33（只留能指向失败格的三组流程规则 + 操作契约加"长计算可分离/可放弃/换预算重发"）。
-- 纠正：仓库内 `codex-home/`（CrystalPilot 自用的隔离 CODEX_HOME）可按需改动；禁区只有主人本机的 `C:\Users\lenovo\.codex\`。
+- 纠正：仓库内 `codex-home/`（CrystalPilot 自用的隔离 CODEX_HOME）可按需改动；禁区只有主人本机的 `C:\Users\username\.codex\`。
 - P0 工具层工作包（各自 worktree 并行，合并前逐支审查）：WP1 长计算预算/心跳/协作取消 + 队列消息（`solve_charge_flipping` / `optimize_weights` / `refine`）；WP2 SFAC 暴露 + `run_shelxt` 报错改写 + 消光"零观测"三态措辞；WP3 `element_scan(free_occupancy=true)` 复现与修复 + omit 电子数校准句 + readiness 不再推荐 optimize_weights；WP4 SHELXL 温度默认值不入 CIF + `set_experiment(null)` 回复纠正；WP5 `finalize_delivery` 接受 `diagnostic`；WP6 ghost 近核纹波判据 + `add_hydrogens` 当场 AFIX 自检。
 
 ### 第 2 天凌晨（2026-09-04 00:00–02:00）：P0 工具层合并中，v33 就位待合

@@ -1144,7 +1144,7 @@ _ZN_FRAME = Path(r"H:/CrystalPilot/benchmark/data_ext2/frames_zn_dpnpp"
 
 @pytest.mark.skipif(
     not _ZN_FRAME.exists()
-    or not Path(r"C:/Users/lenovo/miniforge3/envs/dials/python.exe").exists(),
+    or not Path(r"C:/Users/username/miniforge3/envs/dials/python.exe").exists(),
     reason="zn_dpnpp frames or dials env not present")
 def test_odlegacy_golden_geometry_and_decode(tmp_path):
     """Golden numbers from the pg33 dataset: header fields verified
@@ -1153,7 +1153,7 @@ def test_odlegacy_golden_geometry_and_decode(tmp_path):
     import os
     import subprocess
 
-    dials_py = Path(r"C:/Users/lenovo/miniforge3/envs/dials/python.exe")
+    dials_py = Path(r"C:/Users/username/miniforge3/envs/dials/python.exe")
     code = (
         "from crystalpilot_dxtbx_odlegacy import FormatRODLegacy as F\n"
         f"p = r'{_ZN_FRAME}'\n"

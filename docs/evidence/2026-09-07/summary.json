@@ -155,7 +155,7 @@
   "real_replays": [
     {
       "project": "H:\\CrystalPilot-campaigns\\audit-20260907-isolated\\paracetamol-replay",
-      "source": "D:\\Copilot Desktop\\Local Repo\\copilot-worktrees\\CrystalPilot\\topospace-vigilant-couscous\\benchmark\\public\\paracetamol_formI",
+      "source": "D:\\worktrees\\CrystalPilot\\topospace-vigilant-couscous\\benchmark\\public\\paracetamol_formI",
       "kind": "deposited-model-replay-not-blind-solve",
       "scientific_verdict": "not_reproduced_not_publication_ready",
       "runs": [
@@ -179,7 +179,7 @@
     },
     {
       "project": "H:\\CrystalPilot-campaigns\\audit-20260907-isolated\\nu1000-replay",
-      "source": "D:\\Copilot Desktop\\Local Repo\\copilot-worktrees\\CrystalPilot\\topospace-vigilant-couscous\\benchmark\\public\\NU-1000_Zr_MOF",
+      "source": "D:\\worktrees\\CrystalPilot\\topospace-vigilant-couscous\\benchmark\\public\\NU-1000_Zr_MOF",
       "kind": "deposited-model-replay-not-blind-solve",
       "scientific_verdict": "not_reproduced_not_publication_ready",
       "runs": [

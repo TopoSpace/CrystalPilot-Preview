@@ -262,7 +262,7 @@ npm run e2e -- comparison-oracle.pw.ts structure-comparison.pw.ts --grep 'real c
 代码在分支 `topospace-crystalpilot-system-review`，尚未合入 `main`、未 push/创建 PR。请让 Claude Code 使用当前工作树：
 
 ```text
-D:\Copilot Desktop\Local Repo\copilot-worktrees\CrystalPilot\topospace-vigilant-couscous
+D:\worktrees\CrystalPilot\topospace-vigilant-couscous
 ```
 
 先读 `ARCHITECTURE.md` 和本文 §9–12。不要把 `H:\CrystalPilot` 主检出当作已更新版本；科学项目继续放在仓库外。下一阶段候选已列于 §9，本轮没有承诺或偷偷启动这些工作。

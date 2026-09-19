@@ -3,7 +3,7 @@
 Acquired 2026-08-28 to test the CrystalPilot frames→structure chain (DIALS backend,
 `crystalpilot/io/frames_dials.py`) across vendor formats. Machine-readable details:
 `benchmark/manifest_frames.json`. Verification here = **dials.import only** (DIALS 3.30,
-conda env `C:\Users\lenovo\miniforge3\envs\dials`); no indexing/integration was run.
+conda env `C:\Users\username\miniforge3\envs\dials`); no indexing/integration was run.
 Import logs: `_import_tests/<case>/import*.log`.
 
 ## Datasets (8 new + 1 pre-existing)

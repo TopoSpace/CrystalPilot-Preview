@@ -41,7 +41,7 @@ Copilot 最终验收只跑了 149 个后端测试；全量 2672 个里有 17 个
 | SHELXL / SHELXT | 2019/3、2018/2，可执行 | `vendor/shelx/`，含 salflibc / wgxlib01 / wgxlib04 三个 DLL |
 | PLATON + SHELXL + DLL | opt-in 真二进制测试 `test_real_platon_publication_cif_long_project_path` 用 `sol-small-cold` 的真实 final.cif（复制到临时目录）**11 s 通过**：短路径运行时、进程树清理、完整报告门槛 | |
 | ciftab / superflip | 存在；superflip 可执行（无参数时要输入文件名） | |
-| DIALS（原始帧） | conda 环境 `C:\Users\lenovo\miniforge3\envs\dials` 被 `find_dials()` 找到 | 未跑真实帧 |
+| DIALS（原始帧） | conda 环境 `C:\Users\username\miniforge3\envs\dials` 被 `find_dials()` 找到 | 未跑真实帧 |
 | Systre（拓扑命名） | `vendor/gavrog/Systre-19.6.0.jar` + Java 17 在 PATH | 全量 pytest 的拓扑已知答案用例覆盖 |
 | olex2c | `vendor/olex2/app/olex2c.dll` 存在 | `test_olex2_tool::test_help_boot` 在并发负载下超时（老问题），单跑通过 |
 | CrysAlisPro（CAP） | `C:\Xcalibur` 存在；未启动、未验证 | 主人本机厂商 GUI，只报告存在 |
