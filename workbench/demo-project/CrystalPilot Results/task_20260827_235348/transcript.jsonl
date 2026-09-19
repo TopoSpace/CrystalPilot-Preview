@@ -1,4 +1,0 @@
-{"kind": "user_message", "text": "Reply with exactly: AUTH-OK", "ts": 1787846030.6284323}
-{"kind": "turn_started", "ts": 1787846030.9900618}
-{"kind": "agent_message", "text": "AUTH-OK", "ts": 1787846035.3644187}
-{"kind": "turn_completed", "usage": null, "ts": 1787846035.5656657}

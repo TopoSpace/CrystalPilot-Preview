@@ -1,8 +1,0 @@
-{"kind": "user_message", "text": "Reply with exactly: CRYSTAL-OK", "ts": 1787895223.7395697}
-{"kind": "turn_started", "ts": 1787895224.1695433}
-{"kind": "agent_message", "text": "CRYSTAL-OK", "ts": 1787895227.8834505}
-{"kind": "turn_completed", "duration_ms": 4207, "status": "TurnStatus.completed", "ts": 1787895228.0458705}
-{"kind": "user_message", "text": "Reply with exactly: RESUME-OK", "ts": 1787895231.3345468}
-{"kind": "turn_started", "ts": 1787895231.756619}
-{"kind": "agent_message", "text": "RESUME-OK", "ts": 1787895235.7928536}
-{"kind": "turn_completed", "duration_ms": 4286, "status": "TurnStatus.completed", "ts": 1787895235.9764667}

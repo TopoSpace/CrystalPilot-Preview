@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     proxy: {
-      // the workbench server runs on 8010 (README, .claude/launch.json);
+      // the workbench server runs on 8010 (see README);
       // the old 8000 default made every dev-mode API call 404 in silence
       "/api": process.env.WB_API ?? "http://localhost:8010",
     },

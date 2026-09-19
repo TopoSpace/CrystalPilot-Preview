@@ -1,9 +1,0 @@
-{
-  "stages": {
-    "ingest_vendor_data": {
-      "completed_at": "2026-08-30 14:52:57",
-      "hkl": "model.hkl",
-      "node": "n0042"
-    }
-  }
-}

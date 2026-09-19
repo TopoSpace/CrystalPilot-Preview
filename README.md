@@ -156,7 +156,7 @@ Working and in daily use: the refinement workbench with the tools listed above, 
 
 Known limits: the interface is Chinese only; Windows is the primary platform and Linux is supported as a server install; SHELXL, SHELXT and PLATON must be obtained under their own licences and are not shipped; the frame-stage twin rescue on non-merohedral twins is still being tested; disorder with three or more sites is modelled by hand; powder data, incommensurate structures and proteins are out of scope.
 
-Recent investigations are written up in `docs/REVIEW-*.md`. The latest one traces two runs that appeared to stall to a SHELXT space-group search that was invisible in the interface, and describes the fix.
+The most recent fix came out of two runs that appeared to stall: the cause was a SHELXT space-group search that was invisible in the interface, and detached solver jobs are now shown in the conversation and the status rail until their result is adopted.
 
 ## Running it
 
@@ -210,7 +210,7 @@ The user guide, [docs/USER-GUIDE-2026-09-06.md](docs/USER-GUIDE-2026-09-06.md), 
 | `server/`, `ui/` | FastAPI application and the React interface |
 | `scripts/` | Setup, kernel update, server restart, live test runner |
 | `tests/` | pytest suite |
-| `docs/` | User guide, installation, architecture notes, reviews and audits |
+| `docs/` | User guide, installation, capability notes, validation reports and domain knowledge |
 | `design/` | Logo sources and exports |
 | `vendor/` | Kernel, SHELX programs and DIALS environment; not tracked |
 
@@ -226,7 +226,8 @@ Diffraction data, frames, models and deliveries stay on the machine that runs th
 - [docs/INSTALL-LINUX.md](docs/INSTALL-LINUX.md): server installation on Linux.
 - [ARCHITECTURE.md](ARCHITECTURE.md): layers, contracts and the dated change record.
 - [docs/CAPABILITIES-2026-09.md](docs/CAPABILITIES-2026-09.md): the analysis capabilities and how each was verified.
-- `docs/REVIEW-*.md`, `docs/AUDIT-*.md`: investigations of real sessions and periodic audits.
+- [docs/VALIDATION-2026-09-interactions.md](docs/VALIDATION-2026-09-interactions.md) and [docs/VALIDATION-2026-09-topology-pores.md](docs/VALIDATION-2026-09-topology-pores.md): known-answer checks of the interaction and topology engines against deposited data.
+- [docs/KNOWLEDGE-SCXRD-expert-practice.md](docs/KNOWLEDGE-SCXRD-expert-practice.md): the expert-practice knowledge base the agent's skill cards were distilled from.
 
 ## Acknowledgements
 

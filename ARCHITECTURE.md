@@ -11,7 +11,6 @@ history at the end.
 
 ## Update (2026-09-16): stability, storage, brand
 
-See `docs/REVIEW-2026-09-16-stability-logo-sync.md` for evidence and numbers.
 **Event pipeline.** `normalize_notification` stamps every item-scoped event
 (`tool_*`, `command_*`, `command_output`, `tool_progress`, `file_change_*`,
 generic families incl. the new `imageView`) with the kernel `item_id`; the
@@ -213,7 +212,7 @@ fix.
 process per project, tools/list from `ToolRegistry.specs()` with
 `readOnlyHint` annotations (drives Codex `approval_mode="writes"` = Copilot
 mode). cctbx is imported in the main thread before the async loop (Windows
-boost deadlock). Protocol details probed and recorded in `workbench/MCP_NOTES.md`.
+boost deadlock). The protocol details were probed against the kernel before the bridge was written.
 
 ## Supporting layers
 
@@ -340,7 +339,7 @@ boost deadlock). Protocol details probed and recorded in `workbench/MCP_NOTES.md
   `max_lattices`/`method`/`keep_lattice` (twin rescue: index both domains,
   split experiments, continue with one); `find_spots` gains `min_spot_size` +
   a filter warning when the size filter eats >50 % of extracted spots (CCD
-  trap). Known upstream gap documented in `workbench/ROUND5_NOTES.md`: dxtbx
+  trap). Known upstream gap: dxtbx
   FormatBruker drops 2θ swing and the χ-tilted φ axis on sfrm sweeps - the
   o-nitroaniline RDL set reduces via the authors' CBF conversion instead.
 

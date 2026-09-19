@@ -1,7 +1,7 @@
 # CrystalPilot 能力边界（2026-09，第二轮逐轮更新）
 
 > 口径：只写**现在的代码实际算什么、用什么判据、明确不算什么**。所有数字是代码里的判据默认值，不是真理。
-> 每轮结束更新对应行的"状态"，并在 §8 追加一条变更记录。缺陷编号（D1…）对应 `docs/PLAN-2026-09-04-round2.md` §1.5。
+> 每轮结束更新对应行的"状态"，并在 §8 追加一条变更记录。缺陷编号（D1…）沿用第二轮升级计划里的编号。
 > 图例：「有」= 有且验证过；「部分」= 能算但有明确缺口；「无」= 没有代码；「有误」= 已知算错（已上线）
 > 2026-09-05 追加盘点见 `AUDIT-2026-09-05.md`，下一轮方案见 `PLAN-2026-09-05-upgrade.md`。下文各轮测试数量是对应历史版本记录，不是本轮全套测试的新结果；本轮已清理 LCD/PLD、堆积、CShM 和 Systre 的明显旧条目冲突。
 
@@ -124,7 +124,7 @@ R2.2 已把"范围"做成场景契约（`range = {frac_lo, frac_hi, tiles, n_til
 
 ## 7b. 已知答案校验（2026-09-05，主人的要求：分析计算必须对）
 
-两条 Opus 副线各自拿**文献里已有答案**的真实结构直跑引擎，逐项对照；不一致的追到原因，属于代码缺陷的按元素通用规则修并配合成回归测试。报告：`docs/VALIDATION-2026-09-interactions.md`、`docs/VALIDATION-2026-09-topology-pores.md`；测试 `tests/test_known_answers_interactions.py`（含 `slow` 标记的 PLATON 交叉）、`tests/test_known_answers_topology.py`（37）；数据 `benchmark/known_answers/`（COD 记录 + SOURCES.md 逐条引文）。
+两条独立副线各自拿**文献里已有答案**的真实结构直跑引擎，逐项对照；不一致的追到原因，属于代码缺陷的按元素通用规则修并配合成回归测试。报告：`docs/VALIDATION-2026-09-interactions.md`、`docs/VALIDATION-2026-09-topology-pores.md`；测试 `tests/test_known_answers_interactions.py`（含 `slow` 标记的 PLATON 交叉）、`tests/test_known_answers_topology.py`（37）；数据 `benchmark/known_answers/`（COD 记录 + SOURCES.md 逐条引文）。
 
 | 对象 | 对照方 | 比了 | 一致 | 说明 |
 |---|---|---|---|---|

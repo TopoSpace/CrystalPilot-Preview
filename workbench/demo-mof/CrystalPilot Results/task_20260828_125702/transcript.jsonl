@@ -1,3 +1,0 @@
-{"kind": "user_message", "text": "请先确认你已进入这个晶体项目，并简要说明你会如何检查其中的数据；本轮不要运行长计算。", "ts": 1787893027.1423283}
-{"kind": "turn_started", "ts": 1787893027.4299824}
-{"kind": "turn_completed", "duration_ms": 30363, "status": "TurnStatus.failed", "ts": 1787893057.593857}
