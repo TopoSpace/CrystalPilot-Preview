@@ -1,0 +1,29 @@
+slug: mof_cu3_cod2312697
+source: COD entry 2312697 (mirrors IUCr/journal deposition)
+entry page: https://www.crystallography.net/cod/2312697.html
+doi: 10.1107/S2053229624011082
+journal: Acta crystallographica. Section C, Structural chemistry (2024)
+title: Construction of pyridine-functionalized metal-organic frameworks for the detection of flazasulfuron.
+license: COD terms: data provided by IUCr Journals, free use within the scientific community with attribution to the source article
+chemical formula: C60 H40 Cu3 N8 O20
+space group: P -1   Z: 1
+cell: 10.3591(10), 11.0086(9), 13.9603(14), 89.525(7), 78.044(8), 66.947(8)
+temperature: 293 K   radiation: Mo K\a lambda=0.71073
+device: Rigaku XtaLAB mini
+published R1(gt): 0.0576   wR2: 0.2170
+
+files:
+  ref.cif  = final refined CIF as deposited (downloaded from https://www.crystallography.net/cod/2312697.cif)
+  ref.fcf  = structure-factor file as deposited (downloaded from https://www.crystallography.net/cod/2312697.hkl);
+             format: CIF reflection file, SHELX LIST 4 (_shelx_refln_list_code 4):
+             loop of h k l F_squared_calc F_squared_meas F_squared_sigma status
+  ref.hkl  = DERIVED locally from ref.fcf: SHELX HKLF4 fixed format (3I4,2F8.2), columns h k l Fo^2 sigma(Fo^2), terminated by 0 0 0 line.
+
+verification: gemmi parses ref.cif and ref.fcf; n_reflections(fcf) = 5025;
+  R1 recomputed from fcf (Fo>2sig) = 0.0560 vs published R1(gt) = 0.0576 -> pairing check
+  cell(fcf) matches cell(cif): True
+
+why selected: Trinuclear Cu3 metal-organic framework (Acta Cryst C 2024) with SADI restraints; framework category previously under-represented with Fobs.
+
+key refinement instruction lines (embedded .res in CIF):
+  HKLF 4

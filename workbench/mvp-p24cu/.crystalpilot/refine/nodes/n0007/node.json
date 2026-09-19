@@ -1,0 +1,46 @@
+{
+  "id": "n0007",
+  "parent": "n0006",
+  "branch": "test_delete_C33X",
+  "ts": 1787908998.180766,
+  "tool": "refine",
+  "params": {
+    "mode": "anisotropic",
+    "n_cycles": 12,
+    "label": "delete unsupported C33X ghost"
+  },
+  "note": "",
+  "metrics": {
+    "label": "delete unsupported C33X ghost",
+    "r1_strong": 0.0905,
+    "r1_all": 0.0917,
+    "wr2": 0.2764,
+    "goof": 2.51,
+    "n_params": 311,
+    "n_reflections": 8198,
+    "diff_map_max": 1.62,
+    "diff_map_min": -1.55,
+    "notes": "",
+    "scale_k": 0.08283103957144568
+  },
+  "metrics_current": true,
+  "model": {
+    "n_atoms": 39,
+    "element_counts": {
+      "Cu": 1,
+      "C": 33,
+      "O": 5
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 0.08283103957144568,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

@@ -1,0 +1,37 @@
+{
+  "id": "n0018",
+  "parent": "n0017",
+  "branch": "hklf5_twin",
+  "ts": 1788072098.3043952,
+  "tool": "import",
+  "params": {
+    "start_model": "start.ins"
+  },
+  "note": "imported start.ins",
+  "metrics": null,
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 0,
+    "element_counts": {}
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": null,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "disorder_groups": [],
+  "twin": {
+    "matrix": null,
+    "n": 2,
+    "basf": [
+      0.1
+    ]
+  },
+  "label_renames": {},
+  "asu": null
+}

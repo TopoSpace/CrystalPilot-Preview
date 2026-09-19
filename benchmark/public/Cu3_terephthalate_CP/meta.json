@@ -1,0 +1,16 @@
+{
+  "cod_id": "2019790",
+  "note": "Cu3 terephthalate coordination polymer, triclinic Z=1 (Cu-Ka)",
+  "source_url": "https://www.crystallography.net/cod/2019790.html",
+  "sf_url": "https://www.crystallography.net/cod/hkl/2/01/97/2019790.hkl",
+  "doi": "10.1107/S2053229614028113",
+  "journal": "Acta Crystallographica Section C",
+  "year": "2015",
+  "license_note": "COD entry; data placed in the public domain by the contributors (per COD file header).",
+  "formula": "C24 H32 Cu3 N4 O18",
+  "z": 1.0,
+  "space_group": "P -1",
+  "radiation": "CuK\\a",
+  "wavelength": 1.54178,
+  "temperature_K": "295(2)"
+}

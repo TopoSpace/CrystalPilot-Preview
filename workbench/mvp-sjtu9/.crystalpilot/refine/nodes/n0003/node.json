@@ -1,0 +1,47 @@
+{
+  "id": "n0003",
+  "parent": "n0002",
+  "branch": "zr_model",
+  "ts": 1787908019.112591,
+  "tool": "refine",
+  "params": {
+    "mode": "aniso_heavy",
+    "n_cycles": 12,
+    "label": "heavy atoms anisotropic before peak assignment",
+    "use_solvent_mask": false
+  },
+  "note": "",
+  "metrics": {
+    "label": "heavy atoms anisotropic before peak assignment",
+    "r1_strong": 0.1902,
+    "r1_all": 0.2076,
+    "wr2": 0.5203,
+    "goof": 4.159,
+    "n_params": 51,
+    "n_reflections": 4166,
+    "diff_map_max": 9.54,
+    "diff_map_min": -1.67,
+    "notes": "",
+    "scale_k": 0.013458277817867226
+  },
+  "metrics_current": true,
+  "model": {
+    "n_atoms": 13,
+    "element_counts": {
+      "Zr": 2,
+      "O": 4,
+      "C": 7
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 0.013458277817867226,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

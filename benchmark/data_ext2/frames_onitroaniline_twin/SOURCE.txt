@@ -1,0 +1,55 @@
+slug: frames_onitroaniline_twin
+stage: frames (raw single-crystal X-ray diffraction images, twinned organic)
+
+source: Zenodo record 7193538, file sfrm_m0220c.tar.bz2 (577,773,967 bytes; matches
+  Zenodo content-length exactly; extracted 1:1 into frames/, archive then deleted).
+  cbf/: same record, file cbf_m0220c.tar.bz2 (595,448,420 bytes; authors' own
+  imgCIF/CBF conversion, 3324 files matching frames/ 1:1; archive deleted after
+  verified extraction). Downloaded 2026-08-29 because dxtbx FormatBruker imports
+  the sfrm set with broken geometry (2-theta swing folded into a face-on beam
+  shift; phi-scan-at-chi=35 rotation axis imported as bare {-1,0,0}) making
+  indexing impossible; the CBF headers carry the full goniometer/detector
+  geometry (verified: tilted rotation axis {-0.819,-0.574,0} and swung panel
+  on dials.import). See workbench/ROUND5_NOTES.md "dxtbx FormatBruker gaps".
+data doi: 10.5281/zenodo.7193538
+download url: https://zenodo.org/api/records/7193538/files/sfrm_m0220c.tar.bz2/content
+license: CC-BY-4.0 (M. Lutz & L. M. J. Kroon-Batenburg, Utrecht University)
+paper (Raw Data Letter): IUCrData (2022) 7, x221059, doi 10.1107/S2414314622010598
+  "Accurate intensity integration in the twinned gamma-form of o-nitroaniline"
+  https://iucrdata.iucr.org/x/issues/2022/11/00/ii4001/  (first-wave IUCrData RDL)
+resulting structure: CCDC 2217206 (CSD-only; no COD mirror, so no free ref CIF -
+  structural parameters below are taken from the open-access RDL itself)
+
+compound: gamma-o-nitroaniline C6 H6 N2 O2 (metastable polymorph)
+  space group P 21/a (non-standard setting, kept for literature compatibility);
+  pseudo-orthorhombic B-centred superlattice
+twinning (the point of this dataset): non-merohedral 2-component twin;
+  twin operation = 180 deg rotation about c (equivalently: stacking fault with
+  1/2 a translation exchanging the two independent molecules). Published ladder
+  from the RDL, to benchmark any twin handling quantitatively:
+    - naive single-domain integration + SHELXL:  R1 = 0.0678, wR2 = 0.2390
+    - PLATON TWINROTMAT detwin -> HKLF5 SHELXL:  R1 = 0.0465, wR2 = 0.1332
+    - EVAL15 simultaneous two-lattice integration: better still (RDL conclusion:
+      "processing using twin lattices is by far superior to efforts to de-twin
+      processed structure factors")
+
+raw data (frames/):
+  m0220c_01_####.sfrm ... m0220c_07_####.sfrm - 3324 Bruker frames in 7 scans
+  Bruker Kappa APEXII, APEXII CCD 512x512, Mo Kalpha 0.71073 A, 150 K,
+  10 s/frame, detector distance 41 mm (metadata from the RDL experimental table)
+
+verification:
+  - dials.import (DIALS 3.30): OK - dxtbx.format.FormatBruker, 3324 images in 7
+    clean sweep templates (m0220c_01..07, no mini-sweep fragmentation).
+    Evidence: _import_tests/onitroaniline/import.log + imported.expt.
+
+why selected:
+  1) Second twinned raw-frames case next to data_frames/frames_bruker_apex2_laspartic
+     (same lab + instrument, different compound and twin law): enables
+     tune-on-one / verify-on-the-other experiments for frames-level twin rescue,
+     the engine's known blind spot.
+  2) The RDL publishes the exact R1/wR2 outcomes of wrong vs right twin handling,
+     giving objective targets for capability-boundary scoring.
+  3) Documented trap sequence reproducible from frames: wrong SG guess (P21/a
+     absences violated by twin overlap), high merging residuals - tests honest
+     diagnostics instead of silent bad refinement.

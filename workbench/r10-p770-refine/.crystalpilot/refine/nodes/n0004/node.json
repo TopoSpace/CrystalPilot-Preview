@@ -1,0 +1,55 @@
+{
+  "id": "n0004",
+  "parent": "n0003",
+  "branch": "main",
+  "ts": 1788071622.8514824,
+  "tool": "refine",
+  "params": {
+    "mode": "anisotropic",
+    "n_cycles": 10,
+    "label": "SHELXT model full anisotropic refinement"
+  },
+  "note": "",
+  "metrics": {
+    "label": "SHELXT model full anisotropic refinement",
+    "r1_strong": 0.073,
+    "r1_all": 0.0797,
+    "wr2": 0.2574,
+    "goof": 1.893,
+    "n_params": 504,
+    "n_reflections": 12112,
+    "diff_map_max": 1.7,
+    "diff_map_min": -1.61,
+    "notes": "",
+    "scale_k": 0.03581914769892491
+  },
+  "metrics_current": true,
+  "model": {
+    "n_atoms": 56,
+    "element_counts": {
+      "La": 1,
+      "Ni": 1,
+      "P": 2,
+      "N": 8,
+      "C": 44
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 0.03581914769892491,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "disorder_groups": [],
+  "twin": null,
+  "label_renames": {},
+  "asu": {
+    "n_detached_atoms": 6,
+    "ghost_suspects": [],
+    "advice": "run assemble_asu before delivery; ghost suspects need a delete-and-refine test - do not keep chemistry-free atoms to lower R1"
+  }
+}

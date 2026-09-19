@@ -1,0 +1,46 @@
+[project]
+name = "crystalpilot"
+version = "0.1.0"
+description = "Agent-driven single-crystal X-ray structure solution and refinement workbench"
+license = {file = "LICENSE"}
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "scipy",
+    "gemmi>=0.7",
+    "cctbx-base>=2025.9",
+    "httpx",
+    "pydantic>=2",
+]
+
+[project.optional-dependencies]
+server = ["fastapi", "uvicorn[standard]", "websockets"]
+# Codex app-server harness (ADR-001). Pinned: 0.x SDK, narrow adapter surface.
+workbench = ["openai-codex==0.147.0", "psutil>=5.9", "python-docx", "pypdf"]
+# Agentic refinement workbench: MCP typed-tool server + ligand chemistry.
+# mcp pinned <2: the 2.x SDK dropped the low-level explicit-inputSchema tool
+# API our ToolRegistry bridge requires (see workbench/MCP_NOTES.md).
+refine = ["mcp>=1.2,<2", "rdkit>=2024.3.3"]
+dev = ["pytest", "ruff"]
+
+[project.scripts]
+crystalpilot = "crystalpilot.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["crystalpilot*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Structure-project tests must run outside the source repository.
+addopts = "--basetemp=../.crystalpilot-pytest"
+markers = [
+    "slow: needs an external binary (PLATON) or minutes of CPU; deselect with -m 'not slow'",
+]

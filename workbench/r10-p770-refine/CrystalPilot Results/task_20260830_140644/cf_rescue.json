@@ -1,0 +1,223 @@
+{
+  "ok": false,
+  "attempts": [
+    {
+      "d_min": 1.4,
+      "seeds": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+      ],
+      "ok": false,
+      "summary": {
+        "seeds_tried": [
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108
+        ],
+        "d_min": 1.4,
+        "n_reflections": 1428,
+        "elapsed_s": 69.5,
+        "hint": "try different d_min (0.8-1.2), more seeds, or a different space group"
+      },
+      "error": "charge flipping: no phase transition"
+    },
+    {
+      "d_min": 1.55,
+      "seeds": [
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116
+      ],
+      "ok": false,
+      "summary": {
+        "seeds_tried": [
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116
+        ],
+        "d_min": 1.55,
+        "n_reflections": 1008,
+        "elapsed_s": 43.4,
+        "hint": "try different d_min (0.8-1.2), more seeds, or a different space group"
+      },
+      "error": "charge flipping: no phase transition"
+    },
+    {
+      "d_min": 1.7,
+      "seeds": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "ok": false,
+      "summary": {
+        "seeds_tried": [
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124
+        ],
+        "d_min": 1.7,
+        "n_reflections": 713,
+        "elapsed_s": 27.2,
+        "hint": "try different d_min (0.8-1.2), more seeds, or a different space group"
+      },
+      "error": "charge flipping: no phase transition"
+    },
+    {
+      "d_min": 0.75,
+      "seeds": [
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132
+      ],
+      "ok": false,
+      "summary": {
+        "seeds_tried": [
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131,
+          132
+        ],
+        "d_min": 0.75,
+        "n_reflections": 10799,
+        "elapsed_s": 220.7,
+        "hint": "try different d_min (0.8-1.2), more seeds, or a different space group"
+      },
+      "error": "charge flipping: no phase transition"
+    },
+    {
+      "d_min": 0.85,
+      "seeds": [
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140
+      ],
+      "ok": false,
+      "summary": {
+        "seeds_tried": [
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          140
+        ],
+        "d_min": 0.85,
+        "n_reflections": 7632,
+        "elapsed_s": 149.9,
+        "hint": "try different d_min (0.8-1.2), more seeds, or a different space group"
+      },
+      "error": "charge flipping: no phase transition"
+    },
+    {
+      "d_min": 0.95,
+      "seeds": [
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148
+      ],
+      "ok": false,
+      "summary": {
+        "seeds_tried": [
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148
+        ],
+        "d_min": 0.95,
+        "n_reflections": 5328,
+        "elapsed_s": 155.6,
+        "hint": "try different d_min (0.8-1.2), more seeds, or a different space group"
+      },
+      "error": "charge flipping: no phase transition"
+    },
+    {
+      "d_min": 1.15,
+      "seeds": [
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156
+      ],
+      "ok": false,
+      "summary": {
+        "seeds_tried": [
+          149,
+          150,
+          151,
+          152,
+          153,
+          154,
+          155,
+          156
+        ],
+        "d_min": 1.15,
+        "n_reflections": 2795,
+        "elapsed_s": 91.9,
+        "hint": "try different d_min (0.8-1.2), more seeds, or a different space group"
+      },
+      "error": "charge flipping: no phase transition"
+    }
+  ],
+  "solution": null
+}

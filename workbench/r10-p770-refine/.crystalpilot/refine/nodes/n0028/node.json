@@ -1,0 +1,156 @@
+{
+  "id": "n0028",
+  "parent": "n0027",
+  "branch": "benzene_disorder_noh",
+  "ts": 1788072450.7965055,
+  "tool": "model_disorder",
+  "params": {
+    "atoms": [
+      "C28",
+      "C34",
+      "C39",
+      "C40",
+      "C42",
+      "C43"
+    ],
+    "occupancy": 0.8,
+    "second_sites": {
+      "C28": [
+        1.0549753186,
+        0.6741198396,
+        0.3813128214
+      ],
+      "C34": [
+        1.0259816689,
+        0.8925729798,
+        0.3854279087
+      ],
+      "C39": [
+        1.1059371314,
+        0.8868974471,
+        0.4409724979
+      ],
+      "C40": [
+        0.9989729619,
+        0.6913196051,
+        0.3342956426
+      ],
+      "C42": [
+        0.9697887379,
+        0.7927055767,
+        0.3327222194
+      ],
+      "C43": [
+        1.1441183311,
+        0.7749270202,
+        0.4424720913
+      ]
+    }
+  },
+  "note": "",
+  "metrics": null,
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 62,
+    "element_counts": {
+      "La": 1,
+      "Ni": 1,
+      "P": 2,
+      "N": 8,
+      "C": 50
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 0.03581914769892491,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "disorder_groups": [
+    {
+      "fvar_index": 2,
+      "value": 0.8,
+      "members": [
+        {
+          "label": "C28",
+          "part": 1,
+          "sign": 1,
+          "mult": 1.0
+        },
+        {
+          "label": "C28B",
+          "part": 2,
+          "sign": -1,
+          "mult": 1.0
+        },
+        {
+          "label": "C34",
+          "part": 1,
+          "sign": 1,
+          "mult": 1.0
+        },
+        {
+          "label": "C34B",
+          "part": 2,
+          "sign": -1,
+          "mult": 1.0
+        },
+        {
+          "label": "C39",
+          "part": 1,
+          "sign": 1,
+          "mult": 1.0
+        },
+        {
+          "label": "C39B",
+          "part": 2,
+          "sign": -1,
+          "mult": 1.0
+        },
+        {
+          "label": "C40",
+          "part": 1,
+          "sign": 1,
+          "mult": 1.0
+        },
+        {
+          "label": "C40B",
+          "part": 2,
+          "sign": -1,
+          "mult": 1.0
+        },
+        {
+          "label": "C42",
+          "part": 1,
+          "sign": 1,
+          "mult": 1.0
+        },
+        {
+          "label": "C42B",
+          "part": 2,
+          "sign": -1,
+          "mult": 1.0
+        },
+        {
+          "label": "C43",
+          "part": 1,
+          "sign": 1,
+          "mult": 1.0
+        },
+        {
+          "label": "C43B",
+          "part": 2,
+          "sign": -1,
+          "mult": 1.0
+        }
+      ]
+    }
+  ],
+  "twin": null,
+  "label_renames": {},
+  "asu": null
+}

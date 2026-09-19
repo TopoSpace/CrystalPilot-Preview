@@ -1,0 +1,47 @@
+{
+  "id": "n0006",
+  "parent": "n0005",
+  "branch": "zr_model",
+  "ts": 1787908028.5798092,
+  "tool": "refine",
+  "params": {
+    "mode": "aniso_heavy",
+    "n_cycles": 15,
+    "label": "add one Zr-bound O and two ligand C from strong peaks",
+    "use_solvent_mask": false
+  },
+  "note": "",
+  "metrics": {
+    "label": "add one Zr-bound O and two ligand C from strong peaks",
+    "r1_strong": 0.1344,
+    "r1_all": 0.1488,
+    "wr2": 0.3874,
+    "goof": 2.925,
+    "n_params": 62,
+    "n_reflections": 4166,
+    "diff_map_max": 2.29,
+    "diff_map_min": -1.63,
+    "notes": "",
+    "scale_k": 0.01524528328810793
+  },
+  "metrics_current": true,
+  "model": {
+    "n_atoms": 16,
+    "element_counts": {
+      "Zr": 2,
+      "O": 5,
+      "C": 9
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 0.01524528328810793,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

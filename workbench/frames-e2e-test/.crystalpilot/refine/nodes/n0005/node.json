@@ -1,0 +1,63 @@
+{
+  "id": "n0005",
+  "parent": "n0004",
+  "branch": "main",
+  "ts": 1787944877.7334626,
+  "tool": "edit_atoms",
+  "params": {
+    "operations": [
+      {
+        "action": "reassign",
+        "atoms": [
+          "C1"
+        ],
+        "element": "S"
+      },
+      {
+        "action": "reassign",
+        "atoms": [
+          "C2",
+          "C3"
+        ],
+        "element": "O"
+      },
+      {
+        "action": "reassign",
+        "atoms": [
+          "C4"
+        ],
+        "element": "N"
+      }
+    ]
+  },
+  "note": "",
+  "metrics": null,
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 13,
+    "element_counts": {
+      "S": 1,
+      "O": 2,
+      "N": 1,
+      "C": 3,
+      "H": 6
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 5.778338705830908,
+  "mask": null,
+  "hydrogens": {
+    "present": true,
+    "elements": [
+      "C",
+      "N",
+      "O"
+    ],
+    "n_groups": 4
+  },
+  "label_renames": {}
+}

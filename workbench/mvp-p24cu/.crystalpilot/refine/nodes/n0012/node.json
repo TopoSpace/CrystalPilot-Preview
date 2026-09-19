@@ -1,0 +1,40 @@
+{
+  "id": "n0012",
+  "parent": "n0007",
+  "branch": "test_remove_C28_C31_group",
+  "ts": 1787909061.6188712,
+  "tool": "edit_atoms",
+  "params": {
+    "operations": [
+      {
+        "action": "delete",
+        "atoms": [
+          "C28",
+          "C31X"
+        ]
+      }
+    ]
+  },
+  "note": "",
+  "metrics": null,
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 37,
+    "element_counts": {
+      "Cu": 1,
+      "C": 31,
+      "O": 5
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 0.08283103957144568,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

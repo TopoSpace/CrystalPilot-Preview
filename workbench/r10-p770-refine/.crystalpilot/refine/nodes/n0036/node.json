@@ -1,0 +1,54 @@
+{
+  "id": "n0036",
+  "parent": "n0035",
+  "branch": "benzene_restrained_final",
+  "ts": 1788072640.0509968,
+  "tool": "set_restraints",
+  "params": {
+    "action": "clear"
+  },
+  "note": "",
+  "metrics": {
+    "label": "shelxl_adopt",
+    "r1_strong": 0.0684,
+    "r1_all": 0.0751,
+    "wr2": 0.2219,
+    "goof": 1.003,
+    "n_params": -1,
+    "n_reflections": 10450,
+    "diff_map_max": null,
+    "diff_map_min": null,
+    "notes": "",
+    "scale_k": 0.0357474649
+  },
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 111,
+    "element_counts": {
+      "La": 1,
+      "Ni": 1,
+      "P": 2,
+      "N": 8,
+      "C": 44,
+      "H": 55
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.10341,
+    "b": 10.855882
+  },
+  "scale_k": 0.0357474649,
+  "mask": null,
+  "hydrogens": {
+    "present": true,
+    "elements": [
+      "C"
+    ],
+    "n_groups": 27
+  },
+  "disorder_groups": [],
+  "twin": null,
+  "label_renames": {},
+  "asu": null
+}

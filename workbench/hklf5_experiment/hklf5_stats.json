@@ -1,0 +1,11 @@
+{
+ "source": "scaled.refl",
+ "scaled": true,
+ "cb": "exact([[1, 0, 0], [0, -1, 0], [0, 0, -1]])",
+ "n_composite": 5886,
+ "n_pure_domain1": 644,
+ "n_pure_domain2": 1028,
+ "scale": 0.01,
+ "tol": 0.35,
+ "file": "H:\\CrystalPilot\\workdir\\onitwin_2latt\\onitwin_hklf5.hkl"
+}

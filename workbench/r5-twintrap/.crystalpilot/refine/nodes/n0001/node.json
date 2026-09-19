@@ -1,0 +1,43 @@
+{
+  "id": "n0001",
+  "parent": "n0000",
+  "branch": "riding_h_rebuild",
+  "ts": 1787964737.2707338,
+  "tool": "add_hydrogens",
+  "params": {
+    "elements": [
+      "C",
+      "N"
+    ]
+  },
+  "note": "",
+  "metrics": null,
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 34,
+    "element_counts": {
+      "O": 5,
+      "N": 2,
+      "C": 18,
+      "H": 9
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 1.0,
+  "mask": null,
+  "hydrogens": {
+    "present": true,
+    "elements": [
+      "C",
+      "N"
+    ],
+    "n_groups": 9
+  },
+  "disorder_groups": [],
+  "twin": null,
+  "label_renames": {}
+}

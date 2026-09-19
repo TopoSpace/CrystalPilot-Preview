@@ -1,0 +1,35 @@
+{
+  "id": "n0000",
+  "parent": null,
+  "branch": "main",
+  "ts": 1787964645.3460104,
+  "tool": "import",
+  "params": {
+    "start_model": "start.res"
+  },
+  "note": "imported start.res",
+  "metrics": null,
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 44,
+    "element_counts": {
+      "O": 5,
+      "N": 2,
+      "H": 19,
+      "C": 18
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 1.0,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "disorder_groups": [],
+  "twin": null,
+  "label_renames": {}
+}

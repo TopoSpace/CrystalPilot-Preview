@@ -1,0 +1,107 @@
+data_n0007
+
+_audit_creation_method        'CrystalPilot'
+_chemical_formula_sum         'C88 La2 N16 Ni2 P4'
+_cell_formula_units_Z         1
+# formula counts are per unit cell (Z=1 basis); occupancy-weighted
+_diffrn_radiation_wavelength  0.71073
+_cell_length_a                10.1554
+_cell_length_b                12.7075
+_cell_length_c                20.8008
+_cell_angle_alpha             107.691
+_cell_angle_beta              100.315
+_cell_angle_gamma             96.233
+_cell_volume                  2477.73
+_space_group_name_H-M_alt     'P -1'
+_space_group_IT_number        2
+
+loop_
+  _space_group_symop_operation_xyz
+  'x,y,z'
+  '-x,-y,-z'
+
+_refine_ls_R_factor_gt            0.0955
+_refine_ls_R_factor_all           0.1032
+_refine_ls_wR_factor_ref          0.3114
+_refine_ls_goodness_of_fit_ref    2.291
+_refine_ls_number_reflns          12112
+_refine_ls_number_parameters      234
+_refine_diff_density_max          1.75
+_refine_diff_density_min          -1.87
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_U_iso_or_equiv
+  _atom_site_adp_type
+  _atom_site_occupancy
+  LA01    La    0.42912   0.29153   0.26981   0.0410 Uani  1.000
+  NI02    Ni    0.46681   0.07024   0.20746   0.0440 Uani  1.000
+  P003    P     0.26096   0.05212   0.14577   0.0471 Uiso  1.000
+  P004    P     0.51161   0.07165   0.31495   0.0485 Uiso  1.000
+  N005    N     0.25183   0.28057   0.16991   0.0458 Uiso  1.000
+  N006    N     0.38196   0.24613   0.37517   0.0520 Uiso  1.000
+  N007    N     0.62900   0.29793   0.21843   0.0523 Uiso  1.000
+  C008    C     0.29595   0.49415   0.26935   0.0473 Uiso  1.000
+  N009    N     0.11670   0.34920   0.08345   0.0668 Uiso  1.000
+  N00A    N     0.24630   0.44824   0.31564   0.0603 Uiso  1.000
+  N00B    N     0.32882   0.45696   0.37976   0.0599 Uiso  1.000
+  C00C    C     0.19465   0.36339   0.14954   0.0479 Uiso  1.000
+  C00D    C     0.57182  -0.14371   0.14236   0.0592 Uiso  1.000
+  N00E    N     0.21160   0.47126   0.19925   0.0561 Uiso  1.000
+  C00F    C     0.59253   0.18759   0.19274   0.0553 Uiso  1.000
+  C00G    C     0.43146   0.55191   0.28925   0.0538 Uiso  1.000
+  C00H    C     0.27524   0.40195   0.42557   0.0532 Uiso  1.000
+  C00I    C     0.22031   0.17269   0.11592   0.0560 Uiso  1.000
+  C00J    C     0.15294   0.55993   0.18435   0.0633 Uiso  1.000
+  N00K    N     0.53086  -0.06174   0.16551   0.0693 Uiso  1.000
+  C00L    C     0.19378   0.45238   0.46957   0.0663 Uiso  1.000
+  C00M    C     0.46262   0.51385   0.39717   0.0622 Uiso  1.000
+  C00N    C     0.73296   0.35850   0.19811   0.0627 Uiso  1.000
+  C00O    C     0.05920   0.43569   0.06786   0.0672 Uiso  1.000
+  C00P    C     0.30923   0.29511   0.42205   0.0524 Uiso  1.000
+  C00Q    C     0.17541   0.29839   0.51205   0.0796 Uiso  1.000
+  C00R    C     0.69024   0.13474   0.36457   0.0624 Uiso  1.000
+  C00S    C     0.10589   0.01496   0.17520   0.0703 Uiso  1.000
+  C00T    C     0.51442   0.56184   0.35309   0.0616 Uiso  1.000
+  C00U    C     0.71477   0.26372   0.38531   0.0736 Uiso  1.000
+  C00V    C     0.41733   0.13911   0.38097   0.0561 Uiso  1.000
+  C00W    C     0.07548   0.54015   0.11564   0.0681 Uiso  1.000
+  C00X    C     0.25672   0.24468   0.46845   0.0631 Uiso  1.000
+  C00Y    C     0.22246  -0.05657   0.05603   0.0690 Uiso  1.000
+  C00Z    C     0.14436   0.39760   0.51420   0.0765 Uiso  1.000
+  C010    C     0.49658  -0.07314   0.32122   0.0742 Uiso  1.000
+  C011    C     0.33295  -0.04211   0.01938   0.0792 Uiso  1.000
+  C012    C     0.35408  -0.14505   0.28132   0.0888 Uiso  1.000
+  C013    C     0.60494  -0.25318   0.11403   0.0714 Uiso  1.000
+  C014    C     1.07855   0.71057   0.36616   0.1067 Uiso  1.000
+  C015    C     0.79476   0.09162   0.32325   0.0860 Uiso  1.000
+  C016    C     0.20163  -0.17573   0.06174   0.0851 Uiso  1.000
+  C017    C     0.85653   0.30236   0.18538   0.1214 Uiso  1.000
+  C018    C     0.10680   0.10173   0.24490   0.1001 Uiso  1.000
+  C019    C    -0.03605  -0.00037   0.12329   0.1109 Uiso  1.000
+  C01A    C     1.05402   0.93685   0.40744   0.1197 Uiso  1.000
+  C01B    C     0.54206  -0.08295   0.39532   0.0967 Uiso  1.000
+  C01C    C     0.77722   0.47706   0.24899   0.1192 Uiso  1.000
+  C01D    C     0.64020  -0.25521   0.04734   0.1209 Uiso  1.000
+  C01E    C     0.66905   0.37280   0.12554   0.1167 Uiso  1.000
+  C01F    C     1.14532   0.90545   0.44795   0.1294 Uiso  1.000
+  C01G    C     1.00223   0.74639   0.32680   0.1213 Uiso  1.000
+  C01H    C     0.48626  -0.34832   0.10059   0.1211 Uiso  1.000
+  C01I    C     0.98051   0.85459   0.34698   0.1512 Uiso  1.000
+  C01J    C     1.17534   0.78652   0.42434   0.1549 Uiso  1.000
+  C01K    C     0.73113  -0.25788   0.16782   0.1154 Uiso  1.000
+
+loop_
+  _atom_site_aniso_label
+  _atom_site_aniso_U_11
+  _atom_site_aniso_U_22
+  _atom_site_aniso_U_33
+  _atom_site_aniso_U_23
+  _atom_site_aniso_U_13
+  _atom_site_aniso_U_12
+  LA01      0.0421   0.0339   0.0427   0.0066   0.0078   0.0092
+  NI02      0.0489   0.0331   0.0462   0.0063   0.0110   0.0107

@@ -1,0 +1,49 @@
+data_n0001
+
+_audit_creation_method        'CrystalPilot'
+_chemical_formula_sum         'C28'
+_cell_formula_units_Z         1
+# formula counts are per unit cell (Z=1 basis); occupancy-weighted
+_diffrn_radiation_wavelength  0.68890
+_cell_length_a                5.4281
+_cell_length_b                8.1288
+_cell_length_c                12.0527
+_cell_angle_alpha             90.000
+_cell_angle_beta              90.000
+_cell_angle_gamma             90.000
+_cell_volume                  531.81
+_space_group_name_H-M_alt     'P 21 21 21'
+_space_group_IT_number        19
+
+loop_
+  _space_group_symop_operation_xyz
+  'x,y,z'
+  'x+1/2,-y+1/2,-z'
+  '-x,y+1/2,-z+1/2'
+  '-x+1/2,-y,z+1/2'
+
+_refine_ls_R_factor_gt            0.2068
+_refine_ls_R_factor_all           0.2164
+_refine_ls_wR_factor_ref          0.5191
+_refine_ls_goodness_of_fit_ref    3.927
+_refine_ls_number_reflns          2589
+_refine_ls_number_parameters      28
+_refine_diff_density_max          4.88
+_refine_diff_density_min          -1.25
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_U_iso_or_equiv
+  _atom_site_adp_type
+  _atom_site_occupancy
+  C1      C     0.11791   0.41369   0.52421   0.0040 Uiso  1.000
+  C2      C     0.20942   0.21876   0.11766   0.0328 Uiso  1.000
+  C3      C     0.23135   0.01006   0.24080   0.0378 Uiso  1.000
+  C4      C     0.21871   0.26698   0.87297   0.0341 Uiso  1.000
+  C5      C     0.16402   0.58175   0.32339   0.0363 Uiso  1.000
+  C6      C     0.24769   0.42949   0.38386   0.0438 Uiso  1.000
+  C7      C     0.11448   0.10366   0.17866   0.0386 Uiso  1.000

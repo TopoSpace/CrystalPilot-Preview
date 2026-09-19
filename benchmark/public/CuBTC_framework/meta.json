@@ -1,0 +1,16 @@
+{
+  "cod_id": "2206821",
+  "note": "poly[copper(II)-mu6-benzene-1,3,5-tricarboxylate], HKUST-1 ligand chemistry",
+  "source_url": "https://www.crystallography.net/cod/2206821.html",
+  "sf_url": "https://www.crystallography.net/cod/hkl/2/20/68/2206821.hkl",
+  "doi": "10.1107/S1600536805025687",
+  "journal": "Acta Crystallographica Section E",
+  "year": "2005",
+  "license_note": "COD entry originally provided by IUCr Journals; may be used within the scientific community with proper attribution to the journal article (per COD file header).",
+  "formula": "C9 H6 Cu3 O9",
+  "z": 2.0,
+  "space_group": "P 1 21/m 1",
+  "radiation": "Mo K\\a",
+  "wavelength": 0.71073,
+  "temperature_K": "293(2)"
+}

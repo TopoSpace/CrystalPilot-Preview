@@ -1,0 +1,16 @@
+{
+  "cod_id": "2104364",
+  "note": "paracetamol form I, classic monoclinic organic",
+  "source_url": "https://www.crystallography.net/cod/2104364.html",
+  "sf_url": "https://www.crystallography.net/cod/hkl/2/10/43/2104364.hkl",
+  "doi": "10.1107/S0108768109008271",
+  "journal": "Acta Crystallographica Section B",
+  "year": "2009",
+  "license_note": "COD entry originally provided by IUCr Journals; may be used within the scientific community with proper attribution to the journal article (per COD file header).",
+  "formula": "C8 H9 N O2",
+  "z": 4.0,
+  "space_group": "P 1 21/n 1",
+  "radiation": "MoK\\a",
+  "wavelength": 0.71073,
+  "temperature_K": "100(2)"
+}

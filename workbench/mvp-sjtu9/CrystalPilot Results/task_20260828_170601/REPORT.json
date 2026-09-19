@@ -1,0 +1,252 @@
+{
+  "final_node": "n0013",
+  "branch": "mask_trial",
+  "metrics": {
+    "label": "final in-process anisotropic weighted refinement",
+    "r1_strong": 0.0615,
+    "r1_all": 0.0688,
+    "wr2": 0.2002,
+    "goof": 1.0,
+    "n_params": 126,
+    "n_reflections": 4166,
+    "diff_map_max": 0.91,
+    "diff_map_min": -1.29,
+    "notes": "",
+    "scale_k": 0.016572068977156348
+  },
+  "metrics_current": true,
+  "model": {
+    "n_atoms": 21,
+    "element_counts": {
+      "Zr": 2,
+      "O": 5,
+      "C": 9,
+      "H": 5
+    }
+  },
+  "restraints": [],
+  "hydrogens": {
+    "present": true,
+    "elements": [
+      "C"
+    ],
+    "n_groups": 5
+  },
+  "mask": {
+    "n_voids": 1,
+    "n_voids_masked": 1,
+    "total_solvent_electrons_per_cell": 2015.9,
+    "solvent_volume_A3": 9060.0,
+    "solvent_volume_pct_of_cell": 62.7
+  },
+  "synthesis_priors": {
+    "metal_source": "ZrCl4 (Zr(IV))",
+    "metals": [
+      "Zr"
+    ],
+    "ligands": [
+      {
+        "name": "1,2,4,5-四(4-羧基苯基)苯 (H4TCPB)",
+        "smiles": "OC(=O)c1ccc(cc1)-c1cc(-c2ccc(cc2)C(O)=O)c(-c2ccc(cc2)C(O)=O)cc1-c1ccc(cc1)C(O)=O",
+        "note": "四齿羧酸连接体，脱质子后 -4 价"
+      }
+    ],
+    "expected_metal_node": "Zr6(μ3-O)4(μ3-OH)4 羧酸簇（可能形成，未确证）",
+    "solvents": [
+      "DMF",
+      "H2O"
+    ],
+    "synthesis_notes": "溶剂热合成 Zr-MOF；孔道内可能残留无序溶剂"
+  },
+  "unresolved": [
+    "孔道溶剂高度无序；溶剂掩膜给出约 2015.9 e/晶胞、9060 A^3（62.7% 晶胞体积），数据不足以唯一分配 DMF/H2O 的比例、位置和占有率。",
+    "O007 的 Ueq 约 0.163 A^2，附近最高正峰约 0.98 e/A^3（距 1.33 A）；可能存在轻微动态/位置无序，但当前密度不足以支持离散拆分模型。",
+    "自动验证器把特殊位置 Zr 原子 FE01 的部分对称等价 O 重复计数为 CN=11；逐原子邻接分析为合理的 8 配位（Zr-O 2.07–2.28 A），故未为消除该软件警告而改动模型。"
+  ],
+  "summary_note": "Zr-MOF refined in I41/amd from the supplied rough model. FE01 was reassigned from Fe to Zr based on synthesis and a 34.76 e/A^3 on-atom residual; one Zr-bound O and two ligand C atoms were added from persistent supported peaks. All non-H atoms were refined anisotropically, aromatic H atoms ride, and diffuse pore solvent was treated with a solvent mask. No restraints were used. Final smtbx: R1=0.0615, wR2=0.2002, GooF=1.000; SHELXL-2019/3 check agrees (R1=0.0611, wR2=0.2011, GooF=1.011).",
+  "lineage": [
+    {
+      "id": "n0000",
+      "parent": null,
+      "branch": "main",
+      "tool": "import",
+      "note": "imported start.res",
+      "n_atoms": 13,
+      "r1": null,
+      "wr2": null,
+      "goof": null,
+      "metrics_current": false,
+      "n_restraints": 0
+    },
+    {
+      "id": "n0001",
+      "parent": "n0000",
+      "branch": "zr_model",
+      "tool": "edit_atoms",
+      "note": "",
+      "n_atoms": 13,
+      "r1": null,
+      "wr2": null,
+      "goof": null,
+      "metrics_current": false,
+      "n_restraints": 0
+    },
+    {
+      "id": "n0002",
+      "parent": "n0001",
+      "branch": "zr_model",
+      "tool": "refine",
+      "note": "",
+      "n_atoms": 13,
+      "r1": 0.2456,
+      "wr2": 0.6222,
+      "goof": 5.277,
+      "metrics_current": true,
+      "n_restraints": 0
+    },
+    {
+      "id": "n0003",
+      "parent": "n0002",
+      "branch": "zr_model",
+      "tool": "refine",
+      "note": "",
+      "n_atoms": 13,
+      "r1": 0.1902,
+      "wr2": 0.5203,
+      "goof": 4.159,
+      "metrics_current": true,
+      "n_restraints": 0
+    },
+    {
+      "id": "n0004",
+      "parent": "n0003",
+      "branch": "zr_model",
+      "tool": "add_atoms_from_difference_map",
+      "note": "",
+      "n_atoms": 14,
+      "r1": 0.1902,
+      "wr2": 0.5203,
+      "goof": 4.159,
+      "metrics_current": false,
+      "n_restraints": 0
+    },
+    {
+      "id": "n0005",
+      "parent": "n0004",
+      "branch": "zr_model",
+      "tool": "add_atoms_from_difference_map",
+      "note": "",
+      "n_atoms": 16,
+      "r1": 0.1902,
+      "wr2": 0.5203,
+      "goof": 4.159,
+      "metrics_current": false,
+      "n_restraints": 0
+    },
+    {
+      "id": "n0006",
+      "parent": "n0005",
+      "branch": "zr_model",
+      "tool": "refine",
+      "note": "",
+      "n_atoms": 16,
+      "r1": 0.1344,
+      "wr2": 0.3874,
+      "goof": 2.925,
+      "metrics_current": true,
+      "n_restraints": 0
+    },
+    {
+      "id": "n0007",
+      "parent": "n0006",
+      "branch": "zr_model",
+      "tool": "refine",
+      "note": "",
+      "n_atoms": 16,
+      "r1": 0.1045,
+      "wr2": 0.3117,
+      "goof": 2.318,
+      "metrics_current": true,
+      "n_restraints": 0
+    },
+    {
+      "id": "n0008",
+      "parent": "n0007",
+      "branch": "zr_model",
+      "tool": "add_hydrogens",
+      "note": "",
+      "n_atoms": 21,
+      "r1": 0.1045,
+      "wr2": 0.3117,
+      "goof": 2.318,
+      "metrics_current": false,
+      "n_restraints": 0
+    },
+    {
+      "id": "n0009",
+      "parent": "n0008",
+      "branch": "zr_model",
+      "tool": "refine",
+      "note": "",
+      "n_atoms": 21,
+      "r1": 0.1036,
+      "wr2": 0.3079,
+      "goof": 2.288,
+      "metrics_current": true,
+      "n_restraints": 0
+    },
+    {
+      "id": "n0010",
+      "parent": "n0009",
+      "branch": "mask_trial",
+      "tool": "solvent_mask",
+      "note": "",
+      "n_atoms": 21,
+      "r1": null,
+      "wr2": null,
+      "goof": null,
+      "metrics_current": false,
+      "n_restraints": 0
+    },
+    {
+      "id": "n0011",
+      "parent": "n0010",
+      "branch": "mask_trial",
+      "tool": "refine",
+      "note": "",
+      "n_atoms": 21,
+      "r1": 0.0618,
+      "wr2": 0.1951,
+      "goof": 1.415,
+      "metrics_current": true,
+      "n_restraints": 0
+    },
+    {
+      "id": "n0012",
+      "parent": "n0011",
+      "branch": "mask_trial",
+      "tool": "optimize_weights",
+      "note": "",
+      "n_atoms": 21,
+      "r1": 0.0615,
+      "wr2": 0.2002,
+      "goof": 1.0,
+      "metrics_current": false,
+      "n_restraints": 0
+    },
+    {
+      "id": "n0013",
+      "parent": "n0012",
+      "branch": "mask_trial",
+      "tool": "refine",
+      "note": "",
+      "n_atoms": 21,
+      "r1": 0.0615,
+      "wr2": 0.2002,
+      "goof": 1.0,
+      "metrics_current": true,
+      "n_restraints": 0
+    }
+  ],
+  "generated": "2026-08-28 17:08:44"
+}

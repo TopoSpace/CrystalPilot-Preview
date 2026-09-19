@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crystalpilot-dxtbx-rigaku"
+version = "0.2.0"
+description = "dxtbx format plugin: Rigaku HyPix miniCBF (CrysAlisPro CAP HPAD export, RIGAKU_1.x)"
+requires-python = ">=3.9"
+
+# DAG parent is FormatCBF (not FormatCBFMini): FormatCBFMini.understand()
+# whitelists Dectris-ish vendors and rejects RIGAKU, and the dxtbx registry
+# only tries children of classes whose understand() passed.
+[project.entry-points."dxtbx.format"]
+"FormatCBFMiniRigaku:FormatCBF" = "crystalpilot_dxtbx_rigaku:FormatCBFMiniRigaku"
+"FormatBrukerSfrmGeom:FormatBruker" = "crystalpilot_dxtbx_bruker:FormatBrukerSfrmGeom"
+"FormatRODLegacy:FormatROD" = "crystalpilot_dxtbx_odlegacy:FormatRODLegacy"
+
+[tool.setuptools]
+packages = ["crystalpilot_dxtbx_rigaku", "crystalpilot_dxtbx_bruker",
+            "crystalpilot_dxtbx_odlegacy"]

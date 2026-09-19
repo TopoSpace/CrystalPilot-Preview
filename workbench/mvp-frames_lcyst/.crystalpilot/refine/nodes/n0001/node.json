@@ -1,0 +1,39 @@
+{
+  "id": "n0001",
+  "parent": "n0000",
+  "branch": "main",
+  "ts": 1787948583.8900945,
+  "tool": "edit_atoms",
+  "params": {
+    "operations": [
+      {
+        "action": "reassign",
+        "atoms": [
+          "C1"
+        ],
+        "element": "S"
+      }
+    ]
+  },
+  "note": "",
+  "metrics": null,
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 7,
+    "element_counts": {
+      "S": 1,
+      "C": 6
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 1.0,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

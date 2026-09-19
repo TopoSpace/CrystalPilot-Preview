@@ -1,0 +1,16 @@
+{
+  "cod_id": "2201595",
+  "note": "Cd coordination compound in space group P1 (Acta E 2002)",
+  "source_url": "https://www.crystallography.net/cod/2201595.html",
+  "sf_url": "https://www.crystallography.net/cod/hkl/2/20/15/2201595.hkl",
+  "doi": "10.1107/S1600536802020573",
+  "journal": "Acta Crystallographica Section E",
+  "year": "2002",
+  "license_note": "COD entry originally provided by IUCr Journals; may be used within the scientific community with proper attribution to the journal article (per COD file header).",
+  "formula": "C39 H48 Cd N8 O9",
+  "z": 1.0,
+  "space_group": "P 1",
+  "radiation": "MoK\\a",
+  "wavelength": 0.7107,
+  "temperature_K": "180(2)"
+}

@@ -1,0 +1,6128 @@
+{
+  "__id__": "ExperimentList",
+  "experiment": [
+    {
+      "__id__": "Experiment",
+      "identifier": "c3ae4ae8-d305-52a0-db28-96920a1976dc",
+      "beam": 0,
+      "detector": 0,
+      "goniometer": 0,
+      "scan": 0,
+      "imageset": 0
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "b7496784-37c6-10ec-9989-87eb05558fab",
+      "beam": 0,
+      "detector": 0,
+      "goniometer": 1,
+      "scan": 1,
+      "imageset": 1
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "2e148cf9-5bad-710d-df65-db22822a4091",
+      "beam": 0,
+      "detector": 1,
+      "goniometer": 2,
+      "scan": 2,
+      "imageset": 2
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "41df99ef-4c48-ab01-a90a-8918302460eb",
+      "beam": 0,
+      "detector": 2,
+      "goniometer": 3,
+      "scan": 3,
+      "imageset": 3
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "3ced6956-0e3c-3eec-55d5-53d96bfd4e45",
+      "beam": 0,
+      "detector": 3,
+      "goniometer": 4,
+      "scan": 4,
+      "imageset": 4
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "6bc4d90a-e0cb-1c3f-eeb4-7e9aa5710819",
+      "beam": 0,
+      "detector": 3,
+      "goniometer": 5,
+      "scan": 5,
+      "imageset": 5
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "bb8251ad-035c-2c70-81be-7f77c6454cff",
+      "beam": 0,
+      "detector": 4,
+      "goniometer": 6,
+      "scan": 6,
+      "imageset": 6
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "fd316a0f-05f8-60e1-de67-655b8884baff",
+      "beam": 0,
+      "detector": 4,
+      "goniometer": 7,
+      "scan": 7,
+      "imageset": 7
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "ba50aa50-d0dd-29b3-f701-4410ad00c3d9",
+      "beam": 0,
+      "detector": 5,
+      "goniometer": 8,
+      "scan": 8,
+      "imageset": 8
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "edf77bc1-fd96-6769-81e6-48ac698849be",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 9,
+      "imageset": 9
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "446648e0-6e90-94f5-2e8d-51a6f92d97bb",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 10,
+      "imageset": 10
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "6a9e43c1-a7ea-0d40-5e1a-7d8ef7d200d1",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 11,
+      "imageset": 11
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "c3ecf140-ab34-39e4-057e-3dad0899e46c",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 12,
+      "imageset": 12
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "a608365b-853c-5398-3266-63b8ad7f6a43",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 13,
+      "imageset": 13
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "7cc2fc5b-5eaa-bc40-91c5-0c411402986b",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 14,
+      "imageset": 14
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "87b9f56c-6cfa-1cb3-975e-81f90095e754",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 15,
+      "imageset": 15
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "040f7850-b12c-58d6-411d-55cf6dc3d7af",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 16,
+      "imageset": 16
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "d917a28e-f5e8-4c78-b987-e1c2d0122b76",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 17,
+      "imageset": 17
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "e5e54ebb-e69b-b07d-6dcb-0b755aabb5dc",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 18,
+      "imageset": 18
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "e56bf83c-2a47-466c-5cac-ddaf5a6c92a4",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 19,
+      "imageset": 19
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "60dc6817-e27a-b55c-175f-7df989c1cf7c",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 20,
+      "imageset": 20
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "278d1ab4-d7e6-ba01-3868-8456c8a94205",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 21,
+      "imageset": 21
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "33cfef09-2d16-4da0-9c54-0a685a3f4e9b",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 22,
+      "imageset": 22
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "d47c8507-2cb3-a921-1f5f-29d93e9dbde7",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 23,
+      "imageset": 23
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "68d772f2-f809-7164-3ce0-71e4d40375db",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 24,
+      "imageset": 24
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "e7972513-987a-99d6-91ec-488c4e61e5ec",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 25,
+      "imageset": 25
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "ecd3cf7d-ead2-d4e7-363d-a8998fc255f1",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 26,
+      "imageset": 26
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "081dc706-04d1-86a4-6e49-84a5db72af0f",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 27,
+      "imageset": 27
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "72010280-ecbf-6954-6b29-a1237636569b",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 28,
+      "imageset": 28
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "cd3d0bf6-e419-0e48-4368-2835ae3512ba",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 29,
+      "imageset": 29
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "c097996b-8be2-2aec-3be2-b54d03e1edd9",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 30,
+      "imageset": 30
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "3ac03f69-a8a0-133d-89eb-302a63c7c17a",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 31,
+      "imageset": 31
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "8c6833d7-064c-c988-b432-5b553bdce490",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 32,
+      "imageset": 32
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "b6afee5c-1ecc-2385-4049-c22599147f78",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 33,
+      "imageset": 33
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "0192ce11-56e0-3daa-5920-11fb904b6cea",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 34,
+      "imageset": 34
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "f552eaf3-297b-d2ec-83cb-26d4e4c297a7",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 35,
+      "imageset": 35
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "f9476814-e68f-0333-9d6c-30b3cc79fdbc",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 36,
+      "imageset": 36
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "f1fb417d-76a7-862d-34f3-ab9b6d0ec636",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 37,
+      "imageset": 37
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "e454e360-7b3c-4d02-4893-5541ed6623fa",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 38,
+      "imageset": 38
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "dd88cfb1-4cdd-9081-a87e-a4ae0db57a85",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 39,
+      "imageset": 39
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "efd31876-9b6e-321a-ed1c-179c94ed6f85",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 40,
+      "imageset": 40
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "adc233b6-d797-cb04-46a8-b8878fc53630",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 41,
+      "imageset": 41
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "6c9878f6-0f4a-cb09-3011-1ba8ad90db7a",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 42,
+      "imageset": 42
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "6557b8aa-abc0-cfc9-2767-edc2a1a74d16",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 43,
+      "imageset": 43
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "ed6ec819-e23a-4966-ae8b-c4d3b8715e86",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 44,
+      "imageset": 44
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "ee42d4bb-d69c-886d-869d-700d7f55230f",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 45,
+      "imageset": 45
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "ceaffb46-26fa-b170-f49f-007caae9de56",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 46,
+      "imageset": 46
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "ec70165a-2538-429b-4466-8c0e6226a3d6",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 47,
+      "imageset": 47
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "71c7ed84-ed43-db54-e256-dd1bc02349b1",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 48,
+      "imageset": 48
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "65049452-19a9-369f-27b8-92f2cc1079f4",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 49,
+      "imageset": 49
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "1c23e8f0-0424-e375-60d2-11e70ea61f4d",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 50,
+      "imageset": 50
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "c5366669-004e-5da4-d048-facc14631546",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 51,
+      "imageset": 51
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "67acc8f0-38f3-929f-6fa2-e63607f7f4fb",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 52,
+      "imageset": 52
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "1643d15c-7227-80df-41e5-25193b2a8423",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 53,
+      "imageset": 53
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "87e6e027-c0f5-525e-4744-2e4f3fa06b83",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 54,
+      "imageset": 54
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "df7d68ed-cd1d-587d-b446-c26ddfeff4a0",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 55,
+      "imageset": 55
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "50454146-9952-2fc5-6186-0e626994d0b7",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 56,
+      "imageset": 56
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "6483e978-7534-d9c1-541b-737ece4aa7fe",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 57,
+      "imageset": 57
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "f367e1f1-2806-08d2-5c78-4a2e635aa390",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 58,
+      "imageset": 58
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "94a80a05-9dc8-2ea5-0603-582628a3146a",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 59,
+      "imageset": 59
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "f7023619-515a-7907-7c2e-461e52030bdc",
+      "beam": 1,
+      "detector": 6,
+      "goniometer": 9,
+      "scan": 60,
+      "imageset": 60
+    }
+  ],
+  "history": [
+    "2026-08-27T16:49:44Z|dials.import|v3.30"
+  ],
+  "imageset": [
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\frames\\pgw240033_Mo_1_#.rodhypix",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\frames\\pgw240033_Mo_2_#.rodhypix",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\frames\\pgw240033_Mo_3_#.rodhypix",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\frames\\pgw240033_Mo_4_#.rodhypix",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\frames\\pgw240033_Mo_5_#.rodhypix",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\frames\\pgw240033_Mo_6_#.rodhypix",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\frames\\pre_pgw240033_Mo_1_#.rodhypix",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\frames\\pre_pgw240033_Mo_2_#.rodhypix",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\frames\\pre_pgw240033_Mo_3_#.rodhypix",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_1_#.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_1_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_1_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_1_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_2_#.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_2_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_2_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_3_#.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_3_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_3_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_3_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_3_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_3_###.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_3_###.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_4_#.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_4_#.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_5_#.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_5_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_5_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_5_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_5_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_5_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_6_#.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_6_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_6_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_back_6_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_1_#.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_1_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_1_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_1_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_2_#.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_2_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_2_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_3_#.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_3_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_3_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_3_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_3_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_3_###.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_3_###.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_4_#.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_4_#.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_5_#.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_5_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_5_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_5_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_5_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_5_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_6_#.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_6_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_6_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_rigaku_hypix_lalanine\\frames\\CCDC_2360269\\tmp\\pgw240033_Mo_backsig_6_##.img",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    }
+  ],
+  "beam": [
+    {
+      "__id__": "monochromatic",
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "wavelength": 0.71073,
+      "divergence": 0.0,
+      "sigma_divergence": 0.0,
+      "polarization_normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "polarization_fraction": 0.5,
+      "flux": 0.0,
+      "transmission": 1.0,
+      "probe": "x-ray",
+      "sample_to_source_distance": 0.0
+    },
+    {
+      "__id__": "monochromatic",
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "wavelength": 1.541838,
+      "divergence": 0.0,
+      "sigma_divergence": 0.0,
+      "polarization_normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "polarization_fraction": 0.5,
+      "flux": 0.0,
+      "transmission": 1.0,
+      "probe": "x-ray",
+      "sample_to_source_distance": 0.0
+    }
+  ],
+  "detector": [
+    {
+      "panels": [
+        {
+          "name": "Panel0",
+          "type": "SENSOR_PAD",
+          "fast_axis": [
+            0.9455185755993168,
+            0.0,
+            -0.3255681544571567
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            2.1792569760273253,
+            0.0,
+            13.022726178286268
+          ],
+          "raw_image_offset": [
+            0,
+            0
+          ],
+          "image_size": [
+            385,
+            775
+          ],
+          "pixel_size": [
+            0.1,
+            0.1
+          ],
+          "trusted_range": [
+            0.0,
+            2095463.0
+          ],
+          "thickness": 0.0,
+          "material": "",
+          "mu": 0.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 1.0,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          },
+          "projection_2d": [
+            [
+              -1,
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "name": "Panel1",
+          "type": "SENSOR_PAD",
+          "fast_axis": [
+            0.9455185755993168,
+            0.0,
+            0.3255681544571567
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            41.41827786339898,
+            0.0,
+            0.48835223168573505
+          ],
+          "raw_image_offset": [
+            415,
+            0
+          ],
+          "image_size": [
+            385,
+            775
+          ],
+          "pixel_size": [
+            0.1,
+            0.1
+          ],
+          "trusted_range": [
+            0.0,
+            2095463.0
+          ],
+          "thickness": 0.0,
+          "material": "",
+          "mu": 0.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 1.0,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          },
+          "projection_2d": [
+            [
+              -1,
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              -415
+            ]
+          ]
+        }
+      ],
+      "hierarchy": {
+        "name": "",
+        "type": "",
+        "fast_axis": [
+          0.9885194392016093,
+          -0.00027016604016940547,
+          0.1510934986385797
+        ],
+        "slow_axis": [
+          0.00016487955672708893,
+          0.9999997348132285,
+          0.0007093576000225518
+        ],
+        "origin": [
+          -33.09002398217195,
+          -38.00226102698113,
+          -52.62962253044861
+        ],
+        "raw_image_offset": [
+          0,
+          0
+        ],
+        "image_size": [
+          0,
+          0
+        ],
+        "pixel_size": [
+          0.0,
+          0.0
+        ],
+        "trusted_range": [
+          0.0,
+          0.0
+        ],
+        "thickness": 0.0,
+        "material": "",
+        "mu": 0.0,
+        "identifier": "",
+        "mask": [],
+        "gain": 1.0,
+        "pedestal": 0.0,
+        "px_mm_strategy": {
+          "type": "SimplePxMmStrategy"
+        },
+        "children": [
+          {
+            "panel": 0
+          },
+          {
+            "panel": 1
+          }
+        ]
+      }
+    },
+    {
+      "panels": [
+        {
+          "name": "Panel0",
+          "type": "SENSOR_PAD",
+          "fast_axis": [
+            0.9455185755993168,
+            0.0,
+            -0.3255681544571567
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            2.1792569760273253,
+            0.0,
+            13.022726178286268
+          ],
+          "raw_image_offset": [
+            0,
+            0
+          ],
+          "image_size": [
+            385,
+            775
+          ],
+          "pixel_size": [
+            0.1,
+            0.1
+          ],
+          "trusted_range": [
+            0.0,
+            2095463.0
+          ],
+          "thickness": 0.0,
+          "material": "",
+          "mu": 0.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 1.0,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          },
+          "projection_2d": [
+            [
+              -1,
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "name": "Panel1",
+          "type": "SENSOR_PAD",
+          "fast_axis": [
+            0.9455185755993168,
+            0.0,
+            0.3255681544571567
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            41.41827786339898,
+            0.0,
+            0.48835223168573505
+          ],
+          "raw_image_offset": [
+            415,
+            0
+          ],
+          "image_size": [
+            385,
+            775
+          ],
+          "pixel_size": [
+            0.1,
+            0.1
+          ],
+          "trusted_range": [
+            0.0,
+            2095463.0
+          ],
+          "thickness": 0.0,
+          "material": "",
+          "mu": 0.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 1.0,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          },
+          "projection_2d": [
+            [
+              -1,
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              -415
+            ]
+          ]
+        }
+      ],
+      "hierarchy": {
+        "name": "",
+        "type": "",
+        "fast_axis": [
+          0.9902991043825454,
+          -0.0002701660401694055,
+          -0.13895182931303637
+        ],
+        "slow_axis": [
+          0.0003615184802982684,
+          0.9999997348132285,
+          0.0006322008077653068
+        ],
+        "origin": [
+          -46.80197959397957,
+          -38.00226102698113,
+          -40.91945210927119
+        ],
+        "raw_image_offset": [
+          0,
+          0
+        ],
+        "image_size": [
+          0,
+          0
+        ],
+        "pixel_size": [
+          0.0,
+          0.0
+        ],
+        "trusted_range": [
+          0.0,
+          0.0
+        ],
+        "thickness": 0.0,
+        "material": "",
+        "mu": 0.0,
+        "identifier": "",
+        "mask": [],
+        "gain": 1.0,
+        "pedestal": 0.0,
+        "px_mm_strategy": {
+          "type": "SimplePxMmStrategy"
+        },
+        "children": [
+          {
+            "panel": 0
+          },
+          {
+            "panel": 1
+          }
+        ]
+      }
+    },
+    {
+      "panels": [
+        {
+          "name": "Panel0",
+          "type": "SENSOR_PAD",
+          "fast_axis": [
+            0.9455185755993168,
+            0.0,
+            -0.3255681544571567
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            2.1792569760273253,
+            0.0,
+            13.022726178286268
+          ],
+          "raw_image_offset": [
+            0,
+            0
+          ],
+          "image_size": [
+            385,
+            775
+          ],
+          "pixel_size": [
+            0.1,
+            0.1
+          ],
+          "trusted_range": [
+            0.0,
+            2095463.0
+          ],
+          "thickness": 0.0,
+          "material": "",
+          "mu": 0.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 1.0,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          },
+          "projection_2d": [
+            [
+              -1,
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "name": "Panel1",
+          "type": "SENSOR_PAD",
+          "fast_axis": [
+            0.9455185755993168,
+            0.0,
+            0.3255681544571567
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            41.41827786339898,
+            0.0,
+            0.48835223168573505
+          ],
+          "raw_image_offset": [
+            415,
+            0
+          ],
+          "image_size": [
+            385,
+            775
+          ],
+          "pixel_size": [
+            0.1,
+            0.1
+          ],
+          "trusted_range": [
+            0.0,
+            2095463.0
+          ],
+          "thickness": 0.0,
+          "material": "",
+          "mu": 0.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 1.0,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          },
+          "projection_2d": [
+            [
+              -1,
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              -415
+            ]
+          ]
+        }
+      ],
+      "hierarchy": {
+        "name": "",
+        "type": "",
+        "fast_axis": [
+          0.9885194392016093,
+          -0.00027016604016940547,
+          0.1510934986385797
+        ],
+        "slow_axis": [
+          0.00016487955672708893,
+          0.9999997348132285,
+          0.0007093576000225518
+        ],
+        "origin": [
+          -33.09002398217195,
+          -38.00226102698113,
+          -52.62962253044861
+        ],
+        "raw_image_offset": [
+          0,
+          0
+        ],
+        "image_size": [
+          0,
+          0
+        ],
+        "pixel_size": [
+          0.0,
+          0.0
+        ],
+        "trusted_range": [
+          0.0,
+          0.0
+        ],
+        "thickness": 0.0,
+        "material": "",
+        "mu": 0.0,
+        "identifier": "",
+        "mask": [],
+        "gain": 1.0,
+        "pedestal": 0.0,
+        "px_mm_strategy": {
+          "type": "SimplePxMmStrategy"
+        },
+        "children": [
+          {
+            "panel": 0
+          },
+          {
+            "panel": 1
+          }
+        ]
+      }
+    },
+    {
+      "panels": [
+        {
+          "name": "Panel0",
+          "type": "SENSOR_PAD",
+          "fast_axis": [
+            0.9455185755993168,
+            0.0,
+            -0.3255681544571567
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            2.1792569760273253,
+            0.0,
+            13.022726178286268
+          ],
+          "raw_image_offset": [
+            0,
+            0
+          ],
+          "image_size": [
+            385,
+            775
+          ],
+          "pixel_size": [
+            0.1,
+            0.1
+          ],
+          "trusted_range": [
+            0.0,
+            2095463.0
+          ],
+          "thickness": 0.0,
+          "material": "",
+          "mu": 0.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 1.0,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          },
+          "projection_2d": [
+            [
+              -1,
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "name": "Panel1",
+          "type": "SENSOR_PAD",
+          "fast_axis": [
+            0.9455185755993168,
+            0.0,
+            0.3255681544571567
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            41.41827786339898,
+            0.0,
+            0.48835223168573505
+          ],
+          "raw_image_offset": [
+            415,
+            0
+          ],
+          "image_size": [
+            385,
+            775
+          ],
+          "pixel_size": [
+            0.1,
+            0.1
+          ],
+          "trusted_range": [
+            0.0,
+            2095463.0
+          ],
+          "thickness": 0.0,
+          "material": "",
+          "mu": 0.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 1.0,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          },
+          "projection_2d": [
+            [
+              -1,
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              -415
+            ]
+          ]
+        }
+      ],
+      "hierarchy": {
+        "name": "",
+        "type": "",
+        "fast_axis": [
+          0.9902991043825454,
+          -0.0002701660401694055,
+          -0.13895182931303637
+        ],
+        "slow_axis": [
+          0.0003615184802982684,
+          0.9999997348132285,
+          0.0006322008077653068
+        ],
+        "origin": [
+          -46.80197959397957,
+          -38.00226102698113,
+          -40.91945210927119
+        ],
+        "raw_image_offset": [
+          0,
+          0
+        ],
+        "image_size": [
+          0,
+          0
+        ],
+        "pixel_size": [
+          0.0,
+          0.0
+        ],
+        "trusted_range": [
+          0.0,
+          0.0
+        ],
+        "thickness": 0.0,
+        "material": "",
+        "mu": 0.0,
+        "identifier": "",
+        "mask": [],
+        "gain": 1.0,
+        "pedestal": 0.0,
+        "px_mm_strategy": {
+          "type": "SimplePxMmStrategy"
+        },
+        "children": [
+          {
+            "panel": 0
+          },
+          {
+            "panel": 1
+          }
+        ]
+      }
+    },
+    {
+      "panels": [
+        {
+          "name": "Panel0",
+          "type": "SENSOR_PAD",
+          "fast_axis": [
+            0.9455185755993168,
+            0.0,
+            -0.3255681544571567
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            2.1792569760273253,
+            0.0,
+            13.022726178286268
+          ],
+          "raw_image_offset": [
+            0,
+            0
+          ],
+          "image_size": [
+            385,
+            775
+          ],
+          "pixel_size": [
+            0.1,
+            0.1
+          ],
+          "trusted_range": [
+            0.0,
+            218332.0
+          ],
+          "thickness": 0.0,
+          "material": "",
+          "mu": 0.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 1.0,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          },
+          "projection_2d": [
+            [
+              -1,
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "name": "Panel1",
+          "type": "SENSOR_PAD",
+          "fast_axis": [
+            0.9455185755993168,
+            0.0,
+            0.3255681544571567
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            41.41827786339898,
+            0.0,
+            0.48835223168573505
+          ],
+          "raw_image_offset": [
+            415,
+            0
+          ],
+          "image_size": [
+            385,
+            775
+          ],
+          "pixel_size": [
+            0.1,
+            0.1
+          ],
+          "trusted_range": [
+            0.0,
+            218332.0
+          ],
+          "thickness": 0.0,
+          "material": "",
+          "mu": 0.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 1.0,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          },
+          "projection_2d": [
+            [
+              -1,
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              -415
+            ]
+          ]
+        }
+      ],
+      "hierarchy": {
+        "name": "",
+        "type": "",
+        "fast_axis": [
+          0.9897226170647291,
+          -0.00027016604016940547,
+          -0.14300023874404663
+        ],
+        "slow_axis": [
+          0.00036410067879685804,
+          0.9999997348132285,
+          0.0006307171859367265
+        ],
+        "origin": [
+          -46.96891776440155,
+          -38.00226102698113,
+          -40.727725432180755
+        ],
+        "raw_image_offset": [
+          0,
+          0
+        ],
+        "image_size": [
+          0,
+          0
+        ],
+        "pixel_size": [
+          0.0,
+          0.0
+        ],
+        "trusted_range": [
+          0.0,
+          0.0
+        ],
+        "thickness": 0.0,
+        "material": "",
+        "mu": 0.0,
+        "identifier": "",
+        "mask": [],
+        "gain": 1.0,
+        "pedestal": 0.0,
+        "px_mm_strategy": {
+          "type": "SimplePxMmStrategy"
+        },
+        "children": [
+          {
+            "panel": 0
+          },
+          {
+            "panel": 1
+          }
+        ]
+      }
+    },
+    {
+      "panels": [
+        {
+          "name": "Panel0",
+          "type": "SENSOR_PAD",
+          "fast_axis": [
+            0.9455185755993168,
+            0.0,
+            -0.3255681544571567
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            2.1792569760273253,
+            0.0,
+            13.022726178286268
+          ],
+          "raw_image_offset": [
+            0,
+            0
+          ],
+          "image_size": [
+            385,
+            775
+          ],
+          "pixel_size": [
+            0.1,
+            0.1
+          ],
+          "trusted_range": [
+            0.0,
+            218332.0
+          ],
+          "thickness": 0.0,
+          "material": "",
+          "mu": 0.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 1.0,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          },
+          "projection_2d": [
+            [
+              -1,
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "name": "Panel1",
+          "type": "SENSOR_PAD",
+          "fast_axis": [
+            0.9455185755993168,
+            0.0,
+            0.3255681544571567
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            41.41827786339898,
+            0.0,
+            0.48835223168573505
+          ],
+          "raw_image_offset": [
+            415,
+            0
+          ],
+          "image_size": [
+            385,
+            775
+          ],
+          "pixel_size": [
+            0.1,
+            0.1
+          ],
+          "trusted_range": [
+            0.0,
+            218332.0
+          ],
+          "thickness": 0.0,
+          "material": "",
+          "mu": 0.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 1.0,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          },
+          "projection_2d": [
+            [
+              -1,
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              -415
+            ]
+          ]
+        }
+      ],
+      "hierarchy": {
+        "name": "",
+        "type": "",
+        "fast_axis": [
+          0.988103930027898,
+          -0.00027016604016940547,
+          0.15378735472636726
+        ],
+        "slow_axis": [
+          0.00016294544110561398,
+          0.9999997348132285,
+          0.0007098043787968434
+        ],
+        "origin": [
+          -32.946447970169984,
+          -38.00226102698113,
+          -52.71962083500886
+        ],
+        "raw_image_offset": [
+          0,
+          0
+        ],
+        "image_size": [
+          0,
+          0
+        ],
+        "pixel_size": [
+          0.0,
+          0.0
+        ],
+        "trusted_range": [
+          0.0,
+          0.0
+        ],
+        "thickness": 0.0,
+        "material": "",
+        "mu": 0.0,
+        "identifier": "",
+        "mask": [],
+        "gain": 1.0,
+        "pedestal": 0.0,
+        "px_mm_strategy": {
+          "type": "SimplePxMmStrategy"
+        },
+        "children": [
+          {
+            "panel": 0
+          },
+          {
+            "panel": 1
+          }
+        ]
+      }
+    },
+    {
+      "panels": [
+        {
+          "name": "Panel0",
+          "type": "SENSOR_PAD",
+          "fast_axis": [
+            0.9455185755993168,
+            0.0,
+            -0.3255681544571567
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            2.1792569760273253,
+            0.0,
+            13.022726178286268
+          ],
+          "raw_image_offset": [
+            0,
+            0
+          ],
+          "image_size": [
+            385,
+            775
+          ],
+          "pixel_size": [
+            0.1,
+            0.1
+          ],
+          "trusted_range": [
+            0.0,
+            26228.0
+          ],
+          "thickness": 0.0,
+          "material": "",
+          "mu": 0.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 1.0,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          },
+          "projection_2d": [
+            [
+              -1,
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "name": "Panel1",
+          "type": "SENSOR_PAD",
+          "fast_axis": [
+            0.9455185755993168,
+            0.0,
+            0.3255681544571567
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            41.41827786339898,
+            0.0,
+            0.48835223168573505
+          ],
+          "raw_image_offset": [
+            415,
+            0
+          ],
+          "image_size": [
+            385,
+            775
+          ],
+          "pixel_size": [
+            0.1,
+            0.1
+          ],
+          "trusted_range": [
+            0.0,
+            26228.0
+          ],
+          "thickness": 0.0,
+          "material": "",
+          "mu": 0.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 1.0,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          },
+          "projection_2d": [
+            [
+              -1,
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              -415
+            ]
+          ]
+        }
+      ],
+      "hierarchy": {
+        "name": "",
+        "type": "",
+        "fast_axis": [
+          -0.06355115356470564,
+          6.943546868000803e-05,
+          -0.9979785799601668
+        ],
+        "slow_axis": [
+          0.0008916242171188114,
+          0.9999996024211599,
+          1.2797562779670767e-05
+        ],
+        "origin": [
+          -52.33665455029411,
+          -37.996634120058204,
+          44.10523006078413
+        ],
+        "raw_image_offset": [
+          0,
+          0
+        ],
+        "image_size": [
+          0,
+          0
+        ],
+        "pixel_size": [
+          0.0,
+          0.0
+        ],
+        "trusted_range": [
+          0.0,
+          0.0
+        ],
+        "thickness": 0.0,
+        "material": "",
+        "mu": 0.0,
+        "identifier": "",
+        "mask": [],
+        "gain": 1.0,
+        "pedestal": 0.0,
+        "px_mm_strategy": {
+          "type": "SimplePxMmStrategy"
+        },
+        "children": [
+          {
+            "panel": 0
+          },
+          {
+            "panel": 1
+          }
+        ]
+      }
+    }
+  ],
+  "goniometer": [
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.643790075637809,
+          0.7652021553225423
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        -90.00000000882751,
+        57.00000000559078,
+        -7.000000000686586
+      ],
+      "names": [
+        "PHI",
+        "KAPPA=CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.643790075637809,
+          0.7652021553225423
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        -60.00000000588503,
+        57.00000000559078,
+        -7.000000000686586
+      ],
+      "names": [
+        "PHI",
+        "KAPPA=CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.643790075637809,
+          0.7652021553225423
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        179.00000001755697,
+        20.000000001961673,
+        -1.0000000000980838
+      ],
+      "names": [
+        "PHI",
+        "KAPPA=CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.643790075637809,
+          0.7652021553225423
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        60.00000000588503,
+        -99.00000000971028,
+        -4.000000000392335
+      ],
+      "names": [
+        "PHI",
+        "KAPPA=CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.643790075637809,
+          0.7652021553225423
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        12.000000001177005,
+        -20.000000001961673,
+        -90.00000000882751
+      ],
+      "names": [
+        "PHI",
+        "KAPPA=CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.643790075637809,
+          0.7652021553225423
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        -120.00000001177006,
+        -19.00000000186359,
+        -89.00000000872944
+      ],
+      "names": [
+        "PHI",
+        "KAPPA=CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.643790075637809,
+          0.7652021553225423
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        0.0,
+        60.00000000588503,
+        0.0
+      ],
+      "names": [
+        "PHI",
+        "KAPPA=CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.643790075637809,
+          0.7652021553225423
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        90.00000000882751,
+        70.00000000686586,
+        -15.000000001471257
+      ],
+      "names": [
+        "PHI",
+        "KAPPA=CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.643790075637809,
+          0.7652021553225423
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        90.00000000882751,
+        -70.00000000686586,
+        -4.000000000392335
+      ],
+      "names": [
+        "PHI",
+        "KAPPA=CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.6437934144559441,
+          0.7651993462511302
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        -150.00000001471253,
+        -30.000000002942514,
+        -136.50000001338842
+      ],
+      "names": [
+        "PHI",
+        "KAPPA=CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    }
+  ],
+  "scan": [
+    {
+      "image_range": [
+        1,
+        92
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "exposure_time": [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0
+        ],
+        "oscillation": [
+          -7.000000000686586,
+          -6.500000000637544,
+          -6.000000000588503,
+          -5.500000000539461,
+          -5.000000000490419,
+          -4.500000000441378,
+          -4.000000000392336,
+          -3.5000000003432943,
+          -3.000000000294252,
+          -2.5000000002452105,
+          -2.000000000196169,
+          -1.5000000001471274,
+          -1.0000000000980858,
+          -0.5000000000490441,
+          -2.3854160110976376e-15,
+          0.5000000000490393,
+          1.0000000000980809,
+          1.5000000001471225,
+          2.0000000001961644,
+          2.500000000245206,
+          3.0000000002942477,
+          3.5000000003432894,
+          4.000000000392331,
+          4.500000000441372,
+          5.000000000490414,
+          5.500000000539456,
+          6.000000000588497,
+          6.500000000637539,
+          7.000000000686581,
+          7.500000000735622,
+          8.000000000784663,
+          8.500000000833705,
+          9.000000000882746,
+          9.500000000931788,
+          10.00000000098083,
+          10.500000001029871,
+          11.000000001078913,
+          11.500000001127955,
+          12.000000001176996,
+          12.500000001226038,
+          13.00000000127508,
+          13.500000001324121,
+          14.000000001373163,
+          14.500000001422205,
+          15.000000001471246,
+          15.500000001520288,
+          16.00000000156933,
+          16.50000000161837,
+          17.000000001667413,
+          17.500000001716455,
+          18.000000001765496,
+          18.500000001814538,
+          19.00000000186358,
+          19.50000000191262,
+          20.000000001961663,
+          20.500000002010704,
+          21.000000002059746,
+          21.500000002108788,
+          22.00000000215783,
+          22.500000002206875,
+          23.000000002255913,
+          23.50000000230495,
+          24.000000002353996,
+          24.50000000240304,
+          25.00000000245208,
+          25.500000002501118,
+          26.000000002550163,
+          26.500000002599208,
+          27.000000002648246,
+          27.500000002697284,
+          28.00000000274633,
+          28.500000002795375,
+          29.000000002844416,
+          29.500000002893454,
+          30.0000000029425,
+          30.500000002991545,
+          31.000000003040583,
+          31.50000000308962,
+          32.000000003138666,
+          32.500000003187715,
+          33.00000000323675,
+          33.50000000328579,
+          34.00000000333483,
+          34.50000000338388,
+          35.000000003432916,
+          35.50000000348196,
+          36.000000003531,
+          36.50000000358005,
+          37.00000000362908,
+          37.500000003678124,
+          38.000000003727166,
+          38.500000003776215
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        92
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "exposure_time": [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0
+        ],
+        "oscillation": [
+          -7.000000000686586,
+          -6.500000000637544,
+          -6.000000000588503,
+          -5.500000000539461,
+          -5.000000000490419,
+          -4.500000000441378,
+          -4.000000000392336,
+          -3.5000000003432943,
+          -3.000000000294252,
+          -2.5000000002452105,
+          -2.000000000196169,
+          -1.5000000001471274,
+          -1.0000000000980858,
+          -0.5000000000490441,
+          -2.3854160110976376e-15,
+          0.5000000000490393,
+          1.0000000000980809,
+          1.5000000001471225,
+          2.0000000001961644,
+          2.500000000245206,
+          3.0000000002942477,
+          3.5000000003432894,
+          4.000000000392331,
+          4.500000000441372,
+          5.000000000490414,
+          5.500000000539456,
+          6.000000000588497,
+          6.500000000637539,
+          7.000000000686581,
+          7.500000000735622,
+          8.000000000784663,
+          8.500000000833705,
+          9.000000000882746,
+          9.500000000931788,
+          10.00000000098083,
+          10.500000001029871,
+          11.000000001078913,
+          11.500000001127955,
+          12.000000001176996,
+          12.500000001226038,
+          13.00000000127508,
+          13.500000001324121,
+          14.000000001373163,
+          14.500000001422205,
+          15.000000001471246,
+          15.500000001520288,
+          16.00000000156933,
+          16.50000000161837,
+          17.000000001667413,
+          17.500000001716455,
+          18.000000001765496,
+          18.500000001814538,
+          19.00000000186358,
+          19.50000000191262,
+          20.000000001961663,
+          20.500000002010704,
+          21.000000002059746,
+          21.500000002108788,
+          22.00000000215783,
+          22.500000002206875,
+          23.000000002255913,
+          23.50000000230495,
+          24.000000002353996,
+          24.50000000240304,
+          25.00000000245208,
+          25.500000002501118,
+          26.000000002550163,
+          26.500000002599208,
+          27.000000002648246,
+          27.500000002697284,
+          28.00000000274633,
+          28.500000002795375,
+          29.000000002844416,
+          29.500000002893454,
+          30.0000000029425,
+          30.500000002991545,
+          31.000000003040583,
+          31.50000000308962,
+          32.000000003138666,
+          32.500000003187715,
+          33.00000000323675,
+          33.50000000328579,
+          34.00000000333483,
+          34.50000000338388,
+          35.000000003432916,
+          35.50000000348196,
+          36.000000003531,
+          36.50000000358005,
+          37.00000000362908,
+          37.500000003678124,
+          38.000000003727166,
+          38.500000003776215
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        150
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "exposure_time": [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0
+        ],
+        "oscillation": [
+          -1.0000000000980838,
+          -0.5000000000490419,
+          0.0,
+          0.5000000000490419,
+          1.0000000000980838,
+          1.5000000001471254,
+          2.0000000001961675,
+          2.5000000002452096,
+          3.0000000002942513,
+          3.500000000343293,
+          4.000000000392335,
+          4.500000000441377,
+          5.000000000490418,
+          5.50000000053946,
+          6.0000000005885035,
+          6.500000000637545,
+          7.000000000686587,
+          7.5000000007356284,
+          8.00000000078467,
+          8.500000000833712,
+          9.000000000882753,
+          9.500000000931797,
+          10.000000000980839,
+          10.50000000102988,
+          11.000000001078922,
+          11.500000001127964,
+          12.000000001177005,
+          12.500000001226047,
+          13.00000000127509,
+          13.500000001324132,
+          14.000000001373174,
+          14.500000001422215,
+          15.000000001471257,
+          15.500000001520299,
+          16.00000000156934,
+          16.500000001618382,
+          17.000000001667424,
+          17.500000001716465,
+          18.000000001765507,
+          18.50000000181455,
+          19.00000000186359,
+          19.500000001912635,
+          20.000000001961677,
+          20.50000000201072,
+          21.00000000205976,
+          21.500000002108802,
+          22.000000002157844,
+          22.500000002206885,
+          23.000000002255927,
+          23.50000000230497,
+          24.00000000235401,
+          24.500000002403052,
+          25.000000002452094,
+          25.500000002501135,
+          26.000000002550177,
+          26.50000000259922,
+          27.000000002648264,
+          27.500000002697305,
+          28.000000002746347,
+          28.500000002795385,
+          29.00000000284443,
+          29.50000000289347,
+          30.000000002942514,
+          30.500000002991552,
+          31.000000003040597,
+          31.500000003089642,
+          32.00000000313868,
+          32.50000000318772,
+          33.000000003236764,
+          33.500000003285805,
+          34.00000000333485,
+          34.50000000338389,
+          35.00000000343293,
+          35.50000000348197,
+          36.000000003531014,
+          36.500000003580055,
+          37.0000000036291,
+          37.50000000367814,
+          38.00000000372718,
+          38.50000000377622,
+          39.000000003825264,
+          39.500000003874305,
+          40.000000003923354,
+          40.50000000397239,
+          41.00000000402144,
+          41.50000000407047,
+          42.00000000411952,
+          42.500000004168555,
+          43.000000004217604,
+          43.50000000426664,
+          44.00000000431569,
+          44.50000000436472,
+          45.00000000441377,
+          45.500000004462805,
+          46.000000004511854,
+          46.50000000456089,
+          47.00000000460994,
+          47.50000000465898,
+          48.00000000470802,
+          48.50000000475706,
+          49.000000004806104,
+          49.500000004855146,
+          50.00000000490419,
+          50.50000000495323,
+          51.00000000500227,
+          51.50000000505131,
+          52.000000005100354,
+          52.500000005149396,
+          53.00000000519844,
+          53.50000000524748,
+          54.00000000529652,
+          54.50000000534556,
+          55.00000000539461,
+          55.500000005443646,
+          56.000000005492694,
+          56.500000005541736,
+          57.00000000559078,
+          57.500000005639805,
+          58.00000000568885,
+          58.500000005737895,
+          59.00000000578694,
+          59.50000000583597,
+          60.00000000588501,
+          60.50000000593406,
+          61.000000005983104,
+          61.50000000603214,
+          62.00000000608118,
+          62.50000000613023,
+          63.00000000617927,
+          63.500000006228305,
+          64.00000000627736,
+          64.5000000063264,
+          65.00000000637543,
+          65.50000000642447,
+          66.00000000647353,
+          66.50000000652257,
+          67.0000000065716,
+          67.50000000662064,
+          68.0000000066697,
+          68.50000000671874,
+          69.00000000676776,
+          69.5000000068168,
+          70.00000000686586,
+          70.5000000069149,
+          71.00000000696393,
+          71.50000000701299,
+          72.00000000706203,
+          72.50000000711107,
+          73.0000000071601,
+          73.50000000720915
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        58
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "exposure_time": [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0
+        ],
+        "oscillation": [
+          -4.000000000392335,
+          -3.500000000343293,
+          -3.000000000294251,
+          -2.5000000002452087,
+          -2.0000000001961666,
+          -1.5000000001471245,
+          -1.0000000000980824,
+          -0.5000000000490404,
+          1.5902773407317584e-15,
+          0.5000000000490432,
+          1.0000000000980858,
+          1.500000000147128,
+          2.0000000001961697,
+          2.5000000002452114,
+          3.000000000294254,
+          3.5000000003432965,
+          4.000000000392338,
+          4.500000000441379,
+          5.000000000490421,
+          5.5000000005394645,
+          6.000000000588506,
+          6.500000000637548,
+          7.000000000686591,
+          7.500000000735633,
+          8.000000000784675,
+          8.500000000833717,
+          9.000000000882759,
+          9.5000000009318,
+          10.000000000980842,
+          10.500000001029886,
+          11.000000001078927,
+          11.500000001127969,
+          12.00000000117701,
+          12.500000001226052,
+          13.000000001275094,
+          13.500000001324135,
+          14.000000001373177,
+          14.500000001422224,
+          15.000000001471262,
+          15.500000001520307,
+          16.000000001569347,
+          16.500000001618393,
+          17.00000000166743,
+          17.500000001716476,
+          18.000000001765518,
+          18.50000000181456,
+          19.0000000018636,
+          19.500000001912642,
+          20.000000001961684,
+          20.500000002010726,
+          21.000000002059767,
+          21.50000000210881,
+          22.00000000215785,
+          22.500000002206896,
+          23.000000002255934,
+          23.50000000230498,
+          24.000000002354017,
+          24.500000002403063
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        116
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "exposure_time": [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0
+        ],
+        "oscillation": [
+          -90.00000000882751,
+          -89.50000000877849,
+          -89.00000000872946,
+          -88.50000000868043,
+          -88.0000000086314,
+          -87.50000000858239,
+          -87.00000000853336,
+          -86.50000000848434,
+          -86.00000000843531,
+          -85.50000000838628,
+          -85.00000000833725,
+          -84.50000000828823,
+          -84.0000000082392,
+          -83.50000000819018,
+          -83.00000000814116,
+          -82.50000000809213,
+          -82.0000000080431,
+          -81.50000000799407,
+          -81.00000000794505,
+          -80.50000000789602,
+          -80.00000000784699,
+          -79.50000000779796,
+          -79.00000000774895,
+          -78.50000000769992,
+          -78.0000000076509,
+          -77.50000000760187,
+          -77.00000000755284,
+          -76.50000000750381,
+          -76.00000000745479,
+          -75.50000000740576,
+          -75.00000000735675,
+          -74.50000000730772,
+          -74.00000000725869,
+          -73.50000000720966,
+          -73.00000000716064,
+          -72.50000000711161,
+          -72.00000000706258,
+          -71.50000000701355,
+          -71.00000000696454,
+          -70.50000000691551,
+          -70.00000000686649,
+          -69.50000000681746,
+          -69.00000000676843,
+          -68.5000000067194,
+          -68.00000000667038,
+          -67.50000000662135,
+          -67.00000000657232,
+          -66.50000000652331,
+          -66.00000000647428,
+          -65.50000000642525,
+          -65.00000000637623,
+          -64.5000000063272,
+          -64.00000000627817,
+          -63.50000000622915,
+          -63.00000000618012,
+          -62.500000006131096,
+          -62.00000000608207,
+          -61.50000000603305,
+          -61.00000000598402,
+          -60.50000000593499,
+          -60.000000005885965,
+          -59.50000000583694,
+          -59.00000000578792,
+          -58.50000000573889,
+          -58.00000000568986,
+          -57.500000005640835,
+          -57.000000005591815,
+          -56.50000000554279,
+          -56.00000000549376,
+          -55.50000000544473,
+          -55.00000000539571,
+          -54.500000005346685,
+          -54.00000000529766,
+          -53.50000000524863,
+          -53.00000000519961,
+          -52.50000000515058,
+          -52.000000005101555,
+          -51.50000000505253,
+          -51.0000000050035,
+          -50.50000000495448,
+          -50.00000000490545,
+          -49.500000004856425,
+          -49.0000000048074,
+          -48.50000000475838,
+          -48.00000000470935,
+          -47.50000000466032,
+          -47.000000004611294,
+          -46.500000004562274,
+          -46.00000000451325,
+          -45.50000000446422,
+          -45.00000000441519,
+          -44.50000000436617,
+          -44.000000004317144,
+          -43.50000000426812,
+          -43.00000000421909,
+          -42.50000000417007,
+          -42.00000000412104,
+          -41.500000004072014,
+          -41.000000004022986,
+          -40.50000000397396,
+          -40.00000000392494,
+          -39.50000000387591,
+          -39.000000003826884,
+          -38.500000003777856,
+          -38.000000003728836,
+          -37.50000000367981,
+          -37.00000000363078,
+          -36.500000003581754,
+          -36.00000000353273,
+          -35.500000003483706,
+          -35.00000000343468,
+          -34.50000000338565,
+          -34.00000000333663,
+          -33.5000000032876,
+          -33.000000003238576,
+          -32.50000000318955
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        108
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "exposure_time": [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0
+        ],
+        "oscillation": [
+          -89.00000000872944,
+          -88.50000000868042,
+          -88.0000000086314,
+          -87.50000000858238,
+          -87.00000000853335,
+          -86.50000000848432,
+          -86.0000000084353,
+          -85.50000000838627,
+          -85.00000000833724,
+          -84.50000000828821,
+          -84.0000000082392,
+          -83.50000000819017,
+          -83.00000000814114,
+          -82.50000000809212,
+          -82.00000000804309,
+          -81.50000000799406,
+          -81.00000000794503,
+          -80.500000007896,
+          -80.00000000784698,
+          -79.50000000779796,
+          -79.00000000774894,
+          -78.50000000769991,
+          -78.00000000765088,
+          -77.50000000760186,
+          -77.00000000755283,
+          -76.5000000075038,
+          -76.00000000745477,
+          -75.50000000740576,
+          -75.00000000735673,
+          -74.5000000073077,
+          -74.00000000725868,
+          -73.50000000720965,
+          -73.00000000716062,
+          -72.5000000071116,
+          -72.00000000706257,
+          -71.50000000701354,
+          -71.00000000696453,
+          -70.5000000069155,
+          -70.00000000686647,
+          -69.50000000681744,
+          -69.00000000676842,
+          -68.50000000671939,
+          -68.00000000667036,
+          -67.50000000662133,
+          -67.00000000657232,
+          -66.5000000065233,
+          -66.00000000647427,
+          -65.50000000642524,
+          -65.00000000637621,
+          -64.50000000632718,
+          -64.00000000627816,
+          -63.500000006229136,
+          -63.00000000618011,
+          -62.50000000613108,
+          -62.000000006082054,
+          -61.500000006033034,
+          -61.000000005984006,
+          -60.50000000593498,
+          -60.00000000588595,
+          -59.50000000583693,
+          -59.0000000057879,
+          -58.500000005738876,
+          -58.00000000568985,
+          -57.50000000564083,
+          -57.0000000055918,
+          -56.50000000554277,
+          -56.000000005493746,
+          -55.500000005444726,
+          -55.0000000053957,
+          -54.50000000534667,
+          -54.00000000529764,
+          -53.50000000524862,
+          -53.000000005199595,
+          -52.50000000515057,
+          -52.00000000510154,
+          -51.50000000505251,
+          -51.00000000500349,
+          -50.500000004954465,
+          -50.00000000490544,
+          -49.50000000485641,
+          -49.00000000480739,
+          -48.50000000475836,
+          -48.000000004709335,
+          -47.50000000466031,
+          -47.00000000461129,
+          -46.50000000456226,
+          -46.00000000451323,
+          -45.500000004464205,
+          -45.000000004415185,
+          -44.50000000436616,
+          -44.00000000431713,
+          -43.5000000042681,
+          -43.000000004219075,
+          -42.500000004170055,
+          -42.00000000412103,
+          -41.500000004072,
+          -41.00000000402297,
+          -40.50000000397395,
+          -40.000000003924924,
+          -39.5000000038759,
+          -39.00000000382687,
+          -38.50000000377785,
+          -38.00000000372882,
+          -37.500000003679794,
+          -37.00000000363077,
+          -36.50000000358175,
+          -36.00000000353272,
+          -35.50000000348369
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        10
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "exposure_time": [
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25
+        ],
+        "oscillation": [
+          0.0,
+          0.5000000000490419,
+          1.0000000000980838,
+          1.5000000001471256,
+          2.0000000001961675,
+          2.500000000245209,
+          3.0000000002942513,
+          3.5000000003432934,
+          4.000000000392335,
+          4.500000000441377
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        10
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "exposure_time": [
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25
+        ],
+        "oscillation": [
+          -15.000000001471257,
+          -14.500000001422215,
+          -14.000000001373174,
+          -13.500000001324132,
+          -13.00000000127509,
+          -12.500000001226049,
+          -12.000000001177007,
+          -11.500000001127965,
+          -11.000000001078924,
+          -10.500000001029882
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        10
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "exposure_time": [
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25
+        ],
+        "oscillation": [
+          -4.000000000392335,
+          -3.500000000343293,
+          -3.000000000294251,
+          -2.5000000002452087,
+          -2.0000000001961666,
+          -1.5000000001471245,
+          -1.0000000000980824,
+          -0.5000000000490404,
+          1.5902773407317584e-15,
+          0.5000000000490432
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        1
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        18,
+        18
+      ],
+      "batch_offset": 17,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        43,
+        43
+      ],
+      "batch_offset": 42,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        68,
+        68
+      ],
+      "batch_offset": 67,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        1
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        26,
+        26
+      ],
+      "batch_offset": 25,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        43,
+        43
+      ],
+      "batch_offset": 42,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        1
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        25,
+        25
+      ],
+      "batch_offset": 24,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        51,
+        51
+      ],
+      "batch_offset": 50,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        75,
+        75
+      ],
+      "batch_offset": 74,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        76,
+        76
+      ],
+      "batch_offset": 75,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        101,
+        101
+      ],
+      "batch_offset": 100,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        126,
+        126
+      ],
+      "batch_offset": 125,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        1
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        9,
+        9
+      ],
+      "batch_offset": 8,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        1
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        17,
+        17
+      ],
+      "batch_offset": 16,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        42,
+        42
+      ],
+      "batch_offset": 41,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        51,
+        51
+      ],
+      "batch_offset": 50,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        67,
+        67
+      ],
+      "batch_offset": 66,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        92,
+        92
+      ],
+      "batch_offset": 91,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        1
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        26,
+        26
+      ],
+      "batch_offset": 25,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        51,
+        51
+      ],
+      "batch_offset": 50,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        59,
+        59
+      ],
+      "batch_offset": 58,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        1
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        18,
+        18
+      ],
+      "batch_offset": 17,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        43,
+        43
+      ],
+      "batch_offset": 42,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        68,
+        68
+      ],
+      "batch_offset": 67,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        1
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        26,
+        26
+      ],
+      "batch_offset": 25,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        43,
+        43
+      ],
+      "batch_offset": 42,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        1
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        25,
+        25
+      ],
+      "batch_offset": 24,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        51,
+        51
+      ],
+      "batch_offset": 50,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        75,
+        75
+      ],
+      "batch_offset": 74,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        76,
+        76
+      ],
+      "batch_offset": 75,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        101,
+        101
+      ],
+      "batch_offset": 100,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        126,
+        126
+      ],
+      "batch_offset": 125,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        1
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        9,
+        9
+      ],
+      "batch_offset": 8,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        1
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        17,
+        17
+      ],
+      "batch_offset": 16,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        42,
+        42
+      ],
+      "batch_offset": 41,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        51,
+        51
+      ],
+      "batch_offset": 50,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        67,
+        67
+      ],
+      "batch_offset": 66,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        92,
+        92
+      ],
+      "batch_offset": 91,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        1
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        26,
+        26
+      ],
+      "batch_offset": 25,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        51,
+        51
+      ],
+      "batch_offset": 50,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        59,
+        59
+      ],
+      "batch_offset": 58,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          0.2
+        ],
+        "oscillation": [
+          -136.50000001338842
+        ],
+        "oscillation_width": [
+          0.5000000000490274
+        ]
+      },
+      "valid_image_ranges": {}
+    }
+  ],
+  "crystal": [],
+  "profile": [],
+  "scaling_model": []
+}

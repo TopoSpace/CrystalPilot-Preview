@@ -1,0 +1,61 @@
+{
+  "id": "n0008",
+  "parent": "n0007",
+  "branch": "main",
+  "ts": 1787948766.707679,
+  "tool": "add_atoms_from_difference_map",
+  "params": {
+    "element": "H",
+    "peak_indices": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "max_add": 4,
+    "min_dist_to_existing": 0.5,
+    "occupancy": 1
+  },
+  "note": "",
+  "metrics": {
+    "label": "partial riding H model for difference-map H location",
+    "r1_strong": 0.0511,
+    "r1_all": 0.0562,
+    "wr2": 0.1718,
+    "goof": 1.183,
+    "n_params": 63,
+    "n_reflections": 2589,
+    "diff_map_max": 0.79,
+    "diff_map_min": -0.7,
+    "notes": "",
+    "scale_k": 1.3376800648244895
+  },
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 14,
+    "element_counts": {
+      "S": 1,
+      "O": 2,
+      "N": 1,
+      "C": 3,
+      "H": 7
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 1.3376800648244895,
+  "mask": null,
+  "hydrogens": {
+    "present": true,
+    "elements": [
+      "C",
+      "N",
+      "S"
+    ],
+    "n_groups": 2
+  },
+  "label_renames": {}
+}

@@ -1,0 +1,29 @@
+slug: org_hsl_cod2241460
+source: COD entry 2241460 (mirrors IUCr/journal deposition)
+entry page: https://www.crystallography.net/cod/2241460.html
+doi: 10.1107/S2056989015024913
+journal: Acta Crystallographica Section E (2016)
+title: Crystal structure of N-(3-oxobutanoyl)-L-homoserine lactone
+license: COD terms: data provided by IUCr Journals, free use within the scientific community with attribution to the source article
+chemical formula: C8 H11 N O4
+space group: P 21 21 21   Z: 4
+cell: 5.0215(4), 9.8852(10), 17.7668(14), 90, 90, 90
+temperature: 99.97 K   radiation: CuK\a lambda=1.54178
+device: Bruker APEXII CCD
+published R1(gt): 0.0264   wR2: 0.0671
+
+files:
+  ref.cif  = final refined CIF as deposited (downloaded from https://www.crystallography.net/cod/2241460.cif)
+  ref.fcf  = structure-factor file as deposited (downloaded from https://www.crystallography.net/cod/2241460.hkl);
+             format: CIF reflection file, SHELX LIST 4 (_shelx_refln_list_code 4):
+             loop of h k l F_squared_calc F_squared_meas F_squared_sigma status
+  ref.hkl  = DERIVED locally from ref.fcf: SHELX HKLF4 fixed format (3I4,2F8.2), columns h k l Fo^2 sigma(Fo^2), terminated by 0 0 0 line.
+
+verification: gemmi parses ref.cif and ref.fcf; n_reflections(fcf) = 1755;
+  R1 recomputed from fcf (Fo>2sig) = 0.0264 vs published R1(gt) = 0.0264 -> pairing check
+  cell(fcf) matches cell(cif): True
+
+why selected: Clean baseline: small chiral pure-organic (bacterial quorum-sensing lactone), Sohncke SG P212121, low R1. Tests plain validation path end-to-end.
+
+key refinement instruction lines (embedded .res in CIF):
+  HKLF 4

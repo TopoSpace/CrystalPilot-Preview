@@ -1,0 +1,16 @@
+{
+  "cod_id": "2204276",
+  "note": "tri-Mn terephthalate DMF framework (Acta E 2004)",
+  "source_url": "https://www.crystallography.net/cod/2204276.html",
+  "sf_url": "https://www.crystallography.net/cod/hkl/2/20/42/2204276.hkl",
+  "doi": "10.1107/S1600536804023396",
+  "journal": "Acta Crystallographica Section E",
+  "year": "2004",
+  "license_note": "COD entry originally provided by IUCr Journals; may be used within the scientific community with proper attribution to the journal article (per COD file header).",
+  "formula": "C30 H26 Mn3 N2 O14",
+  "z": 4.0,
+  "space_group": "C 1 2/c 1",
+  "radiation": "MoK\\a",
+  "wavelength": 0.71073,
+  "temperature_K": "295(2)"
+}

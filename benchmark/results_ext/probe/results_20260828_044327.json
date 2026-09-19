@@ -1,0 +1,48 @@
+{
+  "summary": {
+    "n_cases": 1,
+    "pipeline_ok_rate": 1.0,
+    "sg_top1_rate": 1.0,
+    "solved_rate": 1.0,
+    "mean_r1": 0.2196,
+    "mean_elapsed_s": 1.8
+  },
+  "rows": [
+    {
+      "name": "cod_2221408",
+      "symmetry_mode": "auto",
+      "mode": "standard",
+      "true_sg": "P 1 21/n 1",
+      "human_r1": 0.0245,
+      "pipeline_ok": true,
+      "used_sg": "P 1 21/n 1",
+      "sg_correct": true,
+      "r1": 0.2196,
+      "confidence": 21.8,
+      "framework_dim": 0,
+      "error": null,
+      "match": {
+        "heavy": {
+          "n_ref": 3,
+          "n_model": 9,
+          "n_matched": 3,
+          "rms": 0.009
+        },
+        "all_atoms": {
+          "n_ref": 25,
+          "n_model": 24,
+          "n_matched": 24,
+          "rms": 0.029
+        },
+        "n_ref_solvent_excluded": 0,
+        "heavy_match_rate": 1.0,
+        "heavy_precision": 0.333,
+        "all_match_rate": 0.96,
+        "all_precision": 1.0,
+        "solved": true
+      },
+      "solved": true,
+      "elapsed_s": 1.8
+    }
+  ]
+}

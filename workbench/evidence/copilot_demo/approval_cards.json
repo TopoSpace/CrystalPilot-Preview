@@ -1,0 +1,32 @@
+[
+  {
+    "approval_id": "50cbc59d",
+    "method": "mcpServer/elicitation/request",
+    "mcp_server": "crystalpilot",
+    "message": "Allow the crystalpilot MCP server to run tool \"edit_atoms\"?",
+    "tool_params": {
+      "operations": [
+        {
+          "action": "set_u_iso",
+          "atoms": [
+            "O007"
+          ],
+          "u_iso": 0.08
+        }
+      ]
+    },
+    "decision": "accept"
+  },
+  {
+    "approval_id": "04f07e6a",
+    "method": "mcpServer/elicitation/request",
+    "mcp_server": "crystalpilot",
+    "message": "Allow the crystalpilot MCP server to run tool \"refine\"?",
+    "tool_params": {
+      "mode": "anisotropic",
+      "n_cycles": 2,
+      "label": "O007 U_iso=0.08 后各向异性精修 2 轮"
+    },
+    "decision": "accept"
+  }
+]

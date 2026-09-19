@@ -1,0 +1,63 @@
+{
+  "id": "n0011",
+  "parent": "n0010",
+  "branch": "solvent_mask_trial",
+  "ts": 1787909048.1950376,
+  "tool": "refine",
+  "params": {
+    "mode": "anisotropic",
+    "n_cycles": 15,
+    "label": "anisotropic refinement with pore-solvent mask",
+    "use_solvent_mask": true
+  },
+  "note": "",
+  "metrics": {
+    "label": "anisotropic refinement with pore-solvent mask",
+    "r1_strong": 0.0576,
+    "r1_all": 0.0586,
+    "wr2": 0.177,
+    "goof": 1.578,
+    "n_params": 311,
+    "n_reflections": 8198,
+    "diff_map_max": 0.64,
+    "diff_map_min": -1.07,
+    "notes": "",
+    "scale_k": 0.07902795404959775
+  },
+  "metrics_current": true,
+  "model": {
+    "n_atoms": 39,
+    "element_counts": {
+      "Cu": 1,
+      "C": 33,
+      "O": 5
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 0.07902795404959775,
+  "mask": {
+    "params": {
+      "solvent_radius": 1.2,
+      "shrink_truncation_radius": 1.2,
+      "resolution_factor": 0.25,
+      "d_min": null,
+      "min_void_volume": 40.0,
+      "max_cycles": 12
+    },
+    "info": {
+      "n_voids": 2,
+      "n_voids_masked": 2,
+      "total_solvent_electrons_per_cell": 419.2,
+      "solvent_volume_A3": 2027.6,
+      "solvent_volume_pct_of_cell": 33.5
+    }
+  },
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

@@ -1,0 +1,64 @@
+# CrystalPilot kernel configuration (CODEX_HOME = <repo>/codex-home).
+#
+# This file is a template. The service edits it in place: the settings dialog
+# adds or changes providers, and crystalpilot.workbench.registry appends a
+# trust entry for every project folder that is opened, so a working copy soon
+# differs from this file. Keep local edits out of commits
+# (git update-index --skip-worktree codex-home/config.toml).
+#
+# The kernel never reads the user's own ~/.codex. No API key is stored here or
+# in any environment variable: each provider's auth command fetches the key on
+# demand from <repo>/secrets/<provider>.txt, which is not tracked.
+#
+# Absolute paths below assume the repository at H:\CrystalPilot on Windows.
+# scripts/setup_linux.py rewrites them for a Linux checkout; on Windows at
+# another location, edit them or re-save the providers in the settings dialog,
+# which writes the correct paths.
+
+# The model catalog codex reads at start: the active kernel's bundled models
+# plus the custom entries CrystalPilot adds (regenerated when stale).
+model_catalog_json = 'H:\CrystalPilot\codex-home\model_catalog.json'
+
+# Defaults for projects without their own override.
+model = "gpt-5.6-sol"
+model_provider = "crystalpilot"
+model_reasoning_effort = "xhigh"
+model_reasoning_summary = "auto"
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+
+# Default provider: any OpenAI Responses-compatible endpoint. Replace the base
+# URL with yours, or add a provider in the settings dialog.
+[model_providers.crystalpilot]
+name = "CrystalPilot Gateway (OpenAI Responses-compatible)"
+base_url = "https://gateway.example.com/openai"
+wire_api = "responses"
+
+[model_providers.crystalpilot.auth]
+command = 'H:\CrystalPilot\.venv\Scripts\python.exe'
+args = ['H:\CrystalPilot\crystalpilot\workbench\print_token.py', '--cred', 'H:\CrystalPilot\secrets\crystalpilot.txt']
+
+# Second provider: OpenRouter. Used only by projects whose settings select it
+# (scripts/run_live.py --provider openrouter ...).
+[model_providers.openrouter]
+name = "OpenRouter (OpenAI Responses-compatible)"
+base_url = "https://openrouter.ai/api/v1"
+wire_api = "responses"
+http_headers = { "X-Title" = "CrystalPilot" }
+
+[model_providers.openrouter.auth]
+command = 'H:\CrystalPilot\.venv\Scripts\python.exe'
+args = ['H:\CrystalPilot\crystalpilot\workbench\print_token.py', '--cred', 'H:\CrystalPilot\secrets\openrouter.txt']
+
+# Sub-agent limits. Keep this table above the [projects.*] entries that
+# registry.py appends, or TOML table scoping swallows it.
+[agents]
+max_concurrent_threads_per_session = 2
+max_depth = 1
+job_max_runtime_seconds = 1800
+default_subagent_reasoning_effort = "medium"
+
+# Trust entries for opened project folders are appended below by the service:
+#
+# [projects.'h:\crystalpilot-campaigns\mine\test1']
+# trust_level = "trusted"

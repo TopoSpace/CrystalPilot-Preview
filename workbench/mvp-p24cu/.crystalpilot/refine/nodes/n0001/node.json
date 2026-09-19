@@ -1,0 +1,46 @@
+{
+  "id": "n0001",
+  "parent": "n0000",
+  "branch": "main",
+  "ts": 1787908910.2948413,
+  "tool": "refine",
+  "params": {
+    "mode": "isotropic",
+    "n_cycles": 12,
+    "label": "baseline isotropic refinement"
+  },
+  "note": "",
+  "metrics": {
+    "label": "baseline isotropic refinement",
+    "r1_strong": 0.2285,
+    "r1_all": 0.2313,
+    "wr2": 0.6054,
+    "goof": 6.366,
+    "n_params": 140,
+    "n_reflections": 8198,
+    "diff_map_max": 7.41,
+    "diff_map_min": -7.04,
+    "notes": "",
+    "scale_k": 0.07581005299733357
+  },
+  "metrics_current": true,
+  "model": {
+    "n_atoms": 40,
+    "element_counts": {
+      "Cu": 1,
+      "C": 34,
+      "O": 5
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 0.07581005299733357,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

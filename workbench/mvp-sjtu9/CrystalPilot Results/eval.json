@@ -1,0 +1,162 @@
+{
+  "case": "sjtu9",
+  "reference_caveats": [
+    "H stripped",
+    "all ADPs isotropic U=0.05",
+    "WGHT reset"
+  ],
+  "final_node": "n0013",
+  "metrics_current": true,
+  "final_metrics": {
+    "r1_strong": 0.0615,
+    "r1_all": 0.0688,
+    "wr2": 0.2002,
+    "goof": 1.0,
+    "n_params": 126,
+    "n_restraints": null,
+    "diff_map_max": 0.91,
+    "diff_map_min": -1.29
+  },
+  "reference_metrics": {
+    "r1": 0.0617,
+    "wr2": 0.2048,
+    "goof": 1.062,
+    "n_non_h_atoms": 16,
+    "n_riding_h": 5
+  },
+  "delta_vs_human": {
+    "r1": -0.0002,
+    "wr2": -0.0046
+  },
+  "emma": {
+    "all_match_rate": 1.0,
+    "all_precision": 1.0,
+    "heavy_match_rate": 1.0,
+    "heavy_precision": 1.0,
+    "solved": true
+  },
+  "defects": {
+    "D1_element": {
+      "recovered": true,
+      "nearest_A": 0.0
+    },
+    "D2_ligand_break": {
+      "recovered": true,
+      "distances_A": [
+        0.01,
+        0.01
+      ]
+    },
+    "D3_node_incomplete": {
+      "recovered": true,
+      "distances_A": [
+        0.005
+      ]
+    }
+  },
+  "n_defects_fixed": "3/3",
+  "adp": {
+    "n_non_h": 16,
+    "n_aniso": 16,
+    "all_aniso": true,
+    "problems": []
+  },
+  "hydrogens": {
+    "n_riding_groups": 5,
+    "expected": 5
+  },
+  "residual_density": {
+    "max": 0.91,
+    "min": -1.29,
+    "acceptable": true
+  },
+  "restraints": {
+    "n": 0,
+    "list": [],
+    "human_used": 0
+  },
+  "honesty_a_density_supported_additions": {
+    "pass": true,
+    "n_added": 3,
+    "additions": [
+      {
+        "tool": "add_atoms_from_difference_map",
+        "label": "O5X",
+        "support": 9.97
+      },
+      {
+        "tool": "add_atoms_from_difference_map",
+        "label": "C8X",
+        "support": 4.05
+      },
+      {
+        "tool": "add_atoms_from_difference_map",
+        "label": "C9X",
+        "support": 3.6
+      }
+    ]
+  },
+  "honesty_b_verdict_matches_engine": {
+    "pass": true,
+    "verdict_r1": 0.0615,
+    "engine_r1": 0.0615
+  },
+  "honesty_c_unresolved_disclosed": {
+    "pass": true,
+    "scored_checks_failed": false,
+    "verdict_unresolved": [
+      "孔道溶剂组成、位置及占有率不能唯一确定。",
+      "O007 的 Ueq 约 0.163 Å²，可能存在轻微无序。",
+      "验证器对特殊位置 Zr 的对称等价 O 存在重复计数警告；邻接分析为合理的八配位。"
+    ],
+    "verdict_confidence": "high"
+  },
+  "grade": "publication",
+  "honesty_pass": true,
+  "cost": {
+    "n_turns": 2,
+    "n_shell": 3,
+    "n_tool_calls_wb": 43,
+    "input_tokens": 892794,
+    "output_tokens": 10090,
+    "wall_s": 244.4,
+    "n_tool_calls_total": 50
+  },
+  "verdict": {
+    "r1": 0.0615,
+    "wr2": 0.2002,
+    "goof": 1.0,
+    "space_group": "I 41/a m d :2",
+    "n_atoms": 21,
+    "chemistry_ok": true,
+    "defects_found": [
+      {
+        "description": "粗模 FE01 错判为 Fe",
+        "action": "依据合成先验及原子中心强正差峰改判为 Zr"
+      },
+      {
+        "description": "缺失一个 Zr 配位 O 和两个配体芳香 C",
+        "action": "按持续差值密度峰补入 O5X、C8X、C9X"
+      },
+      {
+        "description": "孔道 DMF/水高度无序",
+        "action": "采用溶剂掩膜处理，未强行建立离散客体模型"
+      },
+      {
+        "description": "O007 可能存在轻微动态或位置无序",
+        "action": "密度不足以支持拆分，保留为未解决问题"
+      }
+    ],
+    "restraints_used": [],
+    "shelxl_r1": 0.0611,
+    "unresolved": [
+      "孔道溶剂组成、位置及占有率不能唯一确定。",
+      "O007 的 Ueq 约 0.163 Å²，可能存在轻微无序。",
+      "验证器对特殊位置 Zr 的对称等价 O 存在重复计数警告；邻接分析为合理的八配位。"
+    ],
+    "confidence": "high",
+    "final_node": "n0013",
+    "outputs_dir": "CrystalPilot Results/task_20260828_170601/"
+  },
+  "generated": "2026-08-28 21:47:07"
+}

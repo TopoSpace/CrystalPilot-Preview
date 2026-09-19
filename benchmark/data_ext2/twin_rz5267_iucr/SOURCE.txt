@@ -1,0 +1,31 @@
+slug: twin_rz5267_iucr
+source: IUCr journals.iucr.org supplement (rz5267sup1.cif, rz5267Isup2.hkl)
+entry page: https://journals.iucr.org/e/issues/2020/01/00/rz5267/
+doi: 10.1107/S2056989019016852
+journal: Acta Crystallographica Section E (2020)
+title: Bis{4-[(2-hydroxy-5-methoxy-3-nitrobenzylidene)amino]phenyl} ether: two-component pseudo-merohedral twin
+license: Open-access IUCr journal article (CC-BY); CIF/structure factors published as supplementary material
+chemical formula: C28 H22 N4 O9
+space group: C 2/c   Z: 4
+cell: 15.954(4), 5.4599(12), 28.397(6), 90, 92.299(5), 90
+temperature: 100 K   radiation: MoK\a lambda=0.71073
+device: Bruker APEX DUO CCD area detector
+published R1(gt): 0.0996   wR2: 0.3525
+
+files:
+  ref.cif  = final refined CIF as deposited (downloaded from https://doi.org/10.1107/S2056989019016852/rz5267sup1.cif)
+  ref.fcf  = structure-factor file as deposited (downloaded from https://doi.org/10.1107/S2056989019016852/rz5267Isup2.hkl);
+             format: CIF reflection file, SHELX LIST 4 (_shelx_refln_list_code 4):
+             loop of h k l F_squared_calc F_squared_meas F_squared_sigma status
+  ref.hkl  = DERIVED locally from ref.fcf: SHELX HKLF4 fixed format (3I4,2F8.2), columns h k l Fo^2 sigma(Fo^2), terminated by 0 0 0 line. Fo^2 and sigma uniformly scaled by 0.1 to fit F8.2 columns.
+
+verification: gemmi parses ref.cif and ref.fcf; n_reflections(fcf) = 2830;
+  R1 recomputed from fcf (Fo>2sig) = 0.0996 vs published R1(gt) = 0.0996 -> pairing check
+  cell(fcf) matches cell(cif): True
+
+why selected: IUCr Acta E direct supplement. Explicit TWIN -1 0 0 0 -1 0 0 0 1 / BASF 0.0234 in embedded .res, but high R1~0.10: tests honest reporting of poor model-data agreement alongside twin disclosure.
+
+key refinement instruction lines (embedded .res in CIF):
+  TWIN -1 0 0 0 -1 0 0 0 1
+  BASF   0.02337
+  HKLF 4 1 1 2 0 -1 0 0 0 0 1

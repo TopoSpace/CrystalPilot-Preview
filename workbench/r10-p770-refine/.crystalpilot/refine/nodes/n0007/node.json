@@ -1,0 +1,55 @@
+{
+  "id": "n0007",
+  "parent": "n0006",
+  "branch": "main",
+  "ts": 1788071655.4399374,
+  "tool": "refine",
+  "params": {
+    "mode": "aniso_heavy",
+    "n_cycles": 8,
+    "label": "aniso_La_Ni_before_completion"
+  },
+  "note": "",
+  "metrics": {
+    "label": "aniso_La_Ni_before_completion",
+    "r1_strong": 0.0955,
+    "r1_all": 0.1032,
+    "wr2": 0.3114,
+    "goof": 2.291,
+    "n_params": 234,
+    "n_reflections": 12112,
+    "diff_map_max": 1.75,
+    "diff_map_min": -1.87,
+    "notes": "",
+    "scale_k": 0.03499182804994223
+  },
+  "metrics_current": true,
+  "model": {
+    "n_atoms": 56,
+    "element_counts": {
+      "La": 1,
+      "Ni": 1,
+      "P": 2,
+      "N": 8,
+      "C": 44
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 0.03499182804994223,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "disorder_groups": [],
+  "twin": null,
+  "label_renames": {},
+  "asu": {
+    "n_detached_atoms": 6,
+    "ghost_suspects": [],
+    "advice": "run assemble_asu before delivery; ghost suspects need a delete-and-refine test - do not keep chemistry-free atoms to lower R1"
+  }
+}

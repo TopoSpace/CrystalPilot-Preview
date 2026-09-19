@@ -1,0 +1,12 @@
+{
+  "active_node": "n0031",
+  "active_branch": "fixed_h_smtbx",
+  "branches": {
+    "main": "n0010",
+    "mixed_h_failed": "n0010",
+    "explicit_h": "n0015",
+    "final": "n0022",
+    "fixed_h_smtbx": "n0031"
+  },
+  "seq": 32
+}

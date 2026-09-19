@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>CrystalPilot</title>
+    <script>
+      (() => {
+        const root = document.documentElement;
+        const palettes = ["anthropic", "openai", "kimi"];
+        const fonts = [13, 14, 15, 16];
+        let preference = "system";
+        let palette = "anthropic";
+        let fontSize = 14;
+        try {
+          const storedTheme = localStorage.getItem("crystalpilot-theme");
+          const storedPalette = localStorage.getItem("crystalpilot-palette");
+          const storedFont = Number(localStorage.getItem("crystalpilot-font-size"));
+          if (["system", "light", "dark"].includes(storedTheme)) preference = storedTheme;
+          if (palettes.includes(storedPalette)) palette = storedPalette;
+          if (fonts.includes(storedFont)) fontSize = storedFont;
+        } catch {}
+        const dark = preference === "dark" ||
+          (preference === "system" && matchMedia("(prefers-color-scheme: dark)").matches);
+        root.classList.toggle("dark", dark);
+        root.dataset.palette = palette;
+        root.style.setProperty("--cp-scale", (fontSize / 14).toFixed(4));
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

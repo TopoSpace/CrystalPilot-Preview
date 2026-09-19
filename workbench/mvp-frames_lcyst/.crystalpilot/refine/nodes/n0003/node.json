@@ -1,0 +1,61 @@
+{
+  "id": "n0003",
+  "parent": "n0002",
+  "branch": "main",
+  "ts": 1787948602.687613,
+  "tool": "edit_atoms",
+  "params": {
+    "operations": [
+      {
+        "action": "reassign",
+        "atoms": [
+          "C2",
+          "C3"
+        ],
+        "element": "O"
+      },
+      {
+        "action": "reassign",
+        "atoms": [
+          "C4"
+        ],
+        "element": "N"
+      }
+    ]
+  },
+  "note": "",
+  "metrics": {
+    "label": "C1 reassigned to sulfur",
+    "r1_strong": 0.117,
+    "r1_all": 0.1254,
+    "wr2": 0.3585,
+    "goof": 2.55,
+    "n_params": 28,
+    "n_reflections": 2589,
+    "diff_map_max": 2.16,
+    "diff_map_min": -2.72,
+    "notes": "",
+    "scale_k": 1.4546816587322724
+  },
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 7,
+    "element_counts": {
+      "S": 1,
+      "O": 2,
+      "N": 1,
+      "C": 3
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 1.4546816587322724,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

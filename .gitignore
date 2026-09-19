@@ -1,0 +1,91 @@
+# ==== SECRETS — never commit ====
+testAPI.txt
+*.key
+.env
+.env.*
+secrets/
+**/secrets.*
+config/credentials*
+.crystalpilot/config.json
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+
+# Node
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# Licensed third-party binaries (project-local copies; never commit)
+vendor/
+
+# CrystalPilot runtime data
+runs/
+workdir/
+benchmark/results/
+benchmark/data/
+*.log
+.cache/
+
+# Workbench (Codex harness): isolated CODEX_HOME runtime state; config is code
+codex-home/*
+!codex-home/config.toml
+workbench/.venv/
+workbench/**/*.hkl
+workbench/demo-*/CrystalPilot Results/*/runs/
+workbench/demo-*/.crystalpilot-workbench.json
+workbench/**/.crystalpilot-workbench.json
+
+# Round 3: benchmark per-case run artifacts are bulky; summary json/md are committed
+benchmark/results_*/runs/
+# transient probe/demo project copies (durable knowledge lives in MCP_NOTES.md
+# and workbench/evidence/)
+workbench/codex-e2e-*/
+workbench/copilot-demo/
+# transient engine job dirs inside refinement projects (.fab exports are large);
+# the node store (nodes/, runs/, state.json) IS committed as audit evidence
+workbench/**/.crystalpilot/refine/shelxl/
+workbench/**/.crystalpilot/refine/checkcif/
+# Round 4: derived caches + bulky DIALS intermediates + user uploads;
+# frames state.json/logs stay as audit evidence
+workbench/**/.crystalpilot/refine/scene-cache/
+workbench/**/.crystalpilot/ccgate_*/
+workbench/**/.crystalpilot/frames/**
+!workbench/**/.crystalpilot/frames/state.json
+!workbench/**/.crystalpilot/frames/logs/
+workbench/**/uploads/
+# user's own hands-on demo workspaces (their data, not repo material)
+workbench/round3-*/
+# generated when the repo root itself is opened as a workbench project
+# (/AGENTS.md is tracked on purpose since 2026-09-03: it is a one-line
+# pointer; ensure_agents_md never overwrites a marker-less file)
+/.crystalpilot-workbench.json
+/CrystalPilot Results/
+
+# OS
+Thumbs.db
+.DS_Store
+workbench/codex-home/
+
+# campaign project evidence workspaces (r5+ rounds, mvp/demo probes):
+# kept on disk as grading/audit evidence, never tracked
+workbench/r[0-9]*/
+workbench/pa[0-9]*/
+workbench/mvp-*/
+workbench/demo-*/
+
+# the custom codex model catalog is configuration, not state
+# codex-home/model_catalog.json is GENERATED (bundled catalog of the running
+# codex + model_catalog.custom.json); only the sources are tracked
+!codex-home/model_catalog.custom.json
+!codex-home/base_instructions.generic.txt

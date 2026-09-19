@@ -1,0 +1,679 @@
+{
+  "run_id": "run_4e1744714e",
+  "ok": true,
+  "symmetry": {
+    "determined": {
+      "ambiguous_with_top": [
+        "C 2 2 2",
+        "C m m 2",
+        "C 2 m m",
+        "C m m m"
+      ],
+      "note": "top candidates are statistically tied - resolve by trial solutions in each",
+      "laue_group": {
+        "laue_group": "P m m m",
+        "laue_symmetry": "Unit cell: (11.86, 15.79, 32.31, 90, 90, 90)\nSpace group: P m m m (No. 47)",
+        "cb_op_inp_best": "c,a,b",
+        "order": 8,
+        "r_int": 0.027349169356446944,
+        "n_unique": 4586,
+        "multiplicity": 10.145224596598343,
+        "max_angular_difference": 0.0,
+        "cell": [
+          11.86,
+          15.79,
+          32.31,
+          90.0,
+          90.0,
+          90.0
+        ],
+        "accepted": true
+      },
+      "laue_r_int": null,
+      "centering": {
+        "letter": "A",
+        "details": {
+          "A": {
+            "n_class": 0,
+            "n_rest": 46526,
+            "frac_measured": 0.0,
+            "mean_isig": 0.0,
+            "mean_rel_i": 0.0,
+            "frac_strong": 0.0,
+            "supported": true,
+            "inferred_from_missing": true
+          },
+          "B": {
+            "n_class": 23261,
+            "n_rest": 23265,
+            "frac_measured": 0.9998280679131742,
+            "mean_isig": 15.352096453711523,
+            "mean_rel_i": 0.9114124498240721,
+            "frac_strong": 0.8991015003654185,
+            "supported": false,
+            "inferred_from_missing": false
+          },
+          "C": {
+            "n_class": 23261,
+            "n_rest": 23265,
+            "frac_measured": 0.9998280679131742,
+            "mean_isig": 15.352096453711523,
+            "mean_rel_i": 0.9114124498240721,
+            "frac_strong": 0.8991015003654185,
+            "supported": false,
+            "inferred_from_missing": false
+          },
+          "I": {
+            "n_class": 23120,
+            "n_rest": 23406,
+            "frac_measured": 0.9877809108775527,
+            "mean_isig": 15.673568247679798,
+            "mean_rel_i": 0.9811711056879724,
+            "frac_strong": 0.9000865051903114,
+            "supported": false,
+            "inferred_from_missing": false
+          }
+        }
+      },
+      "e_sq_minus_1": 0.8116568029468839,
+      "source_symmetry_hint": "C 2 2 21",
+      "candidates": [
+        {
+          "space_group": "C 2 2 21",
+          "sg_number": 20,
+          "total_score": -224.2,
+          "r_int": 0.027349169356446944,
+          "centrosymmetric": false,
+          "n_absence_violations": 0
+        },
+        {
+          "space_group": "C 2 2 2",
+          "sg_number": 21,
+          "total_score": -238.3,
+          "r_int": 0.027349169356446944,
+          "centrosymmetric": false,
+          "n_absence_violations": 0
+        },
+        {
+          "space_group": "C m m 2",
+          "sg_number": 35,
+          "total_score": -238.3,
+          "r_int": 0.027349169356446944,
+          "centrosymmetric": false,
+          "n_absence_violations": 0
+        },
+        {
+          "space_group": "C 2 m m",
+          "sg_number": 38,
+          "total_score": -238.3,
+          "r_int": 0.027349169356446944,
+          "centrosymmetric": false,
+          "n_absence_violations": 0
+        },
+        {
+          "space_group": "C m m m",
+          "sg_number": 65,
+          "total_score": -241.2,
+          "r_int": 0.027349169356446944,
+          "centrosymmetric": true,
+          "n_absence_violations": 0
+        },
+        {
+          "space_group": "C m c 21",
+          "sg_number": 36,
+          "total_score": -327.9,
+          "r_int": 0.027349169356446944,
+          "centrosymmetric": false,
+          "n_absence_violations": 57
+        },
+        {
+          "space_group": "C 2 c m",
+          "sg_number": 40,
+          "total_score": -327.9,
+          "r_int": 0.027349169356446944,
+          "centrosymmetric": false,
+          "n_absence_violations": 57
+        },
+        {
+          "space_group": "C m c m",
+          "sg_number": 63,
+          "total_score": -330.8,
+          "r_int": 0.027349169356446944,
+          "centrosymmetric": true,
+          "n_absence_violations": 57
+        }
+      ]
+    },
+    "space_group": "C 2 2 21",
+    "n_unique": 8198,
+    "r_int": 0.024,
+    "d_min": 0.693,
+    "completeness": 0.861
+  },
+  "solution": {
+    "converged": true,
+    "seed": 2,
+    "map_correlation": 0.953,
+    "d_min": 1.0,
+    "n_reflections": 3175,
+    "elapsed_s": 2.5,
+    "n_peaks": 62,
+    "top_peak_heights": [
+      34.7,
+      8.8,
+      8.2,
+      8.2,
+      6.9,
+      6.9,
+      6.8,
+      6.1,
+      6.1,
+      6.0,
+      5.8,
+      5.7
+    ]
+  },
+  "interpretation": {
+    "n_atoms": 34,
+    "element_counts": {
+      "Cu": 1,
+      "C": 28,
+      "O": 5
+    },
+    "expected_asu_budget": {
+      "C": 28.5,
+      "Cu": 1.0,
+      "O": 4.0
+    },
+    "composition_known": true,
+    "n_probable_unassigned_heavy_sites": 0,
+    "n_peaks_dropped": 28,
+    "n_symmetry_ghosts_removed": 0,
+    "note": "C/N ambiguity unresolved; O assigned by metal-coordination distance"
+  },
+  "solvent_mask": {
+    "n_voids": 2,
+    "n_voids_masked": 2,
+    "total_solvent_electrons_per_cell": 375.6,
+    "solvent_volume_pct_of_cell": 31.7
+  },
+  "refinement": {
+    "mode": "anisotropic",
+    "solvent_mask_used": true,
+    "r1_strong": 0.1021,
+    "n_strong": 7870,
+    "r1_all": 0.1037,
+    "wr2": 0.2912,
+    "goof": 0.948,
+    "n_params": 324,
+    "n_reflections": 8198,
+    "diff_map_max": 0.72,
+    "diff_map_min": -0.98,
+    "diff_map_peaks": [
+      {
+        "site": [
+          0.0598,
+          0.4338,
+          0.624
+        ],
+        "height": 0.79,
+        "nearest_atom": "H33XA",
+        "nearest_d": 0.67
+      },
+      {
+        "site": [
+          0.1214,
+          0.4485,
+          0.6453
+        ],
+        "height": 0.65,
+        "nearest_atom": "H33XA",
+        "nearest_d": 0.99
+      },
+      {
+        "site": [
+          0.0714,
+          0.0178,
+          0.239
+        ],
+        "height": 0.59,
+        "nearest_atom": "O3",
+        "nearest_d": 1.3
+      },
+      {
+        "site": [
+          0.0685,
+          0.1796,
+          0.4076
+        ],
+        "height": 0.58,
+        "nearest_atom": "C17",
+        "nearest_d": 1.2
+      },
+      {
+        "site": [
+          0.1655,
+          0.3276,
+          0.618
+        ],
+        "height": 0.58,
+        "nearest_atom": "C29X",
+        "nearest_d": 1.04
+      },
+      {
+        "site": [
+          0.0743,
+          0.2042,
+          0.3183
+        ],
+        "height": 0.55,
+        "nearest_atom": "C18",
+        "nearest_d": 0.32
+      },
+      {
+        "site": [
+          0.0721,
+          0.4783,
+          0.1338
+        ],
+        "height": 0.55,
+        "nearest_atom": "C26",
+        "nearest_d": 1.07
+      },
+      {
+        "site": [
+          0.1214,
+          0.3519,
+          0.2469
+        ],
+        "height": 0.53,
+        "nearest_atom": "C11",
+        "nearest_d": 1.03
+      }
+    ],
+    "adp_suspects": [
+      {
+        "atom": "C33X",
+        "element": "C",
+        "u_equiv": 0.3423,
+        "issue": "U very large (ghost atom, wrong element too heavy, or disorder)"
+      },
+      {
+        "atom": "H33XA",
+        "element": "H",
+        "u_equiv": 0.4108,
+        "issue": "U very large (ghost atom, wrong element too heavy, or disorder)"
+      },
+      {
+        "atom": "H33XB",
+        "element": "H",
+        "u_equiv": 0.4108,
+        "issue": "U very large (ghost atom, wrong element too heavy, or disorder)"
+      }
+    ],
+    "n_atoms": 60
+  },
+  "hydrogens": {
+    "n_h_added": 20,
+    "n_carriers": 15
+  },
+  "weights": {
+    "a": 0.2,
+    "b": 36.0
+  },
+  "validation": {
+    "n_alerts": 1,
+    "alerts": [
+      {
+        "severity": "warning",
+        "code": "metal_cn",
+        "message": "Cu1 (Cu) CN=8 outside typical [2, 6]; neighbors: ['O:1.87', 'O:1.87', 'O:1.92', 'O:1.92', 'O:1.93', 'O:1.94', 'O:2.34', 'O:2.34']"
+      }
+    ],
+    "framework_dimensionality": 3,
+    "largest_fragment": {
+      "n_atoms": 444,
+      "dimensionality": 3,
+      "elements": {
+        "Cu": 8,
+        "O": 32,
+        "C": 244,
+        "H": 160
+      },
+      "asu_labels": [
+        "C1",
+        "C10",
+        "C11",
+        "C12",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C21",
+        "C22",
+        "C23",
+        "C24",
+        "C25",
+        "C26",
+        "C27",
+        "C28X",
+        "C29X",
+        "C3",
+        "C30X",
+        "C31X",
+        "C32X",
+        "C33X",
+        "C34X",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "Cu1",
+        "H12",
+        "H13A",
+        "H13B",
+        "H13C",
+        "H14",
+        "H15",
+        "H16",
+        "H17",
+        "H18",
+        "H19",
+        "H20",
+        "H22",
+        "H25",
+        "H26",
+        "H33XA",
+        "H33XB",
+        "H34XA",
+        "H34XB",
+        "H34XC",
+        "H7",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+      ]
+    },
+    "metal_coordination": [
+      {
+        "atom": "Cu1",
+        "element": "Cu",
+        "cn": 8,
+        "neighbors": [
+          "O:1.87",
+          "O:1.87",
+          "O:1.92",
+          "O:1.92",
+          "O:1.93",
+          "O:1.94",
+          "O:2.34",
+          "O:2.34"
+        ],
+        "cn_plausible": false,
+        "expected_cn": [
+          2,
+          6
+        ]
+      }
+    ],
+    "confidence": {
+      "score": 80.6,
+      "grade": "high"
+    },
+    "composition_deviation": null
+  },
+  "cif": "H:\\CrystalPilot\\workbench\\demo-mof\\CrystalPilot Results\\task_20260827_234012\\runs\\run_4e1744714e\\artifacts\\final.cif",
+  "refinement_history": [
+    {
+      "label": "iso_initial",
+      "r1_strong": 0.2471,
+      "r1_all": 0.25,
+      "wr2": 0.6262,
+      "goof": 6.682,
+      "n_params": 116,
+      "n_reflections": 8198,
+      "diff_map_max": 7.31,
+      "diff_map_min": -6.93,
+      "notes": ""
+    },
+    {
+      "label": "fourier_cycle_0",
+      "r1_strong": 0.2471,
+      "r1_all": 0.2501,
+      "wr2": 0.6261,
+      "goof": 6.681,
+      "n_params": 116,
+      "n_reflections": 8198,
+      "diff_map_max": 7.32,
+      "diff_map_min": -6.92,
+      "notes": ""
+    },
+    {
+      "label": "fourier_cycle_1",
+      "r1_strong": 0.2306,
+      "r1_all": 0.2334,
+      "wr2": 0.608,
+      "goof": 6.408,
+      "n_params": 134,
+      "n_reflections": 8198,
+      "diff_map_max": 7.5,
+      "diff_map_min": -6.97,
+      "notes": ""
+    },
+    {
+      "label": "fourier_cycle_2",
+      "r1_strong": 0.2314,
+      "r1_all": 0.2342,
+      "wr2": 0.6085,
+      "goof": 6.416,
+      "n_params": 138,
+      "n_reflections": 8198,
+      "diff_map_max": 7.52,
+      "diff_map_min": -7.08,
+      "notes": ""
+    },
+    {
+      "label": "fourier_cycle_3",
+      "r1_strong": 0.2272,
+      "r1_all": 0.23,
+      "wr2": 0.6057,
+      "goof": 6.373,
+      "n_params": 142,
+      "n_reflections": 8198,
+      "diff_map_max": 7.43,
+      "diff_map_min": -7.05,
+      "notes": ""
+    },
+    {
+      "label": "fourier_complete_final",
+      "r1_strong": 0.2271,
+      "r1_all": 0.2299,
+      "wr2": 0.6051,
+      "goof": 6.363,
+      "n_params": 142,
+      "n_reflections": 8198,
+      "diff_map_max": 7.43,
+      "diff_map_min": -7.05,
+      "notes": ""
+    },
+    {
+      "label": "fourier_cycle_0",
+      "r1_strong": 0.1675,
+      "r1_all": 0.1698,
+      "wr2": 0.4727,
+      "goof": 4.599,
+      "n_params": 142,
+      "n_reflections": 8198,
+      "diff_map_max": 4.59,
+      "diff_map_min": -4.51,
+      "notes": ""
+    },
+    {
+      "label": "fourier_complete_final",
+      "r1_strong": 0.1679,
+      "r1_all": 0.1701,
+      "wr2": 0.4728,
+      "goof": 4.599,
+      "n_params": 142,
+      "n_reflections": 8198,
+      "diff_map_max": 4.57,
+      "diff_map_min": -4.54,
+      "notes": ""
+    },
+    {
+      "label": "aniso_heavy",
+      "r1_strong": 0.1256,
+      "r1_all": 0.1273,
+      "wr2": 0.3946,
+      "goof": 3.695,
+      "n_params": 147,
+      "n_reflections": 8198,
+      "diff_map_max": 0.94,
+      "diff_map_min": -1.48,
+      "notes": ""
+    },
+    {
+      "label": "aniso_all",
+      "r1_strong": 0.1083,
+      "r1_all": 0.1098,
+      "wr2": 0.3448,
+      "goof": 3.208,
+      "n_params": 324,
+      "n_reflections": 8198,
+      "diff_map_max": 0.92,
+      "diff_map_min": -0.97,
+      "notes": ""
+    },
+    {
+      "label": "aniso_h",
+      "r1_strong": 0.1063,
+      "r1_all": 0.1079,
+      "wr2": 0.3455,
+      "goof": 3.215,
+      "n_params": 324,
+      "n_reflections": 8198,
+      "diff_map_max": 0.79,
+      "diff_map_min": -1.0,
+      "notes": ""
+    },
+    {
+      "label": "weights_baseline",
+      "r1_strong": 0.1062,
+      "r1_all": 0.1078,
+      "wr2": 0.3454,
+      "goof": 3.214,
+      "n_params": 324,
+      "n_reflections": 8198,
+      "diff_map_max": 0.79,
+      "diff_map_min": -1.0,
+      "notes": ""
+    },
+    {
+      "label": "weights_round_0",
+      "r1_strong": 0.1071,
+      "r1_all": 0.1086,
+      "wr2": 0.3676,
+      "goof": 1.849,
+      "n_params": 324,
+      "n_reflections": 8198,
+      "diff_map_max": 0.79,
+      "diff_map_min": -1.0,
+      "notes": ""
+    },
+    {
+      "label": "weights_round_1",
+      "r1_strong": 0.1071,
+      "r1_all": 0.1086,
+      "wr2": 0.3676,
+      "goof": 1.849,
+      "n_params": 324,
+      "n_reflections": 8198,
+      "diff_map_max": 0.79,
+      "diff_map_min": -1.0,
+      "notes": ""
+    },
+    {
+      "label": "weights_bexp",
+      "r1_strong": 0.1063,
+      "r1_all": 0.1078,
+      "wr2": 0.3532,
+      "goof": 1.659,
+      "n_params": 324,
+      "n_reflections": 8198,
+      "diff_map_max": 0.79,
+      "diff_map_min": -1.0,
+      "notes": ""
+    },
+    {
+      "label": "weights_bexp",
+      "r1_strong": 0.1054,
+      "r1_all": 0.1069,
+      "wr2": 0.3362,
+      "goof": 1.447,
+      "n_params": 324,
+      "n_reflections": 8198,
+      "diff_map_max": 0.78,
+      "diff_map_min": -1.0,
+      "notes": ""
+    },
+    {
+      "label": "weights_bexp",
+      "r1_strong": 0.1044,
+      "r1_all": 0.106,
+      "wr2": 0.3117,
+      "goof": 1.155,
+      "n_params": 324,
+      "n_reflections": 8198,
+      "diff_map_max": 0.77,
+      "diff_map_min": -1.0,
+      "notes": ""
+    },
+    {
+      "label": "weights_bexp",
+      "r1_strong": 0.1033,
+      "r1_all": 0.1049,
+      "wr2": 0.2838,
+      "goof": 0.847,
+      "n_params": 324,
+      "n_reflections": 8198,
+      "diff_map_max": 0.75,
+      "diff_map_min": -0.99,
+      "notes": ""
+    },
+    {
+      "label": "weights_bbis",
+      "r1_strong": 0.1027,
+      "r1_all": 0.1043,
+      "wr2": 0.2928,
+      "goof": 0.954,
+      "n_params": 324,
+      "n_reflections": 8198,
+      "diff_map_max": 0.74,
+      "diff_map_min": -0.98,
+      "notes": ""
+    },
+    {
+      "label": "final_weighted",
+      "r1_strong": 0.1021,
+      "r1_all": 0.1037,
+      "wr2": 0.2912,
+      "goof": 0.948,
+      "n_params": 324,
+      "n_reflections": 8198,
+      "diff_map_max": 0.72,
+      "diff_map_min": -0.98,
+      "notes": ""
+    }
+  ],
+  "html_report": "H:\\CrystalPilot\\workbench\\demo-mof\\CrystalPilot Results\\task_20260827_234012\\runs\\run_4e1744714e\\artifacts\\report.html",
+  "elapsed_s": 17.0
+}

@@ -1,0 +1,61 @@
+{
+  "id": "n0003",
+  "parent": "n0000",
+  "branch": "reconstruct_part_fvar",
+  "ts": 1787967448.017927,
+  "tool": "edit_atoms",
+  "params": {
+    "operations": [
+      {
+        "action": "delete",
+        "atoms": [
+          "C15B",
+          "C16B",
+          "H15A",
+          "H15B",
+          "H15C",
+          "H15D",
+          "H16A",
+          "H16B",
+          "H16C",
+          "H16D",
+          "H16E",
+          "H16F"
+        ]
+      },
+      {
+        "action": "set_occupancy",
+        "atoms": [
+          "C15A",
+          "C16A"
+        ],
+        "occupancy": 1
+      }
+    ]
+  },
+  "note": "",
+  "metrics": null,
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 32,
+    "element_counts": {
+      "O": 5,
+      "N": 2,
+      "H": 9,
+      "C": 16
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 1.0,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "disorder_groups": [],
+  "twin": null,
+  "label_renames": {}
+}

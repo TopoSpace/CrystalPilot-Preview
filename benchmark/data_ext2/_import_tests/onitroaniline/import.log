@@ -1,0 +1,1350 @@
+DIALS (2018) Acta Cryst. D74, 85-97. https://doi.org/10.1107/S2059798317017235
+DIALS 3.30
+
+  0%|          | 0/3324 [00:00<?, ?it/s]
+  0%|          | 1/3324 [00:00<06:26,  8.60it/s]
+  1%|          | 27/3324 [00:00<00:22, 145.20it/s]
+  2%|▏         | 56/3324 [00:00<00:15, 206.36it/s]
+  3%|▎         | 86/3324 [00:00<00:13, 238.97it/s]
+  4%|▎         | 118/3324 [00:00<00:12, 266.89it/s]
+  4%|▍         | 146/3324 [00:00<00:12, 256.90it/s]
+  5%|▌         | 176/3324 [00:00<00:11, 268.56it/s]
+  6%|▌         | 204/3324 [00:00<00:12, 256.74it/s]
+  7%|▋         | 232/3324 [00:00<00:11, 263.01it/s]
+  8%|▊         | 263/3324 [00:01<00:11, 276.42it/s]
+  9%|▉         | 291/3324 [00:01<00:11, 266.69it/s]
+ 10%|▉         | 319/3324 [00:01<00:11, 268.74it/s]
+ 10%|█         | 347/3324 [00:01<00:11, 256.87it/s]
+ 11%|█▏        | 374/3324 [00:01<00:11, 258.59it/s]
+ 12%|█▏        | 401/3324 [00:01<00:11, 256.86it/s]
+ 13%|█▎        | 427/3324 [00:01<00:11, 256.32it/s]
+ 14%|█▎        | 453/3324 [00:01<00:11, 248.66it/s]
+ 14%|█▍        | 479/3324 [00:01<00:11, 250.83it/s]
+ 15%|█▌        | 505/3324 [00:02<00:11, 244.58it/s]
+ 16%|█▌        | 533/3324 [00:02<00:10, 254.33it/s]
+ 17%|█▋        | 559/3324 [00:02<00:11, 239.14it/s]
+ 18%|█▊        | 584/3324 [00:02<00:11, 238.28it/s]
+ 18%|█▊        | 611/3324 [00:02<00:10, 246.96it/s]
+ 19%|█▉        | 637/3324 [00:02<00:10, 248.99it/s]
+ 20%|█▉        | 663/3324 [00:02<00:10, 244.09it/s]
+ 21%|██        | 689/3324 [00:02<00:10, 248.10it/s]
+ 22%|██▏       | 718/3324 [00:02<00:10, 258.77it/s]
+ 22%|██▏       | 744/3324 [00:02<00:10, 252.80it/s]
+ 23%|██▎       | 770/3324 [00:03<00:10, 253.96it/s]
+ 24%|██▍       | 796/3324 [00:03<00:10, 251.92it/s]
+ 25%|██▍       | 824/3324 [00:03<00:09, 259.38it/s]
+ 26%|██▌       | 852/3324 [00:03<00:09, 263.70it/s]
+ 26%|██▋       | 879/3324 [00:03<00:09, 261.28it/s]
+ 27%|██▋       | 906/3324 [00:03<00:09, 249.93it/s]
+ 28%|██▊       | 937/3324 [00:03<00:09, 265.20it/s]
+ 29%|██▉       | 966/3324 [00:03<00:08, 270.02it/s]
+ 30%|██▉       | 994/3324 [00:03<00:08, 264.06it/s]
+ 31%|███       | 1022/3324 [00:04<00:08, 267.96it/s]
+ 32%|███▏      | 1049/3324 [00:04<00:08, 266.48it/s]
+ 32%|███▏      | 1079/3324 [00:04<00:08, 273.43it/s]
+ 33%|███▎      | 1107/3324 [00:04<00:08, 268.02it/s]
+ 34%|███▍      | 1134/3324 [00:04<00:08, 263.09it/s]
+ 35%|███▍      | 1163/3324 [00:04<00:07, 270.55it/s]
+ 36%|███▌      | 1191/3324 [00:04<00:07, 268.78it/s]
+ 37%|███▋      | 1218/3324 [00:04<00:08, 253.98it/s]
+ 37%|███▋      | 1246/3324 [00:04<00:07, 260.68it/s]
+ 38%|███▊      | 1273/3324 [00:05<00:08, 252.30it/s]
+ 39%|███▉      | 1299/3324 [00:05<00:08, 251.89it/s]
+ 40%|███▉      | 1328/3324 [00:05<00:07, 259.32it/s]
+ 41%|████      | 1355/3324 [00:05<00:07, 261.16it/s]
+ 42%|████▏     | 1384/3324 [00:05<00:07, 268.28it/s]
+ 42%|████▏     | 1411/3324 [00:05<00:07, 267.49it/s]
+ 43%|████▎     | 1438/3324 [00:05<00:07, 262.43it/s]
+ 44%|████▍     | 1465/3324 [00:05<00:07, 264.46it/s]
+ 45%|████▍     | 1492/3324 [00:05<00:06, 265.21it/s]
+ 46%|████▌     | 1519/3324 [00:05<00:07, 255.21it/s]
+ 46%|████▋     | 1545/3324 [00:06<00:07, 246.31it/s]
+ 47%|████▋     | 1571/3324 [00:06<00:07, 248.32it/s]
+ 48%|████▊     | 1600/3324 [00:06<00:06, 259.64it/s]
+ 49%|████▉     | 1627/3324 [00:06<00:06, 253.38it/s]
+ 50%|████▉     | 1653/3324 [00:06<00:06, 254.96it/s]
+ 51%|█████     | 1682/3324 [00:06<00:06, 262.33it/s]
+ 51%|█████▏    | 1709/3324 [00:06<00:06, 259.88it/s]
+ 52%|█████▏    | 1736/3324 [00:06<00:06, 260.44it/s]
+ 53%|█████▎    | 1763/3324 [00:06<00:05, 262.13it/s]
+ 54%|█████▍    | 1791/3324 [00:06<00:05, 266.62it/s]
+ 55%|█████▍    | 1818/3324 [00:07<00:05, 264.37it/s]
+ 56%|█████▌    | 1845/3324 [00:07<00:05, 262.13it/s]
+ 56%|█████▋    | 1872/3324 [00:07<00:05, 260.86it/s]
+ 57%|█████▋    | 1899/3324 [00:07<00:05, 252.87it/s]
+ 58%|█████▊    | 1925/3324 [00:07<00:05, 244.08it/s]
+ 59%|█████▊    | 1952/3324 [00:07<00:05, 250.15it/s]
+ 60%|█████▉    | 1978/3324 [00:07<00:05, 246.62it/s]
+ 60%|██████    | 2004/3324 [00:07<00:05, 249.47it/s]
+ 61%|██████    | 2030/3324 [00:07<00:05, 250.58it/s]
+ 62%|██████▏   | 2057/3324 [00:08<00:04, 255.32it/s]
+ 63%|██████▎   | 2083/3324 [00:08<00:04, 249.35it/s]
+ 63%|██████▎   | 2110/3324 [00:08<00:04, 253.32it/s]
+ 64%|██████▍   | 2136/3324 [00:08<00:05, 230.78it/s]
+ 65%|██████▍   | 2160/3324 [00:08<00:05, 217.69it/s]
+ 66%|██████▌   | 2183/3324 [00:08<00:05, 213.81it/s]
+ 66%|██████▋   | 2207/3324 [00:08<00:05, 220.43it/s]
+ 67%|██████▋   | 2231/3324 [00:08<00:04, 225.54it/s]
+ 68%|██████▊   | 2258/3324 [00:08<00:04, 235.26it/s]
+ 69%|██████▉   | 2288/3324 [00:09<00:04, 252.58it/s]
+ 70%|██████▉   | 2316/3324 [00:09<00:03, 259.59it/s]
+ 70%|███████   | 2343/3324 [00:09<00:03, 258.15it/s]
+ 71%|███████▏  | 2369/3324 [00:09<00:03, 250.05it/s]
+ 72%|███████▏  | 2395/3324 [00:09<00:03, 244.32it/s]
+ 73%|███████▎  | 2424/3324 [00:09<00:03, 256.98it/s]
+ 74%|███████▍  | 2454/3324 [00:09<00:03, 268.17it/s]
+ 75%|███████▍  | 2482/3324 [00:09<00:03, 269.71it/s]
+ 76%|███████▌  | 2510/3324 [00:09<00:03, 266.24it/s]
+ 76%|███████▋  | 2537/3324 [00:10<00:03, 246.70it/s]
+ 77%|███████▋  | 2564/3324 [00:10<00:03, 252.05it/s]
+ 78%|███████▊  | 2592/3324 [00:10<00:02, 257.39it/s]
+ 79%|███████▉  | 2618/3324 [00:10<00:02, 250.97it/s]
+ 80%|███████▉  | 2644/3324 [00:10<00:02, 250.19it/s]
+ 80%|████████  | 2670/3324 [00:10<00:02, 245.93it/s]
+ 81%|████████  | 2695/3324 [00:10<00:02, 226.45it/s]
+ 82%|████████▏ | 2720/3324 [00:10<00:02, 231.12it/s]
+ 83%|████████▎ | 2745/3324 [00:10<00:02, 236.31it/s]
+ 83%|████████▎ | 2771/3324 [00:10<00:02, 241.53it/s]
+ 84%|████████▍ | 2797/3324 [00:11<00:02, 246.14it/s]
+ 85%|████████▍ | 2822/3324 [00:11<00:02, 238.27it/s]
+ 86%|████████▌ | 2848/3324 [00:11<00:01, 243.93it/s]
+ 87%|████████▋ | 2876/3324 [00:11<00:01, 253.33it/s]
+ 87%|████████▋ | 2902/3324 [00:11<00:01, 254.92it/s]
+ 88%|████████▊ | 2928/3324 [00:11<00:01, 254.18it/s]
+ 89%|████████▉ | 2958/3324 [00:11<00:01, 267.00it/s]
+ 90%|████████▉ | 2985/3324 [00:11<00:01, 259.62it/s]
+ 91%|█████████ | 3012/3324 [00:11<00:01, 249.23it/s]
+ 91%|█████████▏| 3038/3324 [00:12<00:01, 236.89it/s]
+ 92%|█████████▏| 3069/3324 [00:12<00:00, 256.57it/s]
+ 93%|█████████▎| 3100/3324 [00:12<00:00, 269.53it/s]
+ 94%|█████████▍| 3129/3324 [00:12<00:00, 272.98it/s]
+ 95%|█████████▌| 3160/3324 [00:12<00:00, 281.27it/s]
+ 96%|█████████▌| 3189/3324 [00:12<00:00, 283.58it/s]
+ 97%|█████████▋| 3220/3324 [00:12<00:00, 289.82it/s]
+ 98%|█████████▊| 3251/3324 [00:12<00:00, 291.50it/s]
+ 99%|█████████▊| 3281/3324 [00:12<00:00, 293.67it/s]
+100%|█████████▉| 3314/3324 [00:12<00:00, 299.55it/s]
+100%|██████████| 3324/3324 [00:13<00:00, 255.24it/s]
+The following parameters have been modified:
+
+input {
+  experiments = <image files>
+}
+
+--------------------------------------------------------------------------------
+  format: <class 'dxtbx.format.FormatBruker.FormatBruker'>
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1:1
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:2:2
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:3:3
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:4:4
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:5:5
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:6:6
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:7:7
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:8:8
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:9:9
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:10:10
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:11:11
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:12:12
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:13:13
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:14:14
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:15:15
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:16:16
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:17:17
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:18:18
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:19:19
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:20:20
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:21:21
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:22:22
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:23:23
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:24:24
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:25:25
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:26:26
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:27:27
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:28:28
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:29:29
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:30:30
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:31:31
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:32:32
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:33:33
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:34:34
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:35:35
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:36:36
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:37:37
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:38:38
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:39:39
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:40:40
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:41:41
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:42:42
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:43:43
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:44:44
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:45:45
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:46:46
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:47:47
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:48:48
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:49:49
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:50:50
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:51:51
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:52:52
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:53:53
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:54:54
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:55:55
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:56:56
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:57:57
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:58:58
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:59:59
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:60:60
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:61:61
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:62:62
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:63:63
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:64:64
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:65:65
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:66:66
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:67:67
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:68:68
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:69:69
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:70:70
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:71:71
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:72:72
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:73:73
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:74:74
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:75:75
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:76:76
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:77:77
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:78:78
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:79:79
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:80:80
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:81:81
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:82:82
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:83:83
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:84:84
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:85:85
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:86:86
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:87:87
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:88:88
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:89:89
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:90:90
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:91:91
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:92:92
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:93:93
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:94:94
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:95:95
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:96:96
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:97:97
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:98:98
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:99:99
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:100:100
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:101:101
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:102:102
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:103:103
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:104:104
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:105:105
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:106:106
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:107:107
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:108:108
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:109:109
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:110:110
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:111:111
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:112:112
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:113:113
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:114:114
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:115:115
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:116:116
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:117:117
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:118:118
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:119:119
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:120:120
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:121:121
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:122:122
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:123:123
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:124:124
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:125:125
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:126:126
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:127:127
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:128:128
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:129:129
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:130:130
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:131:131
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:132:132
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:133:133
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:134:134
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:135:135
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:136:136
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:137:137
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:138:138
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:139:139
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:140:140
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:141:141
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:142:142
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:143:143
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:144:144
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:145:145
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:146:146
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:147:147
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:148:148
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:149:149
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:150:150
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:151:151
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:152:152
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:153:153
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:154:154
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:155:155
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:156:156
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:157:157
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:158:158
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:159:159
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:160:160
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:161:161
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:162:162
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:163:163
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:164:164
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:165:165
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:166:166
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:167:167
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:168:168
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:169:169
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:170:170
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:171:171
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:172:172
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:173:173
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:174:174
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:175:175
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:176:176
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:177:177
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:178:178
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:179:179
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:180:180
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:181:181
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:182:182
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:183:183
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:184:184
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:185:185
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:186:186
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:187:187
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:188:188
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:189:189
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:190:190
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:191:191
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:192:192
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:193:193
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:194:194
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:195:195
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:196:196
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:197:197
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:198:198
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:199:199
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:200:200
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:201:201
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:202:202
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:203:203
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:204:204
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:205:205
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:206:206
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:207:207
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:208:208
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:209:209
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:210:210
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:211:211
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:212:212
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:213:213
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:214:214
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:215:215
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:216:216
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:217:217
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:218:218
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:219:219
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:220:220
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:221:221
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:222:222
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:223:223
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:224:224
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:225:225
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:226:226
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:227:227
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:228:228
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:229:229
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:230:230
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:231:231
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:232:232
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:233:233
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:234:234
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:235:235
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:236:236
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:237:237
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:238:238
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:239:239
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:240:240
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:241:241
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:242:242
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:243:243
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:244:244
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:245:245
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:246:246
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:247:247
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:248:248
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:249:249
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:250:250
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:251:251
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:252:252
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:253:253
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:254:254
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:255:255
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:256:256
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:257:257
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:258:258
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:259:259
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:260:260
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:261:261
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:262:262
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:263:263
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:264:264
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:265:265
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:266:266
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:267:267
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:268:268
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:269:269
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:270:270
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:271:271
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:272:272
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:273:273
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:274:274
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:275:275
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:276:276
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:277:277
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:278:278
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:279:279
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:280:280
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:281:281
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:282:282
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:283:283
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:284:284
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:285:285
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:286:286
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:287:287
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:288:288
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:289:289
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:290:290
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:291:291
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:292:292
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:293:293
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:294:294
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:295:295
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:296:296
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:297:297
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:298:298
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:299:299
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:300:300
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:301:301
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:302:302
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:303:303
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:304:304
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:305:305
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:306:306
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:307:307
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:308:308
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:309:309
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:310:310
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:311:311
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:312:312
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:313:313
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:314:314
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:315:315
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:316:316
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:317:317
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:318:318
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:319:319
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:320:320
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:321:321
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:322:322
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:323:323
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:324:324
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:325:325
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:326:326
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:327:327
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:328:328
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:329:329
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:330:330
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:331:331
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:332:332
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:333:333
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:334:334
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:335:335
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:336:336
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:337:337
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:338:338
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:339:339
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:340:340
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:341:341
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:342:342
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:343:343
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:344:344
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:345:345
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:346:346
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:347:347
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:348:348
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:349:349
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:350:350
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:351:351
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:352:352
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:353:353
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:354:354
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:355:355
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:356:356
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:357:357
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:358:358
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:359:359
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:360:360
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:361:361
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:362:362
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:363:363
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:364:364
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:365:365
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:366:366
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:367:367
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:368:368
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:369:369
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:370:370
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:371:371
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:372:372
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:373:373
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:374:374
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:375:375
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:376:376
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:377:377
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:378:378
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:379:379
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:380:380
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:381:381
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:382:382
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:383:383
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:384:384
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:385:385
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:386:386
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:387:387
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:388:388
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:389:389
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:390:390
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:391:391
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:392:392
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:393:393
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:394:394
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:395:395
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:396:396
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:397:397
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:398:398
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:399:399
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:400:400
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:401:401
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:402:402
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:403:403
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:404:404
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:405:405
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:406:406
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:407:407
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:408:408
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:409:409
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:410:410
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:411:411
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:412:412
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:413:413
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:414:414
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:415:415
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:416:416
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:417:417
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:418:418
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:419:419
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:420:420
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:421:421
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:422:422
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:423:423
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:424:424
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:425:425
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:426:426
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:427:427
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:428:428
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:429:429
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:430:430
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:431:431
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:432:432
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:433:433
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:434:434
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:435:435
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:436:436
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:437:437
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:438:438
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:439:439
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:440:440
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:441:441
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:442:442
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:443:443
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:444:444
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:445:445
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:446:446
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:447:447
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:448:448
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:449:449
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:450:450
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:451:451
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:452:452
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:453:453
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:454:454
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:455:455
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:456:456
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:457:457
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:458:458
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:459:459
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:460:460
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:461:461
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:462:462
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:463:463
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:464:464
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:465:465
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:466:466
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:467:467
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:468:468
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:469:469
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:470:470
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:471:471
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:472:472
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:473:473
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:474:474
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:475:475
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:476:476
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:477:477
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:478:478
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:479:479
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:480:480
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:481:481
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:482:482
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:483:483
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:484:484
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:485:485
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:486:486
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:487:487
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:488:488
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:489:489
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:490:490
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:491:491
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:492:492
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:493:493
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:494:494
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:495:495
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:496:496
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:497:497
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:498:498
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:499:499
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:500:500
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:501:501
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:502:502
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:503:503
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:504:504
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:505:505
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:506:506
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:507:507
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:508:508
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:509:509
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:510:510
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:511:511
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:512:512
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:513:513
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:514:514
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:515:515
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:516:516
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:517:517
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:518:518
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:519:519
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:520:520
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:521:521
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:522:522
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:523:523
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:524:524
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:525:525
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:526:526
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:527:527
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:528:528
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:529:529
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:530:530
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:531:531
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:532:532
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:533:533
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:534:534
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:535:535
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:536:536
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:537:537
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:538:538
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:539:539
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:540:540
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:541:541
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:542:542
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:543:543
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:544:544
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:545:545
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:546:546
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:547:547
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:548:548
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:549:549
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:550:550
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:551:551
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:552:552
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:553:553
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:554:554
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:555:555
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:556:556
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:557:557
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:558:558
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:559:559
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:560:560
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:561:561
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:562:562
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:563:563
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:564:564
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:565:565
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:566:566
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:567:567
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:568:568
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:569:569
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:570:570
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:571:571
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:572:572
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:573:573
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:574:574
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:575:575
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:576:576
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:577:577
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:578:578
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:579:579
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:580:580
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:581:581
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:582:582
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:583:583
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:584:584
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:585:585
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:586:586
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:587:587
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:588:588
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:589:589
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:590:590
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:591:591
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:592:592
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:593:593
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:594:594
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:595:595
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:596:596
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:597:597
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:598:598
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:599:599
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:600:600
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:601:601
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:602:602
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:603:603
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:604:604
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:605:605
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:606:606
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:607:607
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:608:608
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:609:609
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:610:610
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:611:611
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:612:612
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:613:613
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:614:614
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:615:615
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:616:616
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:617:617
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:618:618
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:619:619
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:620:620
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:621:621
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:622:622
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:623:623
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:624:624
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:625:625
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:626:626
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:627:627
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:628:628
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:629:629
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:630:630
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:631:631
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:632:632
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:633:633
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:634:634
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:635:635
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:636:636
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:637:637
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:638:638
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:639:639
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:640:640
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:641:641
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:642:642
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:643:643
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:644:644
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:645:645
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:646:646
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:647:647
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:648:648
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:649:649
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:650:650
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:651:651
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:652:652
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:653:653
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:654:654
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:655:655
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:656:656
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:657:657
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:658:658
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:659:659
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:660:660
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:661:661
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:662:662
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:663:663
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:664:664
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:665:665
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:666:666
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:667:667
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:668:668
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:669:669
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:670:670
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:671:671
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:672:672
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:673:673
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:674:674
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:675:675
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:676:676
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:677:677
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:678:678
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:679:679
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:680:680
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:681:681
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:682:682
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:683:683
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:684:684
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:685:685
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:686:686
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:687:687
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:688:688
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:689:689
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:690:690
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:691:691
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:692:692
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:693:693
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:694:694
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:695:695
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:696:696
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:697:697
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:698:698
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:699:699
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:700:700
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:701:701
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:702:702
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:703:703
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:704:704
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:705:705
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:706:706
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:707:707
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:708:708
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:709:709
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:710:710
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:711:711
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:712:712
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:713:713
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:714:714
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:715:715
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:716:716
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:717:717
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:718:718
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:719:719
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:720:720
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:721:721
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:722:722
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:723:723
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:724:724
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:725:725
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:726:726
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:727:727
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:728:728
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:729:729
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:730:730
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:731:731
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:732:732
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:733:733
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:734:734
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:735:735
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:736:736
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:737:737
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:738:738
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:739:739
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:740:740
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:741:741
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:742:742
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:743:743
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:744:744
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:745:745
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:746:746
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:747:747
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:748:748
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:749:749
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:750:750
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:751:751
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:752:752
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:753:753
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:754:754
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:755:755
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:756:756
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:757:757
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:758:758
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:759:759
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:760:760
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:761:761
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:762:762
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:763:763
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:764:764
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:765:765
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:766:766
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:767:767
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:768:768
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:769:769
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:770:770
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:771:771
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:772:772
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:773:773
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:774:774
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:775:775
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:776:776
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:777:777
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:778:778
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:779:779
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:780:780
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:781:781
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:782:782
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:783:783
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:784:784
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:785:785
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:786:786
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:787:787
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:788:788
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:789:789
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:790:790
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:791:791
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:792:792
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:793:793
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:794:794
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:795:795
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:796:796
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:797:797
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:798:798
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:799:799
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:800:800
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:801:801
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:802:802
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:803:803
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:804:804
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:805:805
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:806:806
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:807:807
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:808:808
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:809:809
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:810:810
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:811:811
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:812:812
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:813:813
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:814:814
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:815:815
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:816:816
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:817:817
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:818:818
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:819:819
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:820:820
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:821:821
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:822:822
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:823:823
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:824:824
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:825:825
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:826:826
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:827:827
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:828:828
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:829:829
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:830:830
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:831:831
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:832:832
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:833:833
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:834:834
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:835:835
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:836:836
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:837:837
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:838:838
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:839:839
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:840:840
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:841:841
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:842:842
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:843:843
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:844:844
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:845:845
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:846:846
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:847:847
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:848:848
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:849:849
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:850:850
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:851:851
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:852:852
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:853:853
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:854:854
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:855:855
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:856:856
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:857:857
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:858:858
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:859:859
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:860:860
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:861:861
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:862:862
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:863:863
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:864:864
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:865:865
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:866:866
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:867:867
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:868:868
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:869:869
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:870:870
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:871:871
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:872:872
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:873:873
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:874:874
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:875:875
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:876:876
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:877:877
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:878:878
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:879:879
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:880:880
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:881:881
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:882:882
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:883:883
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:884:884
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:885:885
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:886:886
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:887:887
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:888:888
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:889:889
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:890:890
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:891:891
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:892:892
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:893:893
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:894:894
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:895:895
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:896:896
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:897:897
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:898:898
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:899:899
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:900:900
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:901:901
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:902:902
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:903:903
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:904:904
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:905:905
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:906:906
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:907:907
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:908:908
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:909:909
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:910:910
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:911:911
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:912:912
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:913:913
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:914:914
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:915:915
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:916:916
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:917:917
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:918:918
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:919:919
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:920:920
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:921:921
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:922:922
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:923:923
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:924:924
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:925:925
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:926:926
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:927:927
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:928:928
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:929:929
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:930:930
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:931:931
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:932:932
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:933:933
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:934:934
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:935:935
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:936:936
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:937:937
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:938:938
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:939:939
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:940:940
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:941:941
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:942:942
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:943:943
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:944:944
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:945:945
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:946:946
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:947:947
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:948:948
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:949:949
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:950:950
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:951:951
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:952:952
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:953:953
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:954:954
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:955:955
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:956:956
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:957:957
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:958:958
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:959:959
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:960:960
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:961:961
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:962:962
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:963:963
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:964:964
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:965:965
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:966:966
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:967:967
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:968:968
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:969:969
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:970:970
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:971:971
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:972:972
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:973:973
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:974:974
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:975:975
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:976:976
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:977:977
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:978:978
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:979:979
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:980:980
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:981:981
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:982:982
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:983:983
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:984:984
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:985:985
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:986:986
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:987:987
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:988:988
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:989:989
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:990:990
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:991:991
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:992:992
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:993:993
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:994:994
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:995:995
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:996:996
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:997:997
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:998:998
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:999:999
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1000:1000
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1001:1001
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1002:1002
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1003:1003
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1004:1004
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1005:1005
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1006:1006
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1007:1007
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1008:1008
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1009:1009
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1010:1010
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1011:1011
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1012:1012
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1013:1013
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1014:1014
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1015:1015
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1016:1016
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1017:1017
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1018:1018
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1019:1019
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1020:1020
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1021:1021
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1022:1022
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1023:1023
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1024:1024
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1025:1025
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1026:1026
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1027:1027
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1028:1028
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1029:1029
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1030:1030
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1031:1031
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1032:1032
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1033:1033
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1034:1034
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1035:1035
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1036:1036
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1037:1037
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1038:1038
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1039:1039
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1040:1040
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1041:1041
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1042:1042
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1043:1043
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1044:1044
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1045:1045
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1046:1046
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1047:1047
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1048:1048
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1049:1049
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1050:1050
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1051:1051
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1052:1052
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1053:1053
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1054:1054
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1055:1055
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1056:1056
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1057:1057
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1058:1058
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1059:1059
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1060:1060
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1061:1061
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1062:1062
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1063:1063
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1064:1064
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1065:1065
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1066:1066
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1067:1067
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1068:1068
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1069:1069
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1070:1070
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1071:1071
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1072:1072
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1073:1073
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1074:1074
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1075:1075
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1076:1076
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1077:1077
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1078:1078
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1079:1079
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1080:1080
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1081:1081
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1082:1082
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1083:1083
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1084:1084
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1085:1085
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1086:1086
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1087:1087
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1088:1088
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1089:1089
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1090:1090
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1091:1091
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1092:1092
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1093:1093
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1094:1094
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1095:1095
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1096:1096
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1097:1097
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1098:1098
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1099:1099
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1100:1100
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1101:1101
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1102:1102
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1103:1103
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1104:1104
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1105:1105
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1106:1106
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1107:1107
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1108:1108
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1109:1109
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1110:1110
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1111:1111
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1112:1112
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1113:1113
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1114:1114
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1115:1115
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1116:1116
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1117:1117
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1118:1118
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1119:1119
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1120:1120
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1121:1121
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1122:1122
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1123:1123
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1124:1124
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1125:1125
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1126:1126
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1127:1127
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1128:1128
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1129:1129
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1130:1130
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1131:1131
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1132:1132
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1133:1133
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1134:1134
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1135:1135
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1136:1136
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1137:1137
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1138:1138
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1139:1139
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1140:1140
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1141:1141
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1142:1142
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1143:1143
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1144:1144
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1145:1145
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1146:1146
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1147:1147
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1148:1148
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1149:1149
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1150:1150
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1151:1151
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1152:1152
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1153:1153
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1154:1154
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1155:1155
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1156:1156
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1157:1157
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1158:1158
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1159:1159
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1160:1160
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1161:1161
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1162:1162
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1163:1163
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1164:1164
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1165:1165
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1166:1166
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1167:1167
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1168:1168
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1169:1169
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1170:1170
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1171:1171
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1172:1172
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1173:1173
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1174:1174
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1175:1175
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1176:1176
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1177:1177
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1178:1178
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1179:1179
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1180:1180
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1181:1181
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1182:1182
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1183:1183
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1184:1184
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1185:1185
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1186:1186
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1187:1187
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1188:1188
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1189:1189
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1190:1190
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1191:1191
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1192:1192
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1193:1193
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1194:1194
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1195:1195
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1196:1196
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1197:1197
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1198:1198
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1199:1199
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_01_####.sfrm:1200:1200
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_02_####.sfrm:1:394
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_03_####.sfrm:1:394
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_04_####.sfrm:1:274
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_05_####.sfrm:1:274
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_06_####.sfrm:1:394
+  template: H:\CrystalPilot\benchmark\data_ext2\frames_onitroaniline_twin\frames\m0220c_07_####.sfrm:1:394
+  num images: 3324
+  sequences:
+    still:    0
+    sweep:    1206
+  num stills: 0
+--------------------------------------------------------------------------------
+Writing experiments to imported.expt
+
+--- stderr ---

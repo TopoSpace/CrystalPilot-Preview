@@ -1,0 +1,16 @@
+{
+  "cod_id": "2202666",
+  "note": "copper(II) aspirinate paddlewheel coordination compound",
+  "source_url": "https://www.crystallography.net/cod/2202666.html",
+  "sf_url": "https://www.crystallography.net/cod/hkl/2/20/26/2202666.hkl",
+  "doi": "10.1107/S1600536803026126",
+  "journal": "Acta Crystallographica Section E",
+  "year": "2003",
+  "license_note": "COD entry originally provided by IUCr Journals; may be used within the scientific community with proper attribution to the journal article (per COD file header).",
+  "formula": "C18 H14 Cu O8",
+  "z": 4.0,
+  "space_group": "P 1 21/c 1",
+  "radiation": "MoK\\a",
+  "wavelength": 0.71073,
+  "temperature_K": "296.0(10)"
+}

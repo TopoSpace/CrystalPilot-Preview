@@ -1,0 +1,16 @@
+{
+  "cod_id": "2236885",
+  "note": "2,5-dihydroxyterephthalato (MOF-74 ligand) di-Zn complex, triclinic",
+  "source_url": "https://www.crystallography.net/cod/2236885.html",
+  "sf_url": "https://www.crystallography.net/cod/hkl/2/23/68/2236885.hkl",
+  "doi": "10.1107/S1600536812045837",
+  "journal": "Acta Crystallographica Section E",
+  "year": "2012",
+  "license_note": "COD entry originally provided by IUCr Journals; may be used within the scientific community with proper attribution to the journal article (per COD file header).",
+  "formula": "C40 H36 N4 O18 Zn2",
+  "z": 1.0,
+  "space_group": "P -1",
+  "radiation": "MoK\\a",
+  "wavelength": 0.71073,
+  "temperature_K": "293(2)"
+}

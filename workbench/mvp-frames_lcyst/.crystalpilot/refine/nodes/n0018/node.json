@@ -1,0 +1,155 @@
+{
+  "id": "n0018",
+  "parent": "n0017",
+  "branch": "(detached from n0017)",
+  "ts": 1787948932.7862298,
+  "tool": "edit_atoms",
+  "params": {
+    "operations": [
+      {
+        "action": "move",
+        "atoms": [
+          "H1X"
+        ],
+        "site": [
+          0.255951,
+          0.255425,
+          0.945607
+        ]
+      },
+      {
+        "action": "move",
+        "atoms": [
+          "H2X"
+        ],
+        "site": [
+          0.053491,
+          0.283444,
+          0.870886
+        ]
+      },
+      {
+        "action": "move",
+        "atoms": [
+          "H7X"
+        ],
+        "site": [
+          0.261797,
+          0.177287,
+          0.837067
+        ]
+      },
+      {
+        "action": "move",
+        "atoms": [
+          "H3X"
+        ],
+        "site": [
+          0.417117,
+          0.422436,
+          0.401015
+        ]
+      },
+      {
+        "action": "move",
+        "atoms": [
+          "H4X"
+        ],
+        "site": [
+          0.206327,
+          0.337231,
+          0.336327
+        ]
+      },
+      {
+        "action": "move",
+        "atoms": [
+          "H5X"
+        ],
+        "site": [
+          0.223865,
+          0.577183,
+          0.246746
+        ]
+      },
+      {
+        "action": "move",
+        "atoms": [
+          "H6X"
+        ],
+        "site": [
+          0.224563,
+          0.513928,
+          0.57941
+        ]
+      },
+      {
+        "action": "set_u_iso",
+        "atoms": [
+          "H1X",
+          "H2X",
+          "H7X"
+        ],
+        "u_iso": 0.0216
+      },
+      {
+        "action": "set_u_iso",
+        "atoms": [
+          "H3X",
+          "H4X"
+        ],
+        "u_iso": 0.0215
+      },
+      {
+        "action": "set_u_iso",
+        "atoms": [
+          "H5X"
+        ],
+        "u_iso": 0.0166
+      },
+      {
+        "action": "set_u_iso",
+        "atoms": [
+          "H6X"
+        ],
+        "u_iso": 0.0324
+      }
+    ]
+  },
+  "note": "",
+  "metrics": {
+    "label": "explicit H isotropic; non-H retain anisotropic ADPs",
+    "r1_strong": 0.043,
+    "r1_all": 0.048,
+    "wr2": 0.1342,
+    "goof": 0.925,
+    "n_params": 91,
+    "n_reflections": 2589,
+    "diff_map_max": 0.62,
+    "diff_map_min": -0.48,
+    "notes": "",
+    "scale_k": 1.3474782118548918
+  },
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 14,
+    "element_counts": {
+      "S": 1,
+      "O": 2,
+      "N": 1,
+      "C": 3,
+      "H": 7
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 1.3474782118548918,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

@@ -1,0 +1,274 @@
+#------------------------------------------------------------------------------
+#$Date: 2017-08-18 11:32:54 +0300 (Fri, 18 Aug 2017) $
+#$Revision: 199837 $
+#$URL: file:///home/coder/svn-repositories/_RELOADED_COD/cod-reloaded/cif/1/54/67/1546786.cif $
+#------------------------------------------------------------------------------
+#
+# This file is available in the Crystallography Open Database (COD),
+# http://www.crystallography.net/
+#
+# All data on this site have been placed in the public domain by the
+# contributors.
+#
+data_1546786
+loop_
+_publ_author_name
+'Getzschmann, Juergen'
+'Senkovska, Irena'
+'Wallacher, Dirk'
+'Tovar, Michael'
+'Fairen-Jimenez, David'
+'D\"uren, Tina'
+'van Baten, Jasper M.'
+'Krishna, Rajamani'
+'Kaskel, Stefan'
+_publ_section_title
+;
+ Methane storage mechanism in the metal-organic framework Cu3(btc)2: An in
+ situ neutron diffraction study
+;
+_journal_issue                   1-3
+_journal_name_full               'Microporous and Mesoporous Materials'
+_journal_page_first              50
+_journal_page_last               58
+_journal_paper_doi               10.1016/j.micromeso.2010.07.020
+_journal_volume                  136
+_journal_year                    2010
+_chemical_formula_sum            'C18 H6 Cu3 O12'
+_chemical_formula_weight         604.8762
+_space_group_crystal_system      cubic
+_space_group_IT_number           225
+_space_group_name_Hall           '-F 4 2 3'
+_space_group_name_H-M_alt        'F m -3 m'
+_symmetry_space_group_name_Hall  '-F 4 2 3'
+_symmetry_space_group_name_H-M   'F m -3 m'
+_cell_angle_alpha                90.00
+_cell_angle_beta                 90.00
+_cell_angle_gamma                90.00
+_cell_formula_units_Z            16
+_cell_length_a                   26.2824(3)
+_cell_length_b                   26.2824(3)
+_cell_length_c                   26.2824(3)
+_cell_volume                     18155.0(4)
+_diffrn_ambient_temperature      77(2)
+_diffrn_radiation_probe          neutron
+_diffrn_radiation_wavelength     2.816
+_diffrn_reflns_number            1896
+_diffrn_reflns_theta_max         8.000
+_diffrn_reflns_theta_min         156.026
+_pd_calc_method                  'Rietveld Refinement'
+_pd_proc_ls_prof_R_factor        3.67
+_pd_proc_ls_prof_wR_expected     3.28
+_pd_proc_ls_prof_wR_factor       4.90
+_cod_data_source_file            10.1016_j.micromeso.2010.07.020.cif
+_cod_data_source_block           Cu3btc2-activated
+_cod_original_cell_volume        18154.9(3)
+_cod_original_formula_sum        'C18 H6 O12 Cu3'
+_cod_database_code               1546786
+loop_
+_space_group_symop_operation_xyz
+x,y,z
+-y,x,z
+-x,-y,z
+y,-x,z
+x,-y,-z
+y,x,-z
+-x,y,-z
+-y,-x,-z
+z,x,y
+-x,z,y
+-z,-x,y
+x,-z,y
+z,-x,-y
+x,z,-y
+-z,x,-y
+-x,-z,-y
+y,z,x
+y,-z,-x
+z,y,-x
+-y,z,-x
+-z,-y,-x
+-y,-z,x
+z,-y,x
+-z,y,x
+-x,-y,-z
+y,-x,-z
+x,y,-z
+-y,x,-z
+-x,y,z
+-y,-x,z
+x,-y,z
+y,x,z
+-z,-x,-y
+x,-z,-y
+z,x,-y
+-x,z,-y
+-z,x,y
+-x,-z,y
+z,-x,y
+x,z,y
+-y,-z,-x
+-y,z,x
+-z,-y,x
+y,-z,x
+z,y,x
+y,z,-x
+-z,y,-x
+z,-y,-x
+x,y+1/2,z+1/2
+-y,x+1/2,z+1/2
+-x,-y+1/2,z+1/2
+y,-x+1/2,z+1/2
+x,-y+1/2,-z+1/2
+y,x+1/2,-z+1/2
+-x,y+1/2,-z+1/2
+-y,-x+1/2,-z+1/2
+z,x+1/2,y+1/2
+-x,z+1/2,y+1/2
+-z,-x+1/2,y+1/2
+x,-z+1/2,y+1/2
+z,-x+1/2,-y+1/2
+x,z+1/2,-y+1/2
+-z,x+1/2,-y+1/2
+-x,-z+1/2,-y+1/2
+y,z+1/2,x+1/2
+y,-z+1/2,-x+1/2
+z,y+1/2,-x+1/2
+-y,z+1/2,-x+1/2
+-z,-y+1/2,-x+1/2
+-y,-z+1/2,x+1/2
+z,-y+1/2,x+1/2
+-z,y+1/2,x+1/2
+-x,-y+1/2,-z+1/2
+y,-x+1/2,-z+1/2
+x,y+1/2,-z+1/2
+-y,x+1/2,-z+1/2
+-x,y+1/2,z+1/2
+-y,-x+1/2,z+1/2
+x,-y+1/2,z+1/2
+y,x+1/2,z+1/2
+-z,-x+1/2,-y+1/2
+x,-z+1/2,-y+1/2
+z,x+1/2,-y+1/2
+-x,z+1/2,-y+1/2
+-z,x+1/2,y+1/2
+-x,-z+1/2,y+1/2
+z,-x+1/2,y+1/2
+x,z+1/2,y+1/2
+-y,-z+1/2,-x+1/2
+-y,z+1/2,x+1/2
+-z,-y+1/2,x+1/2
+y,-z+1/2,x+1/2
+z,y+1/2,x+1/2
+y,z+1/2,-x+1/2
+-z,y+1/2,-x+1/2
+z,-y+1/2,-x+1/2
+x+1/2,y,z+1/2
+-y+1/2,x,z+1/2
+-x+1/2,-y,z+1/2
+y+1/2,-x,z+1/2
+x+1/2,-y,-z+1/2
+y+1/2,x,-z+1/2
+-x+1/2,y,-z+1/2
+-y+1/2,-x,-z+1/2
+z+1/2,x,y+1/2
+-x+1/2,z,y+1/2
+-z+1/2,-x,y+1/2
+x+1/2,-z,y+1/2
+z+1/2,-x,-y+1/2
+x+1/2,z,-y+1/2
+-z+1/2,x,-y+1/2
+-x+1/2,-z,-y+1/2
+y+1/2,z,x+1/2
+y+1/2,-z,-x+1/2
+z+1/2,y,-x+1/2
+-y+1/2,z,-x+1/2
+-z+1/2,-y,-x+1/2
+-y+1/2,-z,x+1/2
+z+1/2,-y,x+1/2
+-z+1/2,y,x+1/2
+-x+1/2,-y,-z+1/2
+y+1/2,-x,-z+1/2
+x+1/2,y,-z+1/2
+-y+1/2,x,-z+1/2
+-x+1/2,y,z+1/2
+-y+1/2,-x,z+1/2
+x+1/2,-y,z+1/2
+y+1/2,x,z+1/2
+-z+1/2,-x,-y+1/2
+x+1/2,-z,-y+1/2
+z+1/2,x,-y+1/2
+-x+1/2,z,-y+1/2
+-z+1/2,x,y+1/2
+-x+1/2,-z,y+1/2
+z+1/2,-x,y+1/2
+x+1/2,z,y+1/2
+-y+1/2,-z,-x+1/2
+-y+1/2,z,x+1/2
+-z+1/2,-y,x+1/2
+y+1/2,-z,x+1/2
+z+1/2,y,x+1/2
+y+1/2,z,-x+1/2
+-z+1/2,y,-x+1/2
+z+1/2,-y,-x+1/2
+x+1/2,y+1/2,z
+-y+1/2,x+1/2,z
+-x+1/2,-y+1/2,z
+y+1/2,-x+1/2,z
+x+1/2,-y+1/2,-z
+y+1/2,x+1/2,-z
+-x+1/2,y+1/2,-z
+-y+1/2,-x+1/2,-z
+z+1/2,x+1/2,y
+-x+1/2,z+1/2,y
+-z+1/2,-x+1/2,y
+x+1/2,-z+1/2,y
+z+1/2,-x+1/2,-y
+x+1/2,z+1/2,-y
+-z+1/2,x+1/2,-y
+-x+1/2,-z+1/2,-y
+y+1/2,z+1/2,x
+y+1/2,-z+1/2,-x
+z+1/2,y+1/2,-x
+-y+1/2,z+1/2,-x
+-z+1/2,-y+1/2,-x
+-y+1/2,-z+1/2,x
+z+1/2,-y+1/2,x
+-z+1/2,y+1/2,x
+-x+1/2,-y+1/2,-z
+y+1/2,-x+1/2,-z
+x+1/2,y+1/2,-z
+-y+1/2,x+1/2,-z
+-x+1/2,y+1/2,z
+-y+1/2,-x+1/2,z
+x+1/2,-y+1/2,z
+y+1/2,x+1/2,z
+-z+1/2,-x+1/2,-y
+x+1/2,-z+1/2,-y
+z+1/2,x+1/2,-y
+-x+1/2,z+1/2,-y
+-z+1/2,x+1/2,y
+-x+1/2,-z+1/2,y
+z+1/2,-x+1/2,y
+x+1/2,z+1/2,y
+-y+1/2,-z+1/2,-x
+-y+1/2,z+1/2,x
+-z+1/2,-y+1/2,x
+y+1/2,-z+1/2,x
+z+1/2,y+1/2,x
+y+1/2,z+1/2,-x
+-z+1/2,y+1/2,-x
+z+1/2,-y+1/2,-x
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_B_iso_or_equiv
+Cu Cu 0.00000 0.2175(3) 0.2175(3) 1.026(368)
+Oac O 0.0530(3) 0.1839(3) 0.2566(3) 1.039(243)
+Ca C 0.0705(4) 0.2035(3) 0.2965(3) 1.112(185)
+Cb C 0.1130(4) 0.1781(4) 0.3219(4) 1.112(185)
+Cc C 0.1362(4) 0.1362(4) 0.3014(5) 1.112(185)
+H H 0.1197(6) 0.1197(6) 0.2621(10) 3.279(596)

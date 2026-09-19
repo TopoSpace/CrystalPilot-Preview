@@ -1,0 +1,348 @@
+{
+  "published_cell": [
+    10.1638,
+    12.7284,
+    20.816,
+    104.653,
+    104.046,
+    96.32
+  ],
+  "current_cell": [
+    10.1554,
+    12.707,
+    20.801,
+    107.691,
+    100.315,
+    96.233
+  ],
+  "basis_matrix_pub_to_current": [
+    [
+      -1,
+      0,
+      1
+    ],
+    [
+      0,
+      -1,
+      1
+    ],
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "basis_relative_error": 0.0023500651845306596,
+  "origin_shift_current": [
+    0.5,
+    0.5,
+    0.0
+  ],
+  "anchor_score": 2.5018505380973354e-05,
+  "groups": {
+    "A_tert_butyl": {
+      "major_occupancy": 0.83298,
+      "pairs": [
+        {
+          "current_atom": "C36",
+          "published_major": "C35",
+          "major_match_A": 0.036,
+          "published_minor": "C35A",
+          "second_site": [
+            0.8394,
+            0.4154,
+            0.2654
+          ],
+          "split_A": 1.1488
+        },
+        {
+          "current_atom": "C38",
+          "published_major": "C36",
+          "major_match_A": 0.046,
+          "published_minor": "C36A",
+          "second_site": [
+            0.67,
+            0.45,
+            0.175
+          ],
+          "split_A": 1.2071
+        },
+        {
+          "current_atom": "C31",
+          "published_major": "C37",
+          "major_match_A": 0.0292,
+          "published_minor": "C37A",
+          "second_site": [
+            0.7973,
+            0.2933,
+            0.1413
+          ],
+          "split_A": 1.0428
+        }
+      ]
+    },
+    "B_tert_butyl": {
+      "major_occupancy": 0.73009,
+      "pairs": [
+        {
+          "current_atom": "C44",
+          "published_major": "C40A",
+          "major_match_A": 0.0959,
+          "published_minor": "C40",
+          "second_site": [
+            0.753,
+            -0.255,
+            0.143
+          ],
+          "split_A": 0.6367
+        },
+        {
+          "current_atom": "C37",
+          "published_major": "C41A",
+          "major_match_A": 0.0873,
+          "published_minor": "C41",
+          "second_site": [
+            0.5714,
+            -0.2866,
+            0.0364
+          ],
+          "split_A": 0.6998
+        },
+        {
+          "current_atom": "C41",
+          "published_major": "C42A",
+          "major_match_A": 0.1315,
+          "published_minor": "C42",
+          "second_site": [
+            0.511,
+            -0.331,
+            0.137
+          ],
+          "split_A": 0.6539
+        }
+      ]
+    },
+    "C_two_isopropyl": {
+      "major_occupancy": 0.78356,
+      "pairs": [
+        {
+          "current_atom": "C22",
+          "published_major": "C14",
+          "major_match_A": 0.0462,
+          "published_minor": "C14A",
+          "second_site": [
+            0.247,
+            -0.041,
+            0.054
+          ],
+          "split_A": 0.3391
+        },
+        {
+          "current_atom": "C25",
+          "published_major": "C15",
+          "major_match_A": 0.0822,
+          "published_minor": "C15A",
+          "second_site": [
+            0.3762,
+            -0.0158,
+            0.0282
+          ],
+          "split_A": 0.4489
+        },
+        {
+          "current_atom": "C30",
+          "published_major": "C16",
+          "major_match_A": 0.0625,
+          "published_minor": "C16A",
+          "second_site": [
+            0.213,
+            -0.165,
+            0.047
+          ],
+          "split_A": 0.4287
+        },
+        {
+          "current_atom": "C16",
+          "published_major": "C17",
+          "major_match_A": 0.0781,
+          "published_minor": "C17A",
+          "second_site": [
+            0.1098,
+            -0.0135,
+            0.1685
+          ],
+          "split_A": 0.3804
+        },
+        {
+          "current_atom": "C33",
+          "published_major": "C18",
+          "major_match_A": 0.0559,
+          "published_minor": "C18A",
+          "second_site": [
+            -0.0259,
+            -0.0589,
+            0.1141
+          ],
+          "split_A": 0.7075
+        },
+        {
+          "current_atom": "C32",
+          "published_major": "C19",
+          "major_match_A": 0.065,
+          "published_minor": "C19A",
+          "second_site": [
+            0.0988,
+            0.0248,
+            0.2388
+          ],
+          "split_A": 0.9003
+        }
+      ]
+    },
+    "D_benzene": {
+      "major_occupancy": 0.71848,
+      "pairs": [
+        {
+          "current_atom": "C28",
+          "published_major": "C43",
+          "major_match_A": 0.0355,
+          "published_minor": "C43A",
+          "second_site": [
+            1.1759,
+            0.7449,
+            0.4059
+          ],
+          "split_A": 0.9597
+        },
+        {
+          "current_atom": "C43",
+          "published_major": "C44",
+          "major_match_A": 0.0797,
+          "published_minor": "C44A",
+          "second_site": [
+            1.2017,
+            0.8557,
+            0.4467
+          ],
+          "split_A": 0.7855
+        },
+        {
+          "current_atom": "C39",
+          "published_major": "C45",
+          "major_match_A": 0.0993,
+          "published_minor": "C45A",
+          "second_site": [
+            1.1145,
+            0.9265,
+            0.4345
+          ],
+          "split_A": 0.5927
+        },
+        {
+          "current_atom": "C34",
+          "published_major": "C46",
+          "major_match_A": 0.028,
+          "published_minor": "C46A",
+          "second_site": [
+            1.0,
+            0.884,
+            0.383
+          ],
+          "split_A": 0.7996
+        },
+        {
+          "current_atom": "C42",
+          "published_major": "C47",
+          "major_match_A": 0.0606,
+          "published_minor": "C47A",
+          "second_site": [
+            0.9713,
+            0.7723,
+            0.3443
+          ],
+          "split_A": 1.0975
+        },
+        {
+          "current_atom": "C40",
+          "published_major": "C48",
+          "major_match_A": 0.0839,
+          "published_minor": "C48A",
+          "second_site": [
+            1.0626,
+            0.7036,
+            0.3536
+          ],
+          "split_A": 1.0667
+        }
+      ]
+    }
+  },
+  "element_audit_examples": [
+    {
+      "published": "C1",
+      "current": "C1",
+      "distance_A": 0.0076,
+      "sign": 1,
+      "transformed_site": [
+        0.2954,
+        0.4939,
+        0.2703
+      ]
+    },
+    {
+      "published": "C2",
+      "current": "N5",
+      "distance_A": 0.0187,
+      "sign": 1,
+      "transformed_site": [
+        0.2456,
+        0.4497,
+        0.3167
+      ]
+    },
+    {
+      "published": "C3",
+      "current": "N6",
+      "distance_A": 0.0073,
+      "sign": 1,
+      "transformed_site": [
+        0.3276,
+        0.458,
+        0.38
+      ]
+    },
+    {
+      "published": "C4",
+      "current": "C10",
+      "distance_A": 0.0085,
+      "sign": 1,
+      "transformed_site": [
+        0.461,
+        0.5146,
+        0.3975
+      ]
+    },
+    {
+      "published": "C5",
+      "current": "C17",
+      "distance_A": 0.0168,
+      "sign": 1,
+      "transformed_site": [
+        0.513,
+        0.562,
+        0.3527
+      ]
+    },
+    {
+      "published": "C6",
+      "current": "C5",
+      "distance_A": 0.0195,
+      "sign": 1,
+      "transformed_site": [
+        0.4284,
+        0.55,
+        0.2885
+      ]
+    }
+  ]
+}

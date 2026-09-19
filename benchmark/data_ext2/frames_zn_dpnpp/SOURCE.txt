@@ -1,0 +1,54 @@
+slug: frames_zn_dpnpp
+stage: frames (raw single-crystal X-ray diffraction images, coordination polymer)
+
+source: Zenodo record 6346906, file pg33_ZnDpNPP.7z (1,019,617,590 bytes; matches
+  Zenodo content-length exactly; extracted 1:1 into frames/, archive then deleted)
+data doi: 10.5281/zenodo.6346906
+download url: https://zenodo.org/api/records/6346906/files/pg33_ZnDpNPP.7z/content
+license: CC-BY-4.0 (depositor: Piotr A. Gunka, Warsaw University of Technology)
+paper: Dalton Transactions (2022) 51, 6735-6746, doi 10.1039/D2DT00492E
+  "Influence of substituents in aryl groups on the structure, thermal transitions and
+   electrorheological properties of zinc bis(diarylphosphate) hybrid polymers"
+  (raw data record supplements CCDC 2068271-2068272)
+
+compound: catena zinc(II) bis[di(4-nitrophenyl)phosphate] coordination polymer
+  formula C24 H16 N4 O16 P2 Zn, space group P n a 21 (No. 33),
+  cell 7.5429  12.0207  30.3806  90 90 90 (matches the integration cell in
+  pg33.p4p / pg33.cif_od: 7.5427 12.0194 30.3778 -> same crystal)
+reference model: ref/ref.cif = COD entry 7709880
+  (https://www.crystallography.net/cod/7709880.cif ; gemmi-parseable; published
+  R1(gt) = 0.0901; no Fobs deposited at COD). The embedded .res shows the final
+  model was refined as an INVERSION TWIN: "TWIN -1 0 0 0 -1 0 0 0 -1 2",
+  "BASF 0.49644" - a near-perfect racemic twin.
+
+raw data (frames/pg33_ZnDpNPP/, CrysAlisPro working directory as shipped):
+  frames/*.img            1102 raw images, Oxford Diffraction/Agilent format,
+                          ASCII header "OD SAPPHIRE  3.0", COMPRESSION=TY5,
+                          1024x1024 px, Mo Kalpha, collected 2012 (KM4/Xcalibur-class
+                          CCD; a_15 flood-field calibration files included)
+  *.par/.run/.ccd/.geo    instrument + run metadata (CrysAlisPro)
+  pg33.twinlog, pg33.rrptwin, pg33_twin1*/pg33_twin2*:
+                          CrysAlisPro TWIN data reduction: 2 orientation-matrix
+                          components, crossed twin laws; per-component HKLF4 files
+                          (pg33_twin1_hklf4.hkl, pg33_twin2_hklf4.hkl) and a
+                          two-domain HKLF5 file (pg33_twin1_hklf5.hkl)
+  pg33.hkl/.ins/.cif      single-lattice processed data + vendor-generated files
+
+verification:
+  - dials.import (DIALS 3.30, conda env "dials"): FAILS with typed error
+    "FormatROD: only header version 4.0 is supported but got 3.0"
+    -> evidence: _import_tests/zn_dpnpp/import.log. This reproduces the known
+    dxtbx gap documented in benchmark/data_frames/README.md (finding #3) for
+    legacy OD v3.0 headers; deliberate typed-rejection test case.
+  - ref/ref.cif parses with gemmi 0.7.5; cell agrees with raw-data cell.
+
+why selected:
+  1) Fills the chemistry gap: all 8 existing data_frames sets are organic or
+     molecular inorganic - this is a Zn coordination polymer.
+  2) Legacy OD SAPPHIRE 3.0 format: tests graceful typed rejection at frame
+     import (engine must not crash or silently mis-import).
+  3) Twin stress with vendor ground truth: two-component CrysAlisPro twin
+     reduction (HKLF4 x2 + HKLF5) shipped alongside the raw frames, and the
+     published model is an inversion twin (BASF 0.496) - lets us test the
+     hkl-entry stage on real twin data even while frames remain unimportable,
+     and gives an authoritative target for any future format-rescue work.

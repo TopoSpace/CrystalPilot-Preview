@@ -1,0 +1,58 @@
+{
+  "id": "n0012",
+  "parent": "n0011",
+  "branch": "explicit_h",
+  "ts": 1787948814.5176406,
+  "tool": "add_atoms_from_difference_map",
+  "params": {
+    "element": "H",
+    "peak_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "max_add": 7,
+    "min_dist_to_existing": 0.5,
+    "occupancy": 1
+  },
+  "note": "",
+  "metrics": {
+    "label": "refresh no-H difference map for explicit H construction",
+    "r1_strong": 0.0533,
+    "r1_all": 0.0586,
+    "wr2": 0.1834,
+    "goof": 1.265,
+    "n_params": 63,
+    "n_reflections": 2589,
+    "diff_map_max": 0.78,
+    "diff_map_min": -0.83,
+    "notes": "",
+    "scale_k": 1.3241046776124357
+  },
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 14,
+    "element_counts": {
+      "S": 1,
+      "O": 2,
+      "N": 1,
+      "C": 3,
+      "H": 7
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 1.3241046776124357,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

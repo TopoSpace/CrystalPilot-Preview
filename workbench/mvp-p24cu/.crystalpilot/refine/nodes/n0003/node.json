@@ -1,0 +1,46 @@
+{
+  "id": "n0003",
+  "parent": "n0002",
+  "branch": "full_aniso_trial",
+  "ts": 1787908927.914821,
+  "tool": "refine",
+  "params": {
+    "mode": "anisotropic",
+    "n_cycles": 12,
+    "label": "full anisotropic diagnostic"
+  },
+  "note": "",
+  "metrics": {
+    "label": "full anisotropic diagnostic",
+    "r1_strong": 0.0907,
+    "r1_all": 0.0919,
+    "wr2": 0.2748,
+    "goof": 2.496,
+    "n_params": 320,
+    "n_reflections": 8198,
+    "diff_map_max": 1.65,
+    "diff_map_min": -1.58,
+    "notes": "",
+    "scale_k": 0.08254164975697685
+  },
+  "metrics_current": true,
+  "model": {
+    "n_atoms": 40,
+    "element_counts": {
+      "Cu": 1,
+      "C": 34,
+      "O": 5
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 0.08254164975697685,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

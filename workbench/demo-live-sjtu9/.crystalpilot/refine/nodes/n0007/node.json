@@ -1,0 +1,46 @@
+{
+  "id": "n0007",
+  "parent": "n0006",
+  "branch": "zr_work",
+  "ts": 1787947065.7885861,
+  "tool": "refine",
+  "params": {
+    "mode": "aniso_heavy",
+    "n_cycles": 8,
+    "label": "grow_TCPB_ring_C_pair"
+  },
+  "note": "",
+  "metrics": {
+    "label": "grow_TCPB_ring_C_pair",
+    "r1_strong": 0.144,
+    "r1_all": 0.1584,
+    "wr2": 0.4114,
+    "goof": 3.136,
+    "n_params": 62,
+    "n_reflections": 4166,
+    "diff_map_max": 2.39,
+    "diff_map_min": -1.53,
+    "notes": "",
+    "scale_k": 0.014344302904767889
+  },
+  "metrics_current": true,
+  "model": {
+    "n_atoms": 16,
+    "element_counts": {
+      "Zr": 2,
+      "O": 5,
+      "C": 9
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 0.014344302904767889,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

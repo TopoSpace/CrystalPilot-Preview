@@ -1,0 +1,63 @@
+{
+  "id": "n0020",
+  "parent": "n0019",
+  "branch": "test_C34_0p75_occupancy",
+  "ts": 1787909120.4924018,
+  "tool": "refine",
+  "params": {
+    "mode": "anisotropic",
+    "n_cycles": 15,
+    "label": "test C34X occupancy 0.75 with refreshed mask",
+    "use_solvent_mask": true
+  },
+  "note": "",
+  "metrics": {
+    "label": "test C34X occupancy 0.75 with refreshed mask",
+    "r1_strong": 0.0547,
+    "r1_all": 0.0557,
+    "wr2": 0.1705,
+    "goof": 1.518,
+    "n_params": 297,
+    "n_reflections": 8198,
+    "diff_map_max": 0.45,
+    "diff_map_min": -0.98,
+    "notes": "",
+    "scale_k": 0.07873866668723514
+  },
+  "metrics_current": true,
+  "model": {
+    "n_atoms": 37,
+    "element_counts": {
+      "Cu": 1,
+      "C": 31,
+      "O": 5
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 0.07873866668723514,
+  "mask": {
+    "params": {
+      "solvent_radius": 1.2,
+      "shrink_truncation_radius": 1.2,
+      "resolution_factor": 0.25,
+      "d_min": null,
+      "min_void_volume": 40.0,
+      "max_cycles": 12
+    },
+    "info": {
+      "n_voids": 2,
+      "n_voids_masked": 2,
+      "total_solvent_electrons_per_cell": 465.9,
+      "solvent_volume_A3": 2345.7,
+      "solvent_volume_pct_of_cell": 38.8
+    }
+  },
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

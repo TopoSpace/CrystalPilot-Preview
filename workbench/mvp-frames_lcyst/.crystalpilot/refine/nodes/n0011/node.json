@@ -1,0 +1,47 @@
+{
+  "id": "n0011",
+  "parent": "n0005",
+  "branch": "explicit_h",
+  "ts": 1787948806.9455178,
+  "tool": "refine",
+  "params": {
+    "mode": "anisotropic",
+    "n_cycles": 2,
+    "label": "refresh no-H difference map for explicit H construction"
+  },
+  "note": "",
+  "metrics": {
+    "label": "refresh no-H difference map for explicit H construction",
+    "r1_strong": 0.0533,
+    "r1_all": 0.0586,
+    "wr2": 0.1834,
+    "goof": 1.265,
+    "n_params": 63,
+    "n_reflections": 2589,
+    "diff_map_max": 0.78,
+    "diff_map_min": -0.83,
+    "notes": "",
+    "scale_k": 1.3241046776124357
+  },
+  "metrics_current": true,
+  "model": {
+    "n_atoms": 7,
+    "element_counts": {
+      "S": 1,
+      "O": 2,
+      "N": 1,
+      "C": 3
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 1.3241046776124357,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

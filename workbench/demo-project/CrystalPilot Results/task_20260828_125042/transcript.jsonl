@@ -1,0 +1,6 @@
+{"kind": "user_message", "text": "Reply with exactly: CRYSTAL-OK", "ts": 1787892648.2356315}
+{"kind": "turn_started", "ts": 1787892648.611153}
+{"kind": "turn_completed", "duration_ms": 31358, "status": "TurnStatus.failed", "ts": 1787892679.7082088}
+{"kind": "user_message", "text": "Reply with exactly: RESUME-OK", "ts": 1787892687.2264378}
+{"kind": "turn_started", "ts": 1787892687.53643}
+{"kind": "turn_completed", "duration_ms": 35365, "status": "TurnStatus.failed", "ts": 1787892722.801444}

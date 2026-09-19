@@ -1,0 +1,30 @@
+slug: twin_iodouracil_cod2020129
+source: COD entry 2020129 (mirrors IUCr/journal deposition)
+entry page: https://www.crystallography.net/cod/2020129.html
+doi: 10.1107/S2053229615017167
+journal: Acta Crystallographica Section C (2015)
+title: 5-Iodouracil: structure of a reflection twin
+license: COD terms: data provided by IUCr Journals, free use within the scientific community with attribution to the source article
+chemical formula: C4 H3 I N2 O2
+space group: P 1 21 1   Z: 2
+cell: 4.8929(3), 4.4195(2), 14.1348(7), 90, 92.721(3), 90
+temperature: 150(2) K   radiation: MoK\a lambda=0.71073
+device: Bruker Kappa APEXII
+published R1(gt): 0.0189   wR2: 0.0455
+
+files:
+  ref.cif  = final refined CIF as deposited (downloaded from https://www.crystallography.net/cod/2020129.cif)
+  ref.fcf  = structure-factor file as deposited (downloaded from https://www.crystallography.net/cod/2020129.hkl);
+             format: CIF reflection file, SHELX LIST 4 (_shelx_refln_list_code 4):
+             loop of h k l F_squared_calc F_squared_meas F_squared_sigma status
+  ref.hkl  = DERIVED locally from ref.fcf: SHELX HKLF4 fixed format (3I4,2F8.2), columns h k l Fo^2 sigma(Fo^2), terminated by 0 0 0 line.
+
+verification: gemmi parses ref.cif and ref.fcf; n_reflections(fcf) = 3122;
+  R1 recomputed from fcf (Fo>2sig) = 0.0189 vs published R1(gt) = 0.0189 -> pairing check
+  cell(fcf) matches cell(cif): True
+
+why selected: Reflection twin of 5-iodouracil refined with BASF 0.389 (HKLF5-style batch refinement); heavy scatterer I; excellent R1=0.019. Strong explicit-twin disclosure test.
+
+key refinement instruction lines (embedded .res in CIF):
+  BASF   0.38905
+  HKLF 5

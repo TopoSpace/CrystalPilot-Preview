@@ -1,0 +1,123 @@
+data_n0021
+
+_audit_creation_method        'CrystalPilot'
+_chemical_formula_sum         'C272 H144 O128 Zr24'
+_cell_formula_units_Z         1
+# formula counts are per unit cell (Z=1 basis); occupancy-weighted
+_diffrn_radiation_wavelength  1.54178
+_cell_length_a                15.8517
+_cell_length_b                15.8517
+_cell_length_c                57.5038
+_cell_angle_alpha             90.000
+_cell_angle_beta              90.000
+_cell_angle_gamma             90.000
+_cell_volume                  14449.35
+_space_group_name_H-M_alt     'I 41/a m d :2'
+_space_group_IT_number        141
+
+loop_
+  _space_group_symop_operation_xyz
+  'x,y,z'
+  '-y+1/4,x+3/4,z+1/4'
+  'y+1/4,-x+1/4,z+3/4'
+  'x,-y,-z'
+  '-x,y+1/2,-z'
+  '-x,-y+1/2,z'
+  'y+1/4,x+3/4,-z+1/4'
+  '-y+1/4,-x+1/4,-z+3/4'
+  '-x,-y,-z'
+  'y-1/4,-x-3/4,-z-1/4'
+  '-y-1/4,x-1/4,-z-3/4'
+  '-x,y,z'
+  'x,-y-1/2,z'
+  'x,y-1/2,-z'
+  '-y-1/4,-x-3/4,z-1/4'
+  'y-1/4,x-1/4,z-3/4'
+  'x+1/2,y+1/2,z+1/2'
+  '-y+3/4,x+5/4,z+3/4'
+  'y+3/4,-x+3/4,z+5/4'
+  'x+1/2,-y+1/2,-z+1/2'
+  '-x+1/2,y+1,-z+1/2'
+  '-x+1/2,-y+1,z+1/2'
+  'y+3/4,x+5/4,-z+3/4'
+  '-y+3/4,-x+3/4,-z+5/4'
+  '-x+1/2,-y+1/2,-z+1/2'
+  'y+1/4,-x-1/4,-z+1/4'
+  '-y+1/4,x+1/4,-z-1/4'
+  '-x+1/2,y+1/2,z+1/2'
+  'x+1/2,-y,z+1/2'
+  'x+1/2,y,-z+1/2'
+  '-y+1/4,-x-1/4,z+1/4'
+  'y+1/4,x+1/4,z-1/4'
+
+_refine_ls_R_factor_gt            0.0618
+_refine_ls_R_factor_all           0.069
+_refine_ls_wR_factor_ref          0.2023
+_refine_ls_goodness_of_fit_ref    1.02
+_refine_ls_number_reflns          4166
+_refine_ls_number_parameters      135
+_refine_diff_density_max          1.26
+_refine_diff_density_min          -1.29
+
+# Disordered solvent handled by BYPASS-style masking (cf. SQUEEZE):
+_platon_squeeze_void_nr           1
+# total solvent electrons/cell:   1957.9
+# solvent-accessible volume:      62.4 % of cell
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_U_iso_or_equiv
+  _atom_site_adp_type
+  _atom_site_occupancy
+  FE01    Zr    0.00000   0.25000   0.33157   0.0404 Uani  1.000
+  ZR02    Zr    0.11024   0.36024   0.37500   0.0556 Uani  1.000
+  O004    O     0.12627   0.25000   0.35058   0.0577 Uani  1.000
+  O005    O     0.08944   0.33540   0.43714   0.0779 Uani  1.000
+  O006    O     0.16118   0.40495   0.40795   0.1036 Uani  1.000
+  O007    O     0.07462   0.50086   0.37513   0.1658 Uani  0.500
+  C008    C     0.21774   0.38668   0.46845   0.0819 Uani  1.000
+  C009    C     0.21413   0.41519   0.44585   0.0776 Uani  1.000
+  C00A    C     0.14868   0.38373   0.42921   0.0781 Uani  1.000
+  C00B    C     0.50000   0.47215   0.47764   0.0936 Uani  1.000
+  C00D    C     0.34507   0.46835   0.47460   0.0839 Uani  1.000
+  C00E    C     0.42238   0.48729   0.48861   0.0832 Uani  1.000
+  C00F    C     0.27259   0.47334   0.43761   0.0980 Uani  1.000
+  O5X     O     0.00000   0.15655   0.35660   0.0443 Uani  1.000
+  C8X     C     0.16304   0.03246   0.73277   0.0888 Uani  1.000
+  C9X     C     0.16145   0.00232   0.04790   0.0974 Uani  1.000
+  O6X     O     0.09651   0.00246   0.37399   0.1633 Uani  0.500
+  H008    H     0.17679   0.34986   0.47403   0.0983 Uiso  1.000
+  H00B    H     0.50000   0.45128   0.46252   0.1123 Uiso  1.000
+  H00F    H     0.26772   0.49554   0.42270   0.1176 Uiso  1.000
+  H8X     H     0.14392   0.03465   0.74805   0.1065 Uiso  1.000
+  H9X     H     0.12075  -0.03466   0.05353   0.1169 Uiso  1.000
+
+loop_
+  _atom_site_aniso_label
+  _atom_site_aniso_U_11
+  _atom_site_aniso_U_22
+  _atom_site_aniso_U_33
+  _atom_site_aniso_U_23
+  _atom_site_aniso_U_13
+  _atom_site_aniso_U_12
+  FE01      0.0545   0.0313   0.0355   0.0000  -0.0000  -0.0000
+  ZR02      0.0622   0.0622   0.0424  -0.0029   0.0029  -0.0291
+  O004      0.0469   0.0757   0.0504   0.0000   0.0115  -0.0000
+  O005      0.0613   0.1030   0.0693  -0.0219  -0.0170  -0.0140
+  O006      0.1045   0.1473   0.0589  -0.0130  -0.0100  -0.0615
+  O007      0.3697   0.0736   0.0540  -0.0221   0.0546  -0.1469
+  C008      0.0579   0.1200   0.0678  -0.0225  -0.0072  -0.0033
+  C009      0.0606   0.1045   0.0676  -0.0245  -0.0051  -0.0120
+  C00A      0.0648   0.1053   0.0643  -0.0148  -0.0044  -0.0208
+  C00B      0.0508   0.1454   0.0846  -0.0572  -0.0000  -0.0000
+  C00D      0.0507   0.1263   0.0746  -0.0450  -0.0040  -0.0025
+  C00E      0.0523   0.1260   0.0714  -0.0418  -0.0021  -0.0044
+  C00F      0.0783   0.1376   0.0781  -0.0124  -0.0098  -0.0382
+  O5X       0.0606   0.0318   0.0406   0.0025  -0.0000  -0.0000
+  C8X       0.1346   0.0631   0.0685  -0.0037  -0.0276  -0.0006
+  C9X       0.0712   0.1344   0.0866  -0.0153  -0.0122  -0.0266
+  O6X       0.3471   0.0567   0.0862  -0.0075   0.0606   0.0053

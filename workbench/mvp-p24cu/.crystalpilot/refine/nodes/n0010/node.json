@@ -1,0 +1,49 @@
+{
+  "id": "n0010",
+  "parent": "n0007",
+  "branch": "solvent_mask_trial",
+  "ts": 1787909031.750135,
+  "tool": "solvent_mask",
+  "params": {
+    "min_void_volume": 40,
+    "max_cycles": 12
+  },
+  "note": "",
+  "metrics": null,
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 39,
+    "element_counts": {
+      "Cu": 1,
+      "C": 33,
+      "O": 5
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 0.08283103957144568,
+  "mask": {
+    "params": {
+      "solvent_radius": 1.2,
+      "shrink_truncation_radius": 1.2,
+      "resolution_factor": 0.25,
+      "d_min": null,
+      "min_void_volume": 40.0,
+      "max_cycles": 12
+    },
+    "info": {
+      "n_voids": 2,
+      "n_voids_masked": 2,
+      "total_solvent_electrons_per_cell": 419.2,
+      "solvent_volume_A3": 2027.6,
+      "solvent_volume_pct_of_cell": 33.5
+    }
+  },
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

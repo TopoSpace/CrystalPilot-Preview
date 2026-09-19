@@ -1,0 +1,11 @@
+{
+  "active_node": "n0000",
+  "active_branch": "main",
+  "branches": {
+    "main": "n0000",
+    "riding_h_rebuild": "n0001",
+    "atomloop_free_refine": "n0002",
+    "reconstruct_part_fvar": "n0004"
+  },
+  "seq": 5
+}

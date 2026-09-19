@@ -1,0 +1,74 @@
+DIALS (2018) Acta Cryst. D74, 85-97. https://doi.org/10.1107/S2059798317017235
+DIALS 3.30
+
+  0%|          | 0/1102 [00:00<?, ?it/s]
+  0%|          | 0/1102 [00:00<?, ?it/s]
+
+--- stderr ---
+Traceback (most recent call last):
+  File "C:\Users\lenovo\miniforge3\envs\dials\Scripts\dials.import-script.py", line 10, in <module>
+    sys.exit(run())
+             ~~~^^
+  File "C:\Users\lenovo\miniforge3\envs\dials\Lib\contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\lenovo\miniforge3\envs\dials\Lib\site-packages\dials\command_line\dials_import.py", line 1013, in run
+    do_import(args, phil=phil, configure_logging=True)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\miniforge3\envs\dials\Lib\site-packages\dials\command_line\dials_import.py", line 858, in do_import
+    params, options, unhandled = parser.parse_args(
+                                 ~~~~~~~~~~~~~~~~~^
+        args=args, show_diff_phil=False, return_unhandled=True
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\lenovo\miniforge3\envs\dials\Lib\site-packages\dials\util\options.py", line 876, in parse_args
+    params, args = self._phil_parser.parse_args(
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        args,
+        ^^^^^
+    ...<2 lines>...
+        quick_parse=quick_parse,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\lenovo\miniforge3\envs\dials\Lib\site-packages\dials\util\options.py", line 558, in parse_args
+    importer = Importer(
+        unhandled,
+    ...<10 lines>...
+        load_models=load_models,
+    )
+  File "C:\Users\lenovo\miniforge3\envs\dials\Lib\site-packages\dials\util\options.py", line 207, in __init__
+    self.unhandled = self.try_read_experiments_from_images(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.unhandled,
+        ^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        load_models,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\lenovo\miniforge3\envs\dials\Lib\site-packages\dials\util\options.py", line 284, in try_read_experiments_from_images
+    experiments = ExperimentListFactory.from_filenames(
+        args,
+    ...<6 lines>...
+        load_models=load_models,
+    )
+  File "C:\Users\lenovo\miniforge3\envs\dials\Lib\site-packages\dxtbx\model\experiment_list.py", line 709, in from_filenames
+    format_object = format_class(filename, **format_kwargs)
+  File "C:\Users\lenovo\miniforge3\envs\dials\Lib\site-packages\dxtbx\format\FormatROD.py", line 47, in __init__
+    Format.__init__(self, image_file, **kwargs)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\miniforge3\envs\dials\Lib\site-packages\dxtbx\format\Format.py", line 164, in __init__
+    self.setup()
+    ~~~~~~~~~~^^
+  File "C:\Users\lenovo\miniforge3\envs\dials\Lib\site-packages\dxtbx\format\Format.py", line 174, in setup
+    self._start()
+    ~~~~~~~~~~~^^
+  File "C:\Users\lenovo\miniforge3\envs\dials\Lib\site-packages\dxtbx\format\FormatROD.py", line 212, in _start
+    self._txt_header = self._read_ascii_header(self._image_file)
+                       ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\miniforge3\envs\dials\Lib\site-packages\dxtbx\format\FormatROD.py", line 85, in _read_ascii_header
+    raise NotImplementedError(
+        f"FormatROD: only header version 4.0 is supported but got {hd['version']}"
+    )
+NotImplementedError: Please report this error at https://github.com/dials/dials/issues or to dials-user-group@jiscmail.ac.uk: FormatROD: only header version 4.0 is supported but got 3.0

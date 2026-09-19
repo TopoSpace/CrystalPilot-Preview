@@ -1,0 +1,31 @@
+{
+  "active_node": "n0185",
+  "active_branch": "part_aware_h_round5_clean",
+  "branches": {
+    "main": "n0012",
+    "hklf4_single": "n0013",
+    "hklf4_validated": "n0014",
+    "hklf5_twin": "n0023",
+    "hklf4_final": "n0033",
+    "benzene_disorder_trial": "n0026",
+    "benzene_disorder_noh": "n0030",
+    "benzene_restrained_final": "n0044",
+    "h_complete_publication": "n0052",
+    "publication_h66": "n0059",
+    "published_disorder_round2": "n0069",
+    "published_disorder_round2_full": "n0080",
+    "published_disorder_majorH_trial": "n0082",
+    "published_disorder_round2_final": "n0089",
+    "published_disorder_fixed_pub_occ": "n0105",
+    "part_aware_h_round3": "n0143",
+    "part_aware_h_round4_final": "n0145",
+    "part_aware_h_round4_recovery106": "n0150",
+    "part_aware_h_round4_clean103_probe": "n0147",
+    "part_aware_h_round4_direct_clean_probe": "n0148",
+    "part_aware_h_round4_final_export": "n0153",
+    "part_aware_h_round4_final_deliverable": "n0149",
+    "part_aware_h_round4_safe_delivery": "n0143",
+    "part_aware_h_round5_clean": "n0159"
+  },
+  "seq": 186
+}

@@ -1,0 +1,46 @@
+{
+  "id": "n0005",
+  "parent": "n0004",
+  "branch": "zr_work",
+  "ts": 1787947056.778827,
+  "tool": "refine",
+  "params": {
+    "mode": "aniso_heavy",
+    "n_cycles": 8,
+    "label": "add_missing_Zr_coord_O"
+  },
+  "note": "",
+  "metrics": {
+    "label": "add_missing_Zr_coord_O",
+    "r1_strong": 0.163,
+    "r1_all": 0.1789,
+    "wr2": 0.4597,
+    "goof": 3.571,
+    "n_params": 54,
+    "n_reflections": 4166,
+    "diff_map_max": 4.12,
+    "diff_map_min": -1.5,
+    "notes": "",
+    "scale_k": 0.014260248866829809
+  },
+  "metrics_current": true,
+  "model": {
+    "n_atoms": 14,
+    "element_counts": {
+      "Zr": 2,
+      "O": 5,
+      "C": 7
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 0.014260248866829809,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

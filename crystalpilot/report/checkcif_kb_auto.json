@@ -1,0 +1,2947 @@
+{
+ "002": {
+  "meaning": "Report number of atom sites with distance/angle restraints.",
+  "remedy": "一般无需解决，限制命令有合理解释即可。去掉一些非必要的限制或许可以消除。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT002》"
+ },
+ "003": {
+  "meaning": "Report number of non-H atoms with Uiso or Uij restraints.",
+  "remedy": "一般无需解决，限制命令有合理解释即可。去掉一些非必要的限制可能可以消除。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT003》"
+ },
+ "004": {
+  "meaning": "Report Dimensionality of polymer.",
+  "remedy": "一般无需解决，有合理解释即可。需要注意检查是否有不正确的成键。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT004》"
+ },
+ "005": {
+  "meaning": "Check for refinement instruction file.",
+  "remedy": "将res文件内容加入_iucr_refine_instructions_details条目后，或使用SHELXL 2014及以上版本进行精修可以自动将res文件嵌入CIF文件中。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT005》"
+ },
+ "006": {
+  "meaning": "Check for Extinction parameter refinement.",
+  "remedy": "一般无需解决，有合理解释即可。需要注意检查消光系数是否有意义，即数值远大于误差。若要解决，可删去ins文件中EXTI命令后精修重新生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT006》"
+ },
+ "007": {
+  "meaning": "Report on unrefined D-H atoms.",
+  "remedy": "去掉AFIX命令，将供体原子上的氢坐标照自由变量精修。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT007》"
+ },
+ "008": {
+  "meaning": "Check for refinement reflections details.",
+  "remedy": "使用2014及以上版本SHELXL[3]精修重新生成CIF文件（参阅推文“Olex2基操-CIF中以何种形式嵌入hkl”）。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT008》"
+ },
+ "010": {
+  "meaning": "Test for Reflection Data for Validation and Archival.",
+  "remedy": "使用2014及以上版本SHELXL[2]精修重新生成CIF文件（参阅推文“Olex2基操-CIF中以何种形式嵌入hkl”）。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT010》"
+ },
+ "011": {
+  "meaning": "Test for any ATOMS found in CIF.",
+  "remedy": "一般不会出现，除非是只拟合晶胞参数。如果误操作删除了原子信息，只需要重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT011》"
+ },
+ "012": {
+  "meaning": "Check for valid_shelx_res_checksum.",
+  "remedy": "一般不会出现，如果误操作删除了checksum信息，只需要重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT012》"
+ },
+ "013": {
+  "meaning": "Check for _shelx_hkl_checksum.",
+  "remedy": "一般不会出现，如果误操作删除了checksum信息，只需要重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT013》"
+ },
+ "014": {
+  "meaning": "Check for _shelxl_fab_checksum.",
+  "remedy": "一般不会出现，如果误操作删除了checksum信息，只需要重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT014》"
+ },
+ "016": {
+  "meaning": "Check for refinement FAB file (SHELXL20xy).",
+  "remedy": "使用ShelXL2014进行精修，程序会自动把hkl文件和ins文件加入到cif文件中。(如果使用OLEX2的话，在Report里HKL/RES中选择Leave as is即可)。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT016》"
+ },
+ "017": {
+  "meaning": "Check the Consistency ofScattering Type.",
+  "remedy": "一般不会出现，注意区分是中子衍射还是X射线衍射即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT017》"
+ },
+ "019": {
+  "meaning": "Check_diffrn_measured_fraction_theta_max/full consistency.",
+  "remedy": "不用或者减少删(坏)点数量。重新还原数据或者重新收集数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT019》"
+ },
+ "020": {
+  "meaning": "Type_3 Check Rint.",
+  "remedy": "首先确认晶系和Laue群。再尝试用OMIT 0 50或SHEL 9990.84 命令截断部分高角度的点。再尝试重新还原和校正数据。如果都不行就只能重新挑选质量好的晶体在低温下用Cu靶收集数据了。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT020》"
+ },
+ "021": {
+  "meaning": "Check Expected number of Reflections (Max = 1 Centro, 2 - non-centro).",
+  "remedy": "一般不会出现。如果数据未合并需要合并数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT021》"
+ },
+ "022": {
+  "meaning": "Check Expected number of Reflections (completeness).",
+  "remedy": "重新还原数据或者重新收集数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT022》"
+ },
+ "023": {
+  "meaning": "Check Theta-Max.",
+  "remedy": "重新还原数据或者重新收集数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT023》"
+ },
+ "024": {
+  "meaning": "Check for required Friedel pair averaging Z<=Si (Obsolete 1/1/2011).",
+  "remedy": "一般不会出现。使用MERG 3或者MERG 4合并Friedel对重新精修即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT024》"
+ },
+ "025": {
+  "meaning": "Check for Hmin..Lmax.",
+  "remedy": "一般不会出现。精修重新生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT025》"
+ },
+ "026": {
+  "meaning": "Check for a weak data set.",
+  "remedy": "可以尝试用SHEL 9990.84命令或OMIT-2 50命令截去一部分高角度点，如果不行就只能重新收数据了。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT026》"
+ },
+ "027": {
+  "meaning": "Check _diffrn_reflns_theta_full.",
+  "remedy": "可以尝试用SHEL 9990.84命令或OMIT-2 50命令截去一部分高角度点，如果不行需调整曝光时间重新收集数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT027》"
+ },
+ "028": {
+  "meaning": "Check the reported_diffrn_measured_fraction_theta_max.",
+  "remedy": "使用SHEL或OMIT命令适当截去少量高角度衍射点即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT028》"
+ },
+ "029": {
+  "meaning": "Check the reported _diffrn_measured_fraction_theta_full.",
+  "remedy": "可以尝试用shel 9990.84或omit0 50或omit-3 50切去一部分高角度点，如果不行需调整曝光时间重新收集数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT029》"
+ },
+ "030": {
+  "meaning": "Check _diffrn_reflns_number >= reflns_number_total.",
+  "remedy": "一般不会出现，重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT030》"
+ },
+ "031": {
+  "meaning": "Check need for Extinction Correction Parameter.",
+  "remedy": "删除EXTI命令再精修即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT031》"
+ },
+ "032": {
+  "meaning": "Check s.u. Flack Parameter.",
+  "remedy": "1. 如果有手性且有重原子，那在修正中加入Flack指令，修正后重新产生CIF。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT032》"
+ },
+ "033": {
+  "meaning": "Check Flack Parameter value.",
+  "remedy": "当Flack系数值约为1时，可以使用inv –f (Olex2中)命令翻转构型。当Flack系数约为0.5时，可以采用Platon升高空间群或者TWIN指令进行孪晶精修。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT033》"
+ },
+ "034": {
+  "meaning": "Check for Flack parameter value specified Z>Si, non-centro.",
+  "remedy": "一般不会出现，重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT034》"
+ },
+ "035": {
+  "meaning": "Check for_chemical_absolute_configuration.",
+  "remedy": "根据需要选择绝对构型的确定方式，非手性空间群改成句点。手性空间群此项后根据实际情况改成上述关键词中的一项。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT035》"
+ },
+ "036": {
+  "meaning": "Check for missing Flack Parameter s.u.",
+  "remedy": "一般不会出现，重新精修生成CIF文件即可。当使用TWIN指令进行精修时，需要加上BASF指令。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT036》"
+ },
+ "037": {
+  "meaning": "Check _diffrn_reflns_theta_full.",
+  "remedy": "一般不会出现，重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT037》"
+ },
+ "038": {
+  "meaning": "Check_diffrn_measured_fraction_theta_max.",
+  "remedy": "一般不会出现，重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT038》"
+ },
+ "039": {
+  "meaning": "Check _diffrn_measured_fraction_theta_full.",
+  "remedy": "一般不会出现，重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT039》"
+ },
+ "040": {
+  "meaning": "Test for H-atoms [0,1].",
+  "remedy": "将模型加氢并精修即可。如果结构本身不含氢原子，解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT040》"
+ },
+ "041": {
+  "meaning": "Test SumFormula.",
+  "remedy": "给出正确Z值并精修结构重新生成CIF文件。或将检测出的正确值填写在“_chemical_formula_sum”。若使用SQUEEZE，须给出说明。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT041》"
+ },
+ "042": {
+  "meaning": "Test MoietyFormula.",
+  "remedy": "给出正确Z值并精修结构重新生成CIF文件。或将检测出的正确值填写在“_chemical_formula_moiety”。若使用SQUEEZE，须给出说明。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT042》"
+ },
+ "043": {
+  "meaning": "Test for MolWeight.",
+  "remedy": "给出正确Z值并精修结构重新生成CIF文件。或将检测出的正确值填写在“_chemical_formula_weight”项。若使用SQUEEZE，须给出说明。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT043》"
+ },
+ "044": {
+  "meaning": "Check Reported with calculated density.",
+  "remedy": "一般不会出现，重新精修生成CIF文件即可。例如使用了SQUEEZE，必须给出说明。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT044》"
+ },
+ "045": {
+  "meaning": "Check Reported and Calculated Z.",
+  "remedy": "修改_cell_formula_units_Z值同计算值相同。否则需给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT045》"
+ },
+ "046": {
+  "meaning": "Check Reported Density with calculated density from Z*MW.",
+  "remedy": "一般不会出现，重新精修生成CIF文件即可。若使用SQUEEZE，须给出说明。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT046》"
+ },
+ "047": {
+  "meaning": "Test SumFormula Given.",
+  "remedy": "在_chemical_formula_sum项中给出正确总分子式。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT047》"
+ },
+ "048": {
+  "meaning": "Test MoietyFormula Given.",
+  "remedy": "在CIF中_chemical_formula_moiety项给出残基分子式即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT048》"
+ },
+ "049": {
+  "meaning": "Check Calculated Density .GT. 1.0.",
+  "remedy": "检查结构模型是否不完整、对称性错误、占有率给错、晶体中是否有孔洞等，否则需给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT049》"
+ },
+ "050": {
+  "meaning": "Test for mu given [0,1].",
+  "remedy": "给出正确分子式和Z值后，重新精修，程序会在_exptl_absorpt_coefficient_mu项中给出线性吸收系数。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT050》"
+ },
+ "051": {
+  "meaning": "Test for difference mu(cif) with mu(calc) [%].",
+  "remedy": "在ins文件中，将Z值和分子式正确给出，再精修生CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT051》"
+ },
+ "052": {
+  "meaning": "Test for specification absorption correction method [0,1].",
+  "remedy": "在CIF文件中\"_exptl_absorpt_correction_type\"项给出吸收校正方法即可。若未做吸收校正，此项填写'none'或'?'，并将\"_exptl_absorpt_correction_T_max\"、\"_exptl_absorpt_correction_T_min\"和\"_exptl_absorpt_process_details\"项内容改为'?'即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT052》"
+ },
+ "053": {
+  "meaning": "Test for specification xtal_dimension_min[0,1].",
+  "remedy": "在_exptl_crystal_size_min项中给出晶体最小尺寸，单位为毫米。或者在ins中添加SIZE指令后精修。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT053》"
+ },
+ "054": {
+  "meaning": "Test for specification xtal_dimension_mid [0,1].",
+  "remedy": "在_exptl_crystal_size_mid项中给出晶体中间尺寸，单位为毫米。或者在ins中添加SIZE指令后精修。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT054》"
+ },
+ "055": {
+  "meaning": "Test for specification xtal_dimension_max [0,1].",
+  "remedy": "在_exptl_crystal_size_max项中给出晶体最大尺寸，单位为毫米。或者在ins中添加SIZE指令后精修。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT055》"
+ },
+ "056": {
+  "meaning": "Test for specification xtal_radius[0,1].",
+  "remedy": "在_exptl_crystal_size_max、_exptl_crystal_size_mid、_exptl_crystal_size_min项下给出晶体尺寸。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT056》"
+ },
+ "057": {
+  "meaning": "Test for correction for absorption needed.",
+  "remedy": "重新做吸收校正。在ins中添加“SIZE0.10 0.11 0.12”，然后精修(调整a,b,c紧凑些，即三者之间的差值小一些)",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT057》"
+ },
+ "058": {
+  "meaning": "Test for specification Tmax [0,1].",
+  "remedy": "查数据还原后的文件,比如sad.abs.从中寻找；或者在ins文件中加上命令 size a bc (abc是晶体的大小，测定时有记录在P4P文件中，有的老师可能不给你记录，你可以根据你的感观填上数值如size0.18 0.12 0.10)，然后refine一轮CIF中即有此数值。填入“_exptl_absorpt_correction_T_max”值即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT058》"
+ },
+ "059": {
+  "meaning": "Test for specification Tmin [0,1].",
+  "remedy": "查数据还原后的文件,比如sad.abs.从中寻找；或者在ins文件中加上命令 size a bc (abc是晶体的大小，测定时有记录在P4P文件中，有的老师可能不给你记录，你可以根据你的感观填上数值如size0.18 0.12 0.10)，然后refine一轮CIF中即有此数值。填入_exptl_absorpt_correction_T_min值即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT059》"
+ },
+ "060": {
+  "meaning": "Type_4 RR Test.",
+  "remedy": "在ins中添加“SIZE a bc”后精修，调整ab c的相应比例。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT060》"
+ },
+ "061": {
+  "meaning": "Type_4 RR' Test.",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT061》"
+ },
+ "062": {
+  "meaning": "Rescale Tmin & Tmax.",
+  "remedy": "加入SIZE命令并精修。修改Tmax值为_shelx_estimated_absorpt_T_max值，Tmin为相对校正因子乘以Tmax。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT062》"
+ },
+ "063": {
+  "meaning": "Test for Crystal Size.",
+  "remedy": "检查晶体尺寸是否填写有误，否则需给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT063》"
+ },
+ "064": {
+  "meaning": "Test for T(max) .GE. T(min).",
+  "remedy": "调换_exptl_correction_T_min和_exptl_correction_T_max项的值。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT064》"
+ },
+ "066": {
+  "meaning": "Test whether Predicted and Reported Transmission Ranges are Identical.",
+  "remedy": "检查是否是人为输入错误，并更正。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT066》"
+ },
+ "067": {
+  "meaning": "Insure that minimum dimension less max dimension.",
+  "remedy": "人为输入错误，手动更正即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT067》"
+ },
+ "068": {
+  "meaning": "Test for F000 Calc/Reported difference.",
+  "remedy": "在ins文件中，将Z值和分子式正确给出，再重新精修生CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT068》"
+ },
+ "070": {
+  "meaning": "Test for duplicate labels.",
+  "remedy": "将重复标签改正即可。一个结构数据中通常不允许存在重复的原子标签，若存在重复的原子标签，大多数图形用户界面都会提醒，并且会由于重复的原子标签导致无法精修。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT070》"
+ },
+ "071": {
+  "meaning": "Test for uninterpretable labels.",
+  "remedy": "将原子标签改成\"元素种类\"+\"序号\"的格式。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT071》"
+ },
+ "072": {
+  "meaning": "Test for extreme first weighting parameter (SHELXL).",
+  "remedy": "OMIT掉误差较大的点或者按孪晶精修。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT072》"
+ },
+ "073": {
+  "meaning": "Test for inconsistency 'constr' versus 'H-Atoms refined'.",
+  "remedy": "CIF中_hydrogen_treatment项为mixed。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT073》"
+ },
+ "074": {
+  "meaning": "Test for Occupancy equal 0.0.",
+  "remedy": "仔细检查结构模型，删除占有率为0的原子或者改正结构模型。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT074》"
+ },
+ "075": {
+  "meaning": "Test for Occupancy greater than1.0.",
+  "remedy": "一般都是误改，将改原子占有率改成正常值即可。否则，需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT075》"
+ },
+ "076": {
+  "meaning": "Test for Occupancy less than 1.0 for atom on special position.",
+  "remedy": "一般都是误改，将改原子占有率改成正常值即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT076》"
+ },
+ "077": {
+  "meaning": "Test for Non-Integral # of atoms in Unit Cell.",
+  "remedy": "检查一下是否有原子误改了占有率并改正。否则需有合理解释，如部分溶剂或者取代无序等等。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT077》"
+ },
+ "078": {
+  "meaning": "Test for inconsistency 'geom' versus 'no H-Atoms'.",
+  "remedy": "检查是否遗忘加氢，否则将_atom_sites_solution_hydrogen值改为句点'.'。将_solution_hydrogens项和_hydrogen_treatment项改成none",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT078》"
+ },
+ "079": {
+  "meaning": "Test for inconsistency 'mixed 'versus 'no H-Atoms'.",
+  "remedy": "检查是否遗忘加氢，否则将_atom_sites_solution_hydrogen值改为句点'.'。将_solution_hydrogens项和_hydrogen_treatment项改成none",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT079》"
+ },
+ "080": {
+  "meaning": "Test maximum shift/error.",
+  "remedy": "增加精修轮数(即将ins中L.S.后的数值改大)再精修，如果不行需要检查结构模型是否有问题，是否存在非正定，末端甲基类似基团是否存在旋转等。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT080》"
+ },
+ "082": {
+  "meaning": "Test for reasonable R1.",
+  "remedy": "检查是否已经精修权重，再检查模型是否正确，最后检查数据质量是否足够高。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT082》"
+ },
+ "083": {
+  "meaning": "Test for extreme second weighting parameter (SHELXL).",
+  "remedy": "OMIT掉误差较大的点或者按孪晶精修。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT083》"
+ },
+ "084": {
+  "meaning": "Test for reasonable wR2.",
+  "remedy": "检查是否已经精修权重，再检查模型是否正确，最后检查数据质量是否足够高或是否孪晶。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT084》"
+ },
+ "085": {
+  "meaning": "Test for default SHELXL weighting scheme.",
+  "remedy": "精修权重即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT085》"
+ },
+ "086": {
+  "meaning": "Test for reasonable S (Too Low).",
+  "remedy": "检查是否已经精修权重，再检查模型是否正确，最后检查数据质量是否足够高或是否孪晶。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT086》"
+ },
+ "087": {
+  "meaning": "Test for reasonable S (Too High).",
+  "remedy": "检查是否已经精修权重，再检查模型是否正确，最后检查数据质量是否足够高。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT087》"
+ },
+ "088": {
+  "meaning": "Test for reasonable Data / parameter ratio (centro).",
+  "remedy": "可以采用骑式模型减少参数个数，无法解决只能重新还原或者收集数据。也可以使用自由变量来减少参数数目(https://mp.weixin.qq.com/s/sdGu4kItEBVS2A5JLwBnQA)。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT088》"
+ },
+ "089": {
+  "meaning": "Test for reasonable Data / parameter ratio (non-centro) (Zmax < 18).",
+  "remedy": "可以采用骑式模型减少参数个数，无法解决只能重新还原或者收集数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT089》"
+ },
+ "090": {
+  "meaning": "Test for reasonable Data / parameter ratio (non-centro) (ZMAX > 18).",
+  "remedy": "可以采用骑式模型减少参数个数，无法解决只能重新还原或者收集数据。删除omit或者shel命令重新精修。 / 数据收的不够导致了强点参数比低于最低要求7，所以才会出现这个警告，要解决的话只能重新收数据了，再收的时候不要按照空间群收了，要收四分之一球或二分之一球。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT090》"
+ },
+ "091": {
+  "meaning": "Test for 'No-wavelength given'.",
+  "remedy": "一般为误删，在ins中给出正确波长后重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT091》"
+ },
+ "092": {
+  "meaning": "Test for wavelength type [Cu,Ga,Mo,Ag].",
+  "remedy": "一般为误更改，在ins中给出正确波长后重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT092》"
+ },
+ "093": {
+  "meaning": "Test for inconsistency 'mixed' versus 'no refined H positions'.",
+  "remedy": "当氢原子全部按限定精修，氢原子位置是通过计算的，没有误差。将CIF中'_refine_ls_hydrogen_treatment'项修改为'constr'。若结构中没有氢原子，则该项填写'?'。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT093》"
+ },
+ "094": {
+  "meaning": "Test for maximum/minimum residual density ratio.",
+  "remedy": "Q峰游离检查是否有原子未指认，Q峰如果在轻原子周围检查是否可以无序处理；在重原子周围需要重新吸收校正或者收集数据。使用Shel999 0.84切去部分高角度点可缓解此警告。最后检查是否数据足够好，是否存在孪晶。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT094》"
+ },
+ "095": {
+  "meaning": "Test for residual density maximum given [0,1].",
+  "remedy": "一般为误删，重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT095》"
+ },
+ "096": {
+  "meaning": "Test for residual density minimum given [0,1].",
+  "remedy": "一般为误删，重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT096》"
+ },
+ "097": {
+  "meaning": "Test maximum residual density (Reported).",
+  "remedy": "Q峰游离检查是否有原子未指认，Q峰如果在轻原子周围检查是否可以无序处理，在重原子周围需要重新吸收校正或者收集数据。使用Shel999 0.84切去部分高角度点可缓解此警告。最后检查是否数据足够好，是否存在孪晶。残余峰大，有可能是鬼影，也有可能是原子定错等模型错误。如果能有其他测试证明，说明一下通过审稿应该没问题。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT097》"
+ },
+ "098": {
+  "meaning": "Test for minimum residual density (Reported).",
+  "remedy": "Q峰游离检查是否有原子未指认，Q峰如果在轻原子周围检查是否可以无序处理，在重原子周围需要重新吸收校正或者收集数据。使用Shel999 0.84切去部分高角度点可缓解此警告。最后检查是否数据足够好，是否存在孪晶。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT098》"
+ },
+ "099": {
+  "meaning": "Test for minimum residual density greater zero [0, 1].",
+  "remedy": "最大最小峰重值可能写反，重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT099》"
+ },
+ "104": {
+  "meaning": "Test for additional translational symmetry [0, 1].",
+  "remedy": "一般不会出现，为误操作。重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT104-108》"
+ },
+ "105": {
+  "remedy": "一般不会出现，为误操作。重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT104-108》"
+ },
+ "106": {
+  "remedy": "一般不会出现，为误操作。重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT104-108》"
+ },
+ "107": {
+  "meaning": "Test validity of inversion twinning operation.",
+  "remedy": "一般不会出现，为误操作。重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT104-108》"
+ },
+ "108": {
+  "meaning": "Test validity of the twinning operation.",
+  "remedy": "一般不会出现，为误操作。重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT104-108》"
+ },
+ "109": {
+  "meaning": "Test validity of the twinning operation.",
+  "remedy": "有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT109》"
+ },
+ "110": {
+  "meaning": "Test for additional translational symmetry [0, 1].",
+  "remedy": "使用Platon中的Addsym检查是否需要升空间群，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT110》"
+ },
+ "111": {
+  "meaning": "Test for additional centre of symmetry [0, 100].",
+  "remedy": "有95个伪对称，可能是空间群错了，解析完用Palton升一下空间群应该就可以了。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT111》"
+ },
+ "112": {
+  "meaning": "Test for additional symmetry [0,1].",
+  "remedy": "使用Platon中的Addsym检查是否需要升空间群，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT112》"
+ },
+ "113": {
+  "meaning": "Report New space-group suggested by ADDSYM.",
+  "remedy": "使用Platon中的Addsym检查是否需要升空间群，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT113》"
+ },
+ "114": {
+  "meaning": "Report on ADDSYM problem.",
+  "remedy": "使用Platon中的Addsym检查是否需要升空间群，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT114-115》"
+ },
+ "115": {
+  "meaning": "Test for non-crystallographic centre of symmetry [0, 100].",
+  "remedy": "使用Platon中的Addsym检查是否需要升空间群，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT114-115》"
+ },
+ "116": {
+  "meaning": "Report implemented (pseudo) lattice translation.",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT116》"
+ },
+ "119": {
+  "meaning": "Report Problem with symmetry operator syntax.",
+  "remedy": "一般为误删，重新精修生成CIF文件。 / 一般不会发生，重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT119-120》"
+ },
+ "120": {
+  "meaning": "Test for consistent_symmetry_space_group_name_H-M and Symm Opp.",
+  "remedy": "一般为误删，重新精修生成CIF文件。 / 一般不会发生，重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT119-120》"
+ },
+ "121": {
+  "meaning": "Test for valid_symmetry_space_group_name_H-M.",
+  "remedy": "一般不会发生，重新精修生成CIF文件即可。 / 一般不会发生，重新精修生成CIF文件即可。在ins或是res中找，TITL一栏就是空间群名称，一般没有做过空间群的转换，这里就是了。最保险的方法是在生成的checkcif页面上就有，例如Space group C2/m。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT121-122》"
+ },
+ "122": {
+  "meaning": "Test for ? _symmetry_space_group_name_H-M.",
+  "remedy": "一般不会发生，重新精修生成CIF文件即可。 / 一般不会发生，重新精修生成CIF文件即可。在ins或是res中找，TITL一栏就是空间群名称，一般没有做过空间群的转换，这里就是了。最保险的方法是在生成的checkcif页面上就有，例如Space group C2/m。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT121-122》"
+ },
+ "123": {
+  "meaning": "Test for Interpretable Space Group Symmetry.",
+  "remedy": "一般不会发生，重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT123-124》"
+ },
+ "124": {
+  "meaning": "Test for_symmetry_equiv_pos_as_xyz present.",
+  "remedy": "一般不会发生，重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT123-124》"
+ },
+ "125": {
+  "meaning": "Test for ? _symmetry_space_group_name_Hall.",
+  "remedy": "一般不会发生，重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT125-126》"
+ },
+ "126": {
+  "meaning": "Test for_symmetry_space_group_name_Hall error.",
+  "remedy": "一般不会发生，重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT125-126》"
+ },
+ "127": {
+  "meaning": "Test for _symmetry_space_group_name_Hall consistency.",
+  "remedy": "一般不会发生，重新精修生成CIF文件即可。 / 一般不需更改。若想转换，则使用XPREP软件中矩阵转换功能进行转换。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT127-128》"
+ },
+ "128": {
+  "meaning": "Test for non-standard space_group settings.",
+  "remedy": "一般不会发生，重新精修生成CIF文件即可。 / 一般不需更改。若想转换，则使用XPREP软件中矩阵转换功能进行转换。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT127-128》"
+ },
+ "129": {
+  "meaning": "Test for unusual non-standard Space group name.",
+  "remedy": "一般不会发生，重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT129》"
+ },
+ "130": {
+  "meaning": "Test for Cubic: a = b = c.",
+  "remedy": "检查是否定错晶系，若是，则重新还原数据，寻找正确的晶系。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT130-140》"
+ },
+ "131": {
+  "meaning": "Test for Cubic: alpha = beta = gamma= 90.",
+  "remedy": "检查是否定错晶系，若是，则重新还原数据，寻找正确的晶系。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT130-140》"
+ },
+ "132": {
+  "meaning": "Test for Trigonal/Hexagonal: a = b.",
+  "remedy": "检查是否定错晶系，若是，则重新还原数据，寻找正确的晶系。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT130-140》"
+ },
+ "133": {
+  "meaning": "Test for Trigonal/Hexagonal: alpha= beta = 90.",
+  "remedy": "检查是否定错晶系，若是，则重新还原数据，寻找正确的晶系。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT130-140》"
+ },
+ "134": {
+  "meaning": "Test for Trigonal/Hexagonal: gamma= 120.",
+  "remedy": "检查是否定错晶系，若是，则重新还原数据，寻找正确的晶系。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT130-140》"
+ },
+ "135": {
+  "meaning": "Test for Tetragonal: a = b.",
+  "remedy": "检查是否定错晶系，若是，则重新还原数据，寻找正确的晶系。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT130-140》"
+ },
+ "136": {
+  "meaning": "Test for Tetragonal: alpha = beta= gamma = 90.",
+  "remedy": "检查是否定错晶系，若是，则重新还原数据，寻找正确的晶系。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT130-140》"
+ },
+ "137": {
+  "meaning": "Test for Orthorhombic: alpha =beta = gamma = 90.",
+  "remedy": "检查是否定错晶系，若是，则重新还原数据，寻找正确的晶系。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT130-140》"
+ },
+ "138": {
+  "meaning": "Test for Monoclinic more than 1 angle off 90 degrees.",
+  "remedy": "检查是否定错晶系，若是，则重新还原数据，寻找正确的晶系。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT130-140》"
+ },
+ "139": {
+  "meaning": "Test for Rhombohedral a = b = c.",
+  "remedy": "检查是否定错晶系，若是，则重新还原数据，寻找正确的晶系。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT130-140》"
+ },
+ "141": {
+  "meaning": "Type_4 s.u. on a - axis small or missing.",
+  "remedy": "若缺失，则检查是否还原过程某一步出问题，可重新还原数据。若太小，则适当增大其数值。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT141》"
+ },
+ "142": {
+  "meaning": "Type_4 s.u. on b - axis small or missing.",
+  "remedy": "若缺失，则检查是否还原过程某一步出问题，可重新还原数据。若太小，则适当增大其数值。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT142》"
+ },
+ "143": {
+  "meaning": "Type_4 s.u. on c - axis small or missing.",
+  "remedy": "若缺失，则检查是否还原过程某一步出问题，可重新还原数据。若太小，则适当增大其数值。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT143》"
+ },
+ "144": {
+  "meaning": "Type_4 s.u. on alpha small or missing.",
+  "remedy": "若缺失，则检查是否还原过程某一步出问题，可重新还原数据。若太小，则适当增大其数值。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT144-145》"
+ },
+ "145": {
+  "meaning": "Type_4 s.u. on beta small or missing.",
+  "remedy": "若缺失，则检查是否还原过程某一步出问题，可重新还原数据。若太小，则适当增大其数值。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT144-145》"
+ },
+ "146": {
+  "meaning": "Type_4 s.u. on gamma small or missing.",
+  "remedy": "若缺失，则检查是否还原过程某一步出问题，可重新还原数据。若太小，则适当增大其数值。 / 将其标准偏差改为0即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT146-147》"
+ },
+ "147": {
+  "meaning": "Type_1 s.u. on symmetry restricted cellangle.",
+  "remedy": "若缺失，则检查是否还原过程某一步出问题，可重新还原数据。若太小，则适当增大其数值。 / 将其标准偏差改为0即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT146-147》"
+ },
+ "148": {
+  "meaning": "Type_3 s.u. on a, b, or c - axis too large.",
+  "remedy": "检查数值是否填错，否则需给出合理解释。对于这三个错误主要是收录晶体还原数据时，最终的晶胞参数偏差太大造成的，最好重新收录，实在要消除也可以，就是在ins文件中把偏差改小，详见下面的例子：",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT148》"
+ },
+ "149": {
+  "meaning": "Type_3 s.u. on alpha, beta or gamma too large.",
+  "remedy": "检查数值是否填错，否则需给出合理解释。对于这三个错误主要是收录晶体还原数据时，最终的晶胞参数偏差太大造成的，最好重新收录，实在要消除也可以，就是在ins文件中把相应偏差改小。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT149》"
+ },
+ "150": {
+  "meaning": "Check Volume.",
+  "remedy": "检查是否晶胞定错，否则需要给出合理解释。最好重新收录数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT150》"
+ },
+ "151": {
+  "meaning": "Check for s.u. on Volume.",
+  "remedy": "检查是否还原过程某一步出问题，可重新还原数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT151》"
+ },
+ "152": {
+  "meaning": "Check for consistency of s.u. on Volume and cell parameters.",
+  "remedy": "检查数值是否填错，否则需给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT152》"
+ },
+ "153": {
+  "meaning": "Type_1 test for equal axial s.u.'s.",
+  "remedy": "检查角度误差是否写错并改正。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT153-154》"
+ },
+ "154": {
+  "meaning": "Type_1 test for equal cell angle s.u.'s.",
+  "remedy": "检查角度误差是否写错并改正。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT153-154》"
+ },
+ "155": {
+  "meaning": "Check for reduced cell aP.",
+  "remedy": "可能需要进行晶轴转换。 / 进行晶轴转换。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT155-156》"
+ },
+ "156": {
+  "meaning": "Check for non-standard axial order.",
+  "remedy": "可能需要进行晶轴转换。 / 进行晶轴转换。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT155-156》"
+ },
+ "157": {
+  "meaning": "Check for non-standard monoclinic beta angle less 90 Degrees.",
+  "remedy": "对数据做一个简单的转换(1 0 0/0-1 0/0 0 -1)。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT157》"
+ },
+ "158": {
+  "meaning": "Check for standard reduced cell.",
+  "remedy": "可能需要进行晶轴转换。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT158》"
+ },
+ "161": {
+  "meaning": "Missing x-coordinate s.u.",
+  "remedy": "一般不会出现，用SHELXL精修重新生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT161》"
+ },
+ "162": {
+  "meaning": "Missing y-coordinate s.u.",
+  "remedy": "一般不会出现，用SHELXL精修重新生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT162》"
+ },
+ "163": {
+  "meaning": "Missing z-coordinate s.u.",
+  "remedy": "一般不会出现，用SHELXL精修重新生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT163》"
+ },
+ "164": {
+  "meaning": "Check for Refined C-H H-Atoms.",
+  "remedy": "一般不会出现，对C-H类型的氢原子采用理论加氢即可。 / 有合理解释即可。 / 一般不会出现，将其标准偏差改为0即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT164-166》"
+ },
+ "165": {
+  "meaning": "Check for R-flagged Non-H Atoms.",
+  "remedy": "一般不会出现，对C-H类型的氢原子采用理论加氢即可。 / 有合理解释即可。 / 一般不会出现，将其标准偏差改为0即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT164-166》"
+ },
+ "166": {
+  "meaning": "Check for calc flagged atoms with s.u.'s on coordinates.",
+  "remedy": "一般不会出现，对C-H类型的氢原子采用理论加氢即可。 / 有合理解释即可。 / 一般不会出现，将其标准偏差改为0即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT164-166》"
+ },
+ "168": {
+  "meaning": "Check for EXYZ Record(s) in CIF-Embedded shelxl.res.",
+  "remedy": "无需处理，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT168》"
+ },
+ "169": {
+  "meaning": "Check for AFIX 1 Record(s) in CIF-Embedded shelxl.res.",
+  "remedy": "有合理解释即可。 / 一般不会出现，重新精修生成CIF即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT169-170》"
+ },
+ "170": {
+  "meaning": "Check for sufficient data in in Atom data loop.",
+  "remedy": "有合理解释即可。 / 一般不会出现，重新精修生成CIF即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT169-170》"
+ },
+ "171": {
+  "meaning": "Check for EADP Record(s) in CIF-Embedded shelxl.res.",
+  "remedy": "一般不用解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT171》"
+ },
+ "172": {
+  "meaning": "Check for DFIX Record(s) in CIF-Embedded shelxl.res.",
+  "remedy": "一般不用解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT172》"
+ },
+ "173": {
+  "meaning": "Check for DANG Record(s) in CIF-Embedded shelxl.res.",
+  "remedy": "一般不用解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT173-174》"
+ },
+ "174": {
+  "meaning": "Check for FLAT Record(s) in CIF-Embedded shelxl.res.",
+  "remedy": "一般不用解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT173-174》"
+ },
+ "175": {
+  "meaning": "Check for SAME Record(s) in CIF-Embedded shelxl.res.",
+  "remedy": "一般不用解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT175-176》"
+ },
+ "176": {
+  "meaning": "Check for SADI Record(s) in CIF-Embedded shelxl.res.",
+  "remedy": "一般不用解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT175-176》"
+ },
+ "177": {
+  "meaning": "Check for DELU Record(s) in CIF-Embedded shelxl.res.",
+  "remedy": "一般不用解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT177-178》"
+ },
+ "178": {
+  "meaning": "Check for SIMU Record(s) in CIF-Embedded shelxl.res.",
+  "remedy": "一般不用解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT177-178》"
+ },
+ "179": {
+  "meaning": "Check for CHIV Record(s) in CIF-Embedded shelxl.res.",
+  "remedy": "一般不用解决，有合理解释即可。 / 可能数据质量不高，如有必要，重新收集数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT179-180》"
+ },
+ "180": {
+  "meaning": "Check Rounding of Cell Axes and Angles.",
+  "remedy": "一般不用解决，有合理解释即可。 / 可能数据质量不高，如有必要，重新收集数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT179-180》"
+ },
+ "181": {
+  "meaning": "Check for all angles exactly 90 degrees in monoclinic.",
+  "remedy": "检查是否晶胞定错，如有必要，重新还原数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT181-182》"
+ },
+ "182": {
+  "meaning": "Check for at least one s.u. greater than zero in monoclinic.",
+  "remedy": "检查是否晶胞定错，如有必要，重新还原数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT181-182》"
+ },
+ "183": {
+  "meaning": "Check for _cell_measured_reflns_used value reported.",
+  "remedy": "在诸如name.pcf、name._ls、name.cif_od、CrystalClear.cif文件中寻找相应数据将其填入CIF文件_cell_measurement_reflns_used条目中。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT183》"
+ },
+ "184": {
+  "meaning": "Check for _cell_measured_theta_min value reported.",
+  "remedy": "在诸如name.pcf、name._ls、name.cif_od、CrystalClear.cif文件中寻找相应数据将其填入CIF文件_cell_measurement_theta_min条目中。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT184》"
+ },
+ "185": {
+  "meaning": "Check for _cell_measured_theta_max value reported.",
+  "remedy": "在诸如name.pcf、name._ls、name.cif_od、CrystalClear.cif文件中寻找相应数据将其填入CIF文件_cell_measurement_theta_max条目中。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT185》"
+ },
+ "186": {
+  "meaning": "Check for ISOR Record(s) in CIF-Embedded shelxl.res.",
+  "remedy": "一般不用解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT186-187》"
+ },
+ "187": {
+  "meaning": "Check for RIGU Record(s) in CIF-Embedded shelxl.res.",
+  "remedy": "一般不用解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT186-187》"
+ },
+ "193": {
+  "meaning": "Test for consistency of cell & diffraction temperatures.",
+  "remedy": "根据实际情况将其改正即可。否则需要给出合理解释。 / 根据实际情况在CIF中_cell_measurement_temperature填上即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT193-197》"
+ },
+ "194": {
+  "remedy": "根据实际情况将其改正即可。否则需要给出合理解释。 / 根据实际情况在CIF中_cell_measurement_temperature填上即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT193-197》"
+ },
+ "195": {
+  "remedy": "根据实际情况将其改正即可。否则需要给出合理解释。 / 根据实际情况在CIF中_cell_measurement_temperature填上即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT193-197》"
+ },
+ "196": {
+  "meaning": "Test for _cell_measurement_temperature not equal 293K and no TEMP record.",
+  "remedy": "根据实际晶体测试温度在精修中添加TEMP指令，重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT196》"
+ },
+ "197": {
+  "meaning": "Test for specification of unitcell measurement temperature.",
+  "remedy": "根据实际情况将其改正即可。否则需要给出合理解释。 / 根据实际情况在CIF中_cell_measurement_temperature填上即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT193-197》"
+ },
+ "198": {
+  "meaning": "Test for specification of Datacollection temperature.",
+  "remedy": "根据实际情况在CIF中_diffrn_ambient_temperature填上即可。 / 检查是否与实际情况相符，否则根据实际情况在CIF中_cell_measurement_temperature改正即可。 / 检查是否与实际情况相符，否则根据实际情况在CIF中_diffrn_ambient_temperature改正即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT198-200》"
+ },
+ "199": {
+  "meaning": "Test for SHELXL Roomtemperature Default(Cell).",
+  "remedy": "根据实际情况在CIF中_diffrn_ambient_temperature填上即可。 / 检查是否与实际情况相符，否则根据实际情况在CIF中_cell_measurement_temperature改正即可。 / 检查是否与实际情况相符，否则根据实际情况在CIF中_diffrn_ambient_temperature改正即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT198-200》"
+ },
+ "200": {
+  "meaning": "Test for SHELXL Roomtemperature Default (Datacollection).",
+  "remedy": "根据实际情况在CIF中_diffrn_ambient_temperature填上即可。 / 检查是否与实际情况相符，否则根据实际情况在CIF中_cell_measurement_temperature改正即可。 / 检查是否与实际情况相符，否则根据实际情况在CIF中_diffrn_ambient_temperature改正即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT198-200》"
+ },
+ "201": {
+  "meaning": "Test for isotropic non-H atoms in main residue(s).",
+  "remedy": "将所有原子进行各向异性精修并重新生成CIF文件，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT201》"
+ },
+ "202": {
+  "meaning": "Test for isotropic non-H atoms in anion ? or solvent ?.",
+  "remedy": "将所有原子进行各向异性精修并重新生成CIF文件，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT202》"
+ },
+ "203": {
+  "meaning": "Test for negative non-Hydrogen U(iso).",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。 / 将所有原子进行各向异性精修并重新生成CIF文件，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT203-210》"
+ },
+ "204": {
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。 / 将所有原子进行各向异性精修并重新生成CIF文件，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT203-210》"
+ },
+ "205": {
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。 / 将所有原子进行各向异性精修并重新生成CIF文件，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT203-210》"
+ },
+ "206": {
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。 / 将所有原子进行各向异性精修并重新生成CIF文件，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT203-210》"
+ },
+ "207": {
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。 / 将所有原子进行各向异性精修并重新生成CIF文件，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT203-210》"
+ },
+ "208": {
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。 / 将所有原子进行各向异性精修并重新生成CIF文件，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT203-210》"
+ },
+ "209": {
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。 / 将所有原子进行各向异性精修并重新生成CIF文件，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT203-210》"
+ },
+ "210": {
+  "meaning": "Test for 'all-isotropic adp(s).",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。 / 将所有原子进行各向异性精修并重新生成CIF文件，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT203-210》"
+ },
+ "211": {
+  "meaning": "Test for NPD ADP's (1.0) in main residue(s).",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。这个原子如果在结构中不甚重要，可以按各向同性处理，一般不影响发表。用ISOR命令各向同性，应该可以解决。 / 如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用delu或者isor限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。这个原子如果在结构中不甚重要，可以按各向同性处理，一般不影响发表。用ISOR命令各向同性，应该可以解决。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT211-212》"
+ },
+ "212": {
+  "meaning": "Test for NPD ADP's in anion? &solvent ? [0, 1].",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。这个原子如果在结构中不甚重要，可以按各向同性处理，一般不影响发表。用ISOR命令各向同性，应该可以解决。 / 如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用delu或者isor限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。这个原子如果在结构中不甚重要，可以按各向同性处理，一般不影响发表。用ISOR命令各向同性，应该可以解决。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT211-212》"
+ },
+ "213": {
+  "meaning": "Test ratio adp max/min in main residue(s).",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。这个原子如果在结构中不甚重要，可以按各向同性处理，一般不影响发表。用ISOR命令各向同性，应该可以解决。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT213》"
+ },
+ "214": {
+  "meaning": "Test ratio adp max/min in anion ? or solvent ?.",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。这个原子如果在结构中不甚重要，可以按各向同性处理，一般不影响发表。用ISOR命令各向同性，应该可以解决。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT214》"
+ },
+ "215": {
+  "meaning": "Test for unusual disordered atom ADP in main residue.",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。这个原子如果在结构中不甚重要，可以按各向同性处理，一般不影响发表。用ISOR命令各向同性，应该可以解决。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT215》"
+ },
+ "216": {
+  "meaning": "Test for unusual disordered atom ADP in minor residue.",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。这个原子如果在结构中不甚重要，可以按各向同性处理，一般不影响发表。用ISOR命令各向同性，应该可以解决。 / 一般不会出现，重新精修生成CIF文件即可。 / 一般无需处理，给出合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT216-218》"
+ },
+ "217": {
+  "meaning": "Test for Incomplete UIJ data.",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。这个原子如果在结构中不甚重要，可以按各向同性处理，一般不影响发表。用ISOR命令各向同性，应该可以解决。 / 一般不会出现，重新精修生成CIF文件即可。 / 一般无需处理，给出合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT216-218》"
+ },
+ "218": {
+  "meaning": "Test for Constrained Uij's.",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。这个原子如果在结构中不甚重要，可以按各向同性处理，一般不影响发表。用ISOR命令各向同性，应该可以解决。 / 一般不会出现，重新精修生成CIF文件即可。 / 一般无需处理，给出合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT216-218》"
+ },
+ "220": {
+  "meaning": "Test Ueq(max)/Ueq(Min) range for non-H atoms in non-solvent.",
+  "remedy": "一般都是末端基团及所连的氢原子位移参数过大，做无序处理即可，无法解决做合理解释即可。或者使用\"SIMU0.01 0.02 3.8 $C\"命令(SIMU限制在一定范围内的原子具有相同的位移参数，0.010.02必须成倍数关系)。如果是衍射数据质量不够好而无法得到好的修正结果，那只有重新采集数据了。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT220》"
+ },
+ "221": {
+  "meaning": "Test Ueq(max)/Ueq(Min) range for non-H atoms in solvent.",
+  "remedy": "检查是否有原子指认错误，否则可能需要做无序处理。无法解决做合理解释即可，也可以尝试低温收集数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT221》"
+ },
+ "222": {
+  "meaning": "Test Uiso(max)/Uiso(Min) range for H atoms in non-solvent.",
+  "remedy": "一般都是末端基团及所连的氢原子位移参数过大，做无序处理即可，无法解决做合理解释即可，也可以尝试低温收集数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT222》"
+ },
+ "223": {
+  "meaning": "Test Ueq(max)/Ueq(Min) range for H atoms in solvent.",
+  "remedy": "可能需要做无序处理。若无法解决做合理解释即可，也可以尝试低温收集数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT223》"
+ },
+ "224": {
+  "meaning": "Test for difference in implicit and explicit U(eq).",
+  "remedy": "一般不会出现，重新精修生成CIF即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT224》"
+ },
+ "230": {
+  "meaning": "Hirshfeld Rigid-Bond Test (Acta Cryst (1976), A32, 239-244.",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU(DELU 0.01 0.02 C1 C2)或者ISOR(ISOR 0.01 0.02 C1 C2)限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。(DELU限制所指定的原子具有接近指定范围内的位移参数，0.02 0.01必须成倍数关系)。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT230》"
+ },
+ "231": {
+  "meaning": "Hirshfeld Rigid-Bond Test (Acta Cryst (1976), A32, 239-244).",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU(DELU 0.01 0.02 P1 F2’)或者isor限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。(DELU限制所指定的原子具有接近指定范围内的位移参数，0.02 0.01必须成倍数关系)",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT231》"
+ },
+ "232": {
+  "meaning": "Hirshfeld Rigid-Bond Test (Metal-X) (Acta Cryst (1976), A32, 239-244).",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT232》"
+ },
+ "233": {
+  "meaning": "Hirshfeld Rigid-Bond Test (Metal-X) (Acta Cryst (1976), A32, 239-244).",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT233》"
+ },
+ "234": {
+  "meaning": "Hirshfeld Rigid-Bond Test (Acta Cryst (1976), A32, 239-244).",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU(DELU 0.01 0.02 C4BA C0AA)或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。(DELU限制所指定的原子具有接近指定范围内的位移参数，0.02 0.01必须成倍数关系)",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT234》"
+ },
+ "241": {
+  "meaning": "Test for unusually high U(eq) as compared with bonded neighbors.",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT241》"
+ },
+ "242": {
+  "meaning": "Test for Unusually Low U(eq) as compared with bonded neighbors.",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT242》"
+ },
+ "243": {
+  "meaning": "Test for unusually high solvent U(eq) as compared with bonded neighbors.",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT243》"
+ },
+ "244": {
+  "meaning": "Test for unusually low solvent U(eq) as compared with bonded neighbors.",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT244》"
+ },
+ "245": {
+  "meaning": "Test for unusually low H-U(eq) as compared with bonded atom.",
+  "remedy": "一般不会出现，重新加氢并生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT245》"
+ },
+ "250": {
+  "meaning": "Test for unusual anisotropic average UIJ.",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT250》"
+ },
+ "260": {
+  "meaning": "Type__260 .075 0.15 0.20 2 A 0 0 3 0 Test for high average Ueq for residue.",
+  "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT260》"
+ },
+ "300": {
+  "meaning": "Testfor Fixed Partial Occupancy.",
+  "remedy": "原子占有率最好按自由变量精修，除非有合理的解释(如在对称元素上或者已通过TG等试验确定)。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT300》"
+ },
+ "301": {
+  "meaning": "Test for main residue(s) disorder %.",
+  "remedy": "无需解决，无序处理有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT301》"
+ },
+ "302": {
+  "meaning": "Test for (anion/solvent) disorder %.",
+  "remedy": "无需解决，无序处理有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT302》"
+ },
+ "303": {
+  "meaning": "Test for more than 1 connection to Hydrogen Atoms.",
+  "remedy": "H8A重新加氢。H8A是否位于对称位置？请仔细考察其存在情况，在某一位置的任何原子的总占有率不能超过1。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT303》"
+ },
+ "304": {
+  "meaning": "Test for non-integer number of atoms in residue.",
+  "remedy": "检查是否占有率定错，改正即可。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT304》"
+ },
+ "305": {
+  "meaning": "Test for isolated Hydrogen Atoms.",
+  "remedy": "检查是否某原子上的氢原子由于不稳定而散架，删除该孤立氢原子后对有问题的原子重新加氢。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT305》"
+ },
+ "306": {
+  "meaning": "Test for isolated Oxygen Atoms.",
+  "remedy": "一般都是游离的水分子，将水上加氢即可，如无法找到氢键受体需给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT306》"
+ },
+ "307": {
+  "meaning": "Test for isolated Metal Atoms.",
+  "remedy": "检查原子类型是否定错。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT307》"
+ },
+ "308": {
+  "meaning": "Test for single bonded Metal Atoms.",
+  "remedy": "检查原子类型是否定错。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT308》"
+ },
+ "309": {
+  "meaning": "Test for single bonded Oxygen Atoms.",
+  "remedy": "若确定为单键，则给氧上加氢。若确定为双键，则限制其键长落在碳氧双键键长范围内。否则需给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT309》"
+ },
+ "310": {
+  "meaning": "Test for 'too close' (symmetry related) full weight atoms.",
+  "remedy": "通过限制其距离进行解决。若不能解决，给出合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT310》"
+ },
+ "311": {
+  "meaning": "Test for isolated Disordered Oxygen Atoms.",
+  "remedy": "一般都是游离的水分子，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT311》"
+ },
+ "312": {
+  "meaning": "Test for C=O-H.",
+  "remedy": "检查是否加错氢原子，否则需要给出合理解释。 / 检查是否原子类型定错，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT312-313》"
+ },
+ "313": {
+  "meaning": "Testfor O with three covalent bonds.",
+  "remedy": "检查是否加错氢原子，否则需要给出合理解释。 / 检查是否原子类型定错，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT312-313》"
+ },
+ "314": {
+  "meaning": "Test for Metal-O-H angle of H2O.",
+  "remedy": "检查是否该氧原子上氢原子加错(方向不对)，有则改之，否则需要给出合理解释。 / 检查是否忘记加氢，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT314-315》"
+ },
+ "315": {
+  "meaning": "Testfor single bonded Carbon atom.",
+  "remedy": "检查是否该氧原子上氢原子加错(方向不对)，有则改之，否则需要给出合理解释。 / 检查是否忘记加氢，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT314-315》"
+ },
+ "316": {
+  "meaning": "Check for too many H's on C in C=N bond in main residue(s).",
+  "remedy": "删除该碳原子上的氢原子，重新加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT316-317》"
+ },
+ "317": {
+  "meaning": "Check for too many H's on C in C=N bond in Solvent/Ion (s).",
+  "remedy": "删除该碳原子上的氢原子，重新加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT316-317》"
+ },
+ "318": {
+  "meaning": "Hybridisation Problem on N in main residue(s).",
+  "remedy": "删除该碳原子上的氢原子，重新加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT318-319》"
+ },
+ "319": {
+  "meaning": "Hybridisation Problem on N in solvent/ion.",
+  "remedy": "删除该碳原子上的氢原子，重新加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT318-319》"
+ },
+ "320": {
+  "meaning": "Hybridisation Problem on C in mainresidue(s).",
+  "remedy": "删除这些存在问题的碳原子上的氢原子并对其进行重新加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT320-321》"
+ },
+ "321": {
+  "meaning": "Hybridisation Problem on C in solvent/ion.",
+  "remedy": "删除这些存在问题的碳原子上的氢原子并对其进行重新加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT320-321》"
+ },
+ "322": {
+  "meaning": "Hybridisation Problem on non-C in main residue(s).",
+  "remedy": "删除这些存在问题的非碳原子上的氢原子并对其进行重新加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT322-323》"
+ },
+ "323": {
+  "meaning": "Hybridisation Problem on non-C in Solvent/Ion.",
+  "remedy": "删除这些存在问题的非碳原子上的氢原子并对其进行重新加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT322-323》"
+ },
+ "324": {
+  "meaning": "Check for possibly missing H on coordinating X-N-X in main residue.",
+  "remedy": "仔细检查该氮原子上的氢原子是否加错，否则需要给出合理解释。 / 给C4上加氢即可。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT324-326》"
+ },
+ "325": {
+  "meaning": "Check for possibly missing H on coordinating X-N-X in solvent/anion.",
+  "remedy": "仔细检查该氮原子上的氢原子是否加错，否则需要给出合理解释。 / 给C4上加氢即可。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT324-326》"
+ },
+ "326": {
+  "meaning": "Check for possibly missing H on potentially sp3 Carbon.",
+  "remedy": "仔细检查该氮原子上的氢原子是否加错，否则需要给出合理解释。 / 给C4上加氢即可。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT324-326》"
+ },
+ "327": {
+  "meaning": "Check for possibly missing H on potentially sp3 Carbon.",
+  "remedy": "仔细检查这些碳原子的构型，并对其正确加氢。否则需要给出合理解释。 / 仔细检查这些磷原子的构型，并对其正确加氢。否则需要给出合理解释。 / 检查是否原子指认错误，是否空间群定错，是否数据质量太差。否则可采用适当距离限制命令对有问题的键进行限制。若无法解决，则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT327-329》"
+ },
+ "328": {
+  "meaning": "Check for a possibly missing H on potentially sp3 Phosphorus.",
+  "remedy": "仔细检查这些碳原子的构型，并对其正确加氢。否则需要给出合理解释。 / 仔细检查这些磷原子的构型，并对其正确加氢。否则需要给出合理解释。 / 检查是否原子指认错误，是否空间群定错，是否数据质量太差。否则可采用适当距离限制命令对有问题的键进行限制。若无法解决，则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT327-329》"
+ },
+ "329": {
+  "meaning": "Check for unclear Carbon Atom Hybridisation.",
+  "remedy": "仔细检查这些碳原子的构型，并对其正确加氢。否则需要给出合理解释。 / 仔细检查这些磷原子的构型，并对其正确加氢。否则需要给出合理解释。 / 检查是否原子指认错误，是否空间群定错，是否数据质量太差。否则可采用适当距离限制命令对有问题的键进行限制。若无法解决，则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT327-329》"
+ },
+ "330": {
+  "meaning": "Check Average Phenyl C-C.",
+  "remedy": "可能存在无序的结构，或者本身晶体质量不好，可以试试限制一下苯环的键长(DFIX)，或者做无序处理。否则需要给出合理解释。 / 可用AFIX 66对其进行限制。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT330-331》"
+ },
+ "331": {
+  "meaning": "CheckAverage Phenyl C-C.",
+  "remedy": "可能存在无序的结构，或者本身晶体质量不好，可以试试限制一下苯环的键长(DFIX)，或者做无序处理。否则需要给出合理解释。 / 可用AFIX 66对其进行限制。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT330-331》"
+ },
+ "332": {
+  "meaning": "Check Phenyl C-C Range.",
+  "remedy": "可用AFIX 66对其进行限制。若因为数据太差，则需要重新收集数据。 / 可用DFIX命令对其进行限制。若因为数据太差，则需要重新收集数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT332-333》"
+ },
+ "333": {
+  "meaning": "Check Average in Multiple Substituted Benzene Type C-C.",
+  "remedy": "可用AFIX 66对其进行限制。若因为数据太差，则需要重新收集数据。 / 可用DFIX命令对其进行限制。若因为数据太差，则需要重新收集数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT332-333》"
+ },
+ "334": {
+  "meaning": "Check Average in Multiple Substituted Benzene Type C-C.",
+  "remedy": "检查是否需要无序处理，用DFIX限制C23-C28距离后精修。 / 将此苯环加FLAT限制后精修。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT334-335》"
+ },
+ "335": {
+  "meaning": "Check Multiple Substituted Benzene Type C-C Range.",
+  "remedy": "检查是否需要无序处理，用DFIX限制C23-C28距离后精修。 / 将此苯环加FLAT限制后精修。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT334-335》"
+ },
+ "336": {
+  "meaning": "Check Unusual Bond Distance.",
+  "remedy": "若存在无序，则进行无序处理。也可以用DFIX对其键长进行限制。 / 仔细检查，肯能需要对其进行无序处理。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT336-338》"
+ },
+ "337": {
+  "remedy": "若存在无序，则进行无序处理。也可以用DFIX对其键长进行限制。 / 仔细检查，肯能需要对其进行无序处理。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT336-338》"
+ },
+ "338": {
+  "meaning": "Check Average Torsion Angle in cyclo-hexane ring.",
+  "remedy": "若存在无序，则进行无序处理。也可以用DFIX对其键长进行限制。 / 仔细检查，肯能需要对其进行无序处理。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT336-338》"
+ },
+ "340": {
+  "meaning": "Check Bond Precision for C-C in Light Atom Structures (Z(max) < 20).",
+  "remedy": "找出有问题的C-C键，限制一下试试。检查精修模型是否正确，是否有末端需要无序处理，晶胞参数误差是否过大。如果均无法解决可尝试收集低温数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT340》"
+ },
+ "341": {
+  "meaning": "Check Bond Precision for C-C in Structures (19 < Z(max) < 40).",
+  "remedy": "找出有问题的C-C键，限制一下试试。检查精修模型是否正确，是否有末端需要无序处理，晶胞参数误差是否过大。如果均无法解决可尝试收集低温数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT341》"
+ },
+ "342": {
+  "meaning": "Check Bond Precision for C-C in Structures (Z(max) > 39).",
+  "remedy": "找出有问题的C-C键，限制一下试试。检查精修模型是否正确，是否有末端需要无序处理，晶胞参数误差是否过大。如果均无法解决可尝试收集低温数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT342》"
+ },
+ "343": {
+  "meaning": "Hybridisation Problem on C in main residue(s).",
+  "remedy": "仔细检查所报告的碳原子的几何构型，检查精修模型是否正确，这些有问题的碳原子是否需要无序处理。 / 可用DFIX限制其键长，或将其删除后进行理论加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT343-350》"
+ },
+ "344": {
+  "meaning": "Type_2Hybridisation Problem on C in solvent/ion.",
+  "remedy": "仔细检查所报告的碳原子的几何构型，检查精修模型是否正确，这些有问题的碳原子是否需要无序处理。 / 可用DFIX限制其键长，或将其删除后进行理论加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT343-350》"
+ },
+ "345": {
+  "remedy": "仔细检查所报告的碳原子的几何构型，检查精修模型是否正确，这些有问题的碳原子是否需要无序处理。 / 可用DFIX限制其键长，或将其删除后进行理论加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT343-350》"
+ },
+ "346": {
+  "remedy": "仔细检查所报告的碳原子的几何构型，检查精修模型是否正确，这些有问题的碳原子是否需要无序处理。 / 可用DFIX限制其键长，或将其删除后进行理论加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT343-350》"
+ },
+ "347": {
+  "remedy": "仔细检查所报告的碳原子的几何构型，检查精修模型是否正确，这些有问题的碳原子是否需要无序处理。 / 可用DFIX限制其键长，或将其删除后进行理论加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT343-350》"
+ },
+ "348": {
+  "remedy": "仔细检查所报告的碳原子的几何构型，检查精修模型是否正确，这些有问题的碳原子是否需要无序处理。 / 可用DFIX限制其键长，或将其删除后进行理论加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT343-350》"
+ },
+ "349": {
+  "remedy": "仔细检查所报告的碳原子的几何构型，检查精修模型是否正确，这些有问题的碳原子是否需要无序处理。 / 可用DFIX限制其键长，或将其删除后进行理论加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT343-350》"
+ },
+ "350": {
+  "meaning": "Testfor short C - H (Angstrom Difference) XRAY: 0.96 NEUT 1.08.",
+  "remedy": "仔细检查所报告的碳原子的几何构型，检查精修模型是否正确，这些有问题的碳原子是否需要无序处理。 / 可用DFIX限制其键长，或将其删除后进行理论加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT343-350》"
+ },
+ "351": {
+  "meaning": "Test for long C - H (Angstrom Difference) XRAY: 0.96 NEUT 1.08.",
+  "remedy": "可用DFIX限制其键长，或将其删除后进行理论加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT351-353》"
+ },
+ "352": {
+  "meaning": "Test for short N - H (Angstrom Difference) XRAY: 0.87 NEUT 1.009.",
+  "remedy": "可用DFIX限制其键长，或将其删除后进行理论加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT351-353》"
+ },
+ "353": {
+  "meaning": "Test for long N - H (Angstrom Difference) XRAY: 0.87 NEUT 1.009.",
+  "remedy": "可用DFIX限制其键长，或将其删除后进行理论加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT351-353》"
+ },
+ "354": {
+  "meaning": "Test for short O - H (Angstrom Difference) XRAY: 0.82 NEUT 0.983.",
+  "remedy": "用DFIX将O-H键和N-H键限制成0.82和0.98。否则需要给出合理解释。 / 可用DFIX限制其键长，或将其删除后进行理论加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT354-355》"
+ },
+ "355": {
+  "meaning": "Test for long O - H (Angstrom Difference) XRAY: 0.82 NEUT 0.983.",
+  "remedy": "用DFIX将O-H键和N-H键限制成0.82和0.98。否则需要给出合理解释。 / 可用DFIX限制其键长，或将其删除后进行理论加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT354-355》"
+ },
+ "356": {
+  "meaning": "Test for short B-H distance.",
+  "remedy": "可用DFIX限制其键长，或将其删除后进行理论加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT356-359》"
+ },
+ "357": {
+  "meaning": "Test for long B-H distance.",
+  "remedy": "可用DFIX限制其键长，或将其删除后进行理论加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT356-359》"
+ },
+ "358": {
+  "meaning": "Testfor short B-H distance in (X,Y,Z)-B-H Moiety.",
+  "remedy": "可用DFIX限制其键长，或将其删除后进行理论加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT356-359》"
+ },
+ "359": {
+  "meaning": "Test for long B-H distance in (X,Y,Z)-B-H Moiety.",
+  "remedy": "可用DFIX限制其键长，或将其删除后进行理论加氢。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT356-359》"
+ },
+ "360": {
+  "meaning": "Test for short C4 - C4 (Angstrom Difference) XRAY: 1.54.",
+  "remedy": "检查是否需要无序处理，或用DFIX限制C24-C35距离后精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT360》"
+ },
+ "361": {
+  "meaning": "Test for long C4 - C4 (Angstrom Difference) XRAY: 1.54.",
+  "remedy": "检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT361-362》"
+ },
+ "362": {
+  "meaning": "Test for short C4 - C3 (Angstrom Difference) XRAY: 1.52.",
+  "remedy": "检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT361-362》"
+ },
+ "363": {
+  "meaning": "Test for long C4 - C3 (Angstrom Difference) XRAY: 1.52.",
+  "remedy": "检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT363-364》"
+ },
+ "364": {
+  "meaning": "Test for short C4 - C2 (Angstrom Difference) XRAY: 1.46.",
+  "remedy": "检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT363-364》"
+ },
+ "365": {
+  "meaning": "Test for long C4 - C2 (Angstrom Difference) XRAY: 1.46.",
+  "remedy": "检查是否需要无序处理，或用DFIX限制距离后精修。 / 检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT365-366》"
+ },
+ "366": {
+  "meaning": "Test for short C? - C? (Angstrom Difference) XRAY: 1.50.",
+  "remedy": "检查是否需要无序处理，或用DFIX限制距离后精修。 / 检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT365-366》"
+ },
+ "367": {
+  "meaning": "Test for long C? - C? (Angstrom Difference) XRAY: 1.50.",
+  "remedy": "检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT367-368》"
+ },
+ "368": {
+  "meaning": "Test for short C3 - C3 (Angstrom Difference) XRAY: 1.34.",
+  "remedy": "检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT367-368》"
+ },
+ "369": {
+  "meaning": "Test for long C3 - C3 (Angstrom Difference) XRAY: 1.34.",
+  "remedy": "检查是否需要无序处理，用DFIX限制C32-C32_i距离后精修。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT369》"
+ },
+ "370": {
+  "meaning": "Test for short C3 - C2 (Angstrom Difference) XRAY: 1.31.",
+  "remedy": "检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。 / 键长是否原子指认错误，检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT370-375》"
+ },
+ "371": {
+  "meaning": "Test for long C3 - C2 (Angstrom Difference) XRAY: 1.31.",
+  "remedy": "检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。 / 键长是否原子指认错误，检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT370-375》"
+ },
+ "372": {
+  "meaning": "Test for short C2 - C2 (Angstrom Difference) XRAY: 1.25.",
+  "remedy": "检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。 / 键长是否原子指认错误，检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT370-375》"
+ },
+ "373": {
+  "meaning": "Testfor long C2 - C2 (Angstrom Difference) XRAY: 1.25.",
+  "remedy": "检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。 / 键长是否原子指认错误，检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT370-375》"
+ },
+ "374": {
+  "meaning": "Test for long N - N Bond (> 1.45 Angstrom).",
+  "remedy": "检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。 / 键长是否原子指认错误，检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT370-375》"
+ },
+ "375": {
+  "meaning": "Test for C-O-H with large C-O Distance.",
+  "remedy": "检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。 / 键长是否原子指认错误，检查是否需要无序处理，或用DFIX限制距离后精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT370-375》"
+ },
+ "380": {
+  "meaning": "Test for incorrectly Oriented Methyl Moiety.",
+  "remedy": "一般需改成用AFIX 147处理，除非有合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT380》"
+ },
+ "390": {
+  "meaning": "Test Methyl Moiety X-C-H Bond Angle.",
+  "remedy": "检查是否加氢有误，或是否需要无序处理。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT390》"
+ },
+ "391": {
+  "meaning": "Test Methyl Moiety H-C-H Bond Angle.",
+  "remedy": "检查是否加氢有误，或是否需要无序处理。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT391》"
+ },
+ "395": {
+  "meaning": "Test general X-O-Y Angle Value.",
+  "remedy": "检查是否原子指认有误，或是否需要无序处理。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT395》"
+ },
+ "396": {
+  "meaning": "Test Si-O-Si Angle Value.",
+  "remedy": "检查是否原子指认有误，或是否需要无序处理。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT396-398》"
+ },
+ "397": {
+  "meaning": "Test B-O-B Angle Value.",
+  "remedy": "检查是否原子指认有误，或是否需要无序处理。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT396-398》"
+ },
+ "398": {
+  "meaning": "Test C-O-C Angle Value.",
+  "remedy": "检查是否原子指认有误，或是否需要无序处理。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT396-398》"
+ },
+ "410": {
+  "meaning": "Test for short non-bonding intra H..H contacts.",
+  "remedy": "检查加氢是否正确并重新加氢，或采用DFIX命令将两个氢距离限制在2.1以上，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT410》"
+ },
+ "411": {
+  "meaning": "Test for short non-bonding inter H..H contacts.",
+  "remedy": "检查加氢是否正确并重新加氢，或采用DFIX命令将两个氢距离限制在2.1以上，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT411》"
+ },
+ "412": {
+  "meaning": "Test for short non-bonding intra H..H contacts (involving XH3).",
+  "remedy": "在ins文件中添加\"DFIX 2.45 0.01 H9 H13C\"(尝试比1.87大的数值)。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT412》"
+ },
+ "413": {
+  "meaning": "Test for short non-bonding inter H..H contacts (involving XH3).",
+  "remedy": "检查加氢是否正确并重新加氢，或采用DFIX命令将两个氢距离限制在2.1以上，否则需要给出合理解释。若在结构中这两个H原子实际上离得很远(即其中一个氢原子为等效原子)，但是有这个警告，可尝试\"BUMP 0.02\"命令。其作用为：",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT413》"
+ },
+ "414": {
+  "meaning": "Test for short non-bonding intra D-H..H-X contacts.",
+  "remedy": "检查加氢是否正确并重新加氢，或采用DFIX命令将两个氢距离限制在2.1以上，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT414》"
+ },
+ "415": {
+  "meaning": "Test for short non-bonding inter D-H..H-X contacts.",
+  "remedy": "检查加氢是否正确并重新加氢，或采用DFIX命令将两个氢距离限制在2.1以上，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT415》"
+ },
+ "416": {
+  "meaning": "Test for short non-bonding intra D-H..H-D contacts.",
+  "remedy": "检查加氢是否正确并重新加氢，或采用DFIX命令将两个氢距离限制在2.1以上，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT416》"
+ },
+ "417": {
+  "meaning": "Test for short non-bonding inter D-H..H-D contacts.",
+  "remedy": "检查加氢是否正确并重新加氢，或采用DFIX命令将两个氢距离限制在2.1以上，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT417》"
+ },
+ "420": {
+  "meaning": "Test for D-H without acceptor.",
+  "remedy": "找到一个合适的氢键受体原子，并把H3限制在O3和氢键受体之间，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT420》"
+ },
+ "430": {
+  "meaning": "Test for short non-bonding inter D...A contacts.",
+  "remedy": "给O2和N1重新加氢，使之间形成氢键，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT430》"
+ },
+ "431": {
+  "meaning": "Test for short non-bonding inter HL...A contacts.",
+  "remedy": "仔细检查是否原子指认错误，给卤素外另一个原子加氢使之形成氢键。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT431》"
+ },
+ "432": {
+  "meaning": "Test for short non-bonding inter X...Y contacts.",
+  "remedy": "O68和C2重新加氢，使之间形成氢键，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT432》"
+ },
+ "433": {
+  "meaning": "Test for short non-bonding minor..minor inter X...Y contacts.",
+  "remedy": "X和Y重新加氢，使之间形成氢键，否则需要给出合理解释。 / 仔细检查是否原子类型指认错误，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT433-434》"
+ },
+ "434": {
+  "meaning": "Test for short non-bonding inter HL...HL contacts.",
+  "remedy": "X和Y重新加氢，使之间形成氢键，否则需要给出合理解释。 / 仔细检查是否原子类型指认错误，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT433-434》"
+ },
+ "480": {
+  "meaning": "Test for too large H...A.",
+  "remedy": "可能不存在这个相互作用，仔细检查，否则需要给出合理解释。 / 可能不存在这个氢键，仔细检查，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT480-482》"
+ },
+ "481": {
+  "meaning": "Testfor too large D...A.",
+  "remedy": "可能不存在这个相互作用，仔细检查，否则需要给出合理解释。 / 可能不存在这个氢键，仔细检查，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT480-482》"
+ },
+ "482": {
+  "meaning": "Test for too small D-H...A Angle.",
+  "remedy": "可能不存在这个相互作用，仔细检查，否则需要给出合理解释。 / 可能不存在这个氢键，仔细检查，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT480-482》"
+ },
+ "601": {
+  "meaning": "Test for (Unreported) solvent accessible voids.",
+  "remedy": "将孔洞存在的溶剂或者分子指认出来，或者使用SQUEEZE扣除孔洞中的电子云密度。某些有孔洞的MOF可不予理会，否则需给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT601》"
+ },
+ "602": {
+  "meaning": "Test for TOO LARGE (Unreported) solvent accessible voids.",
+  "remedy": "将孔洞存在的溶剂或者分子指认出来，或者使用SQUEEZE扣除孔洞中的电子云密度。某些有孔洞的MOF可不予理会，否则需给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT602-603》"
+ },
+ "603": {
+  "meaning": "Test for TOO LARGE Unit Cell for VOID search.",
+  "remedy": "将孔洞存在的溶剂或者分子指认出来，或者使用SQUEEZE扣除孔洞中的电子云密度。某些有孔洞的MOF可不予理会，否则需给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT602-603》"
+ },
+ "604": {
+  "meaning": "Test for TOO Many VOIDS.",
+  "remedy": "将孔洞存在的溶剂或者分子指认出来，或者使用SQUEEZE扣除孔洞中的电子云密度。某些有孔洞的MOF可不予理会，否则需给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT604-605》"
+ },
+ "605": {
+  "meaning": "Test for (Reported) solvent accessible voids.",
+  "remedy": "将孔洞存在的溶剂或者分子指认出来，或者使用SQUEEZE扣除孔洞中的电子云密度。某些有孔洞的MOF可不予理会，否则需给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT604-605》"
+ },
+ "606": {
+  "meaning": "Test for TOO LARGE (Reported) solvent accessible voids.",
+  "remedy": "将孔洞存在的溶剂或者分子指认出来，或者使用SQUEEZE扣除孔洞中的电子云密度。某些有孔洞的MOF可不予理会，否则需给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT606-607》"
+ },
+ "607": {
+  "meaning": "Test for Skipped VOID Test.",
+  "remedy": "将孔洞存在的溶剂或者分子指认出来，或者使用SQUEEZE扣除孔洞中的电子云密度。某些有孔洞的MOF可不予理会，否则需给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT606-607》"
+ },
+ "608": {
+  "meaning": "Test for too many atoms for ADDSYM test as part of CheckCIF.",
+  "remedy": "可用PLATON中的ADDSYM进行此项检查。 / 一般无需处理，有合理解释即可。 / 根据实际情况填写相应衍射类型。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT608-660》"
+ },
+ "609": {
+  "remedy": "可用PLATON中的ADDSYM进行此项检查。 / 一般无需处理，有合理解释即可。 / 根据实际情况填写相应衍射类型。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT608-660》"
+ },
+ "610": {
+  "remedy": "可用PLATON中的ADDSYM进行此项检查。 / 一般无需处理，有合理解释即可。 / 根据实际情况填写相应衍射类型。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT608-660》"
+ },
+ "611": {
+  "remedy": "可用PLATON中的ADDSYM进行此项检查。 / 一般无需处理，有合理解释即可。 / 根据实际情况填写相应衍射类型。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT608-660》"
+ },
+ "612": {
+  "remedy": "可用PLATON中的ADDSYM进行此项检查。 / 一般无需处理，有合理解释即可。 / 根据实际情况填写相应衍射类型。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT608-660》"
+ },
+ "613": {
+  "remedy": "可用PLATON中的ADDSYM进行此项检查。 / 一般无需处理，有合理解释即可。 / 根据实际情况填写相应衍射类型。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT608-660》"
+ },
+ "614": {
+  "remedy": "可用PLATON中的ADDSYM进行此项检查。 / 一般无需处理，有合理解释即可。 / 根据实际情况填写相应衍射类型。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT608-660》"
+ },
+ "615": {
+  "remedy": "可用PLATON中的ADDSYM进行此项检查。 / 一般无需处理，有合理解释即可。 / 根据实际情况填写相应衍射类型。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT608-660》"
+ },
+ "616": {
+  "remedy": "可用PLATON中的ADDSYM进行此项检查。 / 一般无需处理，有合理解释即可。 / 根据实际情况填写相应衍射类型。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT608-660》"
+ },
+ "617": {
+  "remedy": "可用PLATON中的ADDSYM进行此项检查。 / 一般无需处理，有合理解释即可。 / 根据实际情况填写相应衍射类型。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT608-660》"
+ },
+ "697": {
+  "meaning": "Check for BLANK records in embedded hklfile.",
+  "remedy": "将空白记录删除即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT697》"
+ },
+ "698": {
+  "meaning": "Check for _shelx_include_file_checksum.",
+  "remedy": "一般不会出现，如果误操作删除了checksum信息，只需要重新精修生成CIF文件即可。 / 根据实际情况从预设关键词中选择合适关键词填写晶体描述。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT698-699》"
+ },
+ "699": {
+  "meaning": "Test for _exptl_crystal_description value.",
+  "remedy": "一般不会出现，如果误操作删除了checksum信息，只需要重新精修生成CIF文件即可。 / 根据实际情况从预设关键词中选择合适关键词填写晶体描述。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT698-699》"
+ },
+ "701": {
+  "meaning": "Test for consistency of Bonds and Coordinates in CIF.",
+  "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT701-702》"
+ },
+ "702": {
+  "meaning": "Test for consistency of Angles and Coordinates in CIF.",
+  "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT701-702》"
+ },
+ "703": {
+  "meaning": "Test for consistency of Torsions and Coordinates in CIF.",
+  "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。 / 修改ins中HTAB命令，重新生成CIF文件。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT703-704》"
+ },
+ "704": {
+  "meaning": "Test for consistency of Contact Distances and Coordinates in CIF.",
+  "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。 / 修改ins中HTAB命令，重新生成CIF文件。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT703-704》"
+ },
+ "705": {
+  "meaning": "Test for consistency of H-Bond D-H distances and Coordinates in CIF.",
+  "remedy": "修改ins中HTAB命令，重新生成CIF文件。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT705-706》"
+ },
+ "706": {
+  "meaning": "Test for consistency of H-Bond H..A Distances and Coordinates in CIF.",
+  "remedy": "修改ins中HTAB命令，重新生成CIF文件。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT705-706》"
+ },
+ "707": {
+  "meaning": "Test for consistency of H-Bond D..A Distances and Coordinates in CIF.",
+  "remedy": "修改ins中HTAB命令，重新生成CIF文件。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT707-708》"
+ },
+ "708": {
+  "meaning": "Test for consistency of H-Bond D-H..A Angles and Coordinates in CIF.",
+  "remedy": "修改ins中HTAB命令，重新生成CIF文件。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT707-708》"
+ },
+ "710": {
+  "meaning": "Test for Linear Torsions in CIF.",
+  "remedy": "在CIF中直接删除即可。否则需要给出合理解释。 / 将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT710-711》"
+ },
+ "711": {
+  "meaning": "Test for label problems for Bonds in CIF.",
+  "remedy": "在CIF中直接删除即可。否则需要给出合理解释。 / 将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT710-711》"
+ },
+ "712": {
+  "meaning": "Test for label problem for Angles in CIF.",
+  "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT712-713》"
+ },
+ "713": {
+  "meaning": "Test for label problem for Torsions in CIF.",
+  "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT712-713》"
+ },
+ "714": {
+  "meaning": "Test for label problem for Contact Distances in CIF.",
+  "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT714-718》"
+ },
+ "715": {
+  "meaning": "Test for label problem for H-Bond D-H distances in CIF.",
+  "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT714-718》"
+ },
+ "716": {
+  "meaning": "Test for label problem for H-Bond H..A Distances in CIF.",
+  "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT714-718》"
+ },
+ "717": {
+  "meaning": "Test for label problem for H-Bond D..A Distances in CIF.",
+  "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT714-718》"
+ },
+ "718": {
+  "meaning": "Test for label problem for H-Bond D-H..A Angles in CIF.",
+  "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT714-718》"
+ },
+ "720": {
+  "meaning": "Test for Unusual Labels.",
+  "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。 / 几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT720-721》"
+ },
+ "721": {
+  "meaning": "Test for consistency of Bonds and Coordinates in CIF.",
+  "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。 / 几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT720-721》"
+ },
+ "722": {
+  "meaning": "Test for consistency of Angles and Coordinates in CIF.",
+  "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT722》"
+ },
+ "723": {
+  "meaning": "Test for consistency of Torsions and Coordinates in CIF.",
+  "remedy": "多是由于无序处理后连通性有问题，在ins中处理后重新精修生成CIF。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT723》"
+ },
+ "724": {
+  "meaning": "Test for consistency of Contact Distances and Coordinates in CIF.",
+  "remedy": "修改ins中HTAB命令，重新生成CIF文件。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT724-727》"
+ },
+ "725": {
+  "meaning": "Test for consistency of H-Bond D-H distances and Coordinates in CIF.",
+  "remedy": "修改ins中HTAB命令，重新生成CIF文件。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT724-727》"
+ },
+ "726": {
+  "meaning": "Test for consistency of H-Bond H..A Distances and Coordinates in CIF.",
+  "remedy": "修改ins中HTAB命令，重新生成CIF文件。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT724-727》"
+ },
+ "727": {
+  "meaning": "Test for consistency of H-Bond D..A Distances and Coordinates in CIF.",
+  "remedy": "修改ins中HTAB命令，重新生成CIF文件。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT724-727》"
+ },
+ "728": {
+  "meaning": "Test for consistency of H-Bond D-H..A Angles and Coordinates in CIF.",
+  "remedy": "修改ins中HTAB命令，重新生成cif文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT728》"
+ },
+ "731": {
+  "meaning": "Test for consistency of Bond s.u.'s and Coordinate s.u.'s in CIF.",
+  "remedy": "删除damp命令，重新用ShelXL2014精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT731》"
+ },
+ "732": {
+  "meaning": "Test for consistency of Angles and Coordinates in CIF s.u.'s.",
+  "remedy": "删除damp命令，重新用ShelxL2014精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT732》"
+ },
+ "733": {
+  "meaning": "Test for consistency of Torsions and Coordinates in CIF s.u's.",
+  "remedy": "在CIF中删除相关扭转角，或删除ins文件中CONF命令，重新精修生成CIF文件。 / 修改ins中HTAB命令，重新生成CIF文件。否者需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT733-734》"
+ },
+ "734": {
+  "meaning": "Test for consistency of Contact Distance s.u. and Coordinate s.u. in CIF.",
+  "remedy": "在CIF中删除相关扭转角，或删除ins文件中CONF命令，重新精修生成CIF文件。 / 修改ins中HTAB命令，重新生成CIF文件。否者需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT733-734》"
+ },
+ "735": {
+  "meaning": "Test for consistency of H-Bond D-H distance s.u. and Coordinate s.u in CIF.",
+  "remedy": "修改ins中HTAB命令，重新生成CIF文件。否者需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT735-736》"
+ },
+ "736": {
+  "meaning": "Test for consistency of H-Bond H..A Distance s.u. and Coordinates in CIF.",
+  "remedy": "修改ins中HTAB命令，重新生成CIF文件。否者需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT735-736》"
+ },
+ "737": {
+  "meaning": "Test for consistency of H-Bond D..A Distance s.u. and Coordinates in CIF.",
+  "remedy": "修改ins中HTAB命令，重新生成CIF文件。否者需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT737-738》"
+ },
+ "738": {
+  "meaning": "Test for consistency of H-Bond D-H..A Angle and Coordinates in CIF s.u.",
+  "remedy": "修改ins中HTAB命令，重新生成CIF文件。否者需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT737-738》"
+ },
+ "741": {
+  "meaning": "Test for missing Bond s.u. in CIF.",
+  "remedy": "一般不会出现，重新精修生成CIF文件。否者需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT741-742》"
+ },
+ "742": {
+  "meaning": "Test for missing Angle s.u. in CIF.",
+  "remedy": "一般不会出现，重新精修生成CIF文件。否者需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT741-742》"
+ },
+ "743": {
+  "meaning": "Test for missing Torsion s.u. in CIF.",
+  "remedy": "一般不会出现，重新精修生成CIF文件。否者需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT743-748》"
+ },
+ "744": {
+  "meaning": "Test for missing Contact Distance s.u. in CIF.",
+  "remedy": "一般不会出现，重新精修生成CIF文件。否者需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT743-748》"
+ },
+ "745": {
+  "meaning": "Test for missing H-Bond D-H distance s.u. in CIF.",
+  "remedy": "一般不会出现，重新精修生成CIF文件。否者需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT743-748》"
+ },
+ "746": {
+  "meaning": "Test for missing H-Bond H..A Distance s.u. in CIF.",
+  "remedy": "一般不会出现，重新精修生成CIF文件。否者需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT743-748》"
+ },
+ "747": {
+  "meaning": "Test for missing H-Bond D..A Distance s.u. in CIF.",
+  "remedy": "一般不会出现，重新精修生成CIF文件。否者需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT743-748》"
+ },
+ "748": {
+  "meaning": "Test for missing H-Bond D-H..A Angle s.u. in CIF.",
+  "remedy": "一般不会出现，重新精修生成CIF文件。否者需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT743-748》"
+ },
+ "751": {
+  "meaning": "Test for senseless Bond s.u. in CIF.",
+  "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否者需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT751》"
+ },
+ "752": {
+  "meaning": "Test for senseless Angle s.u. in CIF.",
+  "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否者需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT752》"
+ },
+ "753": {
+  "meaning": "Test for senseless Torsion s.u. in CIF.",
+  "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT753-754》"
+ },
+ "754": {
+  "meaning": "Test for senseless Contact Distance s.u. in CIF.",
+  "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT753-754》"
+ },
+ "755": {
+  "meaning": "Test for senseless H-Bond D-H distance s.u. in CIF.",
+  "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT755-758》"
+ },
+ "756": {
+  "meaning": "Test for senseless H-Bond H..A Distance s.u. in CIF.",
+  "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT755-758》"
+ },
+ "757": {
+  "meaning": "Test for senseless H-Bond D..A Distance s.u. in CIF.",
+  "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT755-758》"
+ },
+ "758": {
+  "meaning": "Test for Senseless H-Bond D-H..A Angle s.u. in CIF.",
+  "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT755-758》"
+ },
+ "761": {
+  "meaning": "Test for the presence of at least one X-H in the CIF.",
+  "remedy": "将ins中BOND改为BOND $H并精修重新生成CIF文件。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT761-762》"
+ },
+ "762": {
+  "meaning": "Test for at least one X-Y-H or H-Y-H entry in the CIF.",
+  "remedy": "将ins中BOND改为BOND $H并精修重新生成CIF文件。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT761-762》"
+ },
+ "763": {
+  "meaning": "Test for missing bonds in CIF.",
+  "remedy": "一般不会出现，重新精修生成CIF即可。否则需要给出合理解释。 / 在CIF文件中将对称操作引起的键长删除即可。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT763-764》"
+ },
+ "764": {
+  "meaning": "Test for overcomplete bonds in CIF.",
+  "remedy": "一般不会出现，重新精修生成CIF即可。否则需要给出合理解释。 / 在CIF文件中将对称操作引起的键长删除即可。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT763-764》"
+ },
+ "768": {
+  "meaning": "TEST for INS embedded explicit scattering factor values.",
+  "remedy": "无需处理，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT768-769》"
+ },
+ "769": {
+  "meaning": "TEST for CIF embedded explicit scatterong factor values.",
+  "remedy": "无需处理，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT768-769》"
+ },
+ "770": {
+  "meaning": "Test for suspect C-H bonds in CIF (Not caught otherwise).",
+  "remedy": "检查无序处理是否正确，删除氢重新加氢。否则需要给出合理解释。 / 对其键长进行限制。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT770-771》"
+ },
+ "771": {
+  "meaning": "Test for suspect N-H bonds in CIF (Not caught otherwise).",
+  "remedy": "检查无序处理是否正确，删除氢重新加氢。否则需要给出合理解释。 / 对其键长进行限制。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT770-771》"
+ },
+ "772": {
+  "meaning": "Test for suspect O-H bonds in CIF (Not caught otherwise).",
+  "remedy": "对其键长进行限制。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT772-773》"
+ },
+ "773": {
+  "meaning": "Test for suspect C-C bonds in CIF (Not caught otherwise).",
+  "remedy": "对其键长进行限制。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT772-773》"
+ },
+ "774": {
+  "meaning": "Test for too large / erroneous bond distance.",
+  "remedy": "可以不处理，有合理解释即可。若非要处理，可以在CIF文件中将相应键长这一行删除。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT774-778》"
+ },
+ "775": {
+  "meaning": "Test for too large / erroneous Contact distance.",
+  "remedy": "可以不处理，有合理解释即可。若非要处理，可以在CIF文件中将相应键长这一行删除。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT774-778》"
+ },
+ "776": {
+  "meaning": "Test for too large / erroneous H-Bond D-H distance.",
+  "remedy": "可以不处理，有合理解释即可。若非要处理，可以在CIF文件中将相应键长这一行删除。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT774-778》"
+ },
+ "777": {
+  "meaning": "Check for N..H..X+ bonds in CIF.",
+  "remedy": "可以不处理，有合理解释即可。若非要处理，可以在CIF文件中将相应键长这一行删除。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT774-778》"
+ },
+ "778": {
+  "meaning": "Check for O..H..X+ bonds in CIF.",
+  "remedy": "可以不处理，有合理解释即可。若非要处理，可以在CIF文件中将相应键长这一行删除。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT774-778》"
+ },
+ "779": {
+  "meaning": "Test for suspect Angle in CIF (Not caught otherwise).",
+  "remedy": "多是由于无序处理不好导致连通性不正常，重新无序处理精修生成cif文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT779》"
+ },
+ "780": {
+  "meaning": "Test whether coordinates form a connected set.",
+  "remedy": "将配体四散部分通过对称操作变换成一个完整的配体。在精修时，除非加氢需要，并不要求你把该连的原子连接在一起，换句话说，如果不是加氢需要，比如一个苯环，你可以不让所有C连接在一起，可以东一个，西一个，这不影响你的精修，但这带来两个问题：",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT780》"
+ },
+ "781": {
+  "meaning": "Test for Flack x value for Centrosymmetric space-group.",
+  "remedy": "删除Flack系数x。 / 检查是否原子指认错误，否则需要对有问题的键的键长进行限制。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT781-782》"
+ },
+ "782": {
+  "meaning": "Test for Unusual C-NO2 an C-CO2 moiety Bond geometry.",
+  "remedy": "删除Flack系数x。 / 检查是否原子指认错误，否则需要对有问题的键的键长进行限制。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT781-782》"
+ },
+ "789": {
+  "meaning": "Report the number of atoms with negative _atom_site_disorder_group #.",
+  "remedy": "无需处理，有合理解释即可。 / 要平移或对称操作后，使得大部分原子的分数坐标都在单胞内，即大部分原子的坐标都是正分数，而不是1.xxx或-0.xxxx。具体可在.ins中加move指令或在xp中用sgen",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT789-790》"
+ },
+ "790": {
+  "meaning": "Test Whether C.G. Residue in Unitcell Box.",
+  "remedy": "无需处理，有合理解释即可。 / 要平移或对称操作后，使得大部分原子的分数坐标都在单胞内，即大部分原子的坐标都是正分数，而不是1.xxx或-0.xxxx。具体可在.ins中加move指令或在xp中用sgen",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT789-790》"
+ },
+ "791": {
+  "meaning": "Check the absolute configuration of chiral atom in 'chiral' spgr.",
+  "remedy": "一般无需处理，确认是否正确即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT791》"
+ },
+ "792": {
+  "meaning": "Check the absolute configuration of chiral atom in 'non-chiral' spgr.",
+  "remedy": "一般无需处理，确认是否正确即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT792》"
+ },
+ "793": {
+  "meaning": "Check the absolute configuration of chiral atom in centrosymmetric spgr.",
+  "remedy": "一般无需处理，确认是否正确即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT793》"
+ },
+ "794": {
+  "meaning": "Report the calculated 'Valence Bond' valency for metals.",
+  "remedy": "无需解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT794》"
+ },
+ "798": {
+  "meaning": "Test for Alphanumeric Label on coordinate record.",
+  "remedy": "一般是误操作，重新精修生成CIF即可。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT798-799》"
+ },
+ "799": {
+  "meaning": "Test for Alphanumeric Label on displacement par. record.",
+  "remedy": "一般是误操作，重新精修生成CIF即可。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT798-799》"
+ },
+ "801": {
+  "meaning": "Test for missing, incomplete or out-of-order Cell data.",
+  "remedy": "一般不会出现，可尝试重新还原数据。 / 一般不会出现，重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT801-802》"
+ },
+ "802": {
+  "meaning": "Test for Input lines longer than 80 Characters.",
+  "remedy": "一般不会出现，可尝试重新还原数据。 / 一般不会出现，重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT801-802》"
+ },
+ "803": {
+  "meaning": "Test for Loop problem in CIF-Read.",
+  "remedy": "一般不会出现，重新精修生成CIF文件即可。 / 一般不会出现，将单胞内容转换到与对称性相关的位置可能可以解决。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT803-804》"
+ },
+ "804": {
+  "meaning": "Test for ARU-Pack Problem(s) in PLATON.",
+  "remedy": "一般不会出现，重新精修生成CIF文件即可。 / 一般不会出现，将单胞内容转换到与对称性相关的位置可能可以解决。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT803-804》"
+ },
+ "805": {
+  "meaning": "Test for insufficient 'coordinate data'.",
+  "remedy": "一般不会出现，重新精修生成CIF文件即可。否则需要给出合理解释。 / 此类问题可能发生在无序或高对称空间群的网状结构中，删除对称信息可能可以解决。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT805-807》"
+ },
+ "806": {
+  "meaning": "Test for insufficient 'UIJ data'.",
+  "remedy": "一般不会出现，重新精修生成CIF文件即可。否则需要给出合理解释。 / 此类问题可能发生在无序或高对称空间群的网状结构中，删除对称信息可能可以解决。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT805-807》"
+ },
+ "807": {
+  "meaning": "Test for Maximum number of ATOMS Exceeded Problem.",
+  "remedy": "一般不会出现，重新精修生成CIF文件即可。否则需要给出合理解释。 / 此类问题可能发生在无序或高对称空间群的网状结构中，删除对称信息可能可以解决。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT805-807》"
+ },
+ "808": {
+  "meaning": "Test for Parseable SHELXL style Weighting scheme.",
+  "remedy": "一般不会出现，重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT808》"
+ },
+ "809": {
+  "meaning": "Test the SHELXL style Weighting scheme.",
+  "remedy": "添加权重方案后进行精修即可。否则需要给出合理解释。 / 一般不会出现，重新精修生成CIF文件。 / 无需解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT809-811》"
+ },
+ "810": {
+  "meaning": "Test for Out-of-Memory Problem.",
+  "remedy": "添加权重方案后进行精修即可。否则需要给出合理解释。 / 一般不会出现，重新精修生成CIF文件。 / 无需解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT809-811》"
+ },
+ "811": {
+  "meaning": "Test for No ADDSYM Analysis.",
+  "remedy": "添加权重方案后进行精修即可。否则需要给出合理解释。 / 一般不会出现，重新精修生成CIF文件。 / 无需解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT809-811》"
+ },
+ "812": {
+  "meaning": "Test for ALIAS OVERFLOW.",
+  "remedy": "如无特殊需要，将其改为标准标签即可。 / 一般不会出现，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT812-814》"
+ },
+ "813": {
+  "meaning": "Test for insufficient data on HKLF record in CIF.",
+  "remedy": "如无特殊需要，将其改为标准标签即可。 / 一般不会出现，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT812-814》"
+ },
+ "814": {
+  "meaning": "Test fot (In)Commensurate Structure CIF.",
+  "remedy": "如无特殊需要，将其改为标准标签即可。 / 一般不会出现，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT812-814》"
+ },
+ "815": {
+  "meaning": "Test for number of population parameter overflow.",
+  "remedy": "无需处理，有合理解释即可。或可联系作者邮箱：a.l.spek@uu.nl / PLATON内部问题，请将问题提交给作者邮箱：a.l.spek@uu.nl / 可用PLATON进行孪晶检测，若有则进行孪晶精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT815-850》"
+ },
+ "816": {
+  "remedy": "无需处理，有合理解释即可。或可联系作者邮箱：a.l.spek@uu.nl / PLATON内部问题，请将问题提交给作者邮箱：a.l.spek@uu.nl / 可用PLATON进行孪晶检测，若有则进行孪晶精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT815-850》"
+ },
+ "817": {
+  "remedy": "无需处理，有合理解释即可。或可联系作者邮箱：a.l.spek@uu.nl / PLATON内部问题，请将问题提交给作者邮箱：a.l.spek@uu.nl / 可用PLATON进行孪晶检测，若有则进行孪晶精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT815-850》"
+ },
+ "818": {
+  "remedy": "无需处理，有合理解释即可。或可联系作者邮箱：a.l.spek@uu.nl / PLATON内部问题，请将问题提交给作者邮箱：a.l.spek@uu.nl / 可用PLATON进行孪晶检测，若有则进行孪晶精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT815-850》"
+ },
+ "819": {
+  "remedy": "无需处理，有合理解释即可。或可联系作者邮箱：a.l.spek@uu.nl / PLATON内部问题，请将问题提交给作者邮箱：a.l.spek@uu.nl / 可用PLATON进行孪晶检测，若有则进行孪晶精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT815-850》"
+ },
+ "820": {
+  "meaning": "Report Read Problem in PLATON/PLA230.",
+  "remedy": "无需处理，有合理解释即可。或可联系作者邮箱：a.l.spek@uu.nl / PLATON内部问题，请将问题提交给作者邮箱：a.l.spek@uu.nl / 可用PLATON进行孪晶检测，若有则进行孪晶精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT815-850》"
+ },
+ "821": {
+  "remedy": "无需处理，有合理解释即可。或可联系作者邮箱：a.l.spek@uu.nl / PLATON内部问题，请将问题提交给作者邮箱：a.l.spek@uu.nl / 可用PLATON进行孪晶检测，若有则进行孪晶精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT815-850》"
+ },
+ "822": {
+  "remedy": "无需处理，有合理解释即可。或可联系作者邮箱：a.l.spek@uu.nl / PLATON内部问题，请将问题提交给作者邮箱：a.l.spek@uu.nl / 可用PLATON进行孪晶检测，若有则进行孪晶精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT815-850》"
+ },
+ "823": {
+  "remedy": "无需处理，有合理解释即可。或可联系作者邮箱：a.l.spek@uu.nl / PLATON内部问题，请将问题提交给作者邮箱：a.l.spek@uu.nl / 可用PLATON进行孪晶检测，若有则进行孪晶精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT815-850》"
+ },
+ "824": {
+  "remedy": "无需处理，有合理解释即可。或可联系作者邮箱：a.l.spek@uu.nl / PLATON内部问题，请将问题提交给作者邮箱：a.l.spek@uu.nl / 可用PLATON进行孪晶检测，若有则进行孪晶精修。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT815-850》"
+ },
+ "860": {
+  "meaning": "Test for restraints used in refinement.",
+  "remedy": "无需解决，限制使用有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT860》"
+ },
+ "868": {
+  "meaning": "Report the Suppression of Olex2/_smtbx_masks use Related ALERTS.",
+  "remedy": "无需解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT868》"
+ },
+ "869": {
+  "meaning": "Report the Suppression of SQUEEZE use Related ALERTS.",
+  "remedy": "无需解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT869》"
+ },
+ "870": {
+  "meaning": "Report the Suppression of some Twinning Related ALERTS.",
+  "remedy": "无需解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT870》"
+ },
+ "871": {
+  "meaning": "Report the Suppression of some Laue technique related ALERTS.",
+  "remedy": "无需处理，有合理解释即可。 / 有则补上，无则给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT871-880》"
+ },
+ "872": {
+  "meaning": "Report the Suppression of an harmonic refinement Related ALERTS.",
+  "remedy": "无需处理，有合理解释即可。 / 有则补上，无则给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT871-880》"
+ },
+ "873": {
+  "remedy": "无需处理，有合理解释即可。 / 有则补上，无则给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT871-880》"
+ },
+ "874": {
+  "remedy": "无需处理，有合理解释即可。 / 有则补上，无则给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT871-880》"
+ },
+ "875": {
+  "remedy": "无需处理，有合理解释即可。 / 有则补上，无则给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT871-880》"
+ },
+ "876": {
+  "remedy": "无需处理，有合理解释即可。 / 有则补上，无则给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT871-880》"
+ },
+ "877": {
+  "remedy": "无需处理，有合理解释即可。 / 有则补上，无则给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT871-880》"
+ },
+ "878": {
+  "remedy": "无需处理，有合理解释即可。 / 有则补上，无则给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT871-880》"
+ },
+ "879": {
+  "remedy": "无需处理，有合理解释即可。 / 有则补上，无则给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT871-880》"
+ },
+ "880": {
+  "meaning": "Report missing datum for_diffrn_reflns_number.",
+  "remedy": "无需处理，有合理解释即可。 / 有则补上，无则给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT871-880》"
+ },
+ "881": {
+  "meaning": "Report missing datum for_diffrn_reflns_av_R_equivalents.",
+  "remedy": "有则补上，无则给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT881-883》"
+ },
+ "882": {
+  "meaning": "Report missing datum for __diffrn_reflns_av_unetI/netI.",
+  "remedy": "有则补上，无则给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT881-883》"
+ },
+ "883": {
+  "meaning": "Report missing datum for _atom_sites_solution_primary.",
+  "remedy": "有则补上，无则给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT881-883》"
+ },
+ "898": {
+  "meaning": "Check for duplicate H-M space group symbol.",
+  "remedy": "删去重复的符号即可。 / 推荐用最新版SHELXL(当前最新版为SHELXL2018)重新精修并生成CIF文件。 / 用SHELXL 2014及以上版本精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT898-900》"
+ },
+ "899": {
+  "meaning": "Report the Use of an older SHELXL version.",
+  "remedy": "删去重复的符号即可。 / 推荐用最新版SHELXL(当前最新版为SHELXL2018)重新精修并生成CIF文件。 / 用SHELXL 2014及以上版本精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT898-900》"
+ },
+ "900": {
+  "meaning": "Test for 'No-matching reflection file'.",
+  "remedy": "删去重复的符号即可。 / 推荐用最新版SHELXL(当前最新版为SHELXL2018)重新精修并生成CIF文件。 / 用SHELXL 2014及以上版本精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT898-900》"
+ },
+ "901": {
+  "meaning": "Test for CIF & FCF CELL Not Matching.",
+  "remedy": "一般不会出现，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT901-902》"
+ },
+ "902": {
+  "meaning": "Test for non-zero number of recognised reflections in FCF.",
+  "remedy": "一般不会出现，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT901-902》"
+ },
+ "903": {
+  "meaning": "Test for Fobs=Fcalc in FCF.",
+  "remedy": "一般不会出现，有合理解释即可。 / 使用Shel 999 0.84删除高角度的点，如无法解决有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT903-905》"
+ },
+ "904": {
+  "meaning": "Test for NREF .GT. NPAR in the CIF.",
+  "remedy": "一般不会出现，有合理解释即可。 / 使用Shel 999 0.84删除高角度的点，如无法解决有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT903-905》"
+ },
+ "905": {
+  "meaning": "Report Negative K values in the Analysis of Variance.",
+  "remedy": "一般不会出现，有合理解释即可。 / 使用Shel 999 0.84删除高角度的点，如无法解决有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT903-905》"
+ },
+ "906": {
+  "meaning": "Report Large K values in the Analysis of Variance.",
+  "remedy": "使用Shel 999 0.84删除高角度的点，如无法解决有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT906》"
+ },
+ "907": {
+  "meaning": "Check whether the structure needs to be inverted.",
+  "remedy": "对结构进行翻转即可。(Olex2中可通过键入inv -f指令实现构型翻转) / 无需解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT907-909》"
+ },
+ "908": {
+  "meaning": "Report on Max Observed data in any Resolution Shell.",
+  "remedy": "对结构进行翻转即可。(Olex2中可通过键入inv -f指令实现构型翻转) / 无需解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT907-909》"
+ },
+ "909": {
+  "meaning": "Report of Observed data at Theta Cutoff.",
+  "remedy": "对结构进行翻转即可。(Olex2中可通过键入inv -f指令实现构型翻转) / 无需解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT907-909》"
+ },
+ "910": {
+  "meaning": "Test for missing reflections below Theta(Min).",
+  "remedy": "可不解决，有合理解释即可。也可重新收集数据补齐缺失数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT910》"
+ },
+ "911": {
+  "meaning": "Test for missing reflections between Theta(Min) and sinth/lambda=0.6.",
+  "remedy": "可不解决，有合理解释即可。也可重新收集数据补齐缺失数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT911》"
+ },
+ "912": {
+  "meaning": "Test for missing reflections above Sin(TH)/Lambda = 0.6.",
+  "remedy": "可不解决，有合理解释即可。也可重新收集数据补齐缺失数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT912》"
+ },
+ "913": {
+  "meaning": "Test for missing strong reflections.",
+  "remedy": "可不解决，有合理解释即可。也可重新收集数据补齐缺失数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT913》"
+ },
+ "914": {
+  "meaning": "Test for absence of Bijvoet Pairs in non-centro structure.",
+  "remedy": "一般不会出现，有合理解释即可。 / 数据收集不当，与精修没关系，估计是无心当有心的收了；不传fcf就没事了，如果不定绝对构型有这个错误无所谓。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT914-915》"
+ },
+ "915": {
+  "meaning": "Test for low Friedel Pair Coverage in non-centro structure.",
+  "remedy": "一般不会出现，有合理解释即可。 / 数据收集不当，与精修没关系，估计是无心当有心的收了；不传fcf就没事了，如果不定绝对构型有这个错误无所谓。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT914-915》"
+ },
+ "916": {
+  "meaning": "Test for differing Flack x and Hooft y Parameter values.",
+  "remedy": "有合理解释即可。 / 一般无需处理，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT916-917》"
+ },
+ "917": {
+  "meaning": "Test/Report whether FCF is based on a BASF/TWIN refinement.",
+  "remedy": "有合理解释即可。 / 一般无需处理，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT916-917》"
+ },
+ "918": {
+  "meaning": "Test for reflections with I(obs) << I(calc).",
+  "remedy": "OMIT这些点即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT918》"
+ },
+ "919": {
+  "meaning": "Test for reflections effected by the beamstop.",
+  "remedy": "在lst文件中找出误差大的点，OMIT掉即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT919》"
+ },
+ "920": {
+  "meaning": "Test for TH(Max) Consistency between CIF& FCF.",
+  "remedy": "一般不会出现，重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT920》"
+ },
+ "921": {
+  "meaning": "Test for R1 Consistency between CIF &FCF (Reported).",
+  "remedy": "一般不会出现，重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT921-922》"
+ },
+ "922": {
+  "meaning": "Test for wR2 Consistency between CIF & FCF(Reported).",
+  "remedy": "一般不会出现，重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT921-922》"
+ },
+ "923": {
+  "meaning": "Test for S Consistency between CIF &FCF (Reported).",
+  "remedy": "一般不会出现，重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT923-924》"
+ },
+ "924": {
+  "meaning": "Test for Consistency of the Reported & Calculated Rho(min).",
+  "remedy": "一般不会出现，重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT923-924》"
+ },
+ "925": {
+  "meaning": "Test for Consistency of the Reported & Calculated Rho(max).",
+  "remedy": "一般不会出现，重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT925》"
+ },
+ "926": {
+  "meaning": "Test for R1 Consistency between CIF & FCF(Calculated).",
+  "remedy": "一般不会出现，重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT926》"
+ },
+ "927": {
+  "meaning": "Test for wR2 Consistency between CIF & FCF(Calculated).",
+  "remedy": "一般不会出现，重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT927》"
+ },
+ "928": {
+  "meaning": "Test for S Consistency between CIF & FCF(Calculated).",
+  "remedy": "一般不会出现，重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT928》"
+ },
+ "929": {
+  "meaning": "Test for interpretable weight parameters for R1, wR2 & S Comparison.",
+  "remedy": "一般不会出现，重新精修生成CIF文件。 / 加入孪晶法则按孪晶精修，如果不行需重新还原数据并拆分。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT929-930》"
+ },
+ "930": {
+  "meaning": "Test for Missed Twinning from FCF data.",
+  "remedy": "一般不会出现，重新精修生成CIF文件。 / 加入孪晶法则按孪晶精修，如果不行需重新还原数据并拆分。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT929-930》"
+ },
+ "931": {
+  "meaning": "Test for Missed Twinning from FCF/CIF data.",
+  "remedy": "加入孪晶法则按孪晶精修，如果不行需重新还原数据并拆分。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT931》"
+ },
+ "933": {
+  "meaning": "Report number of OMIT records in embedded.res.",
+  "remedy": "无需解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT933》"
+ },
+ "934": {
+  "meaning": "Report number of outliers.",
+  "remedy": "检查精修模型是否有问题，如果模型没有错可以OMIT掉这些点并在文章实验部分说明。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT934》"
+ },
+ "935": {
+  "meaning": "Pseudo Extinction Parameter Test.",
+  "remedy": "给出合理解释。 / 删除该命令，或者有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT935-936》"
+ },
+ "936": {
+  "meaning": "Test for DAMP instruction in embedded .res.",
+  "remedy": "给出合理解释。 / 删除该命令，或者有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT935-936》"
+ },
+ "937": {
+  "meaning": "Report Exponential Term in SHELXL weight expression.",
+  "remedy": "删除WGHT中第三个参数后，重新精修生成CIF文件。 / OMIT掉误差较大的点，检查精修结构是否有问题，按照孪晶精修，或者升空间群。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT937-939》"
+ },
+ "938": {
+  "remedy": "删除WGHT中第三个参数后，重新精修生成CIF文件。 / OMIT掉误差较大的点，检查精修结构是否有问题，按照孪晶精修，或者升空间群。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT937-939》"
+ },
+ "939": {
+  "meaning": "Test for high not weight optimized S value.",
+  "remedy": "删除WGHT中第三个参数后，重新精修生成CIF文件。 / OMIT掉误差较大的点，检查精修结构是否有问题，按照孪晶精修，或者升空间群。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT937-939》"
+ },
+ "940": {
+  "meaning": "Test for wR2 refinement with all data.",
+  "remedy": "_reflns_number_total和_reflns_number_gt应相差较大，total指的是全部可观察衍射点，而 gt 通常是指>2\\s(I)的衍射。即使是P-1空间群，这二个值的差也要在一倍以上。除非你的单晶是合金，且有极高对称性的。到原始数据中去寻找原因。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT940》"
+ },
+ "941": {
+  "meaning": "Test fit Low Measured hkl Multiplicity.",
+  "remedy": "可能需要重新收集数据。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT941-949》"
+ },
+ "942": {
+  "remedy": "可能需要重新收集数据。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT941-949》"
+ },
+ "943": {
+  "remedy": "可能需要重新收集数据。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT941-949》"
+ },
+ "944": {
+  "remedy": "可能需要重新收集数据。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT941-949》"
+ },
+ "945": {
+  "remedy": "可能需要重新收集数据。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT941-949》"
+ },
+ "946": {
+  "remedy": "可能需要重新收集数据。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT941-949》"
+ },
+ "947": {
+  "remedy": "可能需要重新收集数据。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT941-949》"
+ },
+ "948": {
+  "remedy": "可能需要重新收集数据。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT941-949》"
+ },
+ "949": {
+  "meaning": "Test for Poisson type Intensity Sigma Distribution.",
+  "remedy": "可能需要重新收集数据。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT941-949》"
+ },
+ "950": {
+  "meaning": "Test for Reported and Calculated Hmax Difference (From CIF Data).",
+  "remedy": "一般不会出现，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT950-951》"
+ },
+ "951": {
+  "meaning": "Test for Reported and Calculated Kmax Difference (From CIF Data).",
+  "remedy": "一般不会出现，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT950-951》"
+ },
+ "952": {
+  "meaning": "Test for Reported and Calculated Lmax Difference (From CIF Data).",
+  "remedy": "修改_diffrn_reflns_limit_l_max同报告值相同。否则需要给出合理解释。 / 若使用了诸如OMIT 0 50命令截取分辨率，则删除该命令可能可以解决。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT952-953》"
+ },
+ "953": {
+  "meaning": "Test for Reported (in CIF) and Actual Hmax Difference in the FCF File.",
+  "remedy": "修改_diffrn_reflns_limit_l_max同报告值相同。否则需要给出合理解释。 / 若使用了诸如OMIT 0 50命令截取分辨率，则删除该命令可能可以解决。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT952-953》"
+ },
+ "954": {
+  "meaning": "Test for Reported (in CIF) and Actual Kmax Difference in the FCF File.",
+  "remedy": "若使用了诸如OMIT 0 50命令截取分辨率，则删除该命令可能可以解决。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT954-955》"
+ },
+ "955": {
+  "meaning": "Test for Reported (in CIF) and Actual Lmax Difference in the FCF file.",
+  "remedy": "若使用了诸如OMIT 0 50命令截取分辨率，则删除该命令可能可以解决。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT954-955》"
+ },
+ "956": {
+  "meaning": "Test for Calculated (Theta-max) and Actual Hmax Difference in the FCF File.",
+  "remedy": "若使用了诸如OMIT 0 50命令截取分辨率，则删除该命令可能可以解决。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT956-957》"
+ },
+ "957": {
+  "meaning": "Test for Calculated (Theta-max) and Actual Kmax Difference in the FCF File.",
+  "remedy": "若使用了诸如OMIT 0 50命令截取分辨率，则删除该命令可能可以解决。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT956-957》"
+ },
+ "958": {
+  "meaning": "Test for Calculated (Theta-max) and Actual Lmax Difference in the FCF file.",
+  "remedy": "若使用了诸如OMIT 0 50命令截取分辨率，则删除该命令可能可以解决。否则需要给出合理解释。 / 重新还原数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT958-960》"
+ },
+ "959": {
+  "remedy": "若使用了诸如OMIT 0 50命令截取分辨率，则删除该命令可能可以解决。否则需要给出合理解释。 / 重新还原数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT958-960》"
+ },
+ "960": {
+  "meaning": "Test for reflections with I < - 2 sigma.",
+  "remedy": "若使用了诸如OMIT 0 50命令截取分辨率，则删除该命令可能可以解决。否则需要给出合理解释。 / 重新还原数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT958-960》"
+ },
+ "961": {
+  "meaning": "Test for absence of negative observed intensities.",
+  "remedy": "一般无需处理，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT961-962》"
+ },
+ "962": {
+  "meaning": "Test for Input Reflections with Sig(Fo^2) = 0.",
+  "remedy": "一般无需处理，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT961-962》"
+ },
+ "963": {
+  "meaning": "Test for both weighting parameter values zero (SHELXL).",
+  "remedy": "可通过手动调节其数值。 / 一般不会出现，重新精修生成CIF文件即可，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT963-964》"
+ },
+ "964": {
+  "meaning": "Test for consistency of SHELXL weight parameters in CIF & embedded RES.",
+  "remedy": "可通过手动调节其数值。 / 一般不会出现，重新精修生成CIF文件即可，否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT963-964》"
+ },
+ "965": {
+  "meaning": "Test whether the SHELXL weight optimisation has converged.",
+  "remedy": "使用程序推荐的权重进行精修重新生成CIF文件即可，否则需要给出合理解释。 / 换用合适的精修程序进行精修。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT965-970》"
+ },
+ "966": {
+  "remedy": "使用程序推荐的权重进行精修重新生成CIF文件即可，否则需要给出合理解释。 / 换用合适的精修程序进行精修。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT965-970》"
+ },
+ "967": {
+  "remedy": "使用程序推荐的权重进行精修重新生成CIF文件即可，否则需要给出合理解释。 / 换用合适的精修程序进行精修。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT965-970》"
+ },
+ "968": {
+  "remedy": "使用程序推荐的权重进行精修重新生成CIF文件即可，否则需要给出合理解释。 / 换用合适的精修程序进行精修。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT965-970》"
+ },
+ "969": {
+  "remedy": "使用程序推荐的权重进行精修重新生成CIF文件即可，否则需要给出合理解释。 / 换用合适的精修程序进行精修。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT965-970》"
+ },
+ "970": {
+  "meaning": "Test/Report Electron Diffraction.",
+  "remedy": "使用程序推荐的权重进行精修重新生成CIF文件即可，否则需要给出合理解释。 / 换用合适的精修程序进行精修。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT965-970》"
+ },
+ "971": {
+  "meaning": "Test for large positive calculated residual density.",
+  "remedy": "Q峰游离检查是否有原子未指认，Q峰如果在轻原子周围检查是否可以无序处理，在重原子周围需要重新吸收校正或者收集数据。使用Shel 999 0.84切去部分高角度点可缓解此警告。最后检查是否数据足够好，是否存在孪晶。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT971》"
+ },
+ "972": {
+  "meaning": "Test for large negative calculated residual density.",
+  "remedy": "Q峰游离检查是否有原子未指认，Q峰如果在轻原子周围检查是否可以无序处理，在重原子周围需要重新吸收校正或者收集数据。使用Shel 999 0.84切去部分高角度点可缓解此警告。最后检查是否数据足够好，是否存在孪晶。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT972》"
+ },
+ "973": {
+  "meaning": "Test for large positive density on metal atom.",
+  "remedy": "Q峰游离检查是否有原子未指认，Q峰如果在轻原子周围检查是否可以无序处理，在重原子周围需要重新吸收校正或者收集数据。使用Shel 999 0.84切去部分高角度点可缓解此警告。最后检查是否数据足够好，是否存在孪晶。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT973》"
+ },
+ "974": {
+  "meaning": "Test for large negative density close to metal atom.",
+  "remedy": "Q峰游离检查是否有原子未指认，Q峰如果在轻原子周围检查是否可以无序处理，在重原子周围需要重新吸收校正或者收集数据。使用Shel 999 0.84切去部分高角度点可缓解此警告。最后检查是否数据足够好，是否存在孪晶。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT974》"
+ },
+ "975": {
+  "meaning": "Test for positive density near N or O.",
+  "remedy": "Q峰游离检查是否有原子未指认，Q峰如果在轻原子周围检查是否可以无序处理，在重原子周围需要重新吸收校正或者收集数据。使用Shel 999 0.84切去部分高角度点可缓解此警告。最后检查是否数据足够好，是否存在孪晶。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT975》"
+ },
+ "976": {
+  "meaning": "Test for negative density near N or O.",
+  "remedy": "Q峰游离检查是否有原子未指认，Q峰如果在轻原子周围检查是否可以无序处理，在重原子周围需要重新吸收校正或者收集数据。使用Shel 999 0.84切去部分高角度点可缓解此警告。最后检查是否数据足够好，是否存在孪晶。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT976》"
+ },
+ "977": {
+  "meaning": "Test for negative density on H-atom positions.",
+  "remedy": "Q峰游离检查是否有原子未指认，Q峰如果在轻原子周围检查是否可以无序处理，在重原子周围需要重新吸收校正或者收集数据。使用Shel 999 0.84切去部分高角度点可缓解此警告。最后检查是否数据足够好，是否存在孪晶。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT977》"
+ },
+ "978": {
+  "meaning": "Report number of cases with positive density on C-C bonds.",
+  "remedy": "无需解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT978》"
+ },
+ "980": {
+  "meaning": "Test for non-zero number of anomalous scattering factors.",
+  "remedy": "一般无需解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT980-982》"
+ },
+ "981": {
+  "meaning": "Test for non-zero f\" anomalous scattering factor values.",
+  "remedy": "一般无需解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT980-982》"
+ },
+ "982": {
+  "meaning": "Test the anomalous scattering factor f' values against IT.",
+  "remedy": "一般无需解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT980-982》"
+ },
+ "983": {
+  "meaning": "Test the anomalous scattering factor f\" values against IT.",
+  "remedy": "一般无需解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT983-984》"
+ },
+ "984": {
+  "meaning": "Test the anomalous scattering factor f' values against B&C.",
+  "remedy": "一般无需解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT983-984》"
+ },
+ "985": {
+  "meaning": "Test the anomalous scattering factor f\" values against B&C.",
+  "remedy": "一般无需解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT985-986》"
+ },
+ "986": {
+  "meaning": "Test for non-zero f' anomalous scattering factor values.",
+  "remedy": "一般无需解决，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT985-986》"
+ },
+ "987": {
+  "meaning": "Test for the need of a TWIN/BASF refinement.",
+  "remedy": "如果是未定错，可能是孪晶，要加上basf命令精修。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT987》"
+ },
+ "988": {
+  "meaning": "Report the use of supplied f' for missing internaly calculated value.",
+  "remedy": "一般无需处理，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT988-989》"
+ },
+ "989": {
+  "meaning": "Report the use of supplied f'' for missing internaly calculated value.",
+  "remedy": "一般无需处理，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT988-989》"
+ },
+ "990": {
+  "meaning": "Report Deprecated .res file based SQUEEZE job.",
+  "remedy": "应用Platon中的SQUEEZE子程序去除溶剂分子(客体分子)衍射贡献后，用新产生的文件精修即可。或者应用新产生的name.hkl及name.fab文件，在原本的name.ins文件中加入abin指令，精修即可。加入abin指令精修，程序会读取name.fab文件并写入相应的squeeze信息到CIF文件中，无需手动将squeeze信息写入CIF文件中。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT990》"
+ },
+ "991": {
+  "meaning": "Report on generated hkl data.",
+  "remedy": "一般无需处理，有合理解释即可。 / 一般不会出现，重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT991-993》"
+ },
+ "992": {
+  "meaning": "Report difference between reported and actual _reflns_number_gtvalues.",
+  "remedy": "一般无需处理，有合理解释即可。 / 一般不会出现，重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT991-993》"
+ },
+ "993": {
+  "meaning": "Report Missing .bodd Include File.",
+  "remedy": "一般无需处理，有合理解释即可。 / 一般不会出现，重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT991-993》"
+ },
+ "994": {
+  "meaning": "Report Missing SHELXL/MERG instruction.",
+  "remedy": "填上MERG命令后重新精修生成CIF文件。 / 将LIST后的数字改为4后重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT994-996》"
+ },
+ "995": {
+  "meaning": "Report Problem with recreating FCF with SHELXL.",
+  "remedy": "通常不会遇到这种情况，使用2014及以上版本SHELXL精修重新生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT995》"
+ },
+ "996": {
+  "meaning": "Test validity of SHELXL Style LIST 4 Fo/Fc FCF File.",
+  "remedy": "填上MERG命令后重新精修生成CIF文件。 / 将LIST后的数字改为4后重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT994-996》"
+ },
+ "997": {
+  "meaning": "Test for Acceptable CIF/FCF file Combination for SHELXL.",
+  "remedy": "一般LIST后面的数字为4，改正后重新精修生成CIF文件。 / 将其改为4后重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT997-999》"
+ },
+ "998": {
+  "meaning": "Test for LIST 3.",
+  "remedy": "一般LIST后面的数字为4，改正后重新精修生成CIF文件。 / 将其改为4后重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT997-999》"
+ },
+ "999": {
+  "meaning": "Testfor LIST 6.",
+  "remedy": "一般LIST后面的数字为4，改正后重新精修生成CIF文件。 / 将其改为4后重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT997-999》"
+ },
+ "ABSMU01": {
+  "meaning": "To check that _exptl_absorpt_coefficient_mu value is consistent with the cell contents.",
+  "remedy": "按(IUCr) checkCIF计算的结果对_exptl_absorpt_coefficient_mu条目数据进行修改。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-ABSMU01》"
+ },
+ "ABSTY01": {
+  "meaning": "To check that _exptl_absorpt_correction_type is one of the recognised keywords.",
+  "remedy": "按照所用的吸收校正的方法在CIF文件中_exptl_absorpt_correction_type条目后填入所用吸收校正的方法名称(允许的关键词有：analytical、integration、numerical、gaussian、empirical、psi-scan、multi-scan、refdelf、sphere或cylinder)，若未做吸收校正则填写none或?。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-ABSTY01》"
+ },
+ "ABSTY02": {
+  "meaning": "To check that _exptl_absorpt_correction_type contains some reference text.",
+  "remedy": "在CIF文件中_exptl_absorpt_process_details条目后填写吸收校正引用文献和细节。若未做吸收校正则将_exptl_absorpt_correction_type条目后改为none或?。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-ABSTY02》"
+ },
+ "ABSTY03": {
+  "meaning": "To check whether an absoprtion correction has been applied.",
+  "remedy": "将_exptl_absorpt_correction_type条目后的none改为multi-scan或者将_exptl_absorpt_process_details条目后的SADABSv.2.10 (Bruker,2008)改为?。 / 在CIF文件中_exptl_absorpt_correction_type和_exptl_absorpt_process_details条目后填入正确的吸收校正方法和参考文献，或者将_exptl_absorpt_correction_T_min和_exptl_absorpt_correction_T_max条目后的数值均改为?。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-ABSTY03》"
+ },
+ "CELLK01": {
+  "meaning": "To check that _cell_measurement_temperature has the correct units ie. Kelvin rather than Celsius.",
+  "remedy": "将_cell_measurement_temperature条目后的数值换算成开尔文温度。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-CELLK01》"
+ },
+ "CELLT01": {
+  "meaning": "To check that _cell_measurement_theta_min is less than _cell_measurement_theta_max.",
+  "remedy": "可能是误将这两个数值填反了，将其改正即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-CELLT01》"
+ },
+ "CELLV01": {
+  "meaning": "To check that the _cell_volume matches _cell_length_ and _cell_angle_ values.",
+  "remedy": "一般不会出现这种情况，检查是否晶胞参数输入有误。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-CELLV01》"
+ },
+ "CELLV02": {
+  "meaning": "To check that the _cell_volume su matches _cell_length_ and _cell_angle_ su values.",
+  "remedy": "请检查下ins文件中的原子个数是否正确，以及Z值是否正确。或者直接在CIF文件里改正：找到_cell_volume，将该条目后数据括号内的数值由原来的14.00改为23.76。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-CELLV02》"
+ },
+ "CELLZ01": {
+  "meaning": "To check that the cell contents calculated from _chemical_formula_sum and _cell_formula_units_Z matches that from the atom sites present in the_atom_site_ list and the _symmetry_ information.",
+  "remedy": "在ins文件里给对分子式和Z值重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-CELLZ01》"
+ },
+ "CHEMS01": {
+  "meaning": "To check that the _chemical_formula_sum is properly constructed. i.e. C H followed by alphabetic.",
+  "remedy": "无机物通常是按照字母表顺序排列的，有机物/金属有机配合物的顺序是：C，H，然后按字母顺序排列。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-CHEMS01》"
+ },
+ "CHEMS02": {
+  "meaning": "To check that the stated category _publ_requested_category is consistent with the chemical formula of the compound.",
+  "remedy": "按给定类别更正即可。一般不会出现此类警告，重新精修生成CIF文件即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-CHEMS02》"
+ },
+ "CHEMW01": {
+  "meaning": "To check that the _chemical_formula_weight matches that calculated for the_chemical_formula_sum.",
+  "remedy": "在ins文件里给对分子式和Z值重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-CHEMW01》"
+ },
+ "CHEMW03": {
+  "meaning": "To check that the _chemical_formula_weight matches that calculated for the atomic content data from the two lists, _atom_site_ and _atom_type_, using the number of formula units per cell and the number of symmetry equivalent positions {NSYM.",
+  "remedy": "在ins文件里给对分子式和Z值重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-CHEMW03》"
+ },
+ "CRYSC01": {
+  "meaning": "To check that _exptl_crystal_colour is consistent with expected colour code combinations.",
+  "remedy": "检查单词拼写是否有误，是否为(IUCr)checkCIF可识别的单词。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-CRYSC01》"
+ },
+ "CRYSS01": {
+  "meaning": "To check that _exptl_crystal_size_min value is consistent with _exptl_crystal_size_mid and _exptl_crystal_size_max.",
+  "remedy": "将晶体尺寸按大小顺序分别填入CIF文件中的_exptl_crystal_size_min、_exptl_crystal_size_mid和_exptl_crystal_size_max条目后。或者在ins文件中添加晶体尺寸命令SIZE a b c (其中a< b < c或a > b > c)，然后精修重新生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-CRYSS01》"
+ },
+ "CRYSS02": {
+  "meaning": "To check that the values of _exptl_crystal_size_* are not larger than expected.",
+  "remedy": "将晶体尺寸改为合适的数值。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-CRYSS02》"
+ },
+ "DENSD01": {
+  "meaning": "To check that the _exptl_crystal_density_diffrn matches the _cell_volume and_chemical_formula_weight values.",
+  "remedy": "在ins文件里给对分子式和Z值重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-DENSD01》"
+ },
+ "DENSX01": {
+  "meaning": "To check that the _exptl_crystal_density_meas matches the _exptl_crystal_density_diffrn.",
+  "remedy": "将CIF中_exptl_crystal_density_meas条目后的0改为?。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-DENSX01》"
+ },
+ "DIFMN01": {
+  "meaning": "To check that _refine_diff_density_min is less than _refine_diff_density_max.",
+  "remedy": "检查是否误将这两个数值填反了，改正即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-DIFMN01》"
+ },
+ "DIFMN02": {
+  "meaning": "To check that _refine_diff_density_min is within expected limits.",
+  "remedy": "按上述蓝色中文内容检查数据和结构，进行相应改正即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-DIFMN02》"
+ },
+ "DIFMN03": {
+  "meaning": "To check that if _refine_diff_density_min is not within expected limits that the adjacent site is identified.",
+  "remedy": "C级警告一般可以不处理。若确定没有其他问题，则指定最接近此最小残余电子密度峰的原子名称及它们之间的距离。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-DIFMN03》"
+ },
+ "DIFMX01": {
+  "meaning": "To check that _refine_diff_density_max is within expected limits.",
+  "remedy": "可能的解决办法：(1) 重新做吸收校正；(2) 数据不好，重新收集数据；(3) 模型错误，包括归属错误、原子丢失、无序或溶剂处理有误。若无法更正，则指定最接近此最小残余电子密度峰的原子名称及它们之间的距离。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-DIFMX01》"
+ },
+ "DIFMX02": {
+  "meaning": "To check that if _refine_diff_density_max is not within expected limits that the adjacent site is identified.",
+  "remedy": "C级警告一般可以不处理。若确定没有其他问题，则指定最接近此最小残余电子密度峰的原子名称及它们之间的距离。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-DIFMX02》"
+ },
+ "FCOEF01": {
+  "meaning": "Check that the value of _refine_ls_structure_factor_coef is recognised.",
+  "remedy": "一般不会出现此类警告，根据实际情况填入正确关键词即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-FCOEF01》"
+ },
+ "FORMU01": {
+  "meaning": "To check that the total sum formulae derived from the _chemical_formula_sum_chemical_formula_moiety, _atom_site_ and _atom_type_ data all match.",
+  "remedy": "在ins文件中给对分子式和Z值并重新精修生成CIF文件。否则需要给出合理解释。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-FORMU01》"
+ },
+ "GOODF01": {
+  "meaning": "To check that _refine_ls_goodness_of_fit_ref is within expected limits.",
+  "remedy": "按上述蓝色文字检查数据或模型，根据具体问题进行改正，例如更新权重方案等。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-GOODF01》"
+ },
+ "HYDTR01": {
+  "meaning": "Check that the value of _refine_ls_hydrogen_treatment is recognised.",
+  "remedy": "根据实际情况从上述八个关键词中选其一填入CIF文件_refine_ls_hydrogen_treatment条目，如有其他情况需要说明，则填在_publ_section_exptl_refinement条目。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-HYDTR01》"
+ },
+ "RADNT01": {
+  "meaning": "Check that the radiation type is recognised.",
+  "remedy": "按实际情况填写，并做合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-RADNT01》"
+ },
+ "RADNW01": {
+  "meaning": "To check that the _diffrn_radiation_wavelength matches the _diffrn_radiation_type.",
+  "remedy": "一般不会出现，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-RADNW01》"
+ },
+ "REFLE01": {
+  "meaning": "To check that _reflns_threshold_expression contains a multiplier which is below the limit.",
+  "remedy": "一般不会出现，有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-REFLE01》"
+ },
+ "REFLG01": {
+  "meaning": "To check that _reflns_number_gt less than or equal to the _diffrn_reflns_number.",
+  "remedy": "一般不会出现，可能是误操作，将其改正。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-REFLG01》"
+ },
+ "REFLL01": {
+  "meaning": "To check that _diffrn_reflns_limit_ values are in the correct order.",
+  "remedy": "一般不会出现，可能是误操作，将其改正。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-REFLL01》"
+ },
+ "REFLT01": {
+  "meaning": "To check that _reflns_number_total is less than or equal to the _diffrn_reflns_number.",
+  "remedy": "一般不会出现，可能是误操作，将其改正。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-REFLT01》"
+ },
+ "REFLT02": {
+  "meaning": "To check that _reflns_number_total is greater than or equal to the _reflns_number_gt.",
+  "remedy": "一般不会出现，可能是误操作，将其改正。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-REFLT02》"
+ },
+ "REFLT03": {
+  "meaning": "To check that _reflns_number_total is close to that expected for the cell volume, symmetry and theta max.",
+  "remedy": "给出合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-REFLT03》"
+ },
+ "REFNR01": {
+  "meaning": "To check that the ratio of_refine_ls_number_reflns and _refine_ls_number_parameters is acceptable.",
+  "remedy": "给出合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-REFNR01》"
+ },
+ "RFACG01": {
+  "meaning": "To check that _refine_ls_R_factor_gt is within expected limits.",
+  "remedy": "给出合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-RFACG01》"
+ },
+ "RFACR01": {
+  "meaning": "To check that _refine_ls_wR_factor_ref is within expected limits.",
+  "remedy": "检查精修模型是否有改进的方面，检查是否孪晶，检查数据质量。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-RFACR01》"
+ },
+ "RINTA01": {
+  "meaning": "To check that _diffrn_reflns_av_R_equivalents is within expected limits.",
+  "remedy": "用Shel 999 0.84 切去部分高角度的点，如果不行只能重新收数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-RINTA01》"
+ },
+ "SHFSU01": {
+  "meaning": "To check that _refine_ls_shift/su_max is within expected limits.",
+  "remedy": "增加精修轮数再精修，如果不行需要检查结构模型是否有问题，是否存在非正定，末端甲基类似基团是否存在旋转。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-SHFSU01》"
+ },
+ "STRDE01": {
+  "meaning": "To check that _refine_ls_abs_structure_details is present if necessary.",
+  "remedy": "有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-STRDE01》"
+ },
+ "STRVAL01": {
+  "meaning": "To check that _refine_ls_abs_structure_flack is within expected limits.",
+  "remedy": "有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-STRVAL01》"
+ },
+ "STRVAL02": {
+  "meaning": "To check that _refine_ls_abs_structure_rogers is within expected limits.",
+  "remedy": "有合理解释即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-STRVAL02》"
+ },
+ "SYMM001-S": {
+  "meaning": "To check that the _symmetry_space_group_name_H-M value is recognised as a legitimate symmetry symbol.",
+  "remedy": "在CIF文件中填写正确的晶系信息。2014中已经用_space_group_crystal_system代替。 / 将检测得到的正确空间群填入CIF文件中即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-SYMM001-SYMMG01》"
+ },
+ "SYMMG02": {
+  "meaning": "To check that the _symmetry_space_group_name_H-M given is consistent with the _symmetry_equiv_pos_as_xyz if given.",
+  "remedy": "将检测得到的正确空间群填入CIF文件中即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-SYMMG02》"
+ },
+ "SYMMS01": {
+  "meaning": "To check that the _symmetry_cell_setting matches one of the keywords.",
+  "remedy": "将检测得到的正确空间群填入CIF文件中即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-SYMMS01》"
+ },
+ "SYMMS02": {
+  "meaning": "To check that the _symmetry_cell_setting is consistent with the _cell_length_ and _cell_angle_ values.",
+  "remedy": "将检测得到的正确空间群填入CIF文件中即可。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-SYMMS02》"
+ },
+ "SYMOP01": {
+  "meaning": "To check that the symmetry operators are given in the correct CIF format.",
+  "remedy": "一般不会出现，重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-SYMOP01》"
+ },
+ "THETM01": {
+  "meaning": "To check that _diffrn_reflns_theta_max is greater than expected limits.",
+  "remedy": "删除omit或者shel命令，如无法解决只能重新收集数据。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-THETM01》"
+ },
+ "TYPE031-W": {
+  "meaning": "Check that the value of_refine_ls_weighting_scheme is recognised.",
+  "remedy": "一般不会出现，重新精修生成CIF文件。",
+  "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-TYPE031-WEIGH01》"
+ }
+}

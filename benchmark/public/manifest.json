@@ -1,0 +1,170 @@
+[
+  {
+    "name": "NU-1000_Zr_MOF",
+    "origin": "https://www.crystallography.net/cod/4120127.html",
+    "cell": [
+      39.3875,
+      39.3875,
+      16.4829,
+      90.0,
+      90.0,
+      120.0
+    ],
+    "sf_cif": "benchmark\\public\\NU-1000_Zr_MOF\\sf.cif",
+    "ref_cif": "benchmark\\public\\NU-1000_Zr_MOF\\ref_cif.cif"
+  },
+  {
+    "name": "CuBTC_framework",
+    "origin": "https://www.crystallography.net/cod/2206821.html",
+    "cell": [
+      3.61,
+      14.11,
+      10.915,
+      90.0,
+      97.06,
+      90.0
+    ],
+    "sf_cif": "benchmark\\public\\CuBTC_framework\\sf.cif",
+    "ref_cif": "benchmark\\public\\CuBTC_framework\\ref_cif.cif"
+  },
+  {
+    "name": "Zn3_2D_MOF",
+    "origin": "https://www.crystallography.net/cod/2100591.html",
+    "cell": [
+      11.777,
+      14.727,
+      19.487,
+      90.0,
+      101.748,
+      90.0
+    ],
+    "sf_cif": "benchmark\\public\\Zn3_2D_MOF\\sf.cif",
+    "ref_cif": "benchmark\\public\\Zn3_2D_MOF\\ref_cif.cif"
+  },
+  {
+    "name": "Ca_imidazolate",
+    "origin": "https://www.crystallography.net/cod/2210768.html",
+    "cell": [
+      6.293,
+      19.784,
+      8.762,
+      90.0,
+      99.24,
+      90.0
+    ],
+    "sf_cif": "benchmark\\public\\Ca_imidazolate\\sf.cif",
+    "ref_cif": "benchmark\\public\\Ca_imidazolate\\ref_cif.cif"
+  },
+  {
+    "name": "Mn3_terephthalate_MOF",
+    "origin": "https://www.crystallography.net/cod/2204276.html",
+    "cell": [
+      25.022,
+      9.534,
+      17.923,
+      90.0,
+      130.417,
+      90.0
+    ],
+    "sf_cif": "benchmark\\public\\Mn3_terephthalate_MOF\\sf.cif",
+    "ref_cif": "benchmark\\public\\Mn3_terephthalate_MOF\\ref_cif.cif"
+  },
+  {
+    "name": "Zn2_dhtp_complex",
+    "origin": "https://www.crystallography.net/cod/2236885.html",
+    "cell": [
+      8.765,
+      10.697,
+      11.062,
+      106.994,
+      92.226,
+      90.977
+    ],
+    "sf_cif": "benchmark\\public\\Zn2_dhtp_complex\\sf.cif",
+    "ref_cif": "benchmark\\public\\Zn2_dhtp_complex\\ref_cif.cif"
+  },
+  {
+    "name": "paracetamol_formI",
+    "origin": "https://www.crystallography.net/cod/2104364.html",
+    "cell": [
+      7.0915,
+      9.2149,
+      11.6015,
+      90.0,
+      97.865,
+      90.0
+    ],
+    "sf_cif": "benchmark\\public\\paracetamol_formI\\sf.cif",
+    "ref_cif": "benchmark\\public\\paracetamol_formI\\ref_cif.cif"
+  },
+  {
+    "name": "sucrose",
+    "origin": "https://www.crystallography.net/cod/2300557.html",
+    "cell": [
+      7.763,
+      8.7109,
+      10.8701,
+      90.0,
+      102.937,
+      90.0
+    ],
+    "sf_cif": "benchmark\\public\\sucrose\\sf.cif",
+    "ref_cif": "benchmark\\public\\sucrose\\ref_cif.cif"
+  },
+  {
+    "name": "Cu_aspirinate",
+    "origin": "https://www.crystallography.net/cod/2202666.html",
+    "cell": [
+      8.2118,
+      10.4158,
+      21.484,
+      90.0,
+      104.341,
+      90.0
+    ],
+    "sf_cif": "benchmark\\public\\Cu_aspirinate\\sf.cif",
+    "ref_cif": "benchmark\\public\\Cu_aspirinate\\ref_cif.cif"
+  },
+  {
+    "name": "MeIm_H_terephthalate",
+    "origin": "https://www.crystallography.net/cod/2016645.html",
+    "cell": [
+      7.2649,
+      8.9459,
+      9.6844,
+      75.406,
+      72.731,
+      77.966
+    ],
+    "sf_cif": "benchmark\\public\\MeIm_H_terephthalate\\sf.cif",
+    "ref_cif": "benchmark\\public\\MeIm_H_terephthalate\\ref_cif.cif"
+  },
+  {
+    "name": "Cd_complex_P1",
+    "origin": "https://www.crystallography.net/cod/2201595.html",
+    "cell": [
+      9.8088,
+      10.608,
+      12.0502,
+      93.5,
+      110.936,
+      114.273
+    ],
+    "sf_cif": "benchmark\\public\\Cd_complex_P1\\sf.cif",
+    "ref_cif": "benchmark\\public\\Cd_complex_P1\\ref_cif.cif"
+  },
+  {
+    "name": "Cu3_terephthalate_CP",
+    "origin": "https://www.crystallography.net/cod/2019790.html",
+    "cell": [
+      6.7148,
+      10.79,
+      11.762,
+      69.565,
+      75.167,
+      81.404
+    ],
+    "sf_cif": "benchmark\\public\\Cu3_terephthalate_CP\\sf.cif",
+    "ref_cif": "benchmark\\public\\Cu3_terephthalate_CP\\ref_cif.cif"
+  }
+]

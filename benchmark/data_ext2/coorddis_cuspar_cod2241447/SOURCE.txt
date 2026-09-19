@@ -1,0 +1,35 @@
+slug: coorddis_cuspar_cod2241447
+source: COD entry 2241447 (mirrors IUCr/journal deposition)
+entry page: https://www.crystallography.net/cod/2241447.html
+doi: 10.1107/S205698901502424X
+journal: Acta Crystallographica Section E (2016)
+title: Crystal structures of [Mn(bdc)(Hspar)~2~(H~2~O)~0.25~]·2H~2~O containing MnO~6+1~ capped trigonal prisms and [Cu(Hspar)~2~](bdc)·2H~2~O containing CuO~4~ squares (Hspar = sparfloxacin and bdc = benzene-1,4-dicarboxylate)
+license: COD terms: data provided by IUCr Journals, free use within the scientific community with attribution to the source article
+chemical formula: C46 H52 Cu F4 N8 O12
+space group: P 1 21/c 1   Z: 2
+cell: 13.6039(2), 7.80190(10), 22.0870(3), 90.00, 103.7640(10), 90.00
+temperature: 296(2) K   radiation: MoK\a lambda=0.71073
+device: Bruker SMART CCD
+published R1(gt): 0.0520   wR2: 0.1423
+
+files:
+  ref.cif  = final refined CIF as deposited (downloaded from https://www.crystallography.net/cod/2241447.cif)
+  ref.fcf  = structure-factor file as deposited (downloaded from https://www.crystallography.net/cod/2241447.hkl);
+             format: CIF reflection file, SHELX LIST 4 (_shelx_refln_list_code 4):
+             loop of h k l F_squared_calc F_squared_meas F_squared_sigma status
+  ref.hkl  = DERIVED locally from ref.fcf: SHELX HKLF4 fixed format (3I4,2F8.2), columns h k l Fo^2 sigma(Fo^2), terminated by 0 0 0 line.
+
+verification: gemmi parses ref.cif and ref.fcf; n_reflections(fcf) = 5168;
+  R1 recomputed from fcf (Fo>2sig) = 0.0520 vs published R1(gt) = 0.0520 -> pairing check
+  cell(fcf) matches cell(cif): True
+
+why selected: Cu(II)-sparfloxacin (fluoroquinolone drug) complex with PART disorder (12 sites occ<1). Pharma-relevant coordination + disorder stress.
+
+key refinement instruction lines (embedded .res in CIF):
+  part 1
+  part 2
+  part 0
+  part 1
+  part 2
+  part 0
+  HKLF 4

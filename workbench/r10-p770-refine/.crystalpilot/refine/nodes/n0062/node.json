@@ -1,0 +1,186 @@
+{
+  "id": "n0062",
+  "parent": "n0061",
+  "branch": "publication_h66",
+  "ts": 1788074487.9912217,
+  "tool": "model_disorder",
+  "params": {
+    "atoms": [
+      "C36",
+      "C38",
+      "C31"
+    ],
+    "occupancy": 0.83298,
+    "second_sites": {
+      "C36": [
+        0.8394,
+        0.4154,
+        0.2654
+      ],
+      "C38": [
+        0.67,
+        0.45,
+        0.175
+      ],
+      "C31": [
+        0.7973,
+        0.2933,
+        0.1413
+      ]
+    }
+  },
+  "note": "",
+  "metrics": null,
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 114,
+    "element_counts": {
+      "La": 1,
+      "Ni": 1,
+      "P": 2,
+      "N": 8,
+      "C": 47,
+      "H": 55
+    }
+  },
+  "restraints": [
+    {
+      "kind": "DFIX",
+      "atoms": [
+        [
+          "C28",
+          "C40"
+        ]
+      ],
+      "target": 1.39,
+      "sigma": 0.01
+    },
+    {
+      "kind": "DFIX",
+      "atoms": [
+        [
+          "C40",
+          "C42"
+        ]
+      ],
+      "target": 1.39,
+      "sigma": 0.01
+    },
+    {
+      "kind": "DFIX",
+      "atoms": [
+        [
+          "C42",
+          "C34"
+        ]
+      ],
+      "target": 1.39,
+      "sigma": 0.01
+    },
+    {
+      "kind": "DFIX",
+      "atoms": [
+        [
+          "C34",
+          "C39"
+        ]
+      ],
+      "target": 1.39,
+      "sigma": 0.01
+    },
+    {
+      "kind": "DFIX",
+      "atoms": [
+        [
+          "C39",
+          "C43"
+        ]
+      ],
+      "target": 1.39,
+      "sigma": 0.01
+    },
+    {
+      "kind": "DFIX",
+      "atoms": [
+        [
+          "C43",
+          "C28"
+        ]
+      ],
+      "target": 1.39,
+      "sigma": 0.01
+    },
+    {
+      "kind": "FLAT",
+      "atoms": [
+        "C28",
+        "C40",
+        "C42",
+        "C34",
+        "C39",
+        "C43"
+      ],
+      "sigma": 0.01
+    }
+  ],
+  "weights": {
+    "a": 0.08266,
+    "b": 10.75862
+  },
+  "scale_k": 0.036093078999749235,
+  "mask": null,
+  "hydrogens": {
+    "present": true,
+    "elements": [
+      "C"
+    ],
+    "n_groups": 27
+  },
+  "disorder_groups": [
+    {
+      "fvar_index": 2,
+      "value": 0.83298,
+      "members": [
+        {
+          "label": "C36",
+          "part": 1,
+          "sign": 1,
+          "mult": 1.0
+        },
+        {
+          "label": "C36B",
+          "part": 2,
+          "sign": -1,
+          "mult": 1.0
+        },
+        {
+          "label": "C38",
+          "part": 1,
+          "sign": 1,
+          "mult": 1.0
+        },
+        {
+          "label": "C38B",
+          "part": 2,
+          "sign": -1,
+          "mult": 1.0
+        },
+        {
+          "label": "C31",
+          "part": 1,
+          "sign": 1,
+          "mult": 1.0
+        },
+        {
+          "label": "C31B",
+          "part": 2,
+          "sign": -1,
+          "mult": 1.0
+        }
+      ]
+    }
+  ],
+  "twin": null,
+  "label_renames": {},
+  "asu": null
+}

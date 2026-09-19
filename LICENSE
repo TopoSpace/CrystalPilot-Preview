@@ -1,0 +1,79 @@
+CrystalPilot Non-Commercial Academic License
+Version 1.0, 18 September 2026
+
+Copyright (c) 2026 TopoSpace. All rights reserved.
+
+This license governs the use of the CrystalPilot software and its
+accompanying documentation (together, the "Software"). By using the
+Software you accept these terms. If you do not accept them, do not use the
+Software.
+
+1. Permitted use
+
+   TopoSpace grants you a non-exclusive, non-transferable, royalty-free
+   license to download, install, run and copy the Software for
+   non-commercial academic and research purposes. This includes use in
+   university laboratories, public research institutes and non-profit
+   organisations, for teaching, for the study of crystal structures, and for
+   evaluating the Software itself.
+
+2. Commercial use is not permitted
+
+   Any commercial use of the Software is prohibited without a separate
+   written agreement with TopoSpace. Commercial use includes, without
+   limitation: use by or on behalf of a for-profit entity; use in providing
+   paid services, consulting or contract research; inclusion in a product or
+   service that is sold, licensed or otherwise offered for a fee; and use
+   whose primary purpose is commercial advantage or monetary compensation.
+
+3. Modification and derivative works require authorization
+
+   You may make changes to the Software that are strictly necessary to
+   install and run it for the use permitted in section 1. Any other
+   modification, adaptation, translation, extension, or development of
+   derivative works based on the Software, and any distribution of the
+   Software or of a modified version, whether in source or binary form,
+   requires prior written authorization from TopoSpace. Requests for
+   authorization should be addressed to TopoSpace through the contact
+   channels of the CrystalPilot repository.
+
+4. Attribution
+
+   Publications, presentations and reports that make use of results obtained
+   with the Software must acknowledge CrystalPilot and TopoSpace. Copyright
+   and license notices must be kept intact in every copy of the Software.
+
+5. Third-party components
+
+   The Software drives programs and libraries that are distributed under
+   their own licenses, among them SHELXT and SHELXL, PLATON, cctbx and
+   smtbx, DIALS, olex2.refine, RDKit, gemmi, Systre, 3Dmol.js and the
+   OpenAI Codex CLI. Those programs are not part of the Software and are not
+   licensed by this document. You are responsible for obtaining them under
+   their own terms.
+
+6. No warranty
+
+   The Software is provided "as is", without warranty of any kind, express
+   or implied, including but not limited to the warranties of
+   merchantability, fitness for a particular purpose and non-infringement.
+   Crystallographic results produced with the Software must be checked by a
+   qualified person before they are relied upon or published.
+
+7. Limitation of liability
+
+   In no event shall TopoSpace or the contributors be liable for any claim,
+   damages or other liability, whether in an action of contract, tort or
+   otherwise, arising from, out of or in connection with the Software or the
+   use of the Software.
+
+8. Termination
+
+   This license terminates automatically if you breach any of its terms.
+   Upon termination you must stop using the Software and destroy all copies
+   in your possession. Sections 4 to 7 survive termination.
+
+9. Reservation of rights
+
+   All rights not expressly granted in this license are reserved by
+   TopoSpace.

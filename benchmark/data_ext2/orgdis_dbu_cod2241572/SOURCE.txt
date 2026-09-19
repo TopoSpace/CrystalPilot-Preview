@@ -1,0 +1,36 @@
+slug: orgdis_dbu_cod2241572
+source: COD entry 2241572 (mirrors IUCr/journal deposition)
+entry page: https://www.crystallography.net/cod/2241572.html
+doi: 10.1107/S205698901600267X
+journal: Acta Crystallographica Section E (2016)
+title: Crystal structures of three anhydrous salts of the Lewis base 1,8-diazabicyclo[5.4.0]undec-7-ene (DBU) with the ring-substituted benzoic acid analogues 4-aminobenzoic acid, 3,5-dinitrobenzoic acid and 3,5-dinitrosalicylic acid
+license: COD terms: data provided by IUCr Journals, free use within the scientific community with attribution to the source article
+chemical formula: C16 H20 N4 O6
+space group: P 1 21/n 1   Z: 4
+cell: 6.0197(4), 19.6228(13), 14.3866(8), 90.00, 98.078(5), 90.00
+temperature: 200.0(10) K   radiation: MoK\a lambda=0.71073
+device: Oxford Diffraction Gemini-S CCD-detector
+published R1(gt): 0.0447   wR2: 0.1093
+
+files:
+  ref.cif  = final refined CIF as deposited (downloaded from https://www.crystallography.net/cod/2241572.cif)
+  ref.fcf  = structure-factor file as deposited (downloaded from https://www.crystallography.net/cod/2241572.hkl);
+             format: CIF reflection file, SHELX LIST 4 (_shelx_refln_list_code 4):
+             loop of h k l F_squared_calc F_squared_meas F_squared_sigma status
+  ref.hkl  = DERIVED locally from ref.fcf: SHELX HKLF4 fixed format (3I4,2F8.2), columns h k l Fo^2 sigma(Fo^2), terminated by 0 0 0 line.
+
+verification: gemmi parses ref.cif and ref.fcf; n_reflections(fcf) = 3311;
+  R1 recomputed from fcf (Fo>2sig) = 0.0447 vs published R1(gt) = 0.0447 -> pairing check
+  cell(fcf) matches cell(cif): True
+
+why selected: Organic salt with explicit two-component disorder (PART 1/2 + EXYZ + EADP in embedded .res; 16 sites occ<1). Core disorder stress case for typed rejection/disclosure.
+
+key refinement instruction lines (embedded .res in CIF):
+  EADP  C10A  C12A
+  EADP  C9A  C13A
+  EADP  C11A  C14A
+  EXYZ  C11A  C14A
+  PART    1
+  PART    2
+  PART    0
+  HKLF 4

@@ -1,0 +1,86 @@
+data_n0001
+
+_audit_creation_method        'CrystalPilot'
+_chemical_formula_sum         'C240 Cu8 O32'
+_cell_formula_units_Z         1
+# formula counts are per unit cell (Z=1 basis); occupancy-weighted
+_diffrn_radiation_wavelength  0.68914
+_cell_length_a                15.7900
+_cell_length_b                32.3100
+_cell_length_c                11.8600
+_cell_angle_alpha             90.000
+_cell_angle_beta              90.000
+_cell_angle_gamma             90.000
+_cell_volume                  6050.67
+_space_group_name_H-M_alt     'C 2 2 21'
+_space_group_IT_number        20
+
+loop_
+  _space_group_symop_operation_xyz
+  'x,y,z'
+  'x,-y,-z'
+  '-x,y,-z+1/2'
+  '-x,-y,z+1/2'
+  'x+1/2,y+1/2,z'
+  'x+1/2,-y+1/2,-z'
+  '-x+1/2,y+1/2,-z+1/2'
+  '-x+1/2,-y+1/2,z+1/2'
+
+_refine_ls_R_factor_gt            0.2285
+_refine_ls_R_factor_all           0.2313
+_refine_ls_wR_factor_ref          0.6054
+_refine_ls_goodness_of_fit_ref    6.366
+_refine_ls_number_reflns          8198
+_refine_ls_number_parameters      140
+_refine_diff_density_max          7.41
+_refine_diff_density_min          -7.04
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_U_iso_or_equiv
+  _atom_site_adp_type
+  _atom_site_occupancy
+  CU1     Cu    0.06895   0.01981   0.36346   0.0453 Uiso  1.000
+  C1      C     0.07049   0.29445   0.21128   0.0338 Uiso  1.000
+  C2      C     0.00000   0.27267   0.25000   0.0327 Uiso  1.000
+  C3      C     0.00000   0.40452   0.25000   0.0497 Uiso  1.000
+  O1      O     0.15784   0.04672   0.44748   0.0489 Uiso  1.000
+  C4      C     0.00000   0.36051   0.25000   0.0337 Uiso  1.000
+  C5      C     0.07047   0.33744   0.21057   0.0313 Uiso  1.000
+  O2      O     0.03166   0.07559   0.33608   0.0615 Uiso  1.000
+  C6      C     0.00000   0.14181   0.25000   0.0504 Uiso  1.000
+  O3      O     0.00000  -0.00406   0.25000   0.0850 Uiso  1.000
+  C7      C     0.22031   0.21769   0.06309   0.0617 Uiso  1.000
+  O4      O     0.12600   0.03209   0.63005   0.0551 Uiso  1.000
+  C8      C     0.14950   0.27096   0.17520   0.0407 Uiso  1.000
+  C9      C     0.00000   0.22726   0.25000   0.0423 Uiso  1.000
+  C10     C     0.23043   0.08353   0.59115   0.0441 Uiso  1.000
+  C11     C     0.14535   0.36187   0.17127   0.0364 Uiso  1.000
+  C12     C     0.16949   0.36244   0.05482   0.0457 Uiso  1.000
+  C13     C     0.11487   0.33014   0.72599   0.0861 Uiso  1.000
+  C14     C     0.14589   0.24269   0.08524   0.0511 Uiso  1.000
+  C15     C     0.20638   0.25044   0.71963   0.0666 Uiso  1.000
+  C16     C     0.22875   0.38972   0.01969   0.0440 Uiso  1.000
+  C17     C     0.05412   0.16214   0.32124   0.0448 Uiso  1.000
+  C18     C     0.05508   0.20505   0.32089   0.0447 Uiso  1.000
+  C19     C     0.22304   0.27516   0.23778   0.0659 Uiso  1.000
+  C20     C     0.00884   0.42795   0.14893   0.0583 Uiso  1.000
+  O5      O     0.02753   0.00000   0.00000   0.1063 Uiso  1.000
+  C21     C     0.20782   0.27791   0.63090   0.0671 Uiso  1.000
+  C22     C     0.19096   0.38750   0.24518   0.0557 Uiso  1.000
+  C23     C     0.00000   0.49273   0.25000   0.0816 Uiso  1.000
+  C24     C     0.00000   0.09222   0.25000   0.0582 Uiso  1.000
+  C25     C     0.25334   0.08307   0.70530   0.0509 Uiso  1.000
+  C26     C     0.01065   0.46933   0.15381   0.0876 Uiso  1.000
+  C27     C     0.10592   0.31769   0.51710   0.1078 Uiso  1.000
+  C28     C     0.00000   0.46324   0.75000   0.1588 Uiso  1.000
+  C29X    C     0.16671   0.05397   0.55612   0.0445 Uiso  1.000
+  C30X    C     0.12042   0.30053   0.61948   0.0788 Uiso  1.000
+  C31X    C     0.03388   0.44407   0.84823   0.1139 Uiso  1.000
+  C32X    C     0.04553   0.27459   0.60432   0.1106 Uiso  1.000
+  C33X    C     0.07427   0.29180   0.54560   0.1676 Uiso  1.000
+  C34X    C     0.17568   0.35059   0.52440   0.1308 Uiso  1.000

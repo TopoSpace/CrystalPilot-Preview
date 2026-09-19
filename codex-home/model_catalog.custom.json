@@ -1,0 +1,198 @@
+{
+  "models": [
+    {
+      "slug": "gpt-6-astra",
+      "display_name": "GPT-6 Astra (gateway)",
+      "provider": "crystalpilot",
+      "description": "GPT-6 Astra through the CrystalPilot gateway. Rendered from the plain-tool template on purpose: the bundled 0.153 entry runs code_mode_only, untested through the gateway (2026-09-07).",
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "context_window": 272000,
+      "max_context_window": 872000,
+      "default_reasoning_level": "xhigh",
+      "supported_reasoning_levels": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max",
+        "ultra"
+      ]
+    },
+    {
+      "slug": "anthropic/claude-fable-5.1:batch",
+      "display_name": "Anthropic: Claude Fable 5.1 (batch)",
+      "provider": "openrouter",
+      "description": "Claude Fable 5.1 improves on Claude Fable 5 across the board, with the biggest gains in agentic coding, long-running agentic workflows, and knowledge work: long code refactors, front-end and visual...",
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "context_window": 1000000,
+      "default_reasoning_level": "high",
+      "supported_reasoning_levels": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    {
+      "slug": "anthropic/claude-fable-5.1",
+      "display_name": "Anthropic: Claude Fable 5.1",
+      "provider": "openrouter",
+      "description": "Claude Fable 5.1 improves on Claude Fable 5 across the board, with the biggest gains in agentic coding, long-running agentic workflows, and knowledge work: long code refactors, front-end and visual...",
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "context_window": 1000000,
+      "default_reasoning_level": "high",
+      "supported_reasoning_levels": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    {
+      "slug": "anthropic/claude-sonnet-5",
+      "display_name": "Anthropic: Claude Sonnet 5",
+      "provider": "openrouter",
+      "description": "Sonnet 5 is Anthropic's most capable Sonnet-class model, with frontier performance across coding, agents, and professional work. It supports adaptive thinking with selectable reasoning effort levels (low, medium, high, max,...",
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "context_window": 1000000,
+      "default_reasoning_level": "high",
+      "supported_reasoning_levels": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    {
+      "slug": "anthropic/claude-opus-5",
+      "display_name": "Claude Opus 5",
+      "provider": "openrouter",
+      "description": "Claude Opus 5 is Anthropic’s flagship model for demanding reasoning, coding, and long-horizon agentic work. It is particularly strong at end-to-end software tasks, code review and bug finding, visual analysis...",
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "context_window": 1000000,
+      "default_reasoning_level": "high",
+      "supported_reasoning_levels": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    {
+      "slug": "openai/gpt-5.1",
+      "display_name": "OpenAI: GPT-5.1",
+      "provider": "openrouter",
+      "description": "GPT-5.1 is the latest frontier-grade model in the GPT-5 series, offering stronger general-purpose reasoning, improved instruction adherence, and a more natural conversational style compared to GPT-5. It uses adaptive reasoning...",
+      "input_modalities": [
+        "image",
+        "text"
+      ],
+      "context_window": 400000,
+      "default_reasoning_level": "high",
+      "supported_reasoning_levels": [
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ]
+    },
+    {
+      "slug": "openai/gpt-5.6-luna",
+      "display_name": "OpenAI: GPT-5.6 Luna",
+      "provider": "openrouter",
+      "description": "GPT-5.6 Luna is a fast, cost-efficient model in OpenAI's GPT-5.6 series. It is suited for high-volume, latency-sensitive tasks such as chat, classification, and lightweight agentic workflows, providing capable reasoning for...",
+      "input_modalities": [
+        "image",
+        "text"
+      ],
+      "context_window": 1050000,
+      "default_reasoning_level": "high",
+      "supported_reasoning_levels": [
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ]
+    },
+    {
+      "slug": "openai/gpt-5.6-sol",
+      "display_name": "OpenAI: GPT-5.6 Sol",
+      "provider": "openrouter",
+      "description": "GPT-5.6 Sol is the flagship model in OpenAI's GPT-5.6 series. It is suited for complex reasoning, coding, and agentic workflows, and is particularly strong at command-line and multi-step coding tasks...",
+      "input_modalities": [
+        "image",
+        "text"
+      ],
+      "context_window": 1050000,
+      "default_reasoning_level": "high",
+      "supported_reasoning_levels": [
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ]
+    },
+    {
+      "slug": "openai/gpt-6-astra",
+      "display_name": "OpenAI: GPT-6 Astra",
+      "provider": "openrouter",
+      "description": "GPT-6 Astra is OpenAI's flagship model for demanding end-to-end work. It is suited for advanced analysis, software engineering, deep research, scientific work, and document creation, with particular strengths in long-horizon...",
+      "input_modalities": [
+        "image",
+        "text"
+      ],
+      "context_window": 1050000,
+      "default_reasoning_level": "high",
+      "supported_reasoning_levels": [
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ]
+    },
+    {
+      "slug": "z-ai/glm-5.3-flash",
+      "display_name": "Z.ai: GLM 5.3 Flash",
+      "provider": "openrouter",
+      "description": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-context behavior while...",
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "context_window": 1310720,
+      "default_reasoning_level": "high",
+      "supported_reasoning_levels": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    {
+      "slug": "z-ai/glm-5.3",
+      "display_name": "Z.ai: GLM 5.3",
+      "provider": "openrouter",
+      "description": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves...",
+      "input_modalities": [
+        "text"
+      ],
+      "context_window": 1310720,
+      "default_reasoning_level": "high",
+      "supported_reasoning_levels": [
+        "low",
+        "medium",
+        "high"
+      ]
+    }
+  ]
+}

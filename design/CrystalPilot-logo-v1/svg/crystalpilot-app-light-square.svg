@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 512 512" fill="none">
+  <title>CrystalPilot — crystal C, light</title>
+  <desc>An original open crystal section, drawn as five broad blue and indigo planes.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="360" y2="512" gradientUnits="userSpaceOnUse"><stop stop-color="#fdfefe"/><stop offset="1" stop-color="#edf0f7"/></linearGradient>
+<linearGradient id="top-left" x1="129" y1="181" x2="261" y2="220" gradientUnits="userSpaceOnUse"><stop stop-color="#9fc5ff"/><stop offset="1" stop-color="#6586f0"/></linearGradient>
+<linearGradient id="top-right" x1="281" y1="116" x2="353" y2="219" gradientUnits="userSpaceOnUse"><stop stop-color="#c3e2ff"/><stop offset="1" stop-color="#8b9ff7"/></linearGradient>
+<linearGradient id="side" x1="121" y1="183" x2="191" y2="344" gradientUnits="userSpaceOnUse"><stop stop-color="#5c7be7"/><stop offset="1" stop-color="#5862cc"/></linearGradient>
+<linearGradient id="base" x1="158" y1="321" x2="263" y2="426" gradientUnits="userSpaceOnUse"><stop stop-color="#5963d2"/><stop offset="1" stop-color="#4242a5"/></linearGradient>
+<linearGradient id="end" x1="376" y1="310" x2="264" y2="421" gradientUnits="userSpaceOnUse"><stop stop-color="#aabcf5"/><stop offset="1" stop-color="#7c8bdc"/></linearGradient>
+    <clipPath id="crystal-clip"><path d="M 262 106 Q 266 103.7 270 106 L 388 174.6 Q 393 177.5 389 181.3 L 345.4 223.4 Q 342.5 226.2 339 224.2 L 269 183.8 Q 266 182.1 263 183.8 L 201.7 219.1 Q 199 220.7 199 224 L 199 306 Q 199 309.3 201.7 310.9 L 263 346.2 Q 266 347.9 269 346.2 L 339 305.8 Q 342.5 303.8 345.4 306.6 L 389 348.7 Q 393 352.5 388 355.4 L 270 424 Q 266 426.3 262 424 L 126 345.3 Q 122 343 122 338.4 L 122 191.6 Q 122 187 126 184.7 Z"/></clipPath>
+    <filter id="soft-shadow" x="70" y="73" width="375" height="409" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#344276" flood-opacity=".13"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#434577" flood-opacity=".08"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" fill="url(#background)"/>
+
+  <g transform="translate(0 -9)" filter="url(#soft-shadow)">
+    <path d="M 262 106 Q 266 103.7 270 106 L 388 174.6 Q 393 177.5 389 181.3 L 345.4 223.4 Q 342.5 226.2 339 224.2 L 269 183.8 Q 266 182.1 263 183.8 L 201.7 219.1 Q 199 220.7 199 224 L 199 306 Q 199 309.3 201.7 310.9 L 263 346.2 Q 266 347.9 269 346.2 L 339 305.8 Q 342.5 303.8 345.4 306.6 L 389 348.7 Q 393 352.5 388 355.4 L 270 424 Q 266 426.3 262 424 L 126 345.3 Q 122 343 122 338.4 L 122 191.6 Q 122 187 126 184.7 Z" fill="url(#side)"/>
+    <g clip-path="url(#crystal-clip)">
+      <path d="M 121 187 266 103 267 183 199 223 Z" fill="url(#top-left)"/>
+      <path d="M 266 103 395 177 342 227 266 183 Z" fill="url(#top-right)"/>
+      <path d="M 121 187 199 221 199 309 121 344 Z" fill="url(#side)"/>
+      <path d="M 121 343 199 308 266 347 267 427 Z" fill="url(#base)"/>
+      <path d="M 266 347 342 303 395 353 266 427 Z" fill="url(#end)"/>
+      <path d="M 123 187 266 104 391 177 M 123 188 198 221 M 267 104 267 182" stroke="#fff" stroke-opacity=".30" stroke-width=".9"/>
+      <path d="M 199 310 266 348 342 305" stroke="#e0e9ff" stroke-opacity=".32" stroke-width=".85"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,79 @@
+{
+  "id": "n0019",
+  "parent": "n0018",
+  "branch": "O007_split_test",
+  "ts": 1787947263.327713,
+  "tool": "solvent_mask",
+  "params": {
+    "min_void_volume": 40,
+    "max_cycles": 20
+  },
+  "note": "",
+  "metrics": {
+    "label": "O007_half_occ_probe",
+    "r1_strong": 0.0743,
+    "r1_all": 0.0821,
+    "wr2": 0.2361,
+    "goof": 1.198,
+    "n_params": 126,
+    "n_reflections": 4166,
+    "diff_map_max": 1.71,
+    "diff_map_min": -1.31,
+    "notes": "",
+    "scale_k": 0.016309108233839627
+  },
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 22,
+    "element_counts": {
+      "Zr": 2,
+      "O": 6,
+      "C": 9,
+      "H": 5
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.14233,
+    "b": 13.55075
+  },
+  "scale_k": 0.016309108233839627,
+  "mask": {
+    "params": {
+      "solvent_radius": 1.2,
+      "shrink_truncation_radius": 1.2,
+      "resolution_factor": 0.25,
+      "d_min": null,
+      "min_void_volume": 40.0,
+      "max_cycles": 20
+    },
+    "info": {
+      "n_voids": 1,
+      "n_voids_masked": 1,
+      "voids": [
+        {
+          "void": 1,
+          "volume_A3": 9016.7,
+          "electrons": 5259.5,
+          "centre_frac": [
+            -0.145,
+            -0.218,
+            -0.35
+          ],
+          "masked": true
+        }
+      ],
+      "total_solvent_electrons_per_cell": 1977.4,
+      "solvent_volume_A3": 9016.7,
+      "solvent_volume_pct_of_cell": 62.4
+    }
+  },
+  "hydrogens": {
+    "present": true,
+    "elements": [
+      "C"
+    ],
+    "n_groups": 5
+  },
+  "label_renames": {}
+}

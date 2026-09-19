@@ -1,0 +1,67 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "workbench-attach",
+      "url": "http://127.0.0.1:8010",
+      "port": 8010
+    },
+    {
+      "name": "workbench",
+      "runtimeExecutable": ".venv/Scripts/python.exe",
+      "runtimeArgs": [
+        "-X",
+        "utf8",
+        "-m",
+        "uvicorn",
+        "server.app:app",
+        "--loop",
+        "asyncio:SelectorEventLoop",
+        "--port",
+        "8010"
+      ],
+      "port": 8010,
+      "autoPort": false,
+      "env": {
+        "CRYSTALPILOT_CPU_CORES": "4",
+        "PYTHONUTF8": "1"
+      }
+    },
+    {
+      "name": "overlays",
+      "runtimeExecutable": ".venv/Scripts/python.exe",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8765",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "workdir/campaigns/overlays"
+      ],
+      "port": 8765,
+      "autoPort": false
+    },
+    {
+      "name": "ui-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "ui",
+        "run",
+        "dev",
+        "--",
+        "--port",
+        "5173",
+        "--strictPort",
+        "--host",
+        "127.0.0.1"
+      ],
+      "port": 5173,
+      "autoPort": false,
+      "env": {
+        "WB_API": "http://127.0.0.1:8010"
+      }
+    }
+  ]
+}

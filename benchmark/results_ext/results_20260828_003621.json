@@ -1,0 +1,134 @@
+{
+  "summary": {
+    "n_cases": 4,
+    "pipeline_ok_rate": 0.75,
+    "sg_top1_rate": 0.5,
+    "solved_rate": 0.0,
+    "mean_r1": 0.1281,
+    "mean_elapsed_s": 24.8
+  },
+  "rows": [
+    {
+      "name": "cod_2021706",
+      "symmetry_mode": "auto",
+      "mode": "standard",
+      "true_sg": "P 1 21/n 1",
+      "human_r1": 0.0353,
+      "pipeline_ok": false,
+      "used_sg": "P 1 21/n 1",
+      "sg_correct": true,
+      "confidence": null,
+      "framework_dim": null,
+      "error": "structure solution failed on all charge-flipping attempts",
+      "elapsed_s": 14.6
+    },
+    {
+      "name": "cod_2108128",
+      "symmetry_mode": "auto",
+      "mode": "standard",
+      "true_sg": "C 1 2 1",
+      "human_r1": 0.0335,
+      "pipeline_ok": true,
+      "used_sg": "C 1 2 1",
+      "sg_correct": true,
+      "r1": 0.1814,
+      "confidence": 25.4,
+      "framework_dim": 1,
+      "error": null,
+      "match": {
+        "heavy": {
+          "n_ref": 1,
+          "n_model": 5,
+          "n_matched": 1,
+          "rms": 0.0
+        },
+        "all_atoms": {
+          "n_ref": 14,
+          "n_model": 21,
+          "n_matched": 7,
+          "rms": 0.511
+        },
+        "n_ref_solvent_excluded": 2,
+        "heavy_match_rate": 1.0,
+        "heavy_precision": 0.2,
+        "all_match_rate": 0.5,
+        "all_precision": 0.333,
+        "solved": false
+      },
+      "solved": false,
+      "elapsed_s": 6.0
+    },
+    {
+      "name": "cod_2203769",
+      "symmetry_mode": "auto",
+      "mode": "standard",
+      "true_sg": "P -1",
+      "human_r1": 0.0261,
+      "pipeline_ok": true,
+      "used_sg": "P 1",
+      "sg_correct": false,
+      "r1": 0.0926,
+      "confidence": 55.2,
+      "framework_dim": 2,
+      "error": null,
+      "match": {
+        "heavy": {
+          "n_ref": 2,
+          "n_model": 7,
+          "n_matched": 2,
+          "rms": 0.0
+        },
+        "all_atoms": {
+          "n_ref": 30,
+          "n_model": 37,
+          "n_matched": 22,
+          "rms": 0.204
+        },
+        "n_ref_solvent_excluded": 0,
+        "heavy_match_rate": 1.0,
+        "heavy_precision": 0.286,
+        "all_match_rate": 0.733,
+        "all_precision": 0.595,
+        "solved": false
+      },
+      "solved": false,
+      "elapsed_s": 7.6
+    },
+    {
+      "name": "cod_2210339",
+      "symmetry_mode": "auto",
+      "mode": "standard",
+      "true_sg": "C 1 2/c 1",
+      "human_r1": 0.0245,
+      "pipeline_ok": true,
+      "used_sg": "C 1 n 1",
+      "sg_correct": false,
+      "r1": 0.1102,
+      "confidence": 75.6,
+      "framework_dim": 3,
+      "error": null,
+      "match": {
+        "heavy": {
+          "n_ref": 4,
+          "n_model": 16,
+          "n_matched": 4,
+          "rms": 0.0
+        },
+        "all_atoms": {
+          "n_ref": 88,
+          "n_model": 108,
+          "n_matched": 84,
+          "rms": 0.05
+        },
+        "n_ref_solvent_excluded": 0,
+        "heavy_match_rate": 1.0,
+        "heavy_precision": 0.25,
+        "all_match_rate": 0.955,
+        "all_precision": 0.778,
+        "solved": false
+      },
+      "solved": false,
+      "elapsed_s": 71.0
+    }
+  ]
+}

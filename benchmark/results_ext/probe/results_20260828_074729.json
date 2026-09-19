@@ -1,0 +1,48 @@
+{
+  "summary": {
+    "n_cases": 1,
+    "pipeline_ok_rate": 1.0,
+    "sg_top1_rate": 0.0,
+    "solved_rate": 0.0,
+    "mean_r1": 0.3331,
+    "mean_elapsed_s": 13.4
+  },
+  "rows": [
+    {
+      "name": "cod_2016126",
+      "symmetry_mode": "auto",
+      "mode": "standard",
+      "true_sg": "P 1 21 1",
+      "human_r1": 0.0391,
+      "pipeline_ok": true,
+      "used_sg": "P 1 21/m 1",
+      "sg_correct": false,
+      "r1": 0.3331,
+      "confidence": 50.0,
+      "framework_dim": 2,
+      "error": null,
+      "match": {
+        "heavy": {
+          "n_ref": 0,
+          "n_model": 0,
+          "n_matched": 0,
+          "rms": null
+        },
+        "all_atoms": {
+          "n_ref": 20,
+          "n_model": 190,
+          "n_matched": 16,
+          "rms": 0.477
+        },
+        "n_ref_solvent_excluded": 30,
+        "heavy_match_rate": null,
+        "heavy_precision": null,
+        "all_match_rate": 0.8,
+        "all_precision": 0.084,
+        "solved": false
+      },
+      "solved": false,
+      "elapsed_s": 13.4
+    }
+  ]
+}

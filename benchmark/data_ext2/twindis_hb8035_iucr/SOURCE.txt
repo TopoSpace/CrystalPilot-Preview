@@ -1,0 +1,34 @@
+slug: twindis_hb8035_iucr
+source: IUCr journals.iucr.org supplement (hb8035sup1.cif, hb8035Isup2.hkl)
+entry page: https://journals.iucr.org/e/issues/2022/09/00/hb8035/
+doi: 10.1107/S2056989022008118
+journal: Acta Crystallographica Section E (2022)
+title: Ebastinium hydrogen fumarate: pseudo-merohedral twin with extensive disorder
+license: Open-access IUCr journal article (CC-BY); CIF/structure factors published as supplementary material
+chemical formula: C36 H43 N O6
+space group: P 21/c   Z: 4
+cell: 27.091(3), 6.2408(5), 18.685(2), 90, 90.975(3), 90
+temperature: 90.0(2) K   radiation: MoK\a lambda=0.71073
+device: Bruker D8 Venture dual source
+published R1(gt): 0.0469   wR2: 0.1137
+
+files:
+  ref.cif  = final refined CIF as deposited (downloaded from https://doi.org/10.1107/S2056989022008118/hb8035sup1.cif)
+  ref.fcf  = structure-factor file as deposited (downloaded from https://doi.org/10.1107/S2056989022008118/hb8035Isup2.hkl);
+             format: CIF reflection file, SHELX LIST 4 (_shelx_refln_list_code 4):
+             loop of h k l F_squared_calc F_squared_meas F_squared_sigma status
+  ref.hkl  = DERIVED locally from ref.fcf: SHELX HKLF4 fixed format (3I4,2F8.2), columns h k l Fo^2 sigma(Fo^2), terminated by 0 0 0 line.
+
+verification: gemmi parses ref.cif and ref.fcf; n_reflections(fcf) = 7224;
+  R1 recomputed from fcf (Fo>2sig) = 0.0468 vs published R1(gt) = 0.0469 -> pairing check
+  cell(fcf) matches cell(cif): True
+
+why selected: IUCr Acta E direct supplement (Parkin group). TWIN/BASF + massive disorder: 82 sites occ<1, PART 1/2, SADI; 20 of 35 non-H atoms over two sites. Hardest combined stress case.
+
+key refinement instruction lines (embedded .res in CIF):
+  TWIN -1 0 0 0 -1 0 0 0 1
+  BASF   0.00186
+  PART 1
+  PART 2
+  PART 0
+  HKLF 4 1 0 0 1 0 -1 0 1 0 0

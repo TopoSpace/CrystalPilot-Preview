@@ -1,0 +1,42 @@
+{
+  "id": "n0013",
+  "parent": "n0012",
+  "branch": "hklf4_single",
+  "ts": 1788071802.9351087,
+  "tool": "import",
+  "params": {
+    "start_model": "start.ins"
+  },
+  "note": "imported start.ins; re-derived 56 riding H from the start model's 27 AFIX groups",
+  "metrics": null,
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 112,
+    "element_counts": {
+      "La": 1,
+      "Ni": 1,
+      "P": 2,
+      "N": 8,
+      "C": 44,
+      "H": 56
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 0.035967122500000004,
+  "mask": null,
+  "hydrogens": {
+    "present": true,
+    "elements": [
+      "C"
+    ],
+    "n_groups": 27
+  },
+  "disorder_groups": [],
+  "twin": null,
+  "label_renames": {},
+  "asu": null
+}

@@ -1,0 +1,25 @@
+{
+  "chemistry": {
+    "ligands": [
+      {
+        "name": "L-cysteine"
+      }
+    ],
+    "synthesis_notes": "amino acid test crystal"
+  },
+  "experiment": {
+    "cell_measurement": {
+      "reflns_used": 1743,
+      "theta_min": 1.638,
+      "theta_max": 36.433
+    },
+    "computing": {
+      "data_reduction": "DIALS",
+      "cell_refinement": "DIALS"
+    }
+  },
+  "data": {
+    "hkl": "crystal.hkl",
+    "start_model": "start.res"
+  }
+}

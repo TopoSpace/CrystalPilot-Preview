@@ -1,0 +1,5 @@
+# Raw frame data: many GB, re-fetchable via DOIs in ../manifest_frames.json.
+# Keep metadata, reference CIFs and import-test evidence; ignore the frames.
+*/frames/
+_dl/
+_import_tests/fampridine/sample/

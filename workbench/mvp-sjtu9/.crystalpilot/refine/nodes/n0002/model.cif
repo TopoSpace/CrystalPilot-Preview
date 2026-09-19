@@ -1,0 +1,83 @@
+data_n0002
+
+_audit_creation_method        'CrystalPilot'
+_chemical_formula_sum         'C208 O112 Zr24'
+_cell_formula_units_Z         1
+# formula counts are per unit cell (Z=1 basis); occupancy-weighted
+_diffrn_radiation_wavelength  1.54178
+_cell_length_a                15.8517
+_cell_length_b                15.8517
+_cell_length_c                57.5038
+_cell_angle_alpha             90.000
+_cell_angle_beta              90.000
+_cell_angle_gamma             90.000
+_cell_volume                  14449.35
+_space_group_name_H-M_alt     'I 41/a m d :2'
+_space_group_IT_number        141
+
+loop_
+  _space_group_symop_operation_xyz
+  'x,y,z'
+  '-y+1/4,x+3/4,z+1/4'
+  'y+1/4,-x+1/4,z+3/4'
+  'x,-y,-z'
+  '-x,y+1/2,-z'
+  '-x,-y+1/2,z'
+  'y+1/4,x+3/4,-z+1/4'
+  '-y+1/4,-x+1/4,-z+3/4'
+  '-x,-y,-z'
+  'y-1/4,-x-3/4,-z-1/4'
+  '-y-1/4,x-1/4,-z-3/4'
+  '-x,y,z'
+  'x,-y-1/2,z'
+  'x,y-1/2,-z'
+  '-y-1/4,-x-3/4,z-1/4'
+  'y-1/4,x-1/4,z-3/4'
+  'x+1/2,y+1/2,z+1/2'
+  '-y+3/4,x+5/4,z+3/4'
+  'y+3/4,-x+3/4,z+5/4'
+  'x+1/2,-y+1/2,-z+1/2'
+  '-x+1/2,y+1,-z+1/2'
+  '-x+1/2,-y+1,z+1/2'
+  'y+3/4,x+5/4,-z+3/4'
+  '-y+3/4,-x+3/4,-z+5/4'
+  '-x+1/2,-y+1/2,-z+1/2'
+  'y+1/4,-x-1/4,-z+1/4'
+  '-y+1/4,x+1/4,-z-1/4'
+  '-x+1/2,y+1/2,z+1/2'
+  'x+1/2,-y,z+1/2'
+  'x+1/2,y,-z+1/2'
+  '-y+1/4,-x-1/4,z+1/4'
+  'y+1/4,x+1/4,z-1/4'
+
+_refine_ls_R_factor_gt            0.2456
+_refine_ls_R_factor_all           0.267
+_refine_ls_wR_factor_ref          0.6222
+_refine_ls_goodness_of_fit_ref    5.277
+_refine_ls_number_reflns          4166
+_refine_ls_number_parameters      46
+_refine_diff_density_max          8.81
+_refine_diff_density_min          -3.91
+
+loop_
+  _atom_site_label
+  _atom_site_type_symbol
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_U_iso_or_equiv
+  _atom_site_adp_type
+  _atom_site_occupancy
+  FE01    Zr    0.00000   0.25000   0.33158   0.0375 Uiso  1.000
+  ZR02    Zr    0.11030   0.36030   0.37500   0.0499 Uiso  1.000
+  O004    O     0.12922   0.25000   0.35030   0.0467 Uiso  1.000
+  O005    O     0.08901   0.33541   0.43728   0.0788 Uiso  1.000
+  O006    O     0.15863   0.40484   0.40842   0.0886 Uiso  1.000
+  O007    O     0.07632   0.50127   0.37399   0.0999 Uiso  1.000
+  C008    C     0.21538   0.38724   0.46873   0.0672 Uiso  1.000
+  C009    C     0.21534   0.41575   0.44513   0.0705 Uiso  1.000
+  C00A    C     0.15036   0.38455   0.42819   0.0679 Uiso  1.000
+  C00B    C     0.50000   0.46964   0.47698   0.0879 Uiso  1.000
+  C00D    C     0.34462   0.46702   0.47408   0.0758 Uiso  1.000
+  C00E    C     0.42513   0.48952   0.48829   0.0649 Uiso  1.000
+  C00F    C     0.27621   0.47621   0.43733   0.0843 Uiso  1.000

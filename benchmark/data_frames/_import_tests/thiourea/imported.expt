@@ -1,0 +1,4189 @@
+{
+  "__id__": "ExperimentList",
+  "experiment": [
+    {
+      "__id__": "Experiment",
+      "identifier": "875783c6-e2a4-b3bd-22a8-fc53c3b4437a",
+      "beam": 0,
+      "detector": 0,
+      "goniometer": 0,
+      "scan": 0,
+      "imageset": 0
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "1e1aeb18-9934-710b-bb25-d223087f9b1f",
+      "beam": 0,
+      "detector": 0,
+      "goniometer": 1,
+      "scan": 1,
+      "imageset": 1
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "97283f44-7d44-ba9d-3a5d-bbf83d62625c",
+      "beam": 0,
+      "detector": 0,
+      "goniometer": 2,
+      "scan": 2,
+      "imageset": 2
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "5b7fc34f-c2f6-325f-7f4a-d1ca1ac9a7af",
+      "beam": 0,
+      "detector": 1,
+      "goniometer": 3,
+      "scan": 3,
+      "imageset": 3
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "0615cd74-a0c9-4af3-7660-be26a01bfd08",
+      "beam": 0,
+      "detector": 2,
+      "goniometer": 4,
+      "scan": 4,
+      "imageset": 4
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "6aae86ba-ab08-4a5c-289c-f0f927b940b8",
+      "beam": 0,
+      "detector": 2,
+      "goniometer": 5,
+      "scan": 5,
+      "imageset": 5
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "add4e23a-6279-0fec-cf1d-7f51eee3d360",
+      "beam": 0,
+      "detector": 3,
+      "goniometer": 6,
+      "scan": 6,
+      "imageset": 6
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "1fba4292-dfd4-7828-ad31-d502b50bf419",
+      "beam": 0,
+      "detector": 4,
+      "goniometer": 7,
+      "scan": 7,
+      "imageset": 7
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "fcc96767-c8dc-f06c-ad37-194fda509f19",
+      "beam": 0,
+      "detector": 4,
+      "goniometer": 8,
+      "scan": 8,
+      "imageset": 8
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "04e90ba6-3ce5-632e-f761-948b0da34c0d",
+      "beam": 0,
+      "detector": 4,
+      "goniometer": 9,
+      "scan": 9,
+      "imageset": 9
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "9d7cec51-1f70-188c-d71b-c8259662d85d",
+      "beam": 0,
+      "detector": 5,
+      "goniometer": 10,
+      "scan": 10,
+      "imageset": 10
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "20736a02-2be0-917a-b3b7-f56af14e6ea6",
+      "beam": 0,
+      "detector": 6,
+      "goniometer": 11,
+      "scan": 11,
+      "imageset": 11
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "a562f728-ebb4-4e36-5cef-832479d5ec30",
+      "beam": 0,
+      "detector": 6,
+      "goniometer": 12,
+      "scan": 12,
+      "imageset": 12
+    },
+    {
+      "__id__": "Experiment",
+      "identifier": "66b8ebe1-b6a0-be9c-b189-7e03b9784c23",
+      "beam": 0,
+      "detector": 7,
+      "goniometer": 13,
+      "scan": 13,
+      "imageset": 13
+    }
+  ],
+  "history": [
+    "2026-08-27T16:50:25Z|dials.import|v3.30"
+  ],
+  "imageset": [
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_bruker_photon3_thiourea\\frames\\17_T250K_18MPC001\\mo_18MPC001_rampT250K_71_####.sfrm",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_bruker_photon3_thiourea\\frames\\17_T250K_18MPC001\\mo_18MPC001_rampT250K_72_####.sfrm",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_bruker_photon3_thiourea\\frames\\17_T250K_18MPC001\\mo_18MPC001_rampT250K_73_####.sfrm",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_bruker_photon3_thiourea\\frames\\17_T250K_18MPC001\\mo_18MPC001_rampT250K_74_####.sfrm",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_bruker_photon3_thiourea\\frames\\17_T250K_18MPC001\\mo_18MPC001_rampT250K_75_####.sfrm",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_bruker_photon3_thiourea\\frames\\17_T250K_18MPC001\\mo_18MPC001_rampT250K_76_####.sfrm",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_bruker_photon3_thiourea\\frames\\17_T250K_18MPC001\\mo_18MPC001_rampT250K_77_####.sfrm",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_bruker_photon3_thiourea\\frames\\17_T250K_18MPC001\\mo_18MPC001_rampT250K_xa_71_####.sfrm",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_bruker_photon3_thiourea\\frames\\17_T250K_18MPC001\\mo_18MPC001_rampT250K_xa_72_####.sfrm",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_bruker_photon3_thiourea\\frames\\17_T250K_18MPC001\\mo_18MPC001_rampT250K_xa_73_####.sfrm",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_bruker_photon3_thiourea\\frames\\17_T250K_18MPC001\\mo_18MPC001_rampT250K_xa_74_####.sfrm",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_bruker_photon3_thiourea\\frames\\17_T250K_18MPC001\\mo_18MPC001_rampT250K_xa_75_####.sfrm",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_bruker_photon3_thiourea\\frames\\17_T250K_18MPC001\\mo_18MPC001_rampT250K_xa_76_####.sfrm",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    },
+    {
+      "__id__": "ImageSequence",
+      "template": "H:\\CrystalPilot\\benchmark\\data_frames\\frames_bruker_photon3_thiourea\\frames\\17_T250K_18MPC001\\mo_18MPC001_rampT250K_xa_77_####.sfrm",
+      "mask": null,
+      "gain": null,
+      "pedestal": null,
+      "dx": null,
+      "dy": null,
+      "params": {
+        "dynamic_shadowing": "Auto",
+        "multi_panel": false
+      }
+    }
+  ],
+  "beam": [
+    {
+      "__id__": "monochromatic",
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "wavelength": 0.71073,
+      "divergence": 0.0,
+      "sigma_divergence": 0.0,
+      "polarization_normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "polarization_fraction": 0.5,
+      "flux": 0.0,
+      "transmission": 1.0,
+      "probe": "x-ray",
+      "sample_to_source_distance": 0.0
+    }
+  ],
+  "detector": [
+    {
+      "panels": [
+        {
+          "name": "Panel",
+          "type": "SENSOR_CCD",
+          "fast_axis": [
+            0.9857504817654978,
+            0.0,
+            -0.1682141126632629
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            -57.6472712638936,
+            -69.38183437452086,
+            -28.713640967430067
+          ],
+          "raw_image_offset": [
+            0,
+            0
+          ],
+          "image_size": [
+            768,
+            1024
+          ],
+          "pixel_size": [
+            0.1352999890298769,
+            0.1352999890298769
+          ],
+          "trusted_range": [
+            0.0,
+            163810.0
+          ],
+          "thickness": 0.45,
+          "material": "Si",
+          "mu": 10000000000.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 7.101773224043715,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          }
+        }
+      ],
+      "hierarchy": {
+        "name": "",
+        "type": "",
+        "fast_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "slow_axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "origin": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "raw_image_offset": [
+          0,
+          0
+        ],
+        "image_size": [
+          0,
+          0
+        ],
+        "pixel_size": [
+          0.0,
+          0.0
+        ],
+        "trusted_range": [
+          0.0,
+          0.0
+        ],
+        "thickness": 0.0,
+        "material": "",
+        "mu": 0.0,
+        "identifier": "",
+        "mask": [],
+        "gain": 1.0,
+        "pedestal": 0.0,
+        "px_mm_strategy": {
+          "type": "SimplePxMmStrategy"
+        },
+        "children": [
+          {
+            "panel": 0
+          }
+        ]
+      }
+    },
+    {
+      "panels": [
+        {
+          "name": "Panel",
+          "type": "SENSOR_CCD",
+          "fast_axis": [
+            0.9859144207517869,
+            0.0,
+            -0.1672505753463006
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            -57.61895368123148,
+            -69.38183437452086,
+            -28.768639801753082
+          ],
+          "raw_image_offset": [
+            0,
+            0
+          ],
+          "image_size": [
+            768,
+            1024
+          ],
+          "pixel_size": [
+            0.1352999890298769,
+            0.1352999890298769
+          ],
+          "trusted_range": [
+            0.0,
+            163810.0
+          ],
+          "thickness": 0.45,
+          "material": "Si",
+          "mu": 10000000000.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 7.101773224043715,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          }
+        }
+      ],
+      "hierarchy": {
+        "name": "",
+        "type": "",
+        "fast_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "slow_axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "origin": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "raw_image_offset": [
+          0,
+          0
+        ],
+        "image_size": [
+          0,
+          0
+        ],
+        "pixel_size": [
+          0.0,
+          0.0
+        ],
+        "trusted_range": [
+          0.0,
+          0.0
+        ],
+        "thickness": 0.0,
+        "material": "",
+        "mu": 0.0,
+        "identifier": "",
+        "mask": [],
+        "gain": 1.0,
+        "pedestal": 0.0,
+        "px_mm_strategy": {
+          "type": "SimplePxMmStrategy"
+        },
+        "children": [
+          {
+            "panel": 0
+          }
+        ]
+      }
+    },
+    {
+      "panels": [
+        {
+          "name": "Panel",
+          "type": "SENSOR_CCD",
+          "fast_axis": [
+            0.9857504817654978,
+            0.0,
+            -0.1682141126632629
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            -57.647044174841504,
+            -69.38183437452086,
+            -28.71231020427968
+          ],
+          "raw_image_offset": [
+            0,
+            0
+          ],
+          "image_size": [
+            768,
+            1024
+          ],
+          "pixel_size": [
+            0.1352999890298769,
+            0.1352999890298769
+          ],
+          "trusted_range": [
+            0.0,
+            163810.0
+          ],
+          "thickness": 0.45,
+          "material": "Si",
+          "mu": 10000000000.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 7.101773224043715,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          }
+        }
+      ],
+      "hierarchy": {
+        "name": "",
+        "type": "",
+        "fast_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "slow_axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "origin": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "raw_image_offset": [
+          0,
+          0
+        ],
+        "image_size": [
+          0,
+          0
+        ],
+        "pixel_size": [
+          0.0,
+          0.0
+        ],
+        "trusted_range": [
+          0.0,
+          0.0
+        ],
+        "thickness": 0.0,
+        "material": "",
+        "mu": 0.0,
+        "identifier": "",
+        "mask": [],
+        "gain": 1.0,
+        "pedestal": 0.0,
+        "px_mm_strategy": {
+          "type": "SimplePxMmStrategy"
+        },
+        "children": [
+          {
+            "panel": 0
+          }
+        ]
+      }
+    },
+    {
+      "panels": [
+        {
+          "name": "Panel",
+          "type": "SENSOR_CCD",
+          "fast_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            -51.99578578418169,
+            -69.38183437452086,
+            -38.000189999999996
+          ],
+          "raw_image_offset": [
+            0,
+            0
+          ],
+          "image_size": [
+            768,
+            1024
+          ],
+          "pixel_size": [
+            0.1352999890298769,
+            0.1352999890298769
+          ],
+          "trusted_range": [
+            0.0,
+            163810.0
+          ],
+          "thickness": 0.45,
+          "material": "Si",
+          "mu": 10000000000.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 7.101773224043715,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          }
+        }
+      ],
+      "hierarchy": {
+        "name": "",
+        "type": "",
+        "fast_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "slow_axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "origin": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "raw_image_offset": [
+          0,
+          0
+        ],
+        "image_size": [
+          0,
+          0
+        ],
+        "pixel_size": [
+          0.0,
+          0.0
+        ],
+        "trusted_range": [
+          0.0,
+          0.0
+        ],
+        "thickness": 0.0,
+        "material": "",
+        "mu": 0.0,
+        "identifier": "",
+        "mask": [],
+        "gain": 1.0,
+        "pedestal": 0.0,
+        "px_mm_strategy": {
+          "type": "SimplePxMmStrategy"
+        },
+        "children": [
+          {
+            "panel": 0
+          }
+        ]
+      }
+    },
+    {
+      "panels": [
+        {
+          "name": "Panel",
+          "type": "SENSOR_CCD",
+          "fast_axis": [
+            0.9857504817654978,
+            0.0,
+            -0.1682141126632629
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            -57.64701132860714,
+            -69.38184000693819,
+            -28.712092629138915
+          ],
+          "raw_image_offset": [
+            0,
+            0
+          ],
+          "image_size": [
+            768,
+            1024
+          ],
+          "pixel_size": [
+            0.13530000001353001,
+            0.13530000001353001
+          ],
+          "trusted_range": [
+            0.0,
+            0.0
+          ],
+          "thickness": 0.45,
+          "material": "Si",
+          "mu": 10000000000.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 1.0,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          }
+        }
+      ],
+      "hierarchy": {
+        "name": "",
+        "type": "",
+        "fast_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "slow_axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "origin": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "raw_image_offset": [
+          0,
+          0
+        ],
+        "image_size": [
+          0,
+          0
+        ],
+        "pixel_size": [
+          0.0,
+          0.0
+        ],
+        "trusted_range": [
+          0.0,
+          0.0
+        ],
+        "thickness": 0.0,
+        "material": "",
+        "mu": 0.0,
+        "identifier": "",
+        "mask": [],
+        "gain": 1.0,
+        "pedestal": 0.0,
+        "px_mm_strategy": {
+          "type": "SimplePxMmStrategy"
+        },
+        "children": [
+          {
+            "panel": 0
+          }
+        ]
+      }
+    },
+    {
+      "panels": [
+        {
+          "name": "Panel",
+          "type": "SENSOR_CCD",
+          "fast_axis": [
+            0.9859144207517869,
+            0.0,
+            -0.1672505753463006
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            -57.61892104766732,
+            -69.38184000693819,
+            -28.768422194612846
+          ],
+          "raw_image_offset": [
+            0,
+            0
+          ],
+          "image_size": [
+            768,
+            1024
+          ],
+          "pixel_size": [
+            0.13530000001353001,
+            0.13530000001353001
+          ],
+          "trusted_range": [
+            0.0,
+            0.0
+          ],
+          "thickness": 0.45,
+          "material": "Si",
+          "mu": 10000000000.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 1.0,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          }
+        }
+      ],
+      "hierarchy": {
+        "name": "",
+        "type": "",
+        "fast_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "slow_axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "origin": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "raw_image_offset": [
+          0,
+          0
+        ],
+        "image_size": [
+          0,
+          0
+        ],
+        "pixel_size": [
+          0.0,
+          0.0
+        ],
+        "trusted_range": [
+          0.0,
+          0.0
+        ],
+        "thickness": 0.0,
+        "material": "",
+        "mu": 0.0,
+        "identifier": "",
+        "mask": [],
+        "gain": 1.0,
+        "pedestal": 0.0,
+        "px_mm_strategy": {
+          "type": "SimplePxMmStrategy"
+        },
+        "children": [
+          {
+            "panel": 0
+          }
+        ]
+      }
+    },
+    {
+      "panels": [
+        {
+          "name": "Panel",
+          "type": "SENSOR_CCD",
+          "fast_axis": [
+            0.9857504817654978,
+            0.0,
+            -0.1682141126632629
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            -57.64701132860714,
+            -69.38184000693819,
+            -28.712092629138915
+          ],
+          "raw_image_offset": [
+            0,
+            0
+          ],
+          "image_size": [
+            768,
+            1024
+          ],
+          "pixel_size": [
+            0.13530000001353001,
+            0.13530000001353001
+          ],
+          "trusted_range": [
+            0.0,
+            0.0
+          ],
+          "thickness": 0.45,
+          "material": "Si",
+          "mu": 10000000000.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 1.0,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          }
+        }
+      ],
+      "hierarchy": {
+        "name": "",
+        "type": "",
+        "fast_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "slow_axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "origin": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "raw_image_offset": [
+          0,
+          0
+        ],
+        "image_size": [
+          0,
+          0
+        ],
+        "pixel_size": [
+          0.0,
+          0.0
+        ],
+        "trusted_range": [
+          0.0,
+          0.0
+        ],
+        "thickness": 0.0,
+        "material": "",
+        "mu": 0.0,
+        "identifier": "",
+        "mask": [],
+        "gain": 1.0,
+        "pedestal": 0.0,
+        "px_mm_strategy": {
+          "type": "SimplePxMmStrategy"
+        },
+        "children": [
+          {
+            "panel": 0
+          }
+        ]
+      }
+    },
+    {
+      "panels": [
+        {
+          "name": "Panel",
+          "type": "SENSOR_CCD",
+          "fast_axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "slow_axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "origin": [
+            -51.99579000519959,
+            -69.38184000693819,
+            -38.0
+          ],
+          "raw_image_offset": [
+            0,
+            0
+          ],
+          "image_size": [
+            768,
+            1024
+          ],
+          "pixel_size": [
+            0.13530000001353001,
+            0.13530000001353001
+          ],
+          "trusted_range": [
+            0.0,
+            0.0
+          ],
+          "thickness": 0.45,
+          "material": "Si",
+          "mu": 10000000000.0,
+          "identifier": "",
+          "mask": [],
+          "gain": 1.0,
+          "pedestal": 0.0,
+          "px_mm_strategy": {
+            "type": "SimplePxMmStrategy"
+          }
+        }
+      ],
+      "hierarchy": {
+        "name": "",
+        "type": "",
+        "fast_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "slow_axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "origin": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "raw_image_offset": [
+          0,
+          0
+        ],
+        "image_size": [
+          0,
+          0
+        ],
+        "pixel_size": [
+          0.0,
+          0.0
+        ],
+        "trusted_range": [
+          0.0,
+          0.0
+        ],
+        "thickness": 0.0,
+        "material": "",
+        "mu": 0.0,
+        "identifier": "",
+        "mask": [],
+        "gain": 1.0,
+        "pedestal": 0.0,
+        "px_mm_strategy": {
+          "type": "SimplePxMmStrategy"
+        },
+        "children": [
+          {
+            "panel": 0
+          }
+        ]
+      }
+    }
+  ],
+  "goniometer": [
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        299.9778,
+        319.681,
+        -168.63504
+      ],
+      "names": [
+        "PHI",
+        "CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        58.17417,
+        337.0001,
+        -167.74307
+      ],
+      "names": [
+        "PHI",
+        "CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        158.3598,
+        52.56101,
+        115.969
+      ],
+      "names": [
+        "PHI",
+        "CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        253.492,
+        24.00005,
+        95.60989999999998
+      ],
+      "names": [
+        "PHI",
+        "CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 0
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        7.351248,
+        46.08693,
+        100.90910000000002
+      ],
+      "names": [
+        "PHI",
+        "CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        250.3668,
+        337.0001,
+        -167.74307
+      ],
+      "names": [
+        "PHI",
+        "CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        359.9999,
+        54.74007,
+        -180.0
+      ],
+      "names": [
+        "PHI",
+        "CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 0
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        299.9778,
+        319.681,
+        -168.63504
+      ],
+      "names": [
+        "PHI",
+        "CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        58.17417,
+        337.0001,
+        -167.74307
+      ],
+      "names": [
+        "PHI",
+        "CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        158.3598,
+        52.56101,
+        115.969
+      ],
+      "names": [
+        "PHI",
+        "CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        253.492,
+        24.00005,
+        95.60989999999998
+      ],
+      "names": [
+        "PHI",
+        "CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        7.351248,
+        46.08693,
+        100.90910000000002
+      ],
+      "names": [
+        "PHI",
+        "CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        250.3668,
+        337.0001,
+        -167.74307
+      ],
+      "names": [
+        "PHI",
+        "CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    },
+    {
+      "axes": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "angles": [
+        359.9999,
+        54.74007,
+        180.0
+      ],
+      "names": [
+        "PHI",
+        "CHI",
+        "OMEGA"
+      ],
+      "scan_axis": 2
+    }
+  ],
+  "scan": [
+    {
+      "image_range": [
+        1,
+        100
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "exposure_time": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "oscillation": [
+          11.36496,
+          12.36496,
+          13.36496,
+          14.364959999999998,
+          15.364959999999998,
+          16.36496,
+          17.36496,
+          18.364959999999996,
+          19.36496,
+          20.36496,
+          21.364959999999996,
+          22.364959999999996,
+          23.364959999999996,
+          24.36496,
+          25.364959999999996,
+          26.364959999999996,
+          27.364959999999996,
+          28.364959999999996,
+          29.36496,
+          30.364959999999993,
+          31.364959999999996,
+          32.364959999999996,
+          33.36495999999999,
+          34.364959999999996,
+          35.364959999999996,
+          36.364959999999996,
+          37.364959999999996,
+          38.364959999999996,
+          39.364959999999996,
+          40.364959999999996,
+          41.36495999999999,
+          42.36495999999999,
+          43.364959999999996,
+          44.364959999999996,
+          45.364959999999996,
+          46.36495999999999,
+          47.36495999999999,
+          48.364959999999996,
+          49.36495999999999,
+          50.36495999999999,
+          51.36495999999999,
+          52.364959999999996,
+          53.364959999999996,
+          54.36495999999999,
+          55.36495999999999,
+          56.36495999999999,
+          57.36495999999999,
+          58.36495999999999,
+          59.36495999999999,
+          60.36495999999999,
+          61.364959999999996,
+          62.36495999999998,
+          63.364959999999996,
+          64.36495999999998,
+          65.36495999999998,
+          66.36495999999998,
+          67.36495999999998,
+          68.36496,
+          69.36496,
+          70.36496,
+          71.36495999999998,
+          72.36495999999998,
+          73.36495999999998,
+          74.36495999999998,
+          75.36495999999998,
+          76.36495999999998,
+          77.36496,
+          78.36496,
+          79.36496,
+          80.36495999999998,
+          81.36495999999998,
+          82.36495999999998,
+          83.36495999999998,
+          84.36495999999998,
+          85.36495999999998,
+          86.36496,
+          87.36495999999998,
+          88.36495999999998,
+          89.36495999999998,
+          90.36495999999998,
+          91.36495999999998,
+          92.36495999999998,
+          93.36495999999998,
+          94.36495999999998,
+          95.36496,
+          96.36495999999998,
+          97.36495999999998,
+          98.36495999999998,
+          99.36495999999998,
+          100.36495999999998,
+          101.36495999999998,
+          102.36495999999998,
+          103.36495999999998,
+          104.36495999999998,
+          105.36495999999998,
+          106.36495999999998,
+          107.36495999999998,
+          108.36495999999998,
+          109.36495999999998,
+          110.36495999999998
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        91
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "exposure_time": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "oscillation": [
+          12.25693,
+          13.25693,
+          14.25693,
+          15.25693,
+          16.256929999999997,
+          17.25693,
+          18.25693,
+          19.25693,
+          20.256929999999997,
+          21.256929999999997,
+          22.25693,
+          23.256929999999997,
+          24.256929999999997,
+          25.256929999999997,
+          26.25693,
+          27.256929999999993,
+          28.256929999999997,
+          29.256929999999997,
+          30.256929999999997,
+          31.256929999999993,
+          32.25693,
+          33.25693,
+          34.25693,
+          35.25692999999999,
+          36.25693,
+          37.25693,
+          38.25693,
+          39.25692999999999,
+          40.25692999999999,
+          41.25693,
+          42.25692999999999,
+          43.25692999999999,
+          44.25692999999999,
+          45.25693,
+          46.25693,
+          47.25692999999999,
+          48.25692999999999,
+          49.25692999999999,
+          50.25692999999999,
+          51.25692999999999,
+          52.25692999999999,
+          53.25692999999999,
+          54.25693,
+          55.25692999999999,
+          56.25692999999999,
+          57.25692999999999,
+          58.25692999999999,
+          59.25692999999999,
+          60.25692999999999,
+          61.25692999999999,
+          62.25692999999999,
+          63.25692999999999,
+          64.25693,
+          65.25693,
+          66.25692999999998,
+          67.25692999999998,
+          68.25692999999998,
+          69.25692999999998,
+          70.25693,
+          71.25693,
+          72.25692999999998,
+          73.25692999999998,
+          74.25692999999998,
+          75.25692999999998,
+          76.25692999999998,
+          77.25692999999998,
+          78.25692999999998,
+          79.25693,
+          80.25693,
+          81.25692999999998,
+          82.25692999999998,
+          83.25692999999998,
+          84.25692999999998,
+          85.25692999999998,
+          86.25692999999998,
+          87.25692999999998,
+          88.25692999999998,
+          89.25692999999998,
+          90.25692999999998,
+          91.25692999999998,
+          92.25692999999998,
+          93.25692999999998,
+          94.25692999999998,
+          95.25692999999998,
+          96.25692999999998,
+          97.25692999999998,
+          98.25692999999998,
+          99.25692999999998,
+          100.25692999999998,
+          101.25692999999998,
+          102.25692999999998
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        77
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "exposure_time": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "oscillation": [
+          295.969,
+          296.96899999999994,
+          297.96899999999994,
+          298.96899999999994,
+          299.96899999999994,
+          300.96899999999994,
+          301.9689999999999,
+          302.9689999999999,
+          303.9689999999999,
+          304.9689999999999,
+          305.9689999999999,
+          306.9689999999998,
+          307.9689999999998,
+          308.9689999999998,
+          309.9689999999998,
+          310.9689999999998,
+          311.96899999999977,
+          312.96899999999977,
+          313.96899999999977,
+          314.96899999999977,
+          315.96899999999977,
+          316.9689999999997,
+          317.9689999999997,
+          318.9689999999997,
+          319.9689999999997,
+          320.9689999999997,
+          321.96899999999965,
+          322.96899999999965,
+          323.96899999999965,
+          324.96899999999965,
+          325.96899999999965,
+          326.9689999999996,
+          327.9689999999996,
+          328.9689999999996,
+          329.9689999999996,
+          330.9689999999996,
+          331.96899999999954,
+          332.96899999999954,
+          333.96899999999954,
+          334.96899999999954,
+          335.96899999999954,
+          336.9689999999995,
+          337.9689999999995,
+          338.9689999999995,
+          339.9689999999995,
+          340.9689999999995,
+          341.9689999999994,
+          342.9689999999994,
+          343.9689999999994,
+          344.9689999999994,
+          345.9689999999994,
+          346.96899999999937,
+          347.96899999999937,
+          348.96899999999937,
+          349.96899999999937,
+          350.96899999999937,
+          351.9689999999993,
+          352.9689999999993,
+          353.9689999999993,
+          354.9689999999993,
+          355.9689999999993,
+          356.96899999999926,
+          357.96899999999926,
+          358.96899999999926,
+          359.96899999999926,
+          360.96899999999926,
+          361.9689999999992,
+          362.9689999999992,
+          363.9689999999992,
+          364.9689999999992,
+          365.9689999999992,
+          366.96899999999914,
+          367.96899999999914,
+          368.96899999999914,
+          369.96899999999914,
+          370.96899999999914,
+          371.9689999999991
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        158
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "exposure_time": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "oscillation": [
+          253.49199999999996,
+          254.49199999999996,
+          255.49199999999996,
+          256.49199999999996,
+          257.4919999999999,
+          258.4919999999999,
+          259.4919999999999,
+          260.4919999999999,
+          261.4919999999999,
+          262.49199999999985,
+          263.49199999999985,
+          264.49199999999985,
+          265.49199999999985,
+          266.49199999999985,
+          267.4919999999998,
+          268.4919999999998,
+          269.4919999999998,
+          270.4919999999998,
+          271.4919999999998,
+          272.49199999999973,
+          273.49199999999973,
+          274.49199999999973,
+          275.49199999999973,
+          276.49199999999973,
+          277.4919999999997,
+          278.4919999999997,
+          279.4919999999997,
+          280.4919999999997,
+          281.4919999999997,
+          282.4919999999996,
+          283.4919999999996,
+          284.4919999999996,
+          285.4919999999996,
+          286.4919999999996,
+          287.49199999999956,
+          288.49199999999956,
+          289.49199999999956,
+          290.49199999999956,
+          291.49199999999956,
+          292.4919999999995,
+          293.4919999999995,
+          294.4919999999995,
+          295.4919999999995,
+          296.4919999999995,
+          297.49199999999945,
+          298.49199999999945,
+          299.49199999999945,
+          300.49199999999945,
+          301.49199999999945,
+          302.4919999999994,
+          303.4919999999994,
+          304.4919999999994,
+          305.4919999999994,
+          306.4919999999994,
+          307.49199999999934,
+          308.49199999999934,
+          309.49199999999934,
+          310.49199999999934,
+          311.49199999999934,
+          312.4919999999993,
+          313.4919999999993,
+          314.4919999999993,
+          315.4919999999993,
+          316.4919999999993,
+          317.4919999999992,
+          318.4919999999992,
+          319.4919999999992,
+          320.4919999999992,
+          321.4919999999992,
+          322.49199999999917,
+          323.49199999999917,
+          324.49199999999917,
+          325.49199999999917,
+          326.49199999999917,
+          327.4919999999991,
+          328.4919999999991,
+          329.4919999999991,
+          330.4919999999991,
+          331.4919999999991,
+          332.49199999999905,
+          333.49199999999905,
+          334.49199999999905,
+          335.49199999999905,
+          336.49199999999905,
+          337.491999999999,
+          338.491999999999,
+          339.491999999999,
+          340.491999999999,
+          341.491999999999,
+          342.49199999999894,
+          343.49199999999894,
+          344.49199999999894,
+          345.49199999999894,
+          346.49199999999894,
+          347.4919999999989,
+          348.4919999999989,
+          349.4919999999989,
+          350.4919999999989,
+          351.4919999999989,
+          352.4919999999988,
+          353.4919999999988,
+          354.4919999999988,
+          355.4919999999988,
+          356.4919999999988,
+          357.49199999999877,
+          358.49199999999877,
+          359.49199999999877,
+          360.49199999999877,
+          361.49199999999877,
+          362.4919999999987,
+          363.4919999999987,
+          364.4919999999987,
+          365.4919999999987,
+          366.4919999999987,
+          367.49199999999865,
+          368.49199999999865,
+          369.49199999999865,
+          370.49199999999865,
+          371.49199999999865,
+          372.4919999999986,
+          373.4919999999986,
+          374.4919999999986,
+          375.4919999999986,
+          376.4919999999986,
+          377.49199999999854,
+          378.49199999999854,
+          379.49199999999854,
+          380.49199999999854,
+          381.49199999999854,
+          382.4919999999985,
+          383.4919999999985,
+          384.4919999999985,
+          385.4919999999985,
+          386.4919999999985,
+          387.4919999999984,
+          388.4919999999984,
+          389.4919999999984,
+          390.4919999999984,
+          391.4919999999984,
+          392.49199999999837,
+          393.49199999999837,
+          394.49199999999837,
+          395.49199999999837,
+          396.49199999999837,
+          397.4919999999983,
+          398.4919999999983,
+          399.4919999999983,
+          400.4919999999983,
+          401.4919999999983,
+          402.49199999999826,
+          403.49199999999826,
+          404.49199999999826,
+          405.49199999999826,
+          406.49199999999826,
+          407.4919999999982,
+          408.4919999999982,
+          409.4919999999982,
+          410.4919999999982
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        90
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "exposure_time": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "oscillation": [
+          280.9091,
+          281.9091,
+          282.9091,
+          283.9091,
+          284.90909999999997,
+          285.90909999999997,
+          286.90909999999997,
+          287.90909999999997,
+          288.90909999999997,
+          289.9090999999999,
+          290.9090999999999,
+          291.9090999999999,
+          292.9090999999999,
+          293.9090999999999,
+          294.90909999999985,
+          295.90909999999985,
+          296.90909999999985,
+          297.90909999999985,
+          298.90909999999985,
+          299.9090999999998,
+          300.9090999999998,
+          301.9090999999998,
+          302.9090999999998,
+          303.9090999999998,
+          304.90909999999974,
+          305.90909999999974,
+          306.90909999999974,
+          307.90909999999974,
+          308.90909999999974,
+          309.9090999999997,
+          310.9090999999997,
+          311.9090999999997,
+          312.9090999999997,
+          313.9090999999997,
+          314.9090999999996,
+          315.9090999999996,
+          316.9090999999996,
+          317.9090999999996,
+          318.9090999999996,
+          319.90909999999957,
+          320.90909999999957,
+          321.90909999999957,
+          322.90909999999957,
+          323.90909999999957,
+          324.9090999999995,
+          325.9090999999995,
+          326.9090999999995,
+          327.9090999999995,
+          328.9090999999995,
+          329.90909999999946,
+          330.90909999999946,
+          331.90909999999946,
+          332.90909999999946,
+          333.90909999999946,
+          334.9090999999994,
+          335.9090999999994,
+          336.9090999999994,
+          337.9090999999994,
+          338.9090999999994,
+          339.90909999999934,
+          340.90909999999934,
+          341.90909999999934,
+          342.90909999999934,
+          343.90909999999934,
+          344.9090999999993,
+          345.9090999999993,
+          346.9090999999993,
+          347.9090999999993,
+          348.9090999999993,
+          349.9090999999992,
+          350.9090999999992,
+          351.9090999999992,
+          352.9090999999992,
+          353.9090999999992,
+          354.90909999999917,
+          355.90909999999917,
+          356.90909999999917,
+          357.90909999999917,
+          358.90909999999917,
+          359.9090999999991,
+          360.9090999999991,
+          361.9090999999991,
+          362.9090999999991,
+          363.9090999999991,
+          364.90909999999906,
+          365.90909999999906,
+          366.90909999999906,
+          367.90909999999906,
+          368.90909999999906,
+          369.909099999999
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        91
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "exposure_time": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "oscillation": [
+          12.25693,
+          13.25693,
+          14.25693,
+          15.25693,
+          16.256929999999997,
+          17.25693,
+          18.25693,
+          19.25693,
+          20.256929999999997,
+          21.256929999999997,
+          22.25693,
+          23.256929999999997,
+          24.256929999999997,
+          25.256929999999997,
+          26.25693,
+          27.256929999999993,
+          28.256929999999997,
+          29.256929999999997,
+          30.256929999999997,
+          31.256929999999993,
+          32.25693,
+          33.25693,
+          34.25693,
+          35.25692999999999,
+          36.25693,
+          37.25693,
+          38.25693,
+          39.25692999999999,
+          40.25692999999999,
+          41.25693,
+          42.25692999999999,
+          43.25692999999999,
+          44.25692999999999,
+          45.25693,
+          46.25693,
+          47.25692999999999,
+          48.25692999999999,
+          49.25692999999999,
+          50.25692999999999,
+          51.25692999999999,
+          52.25692999999999,
+          53.25692999999999,
+          54.25693,
+          55.25692999999999,
+          56.25692999999999,
+          57.25692999999999,
+          58.25692999999999,
+          59.25692999999999,
+          60.25692999999999,
+          61.25692999999999,
+          62.25692999999999,
+          63.25692999999999,
+          64.25693,
+          65.25693,
+          66.25692999999998,
+          67.25692999999998,
+          68.25692999999998,
+          69.25692999999998,
+          70.25693,
+          71.25693,
+          72.25692999999998,
+          73.25692999999998,
+          74.25692999999998,
+          75.25692999999998,
+          76.25692999999998,
+          77.25692999999998,
+          78.25692999999998,
+          79.25693,
+          80.25693,
+          81.25692999999998,
+          82.25692999999998,
+          83.25692999999998,
+          84.25692999999998,
+          85.25692999999998,
+          86.25692999999998,
+          87.25692999999998,
+          88.25692999999998,
+          89.25692999999998,
+          90.25692999999998,
+          91.25692999999998,
+          92.25692999999998,
+          93.25692999999998,
+          94.25692999999998,
+          95.25692999999998,
+          96.25692999999998,
+          97.25692999999998,
+          98.25692999999998,
+          99.25692999999998,
+          100.25692999999998,
+          101.25692999999998,
+          102.25692999999998
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        180
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "exposure_time": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "oscillation": [
+          359.9999,
+          360.99989999999997,
+          361.99989999999997,
+          362.99989999999997,
+          363.99989999999997,
+          364.99989999999997,
+          365.9998999999999,
+          366.9998999999999,
+          367.9998999999999,
+          368.9998999999999,
+          369.9998999999999,
+          370.99989999999985,
+          371.99989999999985,
+          372.99989999999985,
+          373.99989999999985,
+          374.99989999999985,
+          375.9998999999998,
+          376.9998999999998,
+          377.9998999999998,
+          378.9998999999998,
+          379.9998999999998,
+          380.99989999999974,
+          381.99989999999974,
+          382.99989999999974,
+          383.99989999999974,
+          384.99989999999974,
+          385.9998999999997,
+          386.9998999999997,
+          387.9998999999997,
+          388.9998999999997,
+          389.9998999999997,
+          390.9998999999996,
+          391.9998999999996,
+          392.9998999999996,
+          393.9998999999996,
+          394.9998999999996,
+          395.99989999999957,
+          396.99989999999957,
+          397.99989999999957,
+          398.99989999999957,
+          399.99989999999957,
+          400.9998999999995,
+          401.9998999999995,
+          402.9998999999995,
+          403.9998999999995,
+          404.9998999999995,
+          405.99989999999946,
+          406.99989999999946,
+          407.99989999999946,
+          408.99989999999946,
+          409.99989999999946,
+          410.9998999999994,
+          411.9998999999994,
+          412.9998999999994,
+          413.9998999999994,
+          414.9998999999994,
+          415.99989999999934,
+          416.99989999999934,
+          417.99989999999934,
+          418.99989999999934,
+          419.99989999999934,
+          420.9998999999993,
+          421.9998999999993,
+          422.9998999999993,
+          423.9998999999993,
+          424.9998999999993,
+          425.99989999999923,
+          426.99989999999923,
+          427.99989999999923,
+          428.99989999999923,
+          429.99989999999923,
+          430.9998999999992,
+          431.9998999999992,
+          432.9998999999992,
+          433.9998999999992,
+          434.9998999999992,
+          435.9998999999991,
+          436.9998999999991,
+          437.9998999999991,
+          438.9998999999991,
+          439.9998999999991,
+          440.99989999999906,
+          441.99989999999906,
+          442.99989999999906,
+          443.99989999999906,
+          444.99989999999906,
+          445.999899999999,
+          446.999899999999,
+          447.999899999999,
+          448.999899999999,
+          449.999899999999,
+          450.99989999999895,
+          451.99989999999895,
+          452.99989999999895,
+          453.99989999999895,
+          454.99989999999895,
+          455.9998999999989,
+          456.9998999999989,
+          457.9998999999989,
+          458.99989999999883,
+          459.9998999999989,
+          460.9998999999989,
+          461.99989999999883,
+          462.9998999999988,
+          463.99989999999883,
+          464.9998999999989,
+          465.9998999999988,
+          466.9998999999987,
+          467.9998999999988,
+          468.99989999999883,
+          469.9998999999988,
+          470.9998999999987,
+          471.9998999999987,
+          472.9998999999988,
+          473.9998999999987,
+          474.99989999999866,
+          475.9998999999987,
+          476.9998999999987,
+          477.99989999999866,
+          478.9998999999986,
+          479.99989999999866,
+          480.99989999999866,
+          481.9998999999986,
+          482.99989999999855,
+          483.9998999999986,
+          484.99989999999866,
+          485.9998999999986,
+          486.9998999999985,
+          487.99989999999855,
+          488.9998999999986,
+          489.99989999999855,
+          490.9998999999985,
+          491.9998999999985,
+          492.99989999999855,
+          493.9998999999985,
+          494.99989999999843,
+          495.9998999999985,
+          496.9998999999985,
+          497.99989999999843,
+          498.9998999999984,
+          499.99989999999843,
+          500.99989999999843,
+          501.9998999999984,
+          502.9998999999983,
+          503.9998999999984,
+          504.99989999999843,
+          505.9998999999984,
+          506.99989999999826,
+          507.9998999999983,
+          508.9998999999984,
+          509.9998999999983,
+          510.99989999999826,
+          511.99989999999826,
+          512.9998999999983,
+          513.9998999999982,
+          514.9998999999982,
+          515.9998999999982,
+          516.9998999999983,
+          517.9998999999982,
+          518.9998999999982,
+          519.9998999999982,
+          520.9998999999982,
+          521.9998999999982,
+          522.9998999999981,
+          523.9998999999981,
+          524.9998999999982,
+          525.9998999999981,
+          526.9998999999981,
+          527.9998999999981,
+          528.9998999999981,
+          529.9998999999981,
+          530.999899999998,
+          531.9998999999981,
+          532.9998999999981,
+          533.999899999998,
+          534.999899999998,
+          535.999899999998,
+          536.9998999999981,
+          537.999899999998,
+          538.999899999998
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        1
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          1.0
+        ],
+        "oscillation": [
+          0.0
+        ],
+        "oscillation_width": [
+          0.25
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        1
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          1.0
+        ],
+        "oscillation": [
+          0.0
+        ],
+        "oscillation_width": [
+          0.25
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        1
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          1.0
+        ],
+        "oscillation": [
+          0.0
+        ],
+        "oscillation_width": [
+          0.25
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        1
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          1.0
+        ],
+        "oscillation": [
+          0.0
+        ],
+        "oscillation_width": [
+          0.25
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        1
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          1.0
+        ],
+        "oscillation": [
+          0.0
+        ],
+        "oscillation_width": [
+          0.25
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        1
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          1.0
+        ],
+        "oscillation": [
+          0.0
+        ],
+        "oscillation_width": [
+          0.25
+        ]
+      },
+      "valid_image_ranges": {}
+    },
+    {
+      "image_range": [
+        1,
+        1
+      ],
+      "batch_offset": 0,
+      "properties": {
+        "epochs": [
+          0.0
+        ],
+        "exposure_time": [
+          1.0
+        ],
+        "oscillation": [
+          0.0
+        ],
+        "oscillation_width": [
+          0.25
+        ]
+      },
+      "valid_image_ranges": {}
+    }
+  ],
+  "crystal": [],
+  "profile": [],
+  "scaling_model": []
+}

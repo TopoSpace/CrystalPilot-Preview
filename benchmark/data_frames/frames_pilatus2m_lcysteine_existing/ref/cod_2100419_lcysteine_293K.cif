@@ -1,0 +1,261 @@
+#------------------------------------------------------------------------------
+#$Date: 2016-02-14 16:26:36 +0200 (Sun, 14 Feb 2016) $
+#$Revision: 176435 $
+#$URL: file:///home/coder/svn-repositories/_RELOADED_COD/cod-reloaded/cif/2/10/04/2100419.cif $
+#------------------------------------------------------------------------------
+#
+# This file is available in the Crystallography Open Database (COD),
+# http://www.crystallography.net/. The original data for this entry
+# were provided by IUCr Journals, http://journals.iucr.org/.
+#
+# The file may be used within the scientific community so long as
+# proper attribution is given to the journal article from which the
+# data were obtained.
+#
+data_2100419
+loop_
+_publ_author_name
+'Moggach, Stephen A.'
+'Allan, David R.'
+'Clark, Stewart J.'
+'Gutmann, Matthias J.'
+'Parsons, Simon'
+'Pulham, Colin R.'
+'Sawyer, Lindsay'
+_publ_contact_author_name        'Stephen A. Moggach'
+_publ_section_title
+;
+ High-pressure polymorphism in <small>L</small>-cysteine: the crystal
+ structures of <small>L</small>-cysteine-III and
+ <small>L</small>-cysteine-IV
+;
+_journal_coeditor_code           BS5023
+_journal_date_accepted           2005-11-22
+_journal_date_recd_electronic    2005-09-20
+_journal_issue                   2
+_journal_name_full               'Acta Crystallographica Section B'
+_journal_page_first              296
+_journal_page_last               309
+_journal_paper_category          FA
+_journal_paper_doi               10.1107/S0108768105038802
+_journal_volume                  62
+_journal_year                    2006
+_chemical_formula_moiety         'C3 H7 N1 O2 S1'
+_chemical_formula_sum            'C3 H7 N O2 S'
+_chemical_formula_weight         121.16
+_space_group_IT_number           19
+_symmetry_cell_setting           orthorhombic
+_symmetry_space_group_name_Hall  'P 2ac 2ab'
+_symmetry_space_group_name_H-M   'P 21 21 21'
+_atom_sites_solution_hydrogens   geom
+_atom_sites_solution_primary     'From Kerr et al. (1975)'
+_audit_creation_method           CRYSTALS_ver_12.82
+_cell_angle_alpha                90
+_cell_angle_beta                 90
+_cell_angle_gamma                90
+_cell_formula_units_Z            4
+_cell_length_a                   8.1109(10)
+_cell_length_b                   12.1621(15)
+_cell_length_c                   5.4210(7)
+_cell_measurement_reflns_used    2797
+_cell_measurement_temperature    293
+_cell_measurement_theta_max      56
+_cell_measurement_theta_min      6
+_cell_volume                     534.76(12)
+_computing_cell_refinement       'SAINT (Siemens ,1995)'
+_computing_data_collection       'SMART (Siemens, 1993)'
+_computing_data_reduction        'SAINT (Siemens ,1995)'
+_computing_molecular_graphics    'CAMERON (Watkin et al., 1996)'
+_computing_publication_material  'CRYSTALS (Betteridge et al., 2003)'
+_computing_structure_refinement  'CRYSTALS (Betteridge et al., 2003)'
+_computing_structure_solution    'SIR92 (Altomare et al., 1994)'
+_diffrn_ambient_temperature      293
+_diffrn_measured_fraction_theta_full 1.000
+_diffrn_measured_fraction_theta_max 0.945
+_diffrn_measurement_device_type  'Bruker SMART'
+_diffrn_measurement_method       \w
+_diffrn_radiation_monochromator  graphite
+_diffrn_radiation_type           'Mo K\a'
+_diffrn_radiation_wavelength     0.71073
+_diffrn_reflns_av_R_equivalents  0.053
+_diffrn_reflns_limit_h_max       10
+_diffrn_reflns_limit_h_min       -10
+_diffrn_reflns_limit_k_max       15
+_diffrn_reflns_limit_k_min       -15
+_diffrn_reflns_limit_l_max       7
+_diffrn_reflns_limit_l_min       -7
+_diffrn_reflns_number            4806
+_diffrn_reflns_theta_full        27.472
+_diffrn_reflns_theta_max         28.918
+_diffrn_reflns_theta_min         3.019
+_diffrn_standards_number         0
+_exptl_absorpt_coefficient_mu    0.490
+_exptl_absorpt_correction_T_max  0.92
+_exptl_absorpt_correction_T_min  0.82
+_exptl_absorpt_correction_type   multi-scan
+_exptl_absorpt_process_details   'SADABS (Siemens, 1996)'
+_exptl_crystal_colour            colourless
+_exptl_crystal_density_diffrn    1.505
+_exptl_crystal_description       block
+_exptl_crystal_F_000             256
+_exptl_crystal_size_max          0.43
+_exptl_crystal_size_mid          0.22
+_exptl_crystal_size_min          0.18
+_refine_diff_density_max         0.31
+_refine_diff_density_min         -0.22
+_refine_ls_abs_structure_details 'Flack, 2 Friedel-pairs'
+_refine_ls_abs_structure_Flack   0.08(10)
+_refine_ls_extinction_coef       114(19)
+_refine_ls_extinction_method
+'Larson 1970 Crystallographic Computing eq 22'
+_refine_ls_goodness_of_fit_ref   1.0268
+_refine_ls_hydrogen_treatment    mixed
+_refine_ls_matrix_type           full
+_refine_ls_number_parameters     72
+_refine_ls_number_reflns         1309
+_refine_ls_number_restraints     2
+_refine_ls_R_factor_all          0.0362
+_refine_ls_R_factor_gt           0.0343
+_refine_ls_shift/su_max          0.000349
+_refine_ls_structure_factor_coef Fsqd
+_refine_ls_weighting_details
+;
+ w=1/[\s^2^(F^2^) + ( 0.06P)^2^ + 0.01P]
+where P=(max(Fo^2^,0) + 2Fc^2^)/3
+;
+_refine_ls_weighting_scheme      calc
+_refine_ls_wR_factor_all         0.0884
+_refine_ls_wR_factor_gt          0.0879
+_refine_ls_wR_factor_ref         0.0884
+_reflns_number_gt                1197
+_reflns_number_total             1311
+_reflns_threshold_expression     I>2.00u(I)
+_cod_data_source_file            bs5023.cif
+_cod_data_source_block           cys100
+_cod_depositor_comments
+;
+The following automatic conversions were performed:
+'_symmetry_cell_setting' value 'Orthorhombic' changed to 'orthorhombic'
+according to '/home/saulius/struct/CIF-dictionaries/cif_core.dic'
+dictionary named 'cif_core.dic' version 2.4.1 from 2010-06-29.
+
+Automatic conversion script
+Id: cif_fix_enum 1527 2010-12-29 10:47:43Z saulius 
+
+The following automatic conversions were performed:
+
+'_symmetry_cell_setting' value 'Orthorhombic' changed to
+'orthorhombic' according to
+/home/saulius/struct/CIF-dictionaries/cif_core.dic dictionary named
+'cif_core.dic' version 2.4.1 from 2010-06-29.
+
+Automatic conversion script
+Id: cif_fix_values 1715 2011-07-08 13:25:40Z adriana 
+;
+_cod_original_sg_symbol_H-M      'P 21 21 21 '
+_cod_original_formula_sum        'C3 H7 N1 O2 S1'
+_cod_database_code               2100419
+loop_
+_symmetry_equiv_pos_as_xyz
+x,y,z
+x+1/2,-y+1/2,-z
+-x,y+1/2,-z+1/2
+-x+1/2,-y,z+1/2
+loop_
+_atom_site_type_symbol
+_atom_site_label
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+S S1 0.41367(6) 1.02578(4) 0.63764(12) 0.0532 Uani 1.0000
+C C1 0.4241(2) 0.88457(15) 0.7430(3) 0.0356 Uani 1.0000
+C C2 0.5799(2) 0.82407(11) 0.6654(2) 0.0260 Uani 1.0000
+C C3 0.59855(19) 0.82166(12) 0.3840(3) 0.0270 Uani 1.0000
+N N1 0.72784(16) 0.87357(12) 0.7835(2) 0.0280 Uani 1.0000
+O O1 0.50408(17) 0.76075(13) 0.2690(3) 0.0485 Uani 1.0000
+O O2 0.70692(16) 0.88220(12) 0.2913(2) 0.0388 Uani 1.0000
+H H5 0.8186 0.8365 0.7359 0.0336 Uiso 1.0000
+H H6 0.7368 0.9444 0.7380 0.0336 Uiso 1.0000
+H H7 0.7180 0.8695 0.9490 0.0336 Uiso 1.0000
+H H2 0.4186 0.8845 0.9272 0.0427 Uiso 1.0000
+H H3 0.3271 0.8440 0.6747 0.0427 Uiso 1.0000
+H H4 0.5702 0.7463 0.7246 0.0315 Uiso 1.0000
+H H10 0.535(4) 1.071(3) 0.768(8) 0.0500 Uiso 0.53(3)
+H H1 0.381(5) 1.001(4) 0.403(3) 0.0500 Uiso 0.47(3)
+loop_
+_atom_site_aniso_label
+_atom_site_aniso_U_11
+_atom_site_aniso_U_22
+_atom_site_aniso_U_33
+_atom_site_aniso_U_12
+_atom_site_aniso_U_13
+_atom_site_aniso_U_23
+S1 0.0409(3) 0.0353(3) 0.0834(4) 0.00998(18) -0.0100(3) -0.0006(2)
+C1 0.0328(7) 0.0404(9) 0.0336(8) 0.0024(7) 0.0059(6) 0.0002(7)
+C2 0.0310(7) 0.0253(6) 0.0217(6) -0.0010(5) 0.0032(6) 0.0022(5)
+C3 0.0306(7) 0.0287(7) 0.0218(6) 0.0008(5) -0.0002(6) -0.0009(5)
+N1 0.0320(6) 0.0328(6) 0.0191(5) 0.0036(5) 0.0012(4) 0.0008(5)
+O1 0.0538(8) 0.0591(9) 0.0326(6) -0.0251(7) -0.0035(6) -0.0061(5)
+O2 0.0467(7) 0.0483(7) 0.0215(5) -0.0160(6) 0.0050(5) -0.0013(5)
+loop_
+_atom_type_symbol
+_atom_type_scat_dispersion_real
+_atom_type_scat_dispersion_imag
+_atom_type_scat_source
+C 0.0033 0.0016 'International Tables Vol C 4.2.6.8 and 6.1.1.4'
+H 0.0000 0.0000 'International Tables Vol C 4.2.6.8 and 6.1.1.4'
+N 0.0061 0.0033 'International Tables Vol C 4.2.6.8 and 6.1.1.4'
+O 0.0106 0.0060 'International Tables Vol C 4.2.6.8 and 6.1.1.4'
+S 0.1246 0.1234 'International Tables Vol C 4.2.6.8 and 6.1.1.4'
+loop_
+_geom_angle_atom_site_label_1
+_geom_angle_atom_site_label_2
+_geom_angle_atom_site_label_3
+_geom_angle
+_geom_angle_publ_flag
+C1 S1 H10 101(2) no
+C1 S1 H1 95(2) no
+H10 S1 H1 138(3) no
+S1 C1 C2 114.21(11) yes
+S1 C1 H2 108.2 no
+C2 C1 H2 108.3 no
+S1 C1 H3 108.3 no
+C2 C1 H3 108.2 no
+H2 C1 H3 109.5 no
+C1 C2 C3 111.49(13) yes
+C1 C2 N1 110.79(12) yes
+C3 C2 N1 110.89(13) yes
+C1 C2 H4 107.6 no
+C3 C2 H4 108.0 no
+N1 C2 H4 107.9 no
+C2 C3 O1 116.90(14) yes
+C2 C3 O2 117.21(13) yes
+O1 C3 O2 125.89(13) yes
+C2 N1 H5 109.5 no
+C2 N1 H6 109.6 no
+H5 N1 H6 109.5 no
+C2 N1 H7 109.5 no
+H5 N1 H7 109.3 no
+H6 N1 H7 109.4 no
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_publ_flag
+S1 C1 1.8118(19) yes
+S1 H10 1.332(10) no
+S1 H1 1.336(10) no
+C1 C2 1.521(2) yes
+C1 H2 0.999 no
+C1 H3 0.999 no
+C2 C3 1.5332(18) yes
+C2 N1 1.4875(19) yes
+C2 H4 1.002 no
+C3 O1 1.235(2) yes
+C3 O2 1.2518(19) yes
+N1 H5 0.901 no
+N1 H6 0.899 no
+N1 H7 0.902 no

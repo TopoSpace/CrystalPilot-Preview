@@ -1,0 +1,10 @@
+# Downloaded public reference data (COD / IUCr supplements): payload is
+# re-fetchable via ../manifest_ext2.json + per-case SOURCE.txt; keep only
+# provenance records in git (same convention as ../data_ext).
+*
+!.gitignore
+!README.md
+!*/
+!*/SOURCE.txt
+!_import_tests/
+!_import_tests/**

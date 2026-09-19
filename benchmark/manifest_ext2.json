@@ -1,0 +1,459 @@
+[
+ {
+  "slug": "org_hsl_cod2241460",
+  "stage": "refined",
+  "url": "https://www.crystallography.net/cod/2241460.html",
+  "doi": "10.1107/S2056989015024913",
+  "formula": "C8 H11 N O4",
+  "sg": "P 21 21 21",
+  "category": "organic",
+  "features": [],
+  "journal": "Acta Crystallographica Section E (2016)",
+  "title": "Crystal structure of N-(3-oxobutanoyl)-L-homoserine lactone",
+  "published_R1_gt": "0.0264",
+  "r1_recomputed_from_fcf": 0.0264,
+  "n_reflections_fcf": 1755,
+  "hkl_derived_scale": 1.0,
+  "files": {
+   "ref.cif": {
+    "bytes": 363548
+   },
+   "ref.fcf": {
+    "bytes": 48011
+   },
+   "ref.hkl": {
+    "bytes": 50924
+   }
+  },
+  "files_fmt": {
+   "cif": "final refined CIF",
+   "fcf": "SHELX LIST4 CIF reflection file (h k l Fc2 Fo2 sig status)",
+   "hkl": "DERIVED HKLF4 (h k l Fo2 sig), 3I4 2F8.2"
+  },
+  "license": "COD terms: data provided by IUCr Journals, free use within the scientific community with attribution to the source article",
+  "notes": "Clean baseline: small chiral pure-organic (bacterial quorum-sensing lactone), Sohncke SG P212121, low R1. Tests plain validation path end-to-end."
+ },
+ {
+  "slug": "orgdis_dbu_cod2241572",
+  "stage": "refined",
+  "url": "https://www.crystallography.net/cod/2241572.html",
+  "doi": "10.1107/S205698901600267X",
+  "formula": "C16 H20 N4 O6",
+  "sg": "P 1 21/n 1",
+  "category": "organic",
+  "features": [
+   "disorder"
+  ],
+  "journal": "Acta Crystallographica Section E (2016)",
+  "title": "Crystal structures of three anhydrous salts of the Lewis base 1,8-diazabicyclo[5.4.0]undec-7-ene (DBU) with the ring-substituted benzoic acid analogues 4-aminobenzoic acid, 3,5-dinitrobenzoic acid and 3,5-dinitrosalicylic acid",
+  "published_R1_gt": "0.0447",
+  "r1_recomputed_from_fcf": 0.0447,
+  "n_reflections_fcf": 3311,
+  "hkl_derived_scale": 1.0,
+  "files": {
+   "ref.cif": {
+    "bytes": 25082
+   },
+   "ref.fcf": {
+    "bytes": 90033
+   },
+   "ref.hkl": {
+    "bytes": 96048
+   }
+  },
+  "files_fmt": {
+   "cif": "final refined CIF",
+   "fcf": "SHELX LIST4 CIF reflection file (h k l Fc2 Fo2 sig status)",
+   "hkl": "DERIVED HKLF4 (h k l Fo2 sig), 3I4 2F8.2"
+  },
+  "license": "COD terms: data provided by IUCr Journals, free use within the scientific community with attribution to the source article",
+  "notes": "Organic salt with explicit two-component disorder (PART 1/2 + EXYZ + EADP in embedded .res; 16 sites occ<1). Core disorder stress case for typed rejection/disclosure."
+ },
+ {
+  "slug": "coord_cuox_cod2241944",
+  "stage": "refined",
+  "url": "https://www.crystallography.net/cod/2241944.html",
+  "doi": "10.1107/S2056989016017631",
+  "formula": "C4 H8 Cu N2 O8",
+  "sg": "P 1 21/c 1",
+  "category": "coordination",
+  "features": [
+   "heavy_atom"
+  ],
+  "journal": "Acta Crystallographica Section E (2016)",
+  "title": "Crystal structure of catena-poly[diammonium [di-μ-oxalato-cuprate(II)]]",
+  "published_R1_gt": "0.0179",
+  "r1_recomputed_from_fcf": 0.0178,
+  "n_reflections_fcf": 1672,
+  "hkl_derived_scale": 1.0,
+  "files": {
+   "ref.cif": {
+    "bytes": 258664
+   },
+   "ref.fcf": {
+    "bytes": 46458
+   },
+   "ref.hkl": {
+    "bytes": 48517
+   }
+  },
+  "files_fmt": {
+   "cif": "final refined CIF",
+   "fcf": "SHELX LIST4 CIF reflection file (h k l Fc2 Fo2 sig status)",
+   "hkl": "DERIVED HKLF4 (h k l Fo2 sig), 3I4 2F8.2"
+  },
+  "license": "COD terms: data provided by IUCr Journals, free use within the scientific community with attribution to the source article",
+  "notes": "Clean coordination polymer (Cu oxalate chain), very low R1=0.018. Baseline metal-organic validation."
+ },
+ {
+  "slug": "coorddis_cuspar_cod2241447",
+  "stage": "refined",
+  "url": "https://www.crystallography.net/cod/2241447.html",
+  "doi": "10.1107/S205698901502424X",
+  "formula": "C46 H52 Cu F4 N8 O12",
+  "sg": "P 1 21/c 1",
+  "category": "coordination",
+  "features": [
+   "disorder"
+  ],
+  "journal": "Acta Crystallographica Section E (2016)",
+  "title": "Crystal structures of [Mn(bdc)(Hspar)~2~(H~2~O)~0.25~]·2H~2~O containing MnO~6+1~ capped trigonal prisms and [Cu(Hspar)~2~](bdc)·2H~2~O containing CuO~4~ squares (Hspar = sparfloxacin and bdc = benzene-1,4-dicarboxylate)",
+  "published_R1_gt": "0.0520",
+  "r1_recomputed_from_fcf": 0.052,
+  "n_reflections_fcf": 5168,
+  "hkl_derived_scale": 1.0,
+  "files": {
+   "ref.cif": {
+    "bytes": 31786
+   },
+   "ref.fcf": {
+    "bytes": 146284
+   },
+   "ref.hkl": {
+    "bytes": 149901
+   }
+  },
+  "files_fmt": {
+   "cif": "final refined CIF",
+   "fcf": "SHELX LIST4 CIF reflection file (h k l Fc2 Fo2 sig status)",
+   "hkl": "DERIVED HKLF4 (h k l Fo2 sig), 3I4 2F8.2"
+  },
+  "license": "COD terms: data provided by IUCr Journals, free use within the scientific community with attribution to the source article",
+  "notes": "Cu(II)-sparfloxacin (fluoroquinolone drug) complex with PART disorder (12 sites occ<1). Pharma-relevant coordination + disorder stress."
+ },
+ {
+  "slug": "mof_cu3_cod2312697",
+  "stage": "refined",
+  "url": "https://www.crystallography.net/cod/2312697.html",
+  "doi": "10.1107/S2053229624011082",
+  "formula": "C60 H40 Cu3 N8 O20",
+  "sg": "P -1",
+  "category": "mof",
+  "features": [
+   "heavy_atom"
+  ],
+  "journal": "Acta crystallographica. Section C, Structural chemistry (2024)",
+  "title": "Construction of pyridine-functionalized metal-organic frameworks for the detection of flazasulfuron.",
+  "published_R1_gt": "0.0576",
+  "r1_recomputed_from_fcf": 0.056,
+  "n_reflections_fcf": 5025,
+  "hkl_derived_scale": 1.0,
+  "files": {
+   "ref.cif": {
+    "bytes": 620187
+   },
+   "ref.fcf": {
+    "bytes": 144149
+   },
+   "ref.hkl": {
+    "bytes": 145754
+   }
+  },
+  "files_fmt": {
+   "cif": "final refined CIF",
+   "fcf": "SHELX LIST4 CIF reflection file (h k l Fc2 Fo2 sig status)",
+   "hkl": "DERIVED HKLF4 (h k l Fo2 sig), 3I4 2F8.2"
+  },
+  "license": "COD terms: data provided by IUCr Journals, free use within the scientific community with attribution to the source article",
+  "notes": "Trinuclear Cu3 metal-organic framework (Acta Cryst C 2024) with SADI restraints; framework category previously under-represented with Fobs."
+ },
+ {
+  "slug": "twin_iodouracil_cod2020129",
+  "stage": "refined",
+  "url": "https://www.crystallography.net/cod/2020129.html",
+  "doi": "10.1107/S2053229615017167",
+  "formula": "C4 H3 I N2 O2",
+  "sg": "P 1 21 1",
+  "category": "organic",
+  "features": [
+   "twin",
+   "heavy_atom"
+  ],
+  "journal": "Acta Crystallographica Section C (2015)",
+  "title": "5-Iodouracil: structure of a reflection twin",
+  "published_R1_gt": "0.0189",
+  "r1_recomputed_from_fcf": 0.0189,
+  "n_reflections_fcf": 3122,
+  "hkl_derived_scale": 1.0,
+  "files": {
+   "ref.cif": {
+    "bytes": 142057
+   },
+   "ref.fcf": {
+    "bytes": 89499
+   },
+   "ref.hkl": {
+    "bytes": 90567
+   }
+  },
+  "files_fmt": {
+   "cif": "final refined CIF",
+   "fcf": "SHELX LIST4 CIF reflection file (h k l Fc2 Fo2 sig status)",
+   "hkl": "DERIVED HKLF4 (h k l Fo2 sig), 3I4 2F8.2"
+  },
+  "license": "COD terms: data provided by IUCr Journals, free use within the scientific community with attribution to the source article",
+  "notes": "Reflection twin of 5-iodouracil refined with BASF 0.389 (HKLF5-style batch refinement); heavy scatterer I; excellent R1=0.019. Strong explicit-twin disclosure test."
+ },
+ {
+  "slug": "twintrap_nm_cod2229074",
+  "stage": "refined",
+  "url": "https://www.crystallography.net/cod/2229074.html",
+  "doi": "10.1107/S1600536811002236",
+  "formula": "C16 H14 N2 O5",
+  "sg": "P -1",
+  "category": "organic",
+  "features": [
+   "twin",
+   "disorder",
+   "trap"
+  ],
+  "journal": "Acta Crystallographica Section E (2011)",
+  "title": "Ethyl 2-(4-nitrobenzamido)benzoate, a non-merohedral twin",
+  "published_R1_gt": "0.0526",
+  "r1_recomputed_from_fcf": 0.0526,
+  "n_reflections_fcf": 10410,
+  "hkl_derived_scale": 1.0,
+  "files": {
+   "ref.cif": {
+    "bytes": 15742
+   },
+   "ref.fcf": {
+    "bytes": 266610
+   },
+   "ref.hkl": {
+    "bytes": 301919
+   }
+  },
+  "files_fmt": {
+   "cif": "final refined CIF",
+   "fcf": "SHELX LIST4 CIF reflection file (h k l Fc2 Fo2 sig status)",
+   "hkl": "DERIVED HKLF4 (h k l Fo2 sig), 3I4 2F8.2"
+  },
+  "license": "COD terms: data provided by IUCr Journals, free use within the scientific community with attribution to the source article",
+  "notes": "Non-merohedral twin whose deposited CIF contains NO twin tags (title only); fcf is detwinned LIST4 data. Hidden-pathology trap: does validation notice silently detwinned data / disorder (PART 1/2)?"
+ },
+ {
+  "slug": "twin_rz5267_iucr",
+  "stage": "refined",
+  "url": "https://journals.iucr.org/e/issues/2020/01/00/rz5267/",
+  "doi": "10.1107/S2056989019016852",
+  "formula": "C28 H22 N4 O9",
+  "sg": "C 2/c",
+  "category": "organic",
+  "features": [
+   "twin",
+   "weak_data"
+  ],
+  "journal": "Acta Crystallographica Section E (2020)",
+  "title": "Bis{4-[(2-hydroxy-5-methoxy-3-nitrobenzylidene)amino]phenyl} ether: two-component pseudo-merohedral twin",
+  "published_R1_gt": "0.0996",
+  "r1_recomputed_from_fcf": 0.0996,
+  "n_reflections_fcf": 2830,
+  "hkl_derived_scale": 0.1,
+  "files": {
+   "ref.cif": {
+    "bytes": 1528743
+   },
+   "ref.fcf": {
+    "bytes": 232146
+   },
+   "ref.hkl": {
+    "bytes": 82099
+   }
+  },
+  "files_fmt": {
+   "cif": "final refined CIF",
+   "fcf": "SHELX LIST4 CIF reflection file (h k l Fc2 Fo2 sig status)",
+   "hkl": "DERIVED HKLF4 (h k l Fo2 sig), 3I4 2F8.2"
+  },
+  "license": "Open-access IUCr journal article (CC-BY); CIF/structure factors published as supplementary material",
+  "notes": "IUCr Acta E direct supplement. Explicit TWIN -1 0 0 0 -1 0 0 0 1 / BASF 0.0234 in embedded .res, but high R1~0.10: tests honest reporting of poor model-data agreement alongside twin disclosure."
+ },
+ {
+  "slug": "twindis_hb8035_iucr",
+  "stage": "refined",
+  "url": "https://journals.iucr.org/e/issues/2022/09/00/hb8035/",
+  "doi": "10.1107/S2056989022008118",
+  "formula": "C36 H43 N O6",
+  "sg": "P 21/c",
+  "category": "organic",
+  "features": [
+   "twin",
+   "disorder"
+  ],
+  "journal": "Acta Crystallographica Section E (2022)",
+  "title": "Ebastinium hydrogen fumarate: pseudo-merohedral twin with extensive disorder",
+  "published_R1_gt": "0.0469",
+  "r1_recomputed_from_fcf": 0.0468,
+  "n_reflections_fcf": 7224,
+  "hkl_derived_scale": 1.0,
+  "files": {
+   "ref.cif": {
+    "bytes": 1900885
+   },
+   "ref.fcf": {
+    "bytes": 587736
+   },
+   "ref.hkl": {
+    "bytes": 209525
+   }
+  },
+  "files_fmt": {
+   "cif": "final refined CIF",
+   "fcf": "SHELX LIST4 CIF reflection file (h k l Fc2 Fo2 sig status)",
+   "hkl": "DERIVED HKLF4 (h k l Fo2 sig), 3I4 2F8.2"
+  },
+  "license": "Open-access IUCr journal article (CC-BY); CIF/structure factors published as supplementary material",
+  "notes": "IUCr Acta E direct supplement (Parkin group). TWIN/BASF + massive disorder: 82 sites occ<1, PART 1/2, SADI; 20 of 35 non-H atoms over two sites. Hardest combined stress case."
+ },
+ {
+  "slug": "frames_zn_dpnpp",
+  "stage": "frames",
+  "url": "https://zenodo.org/records/6346906",
+  "doi": "10.5281/zenodo.6346906",
+  "paper_doi": "10.1039/D2DT00492E",
+  "ccdc": "2068271-2068272",
+  "formula": "C24 H16 N4 O16 P2 Zn",
+  "sg": "P n a 21",
+  "category": "coordination",
+  "features": [
+   "twin",
+   "inversion_twin_basf_0.496",
+   "two_component_integration",
+   "legacy_format_od_sapphire_3.0",
+   "dials_typed_rejection"
+  ],
+  "device": "Oxford Diffraction/Agilent CCD (KM4/Xcalibur-class), CrysAlisPro, 2012",
+  "radiation": "Mo Kalpha 0.71073",
+  "image_format": "OD .img, header \"OD SAPPHIRE 3.0\", TY5 compression, 1024x1024",
+  "files": {
+   "archive": "pg33_ZnDpNPP.7z (1,019,617,590 B, deleted after extraction)",
+   "n_frame_images": 1102,
+   "frames_tree_bytes": 1410548045,
+   "ref_cif": "ref/ref.cif = COD 7709880 (R1 0.0901, inversion twin BASF 0.49644)",
+   "twin_ground_truth": "pg33_twin1_hklf4.hkl / pg33_twin2_hklf4.hkl / pg33_twin1_hklf5.hkl + .twinlog/.rrptwin"
+  },
+  "dials_import": "FAIL (typed): FormatROD supports header 4.0 only, this is 3.0 -> _import_tests/zn_dpnpp/import.log",
+  "license": "CC-BY-4.0 (Zenodo, P. A. Gunka, Warsaw Univ. of Technology)",
+  "notes": "Fills coordination-chemistry gap of data_frames (all organic). Legacy-format typed-rejection case AND full twin stress: CrysAlisPro 2-component twin reduction shipped with the frames, final published model refined as inversion twin BASF 0.496. hkl-entry stage can consume the vendor twin HKLF4/HKLF5 files even though DIALS cannot import the frames."
+ },
+ {
+  "slug": "frames_onitroaniline_twin",
+  "stage": "frames",
+  "url": "https://zenodo.org/records/7193538",
+  "doi": "10.5281/zenodo.7193538",
+  "paper_doi": "10.1107/S2414314622010598",
+  "ccdc": "2217206",
+  "formula": "C6 H6 N2 O2",
+  "sg": "P 21/a (non-standard)",
+  "category": "organic",
+  "features": [
+   "twin",
+   "non_merohedral",
+   "pseudo_orthorhombic",
+   "published_rescue_ladder"
+  ],
+  "device": "Bruker Kappa APEXII CCD 512x512, Utrecht",
+  "radiation": "Mo Kalpha 0.71073, 150 K",
+  "image_format": "Bruker .sfrm, 7 scans",
+  "files": {
+   "archive": "sfrm_m0220c.tar.bz2 (577,773,967 B, deleted after extraction)",
+   "n_frame_images": 3324,
+   "frames_tree_bytes": 898758720,
+   "ref_cif": "none freely available (CCDC 2217206 is CSD-only); structural + R1 targets recorded in SOURCE.txt from the open-access RDL"
+  },
+  "dials_import": "OK: FormatBruker, 3324 images, 7 clean sweeps -> _import_tests/onitroaniline/import.log. NOTE: sfrm geometry import is broken (dxtbx gap: 2-theta swing + tilted phi axis lost, indexing impossible); cbf/ holds the authors' CBF conversion (cbf_m0220c.tar.bz2, 595,448,420 bytes, same record) with correct geometry - use cbf/ for reduction.",
+  "license": "CC-BY-4.0 (Zenodo, Lutz & Kroon-Batenburg, Utrecht University)",
+  "notes": "IUCrData Raw Data Letter set: gamma-o-nitroaniline non-merohedral 2-component twin (180 deg about c). RDL publishes the handling ladder R1 0.0678 (ignored) -> 0.0465 (PLATON HKLF5) -> best (EVAL15 two-lattice), objective targets for frames-level twin rescue. Pairs with data_frames/frames_bruker_apex2_laspartic (same lab/instrument, different twin law) for tune/verify splits."
+ },
+ {
+  "slug": "zenodo_14269933_lanthanide_mof",
+  "stage": "frames_candidate",
+  "url": "https://zenodo.org/records/14269933",
+  "doi": "10.5281/zenodo.14269933",
+  "size_MB": 29030,
+  "data_format": "CrysAlisPro raw images + HDF5/NeXus, zip",
+  "license": "CC-BY-4.0 (per Zenodo records)",
+  "notes": "NOT downloaded. Lanthanide MOF with node disorder - raw + supplementary data. PERFECT chemistry (MOF + disorder) but 29 GB."
+ },
+ {
+  "slug": "zenodo_6346906_md180_kwz178",
+  "stage": "frames_candidate",
+  "url": "https://zenodo.org/records/6346906",
+  "doi": "10.5281/zenodo.6346906",
+  "size_MB": 1959,
+  "data_format": "7z, OD .img (same paper as frames_zn_dpnpp)",
+  "license": "CC-BY-4.0 (per Zenodo records)",
+  "notes": "NOT downloaded. Companion Zn diarylphosphate polymer dataset (md180-KWZ178_b.7z, 1.96 GB). Skipped to stay in download budget."
+ },
+ {
+  "slug": "zenodo_5470707_ferrocene_cage",
+  "stage": "frames_candidate",
+  "url": "https://zenodo.org/records/5470707",
+  "doi": "10.5281/zenodo.5470707",
+  "size_MB": 1892,
+  "data_format": "7z (pg160_AK1016.7z), OD frames expected",
+  "license": "CC-BY-4.0 (per Zenodo records)",
+  "notes": "NOT downloaded. Ferrocene cage CCDC 2085773 (Chem. Sci. 10.1039/D1SC06372C), organometallic Fe. Good alternative coordination set."
+ },
+ {
+  "slug": "zenodo_7119208_as2o3_nh4cl",
+  "stage": "frames_candidate",
+  "url": "https://zenodo.org/records/7119208",
+  "doi": "10.5281/zenodo.7119208",
+  "size_MB": 1412,
+  "data_format": "7z raw diffraction + PXRD/TG/NMR archives",
+  "license": "CC-BY-4.0 (per Zenodo records)",
+  "notes": "NOT downloaded. NH4Cl-As2O3-H2O intercalate (CSD 2202825). Heavy main-group inorganic; As chemistry already partly covered by data_frames asbr3."
+ },
+ {
+  "slug": "zenodo_2585776_fampridine_ph2",
+  "stage": "frames_candidate",
+  "url": "https://zenodo.org/records/2585776",
+  "doi": "10.5281/zenodo.2585776",
+  "size_MB": 854,
+  "data_format": "Rigaku Oxford Diffraction .img + processing files",
+  "license": "CC-BY-4.0 (per Zenodo records)",
+  "notes": "NOT downloaded. Fampridine HCl phase 2 (Southampton NCS). Redundant: phase 1 already in data_frames (Nonius KappaCCD)."
+ },
+ {
+  "slug": "zenodo_12187765_dithiane",
+  "stage": "frames_candidate",
+  "url": "https://zenodo.org/records/12187765",
+  "doi": "10.5281/zenodo.12187765",
+  "size_MB": 1841,
+  "data_format": "7z, raw frames",
+  "license": "CC-BY-4.0 (per Zenodo records)",
+  "notes": "NOT downloaded. Organic bis-methyl-dithiane CCDC 2364133. Organic - no chemistry gain over existing sets."
+ },
+ {
+  "slug": "zenodo_18111739_mg2dobpdc_3ded",
+  "stage": "frames_candidate",
+  "url": "https://zenodo.org/records/18111739",
+  "doi": "10.5281/zenodo.18111739",
+  "size_MB": 9566,
+  "data_format": "MRC movies + CIF/RES (3D ED + 4D-STEM)",
+  "license": "CC-BY-4.0 (per Zenodo records)",
+  "notes": "NOT downloaded. MOF electron-diffraction raw data - wrong modality for the X-ray frames pipeline; noted for completeness."
+ }
+]

@@ -1,0 +1,52 @@
+{
+  "id": "n0006",
+  "parent": "n0005",
+  "branch": "zr_work",
+  "ts": 1787947065.3534505,
+  "tool": "add_atoms_from_difference_map",
+  "params": {
+    "element": "C",
+    "peak_indices": [
+      0,
+      1
+    ],
+    "max_add": 2,
+    "min_dist_to_existing": 1,
+    "max_dist_to_existing": 1.7,
+    "occupancy": 1
+  },
+  "note": "",
+  "metrics": {
+    "label": "add_missing_Zr_coord_O",
+    "r1_strong": 0.163,
+    "r1_all": 0.1789,
+    "wr2": 0.4597,
+    "goof": 3.571,
+    "n_params": 54,
+    "n_reflections": 4166,
+    "diff_map_max": 4.12,
+    "diff_map_min": -1.5,
+    "notes": "",
+    "scale_k": 0.014260248866829809
+  },
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 16,
+    "element_counts": {
+      "Zr": 2,
+      "O": 5,
+      "C": 9
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 0.014260248866829809,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

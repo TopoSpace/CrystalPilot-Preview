@@ -1,0 +1,48 @@
+{
+  "summary": {
+    "n_cases": 1,
+    "pipeline_ok_rate": 1.0,
+    "sg_top1_rate": 1.0,
+    "solved_rate": 1.0,
+    "mean_r1": 0.2355,
+    "mean_elapsed_s": 20.4
+  },
+  "rows": [
+    {
+      "name": "cod_2214921",
+      "symmetry_mode": "auto",
+      "mode": "standard",
+      "true_sg": "P -1",
+      "human_r1": 0.037,
+      "pipeline_ok": true,
+      "used_sg": "P -1",
+      "sg_correct": true,
+      "r1": 0.2355,
+      "confidence": 42.5,
+      "framework_dim": 0,
+      "error": null,
+      "match": {
+        "heavy": {
+          "n_ref": 0,
+          "n_model": 0,
+          "n_matched": 0,
+          "rms": null
+        },
+        "all_atoms": {
+          "n_ref": 26,
+          "n_model": 26,
+          "n_matched": 26,
+          "rms": 0.036
+        },
+        "n_ref_solvent_excluded": 0,
+        "heavy_match_rate": null,
+        "heavy_precision": null,
+        "all_match_rate": 1.0,
+        "all_precision": 1.0,
+        "solved": true
+      },
+      "solved": true,
+      "elapsed_s": 20.4
+    }
+  ]
+}

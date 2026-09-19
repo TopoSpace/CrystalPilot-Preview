@@ -1,0 +1,50 @@
+{
+  "id": "n0004",
+  "parent": "n0003",
+  "branch": "zr_work",
+  "ts": 1787947056.3068316,
+  "tool": "add_atoms_from_difference_map",
+  "params": {
+    "element": "O",
+    "peak_indices": [
+      0
+    ],
+    "max_add": 1,
+    "min_dist_to_existing": 1.2,
+    "occupancy": 1
+  },
+  "note": "",
+  "metrics": {
+    "label": "Zr_sites_aniso",
+    "r1_strong": 0.1914,
+    "r1_all": 0.2089,
+    "wr2": 0.5218,
+    "goof": 4.174,
+    "n_params": 51,
+    "n_reflections": 4166,
+    "diff_map_max": 9.55,
+    "diff_map_min": -1.63,
+    "notes": "",
+    "scale_k": 0.013301972277545461
+  },
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 14,
+    "element_counts": {
+      "Zr": 2,
+      "O": 5,
+      "C": 7
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 0.013301972277545461,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

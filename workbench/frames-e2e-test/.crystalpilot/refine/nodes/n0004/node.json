@@ -1,0 +1,50 @@
+{
+  "id": "n0004",
+  "parent": "n0003",
+  "branch": "main",
+  "ts": 1787944759.4292421,
+  "tool": "refine",
+  "params": {
+    "mode": "anisotropic",
+    "n_cycles": 6
+  },
+  "note": "",
+  "metrics": {
+    "label": "anisotropic",
+    "r1_strong": 0.1991,
+    "r1_all": 0.2081,
+    "wr2": 0.4945,
+    "goof": 3.718,
+    "n_params": 63,
+    "n_reflections": 2589,
+    "diff_map_max": 5.53,
+    "diff_map_min": -1.19,
+    "notes": "",
+    "scale_k": 5.778338705830908
+  },
+  "metrics_current": true,
+  "model": {
+    "n_atoms": 13,
+    "element_counts": {
+      "C": 7,
+      "H": 6
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 5.778338705830908,
+  "mask": null,
+  "hydrogens": {
+    "present": true,
+    "elements": [
+      "C",
+      "N",
+      "O"
+    ],
+    "n_groups": 4
+  },
+  "label_renames": {}
+}

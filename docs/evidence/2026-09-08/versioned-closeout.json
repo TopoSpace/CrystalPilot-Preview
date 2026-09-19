@@ -1,0 +1,515 @@
+{
+  "verified_at": "2026-09-08T07:45:41.754041+00:00",
+  "code_commit": "46d0be3599071e8167657b2bf13e16e96ab063cb",
+  "production_url": "http://127.0.0.1:8010",
+  "health": {
+    "ok": true,
+    "llm_configured": false,
+    "ui_build": {
+      "present": true,
+      "built_at": "2026-09-08T07:40:40.991Z",
+      "version": "0.1.0",
+      "src_newest_at": "2026-09-08T14:32:56",
+      "src_newest_file": "ui\\src\\lib\\wbTypes.ts",
+      "stale": false
+    }
+  },
+  "verification_groups_not_additive": {
+    "parent_backend": {
+      "passed": 149,
+      "log": "workdir\\round3-final-backend-tests.log"
+    },
+    "parent_ui": {
+      "files": 50,
+      "passed": 529,
+      "log": "workdir\\round3-final-ui-tests.log"
+    },
+    "production_browser": {
+      "passed": 12,
+      "skipped": 0,
+      "log": "workdir\\round3-production-browser.log"
+    },
+    "prior_static_comparison": {
+      "passed": 8,
+      "skipped": 3,
+      "reason": "Vite-only public viewer probes; previously verified on Vite"
+    }
+  },
+  "registered_projects_idle": 10,
+  "pending_publications": 0,
+  "provider_records_unchanged_across_restart": true,
+  "roundtrip": {
+    "project": "H:\\CrystalPilot-campaigns\\upgrade-20260908-data-acceptance\\versioned-sucrose-return",
+    "node_a": "n0001",
+    "data_a": "d000001",
+    "node_b": "n0003",
+    "data_b": "d000002",
+    "cubtc_node": "n0005",
+    "a": 0.0411,
+    "b": 0.6148,
+    "return_a": 0.0411,
+    "cubtc": 0.0244,
+    "temperature_path_K": [
+      298,
+      293,
+      298.0
+    ],
+    "exact_observation_return": true,
+    "historical_node_unchanged": true
+  },
+  "scientific_oracle": [
+    {
+      "name": "H-model-change",
+      "expected": {
+        "r1": "comparable",
+        "wr2": "comparable",
+        "goof": "comparable"
+      },
+      "observed": {
+        "r1": "comparable",
+        "wr2": "comparable",
+        "goof": "comparable"
+      },
+      "sources": {
+        "node": {
+          "node": "n0003",
+          "model_revision": 4,
+          "data_revision": "d000001",
+          "data_binding": "bound",
+          "metrics_current": true,
+          "metrics_source": {
+            "node": "n0003",
+            "model_revision": 4,
+            "data_revision": "d000001",
+            "engine": "SHELXL",
+            "job": "job_20260908_143629",
+            "conditions_token": "d000001:n0003:conditions-v1"
+          },
+          "metrics": {
+            "r1": 0.0362,
+            "wr2": 0.1148,
+            "goof": 1.062,
+            "n_atoms": 23
+          },
+          "cutoff": {
+            "requested": [],
+            "selected_reflections": 1755,
+            "applied": [],
+            "application": "applied"
+          },
+          "weights": {
+            "a": 0.1,
+            "b": 0.0,
+            "source": "measurement"
+          }
+        },
+        "baseline": {
+          "node": "n0001",
+          "model_revision": 2,
+          "data_revision": "d000001",
+          "data_binding": "bound",
+          "metrics_current": true,
+          "metrics_source": {
+            "node": "n0001",
+            "model_revision": 2,
+            "data_revision": "d000001",
+            "engine": "SHELXL",
+            "job": "job_20260908_143628",
+            "conditions_token": "d000001:n0001:conditions-v1"
+          },
+          "metrics": {
+            "r1": 0.0614,
+            "wr2": 0.2028,
+            "goof": 1.901,
+            "n_atoms": 13
+          },
+          "cutoff": {
+            "requested": [],
+            "selected_reflections": 1755,
+            "applied": [],
+            "application": "applied"
+          },
+          "weights": {
+            "a": 0.1,
+            "b": 0.0,
+            "source": "measurement"
+          }
+        }
+      }
+    },
+    {
+      "name": "inherited-stale",
+      "expected": {
+        "r1": "unknown",
+        "wr2": "unknown",
+        "goof": "unknown"
+      },
+      "observed": {
+        "r1": "unknown",
+        "wr2": "unknown",
+        "goof": "unknown"
+      },
+      "sources": {
+        "node": {
+          "node": "n0002",
+          "model_revision": 3,
+          "data_revision": "d000001",
+          "data_binding": "bound",
+          "metrics_current": false,
+          "metrics_source": {
+            "node": "n0001",
+            "model_revision": 2,
+            "data_revision": "d000001",
+            "engine": "SHELXL",
+            "job": "job_20260908_143628",
+            "conditions_token": "d000001:n0001:conditions-v1"
+          },
+          "metrics": {
+            "r1": 0.0614,
+            "wr2": 0.2028,
+            "goof": 1.901,
+            "n_atoms": 23
+          },
+          "cutoff": {
+            "requested": [],
+            "selected_reflections": null,
+            "applied": null,
+            "application": "unknown"
+          },
+          "weights": {
+            "a": 0.1,
+            "b": 0.0,
+            "source": "next_model"
+          }
+        },
+        "baseline": {
+          "node": "n0001",
+          "model_revision": 2,
+          "data_revision": "d000001",
+          "data_binding": "bound",
+          "metrics_current": true,
+          "metrics_source": {
+            "node": "n0001",
+            "model_revision": 2,
+            "data_revision": "d000001",
+            "engine": "SHELXL",
+            "job": "job_20260908_143628",
+            "conditions_token": "d000001:n0001:conditions-v1"
+          },
+          "metrics": {
+            "r1": 0.0614,
+            "wr2": 0.2028,
+            "goof": 1.901,
+            "n_atoms": 13
+          },
+          "cutoff": {
+            "requested": [],
+            "selected_reflections": 1755,
+            "applied": [],
+            "application": "applied"
+          },
+          "weights": {
+            "a": 0.1,
+            "b": 0.0,
+            "source": "measurement"
+          }
+        }
+      }
+    },
+    {
+      "name": "weight-change",
+      "expected": {
+        "r1": "comparable",
+        "wr2": "different",
+        "goof": "different"
+      },
+      "observed": {
+        "r1": "comparable",
+        "wr2": "different",
+        "goof": "different"
+      },
+      "sources": {
+        "node": {
+          "node": "n0005",
+          "model_revision": 6,
+          "data_revision": "d000001",
+          "data_binding": "bound",
+          "metrics_current": true,
+          "metrics_source": {
+            "node": "n0005",
+            "model_revision": 6,
+            "data_revision": "d000001",
+            "engine": "SHELXL",
+            "job": "job_20260908_143807",
+            "conditions_token": "d000001:n0005:conditions-v1"
+          },
+          "metrics": {
+            "r1": 0.0356,
+            "wr2": 0.1287,
+            "goof": 0.633,
+            "n_atoms": 23
+          },
+          "cutoff": {
+            "requested": [],
+            "selected_reflections": 1755,
+            "applied": [],
+            "application": "applied"
+          },
+          "weights": {
+            "a": 0.2,
+            "b": 0.0,
+            "source": "measurement"
+          }
+        },
+        "baseline": {
+          "node": "n0003",
+          "model_revision": 4,
+          "data_revision": "d000001",
+          "data_binding": "bound",
+          "metrics_current": true,
+          "metrics_source": {
+            "node": "n0003",
+            "model_revision": 4,
+            "data_revision": "d000001",
+            "engine": "SHELXL",
+            "job": "job_20260908_143629",
+            "conditions_token": "d000001:n0003:conditions-v1"
+          },
+          "metrics": {
+            "r1": 0.0362,
+            "wr2": 0.1148,
+            "goof": 1.062,
+            "n_atoms": 23
+          },
+          "cutoff": {
+            "requested": [],
+            "selected_reflections": 1755,
+            "applied": [],
+            "application": "applied"
+          },
+          "weights": {
+            "a": 0.1,
+            "b": 0.0,
+            "source": "measurement"
+          }
+        }
+      }
+    },
+    {
+      "name": "cutoff-change",
+      "expected": {
+        "r1": "different",
+        "wr2": "different",
+        "goof": "different"
+      },
+      "observed": {
+        "r1": "different",
+        "wr2": "different",
+        "goof": "different"
+      },
+      "sources": {
+        "node": {
+          "node": "n0007",
+          "model_revision": 8,
+          "data_revision": "d000001",
+          "data_binding": "bound",
+          "metrics_current": true,
+          "metrics_source": {
+            "node": "n0007",
+            "model_revision": 8,
+            "data_revision": "d000001",
+            "engine": "SHELXL",
+            "job": "job_20260908_143808",
+            "conditions_token": "d000001:n0007:conditions-v1"
+          },
+          "metrics": {
+            "r1": 0.0293,
+            "wr2": 0.1071,
+            "goof": 0.556,
+            "n_atoms": 23
+          },
+          "cutoff": {
+            "requested": [
+              "SHEL 999 1.000"
+            ],
+            "selected_reflections": 908,
+            "applied": [
+              "SHEL 999 1.000"
+            ],
+            "application": "applied"
+          },
+          "weights": {
+            "a": 0.2,
+            "b": 0.0,
+            "source": "measurement"
+          }
+        },
+        "baseline": {
+          "node": "n0005",
+          "model_revision": 6,
+          "data_revision": "d000001",
+          "data_binding": "bound",
+          "metrics_current": true,
+          "metrics_source": {
+            "node": "n0005",
+            "model_revision": 6,
+            "data_revision": "d000001",
+            "engine": "SHELXL",
+            "job": "job_20260908_143807",
+            "conditions_token": "d000001:n0005:conditions-v1"
+          },
+          "metrics": {
+            "r1": 0.0356,
+            "wr2": 0.1287,
+            "goof": 0.633,
+            "n_atoms": 23
+          },
+          "cutoff": {
+            "requested": [],
+            "selected_reflections": 1755,
+            "applied": [],
+            "application": "applied"
+          },
+          "weights": {
+            "a": 0.2,
+            "b": 0.0,
+            "source": "measurement"
+          }
+        }
+      }
+    },
+    {
+      "name": "real-data-version-change",
+      "expected": {
+        "r1": "different",
+        "wr2": "different",
+        "goof": "different"
+      },
+      "observed": {
+        "r1": "different",
+        "wr2": "different",
+        "goof": "different"
+      },
+      "sources": {
+        "node": {
+          "node": "n0003",
+          "model_revision": 4,
+          "data_revision": "d000002",
+          "data_binding": "bound",
+          "metrics_current": true,
+          "metrics_source": {
+            "node": "n0003",
+            "model_revision": 4,
+            "data_revision": "d000002",
+            "engine": "SHELXL",
+            "job": "job_20260908_144031",
+            "conditions_token": "d000002:n0003:conditions-v1"
+          },
+          "metrics": {
+            "r1": 0.6148,
+            "wr2": 0.0848,
+            "goof": 0.186,
+            "n_atoms": 45
+          },
+          "cutoff": {
+            "requested": [],
+            "selected_reflections": 16720,
+            "applied": [],
+            "application": "applied"
+          },
+          "weights": {
+            "a": 0.0554,
+            "b": 0.0,
+            "source": "measurement"
+          }
+        },
+        "baseline": {
+          "node": "n0001",
+          "model_revision": 2,
+          "data_revision": "d000001",
+          "data_binding": "bound",
+          "metrics_current": true,
+          "metrics_source": {
+            "node": "n0001",
+            "model_revision": 2,
+            "data_revision": "d000001",
+            "engine": "SHELXL",
+            "job": "job_20260908_144027",
+            "conditions_token": "d000001:n0001:conditions-v1"
+          },
+          "metrics": {
+            "r1": 0.0411,
+            "wr2": 0.11,
+            "goof": 0.972,
+            "n_atoms": 45
+          },
+          "cutoff": {
+            "requested": [],
+            "selected_reflections": 16720,
+            "applied": [],
+            "application": "applied"
+          },
+          "weights": {
+            "a": 0.0554,
+            "b": 0.0,
+            "source": "measurement"
+          }
+        }
+      }
+    },
+    {
+      "name": "legacy-unknown",
+      "expected": {
+        "r1": "unknown",
+        "wr2": "unknown",
+        "goof": "unknown"
+      },
+      "observed": {
+        "r1": "unknown",
+        "wr2": "unknown",
+        "goof": "unknown"
+      },
+      "sources": {
+        "node": {
+          "node": "n0004",
+          "model_revision": 5,
+          "data_revision": null,
+          "data_binding": "legacy_unknown",
+          "metrics_current": false,
+          "metrics_source": null,
+          "metrics": {
+            "r1": 0.0381,
+            "wr2": 0.13,
+            "goof": 1.204,
+            "n_atoms": 24
+          },
+          "cutoff": null,
+          "weights": null
+        },
+        "baseline": {
+          "node": "n0002",
+          "model_revision": 3,
+          "data_revision": null,
+          "data_binding": "legacy_unknown",
+          "metrics_current": false,
+          "metrics_source": null,
+          "metrics": {
+            "r1": 0.0656,
+            "wr2": 0.2215,
+            "goof": 2.158,
+            "n_atoms": 13
+          },
+          "cutoff": null,
+          "weights": null
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "No new model calls in final acceptance",
+    "No pixel screenshots treated as scientific improvement",
+    "No all-file ACID or power-loss guarantee",
+    "No implicit legacy data binding",
+    "Static acceptance does not cover Vite-only viewer API probes"
+  ]
+}

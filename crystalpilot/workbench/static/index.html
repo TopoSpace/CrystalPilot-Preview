@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>CrystalPilot Workbench</title>
+<style>
+:root{--fg:#18181b;--muted:#71717a;--line:#e4e4e7;--bg:#fff;--card:#fafafa;
+      --accent:#4f46e5;--amber:#d97706;--green:#16a34a;--red:#dc2626;--teal:#0d9488;}
+*{box-sizing:border-box}
+body{margin:0;font:14px/1.5 -apple-system,'Segoe UI',Roboto,'Inter',sans-serif;
+     color:var(--fg);background:var(--bg);height:100vh;display:flex;flex-direction:column}
+header{display:flex;gap:12px;align-items:center;padding:10px 16px;
+       border-bottom:1px solid var(--line)}
+header b{letter-spacing:-0.02em}
+header .tag{font-size:11px;color:var(--muted);border:1px solid var(--line);
+            border-radius:99px;padding:1px 8px}
+#projRow{display:flex;gap:8px;flex:1}
+#proj{flex:1;max-width:520px;padding:6px 10px;border:1px solid var(--line);
+      border-radius:8px;font:inherit}
+button{font:inherit;border:1px solid var(--line);background:var(--card);
+       border-radius:8px;padding:6px 12px;cursor:pointer}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+main{flex:1;display:flex;min-height:0}
+#left{flex:1.2;display:flex;flex-direction:column;border-right:1px solid var(--line);min-width:0}
+#chat{flex:1;overflow-y:auto;padding:18px}
+.msg{max-width:76ch;margin:0 0 14px;white-space:pre-wrap;word-break:break-word}
+.msg.user{background:var(--card);border:1px solid var(--line);border-radius:10px;
+          padding:8px 12px;margin-left:auto}
+.msg.agent{padding:0 2px}
+.think{color:var(--muted);font-size:12.5px;border-left:2px solid var(--line);
+       padding:2px 10px;margin:8px 0}
+#inputRow{display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--line)}
+#inp{flex:1;padding:9px 12px;border:1px solid var(--line);border-radius:10px;font:inherit}
+#right{flex:1;display:flex;flex-direction:column;min-width:0}
+#right h3{font-size:11px;text-transform:uppercase;letter-spacing:.08em;
+          color:var(--muted);margin:10px 16px 4px;display:flex;align-items:center;gap:8px}
+#metrics{display:flex;gap:14px;padding:8px 16px;border-bottom:1px solid var(--line);
+         font-size:12px;color:var(--muted);flex-wrap:wrap;min-height:20px}
+#metrics b{color:var(--fg);font-size:15px}
+#viewer{height:270px;border-bottom:1px solid var(--line);position:relative;background:#fff}
+#viewer .placeholder{position:absolute;inset:0;display:flex;align-items:center;
+       justify-content:center;color:var(--muted);font-size:12px}
+#nodesBar{padding:4px 16px 8px;border-bottom:1px solid var(--line);max-height:130px;
+          overflow-y:auto;font-size:12px}
+.node{display:flex;gap:8px;padding:2px 0;font-family:ui-monospace,Consolas,monospace;
+      cursor:pointer;color:var(--muted)}
+.node:hover{color:var(--fg)}
+.node.active{color:var(--accent);font-weight:600}
+.node .r1{margin-left:auto}
+#activity{flex:1.2;overflow-y:auto;padding:0 16px 10px;border-bottom:1px solid var(--line)}
+#artifacts{flex:.5;overflow-y:auto;padding:0 16px 14px}
+.act{font-family:ui-monospace,Consolas,monospace;font-size:12px;margin:6px 0;
+     padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);
+     white-space:pre-wrap;word-break:break-all}
+.act.cmd{border-left:3px solid var(--accent)}
+.act.ok{border-left:3px solid var(--green)}
+.act.fail{border-left:3px solid var(--red)}
+.act.tool{border-left:3px solid var(--teal)}
+.act.tool .tname{color:var(--teal);font-weight:600}
+.approval{border:1.5px solid var(--amber);border-radius:10px;padding:10px 12px;margin:8px 0;
+          background:#fffbeb;font-size:13px}
+.approval .cmdline{font-family:ui-monospace,Consolas,monospace;font-size:12px;
+                   margin:6px 0;word-break:break-all}
+.approval button{margin-right:8px}
+.pill{display:inline-block;font-size:11px;border-radius:99px;padding:0 8px;
+      background:var(--card);border:1px solid var(--line);color:var(--muted)}
+a.art{display:block;font-size:13px;color:var(--accent);text-decoration:none;margin:3px 0}
+#status{font-size:12px;color:var(--muted)}
+.spin{display:inline-block;width:10px;height:10px;border:2px solid var(--line);
+      border-top-color:var(--accent);border-radius:50%;animation:r 1s linear infinite;
+      vertical-align:-1px;margin-right:6px}
+@keyframes r{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<header>
+  <b>CrystalPilot</b><span class="tag">自主精修工作台 · Codex + MCP</span>
+  <div id="projRow">
+    <input id="proj" placeholder="项目文件夹路径，例如 H:\CrystalPilot\workbench\mvp-sjtu9">
+    <button class="primary" onclick="openProject()">打开项目</button>
+  </div>
+  <span id="status"></span>
+</header>
+<main>
+  <div id="left">
+    <div id="chat"></div>
+    <div id="inputRow">
+      <input id="inp" placeholder="用自然语言描述精修任务…" onkeydown="if(event.key==='Enter')send()">
+      <button class="primary" onclick="send()">发送</button>
+      <button onclick="interruptTurn()" title="中断当前回合">中断</button>
+    </div>
+  </div>
+  <div id="right">
+    <div id="metrics"><span class="pill">尚无精修指标</span></div>
+    <div id="viewer"><div class="placeholder">3D 结构（选择节点或等待精修）</div></div>
+    <h3>节点 / 候选分支 <span id="branchInfo" class="pill"></span></h3>
+    <div id="nodesBar"><span class="pill">尚无节点</span></div>
+    <h3>Agent 活动</h3>
+    <div id="activity"></div>
+    <h3>产物 · CrystalPilot Results</h3>
+    <div id="artifacts"><span class="pill">尚无产物</span></div>
+  </div>
+</main>
+<script src="https://3dmol.org/build/3Dmol-min.js" onerror="window._no3d=true"></script>
+<script>
+let threadId = null, agentDiv = null, es = null, projectPath = null, lastUsage = null;
+let glviewer = null, shownNode = null;
+const $ = id => document.getElementById(id);
+function setStatus(t, busy){ $('status').innerHTML = (busy?'<span class="spin"></span>':'') + t; }
+
+function openProject(){
+  fetch('/api/projects/open', {method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({path: $('proj').value})})
+  .then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); })
+  .then(d=>{
+    projectPath = d.project; threadId = null;
+    setStatus('项目已打开: ' + d.project + ' (' + d.threads.length + ' 个历史任务)');
+    connect(); refreshNodes();
+  }).catch(e=>setStatus('打开失败: '+e));
+}
+
+function send(){
+  const text = $('inp').value.trim(); if(!text || !projectPath) return;
+  $('inp').value = '';
+  fetch('/api/threads/send', {method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({project: projectPath, message: text, thread_id: threadId})})
+  .then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); })
+  .then(d=>{ threadId = d.thread_id; setStatus('任务 '+d.task_id+' 运行中…', true); })
+  .catch(e=>setStatus('发送失败: '+e));
+}
+
+function interruptTurn(){
+  if(!threadId) return;
+  fetch('/api/threads/interrupt', {method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({thread_id: threadId})})
+  .then(r=>r.json()).then(d=>setStatus(d.interrupted?'已请求中断':'当前无运行中的回合'));
+}
+
+function addMsg(cls, text){
+  const div = document.createElement('div');
+  div.className = 'msg '+cls; div.textContent = text;
+  $('chat').appendChild(div); $('chat').scrollTop = 1e9;
+  return div;
+}
+function addAct(cls, text){
+  const div = document.createElement('div');
+  div.className = 'act '+cls; div.textContent = String(text).slice(0, 900);
+  $('activity').appendChild(div); $('activity').scrollTop = 1e9;
+  return div;
+}
+
+function toolCard(ev){
+  const div = document.createElement('div');
+  div.className = 'act tool';
+  const args = ev.args ? JSON.stringify(ev.args) : '';
+  let head = '🔧 <span class="tname"></span> ';
+  div.innerHTML = head + '<span class="pill">'+(ev.status||'')+'</span><div class="args"></div><div class="res"></div>';
+  div.querySelector('.tname').textContent = ev.tool;
+  div.querySelector('.args').textContent = args.slice(0, 300);
+  if(ev.result_tail){
+    let res = ev.result_tail;
+    try{ const j = JSON.parse(res); res = JSON.stringify(j.summary ?? j).slice(0, 500); }catch(_){}
+    div.querySelector('.res').textContent = res;
+  }
+  if(ev.ok === false || ev.error){ div.classList.add('fail');
+    div.querySelector('.res').textContent = (ev.error||'') + ' ' + (div.querySelector('.res').textContent||''); }
+  $('activity').appendChild(div); $('activity').scrollTop = 1e9;
+}
+
+function updateMetrics(summary){
+  try{
+    const m = $('metrics'); const s = summary;
+    if(s.r1_strong === undefined && !s.shelxl) return;
+    const r1 = s.r1_strong ?? (s.shelxl && s.shelxl.r1_strong);
+    const wr2 = s.wr2 ?? (s.shelxl && s.shelxl.wr2);
+    const goof = s.goof_restrained ?? s.goof ?? (s.shelxl && s.shelxl.goof);
+    m.innerHTML = '<span>R1 <b>'+fmt(r1)+'</b></span>'
+      + '<span>wR2 <b>'+fmt(wr2)+'</b></span>'
+      + '<span>GooF <b>'+fmt(goof)+'</b></span>'
+      + (s.diff_map_max!==undefined ? '<span>Δρ <b>'+fmt(s.diff_map_max)+' / '+fmt(s.diff_map_min)+'</b></span>' : '')
+      + (s.n_params ? '<span>参数 <b>'+s.n_params+'</b>'+(s.n_restraints?('/约束 <b>'+s.n_restraints+'</b>'):'')+'</span>' : '')
+      + (s.n_atoms ? '<span>原子 <b>'+s.n_atoms+'</b></span>' : '')
+      + (s.node ? '<span>节点 <b>'+s.node+'</b></span>' : '');
+  }catch(_){}
+}
+function fmt(x){ return (x===null||x===undefined)?'—':(typeof x==='number'?x.toFixed(4).replace(/\.?0+$/,''):x); }
+
+function refreshNodes(){
+  if(!projectPath) return;
+  fetch('/api/wb/refine/nodes?project='+encodeURIComponent(projectPath))
+  .then(r=>r.json()).then(d=>{
+    const bar = $('nodesBar'); bar.innerHTML='';
+    $('branchInfo').textContent = d.active_branch ? ('分支 '+d.active_branch+' · '+Object.keys(d.branches||{}).length+' 个') : '';
+    if(!d.nodes || !d.nodes.length){ bar.innerHTML='<span class="pill">尚无节点</span>'; return; }
+    for(const n of d.nodes){
+      const div = document.createElement('div');
+      div.className = 'node' + (n.id===d.active_node?' active':'');
+      div.innerHTML = '<span class="nid"></span><span class="tool"></span>'
+        + '<span class="asu"></span><span class="r1"></span>';
+      div.querySelector('.nid').textContent = n.id;
+      div.querySelector('.tool').textContent = n.tool + (n.note?(' · '+n.note.slice(0,40)):'');
+      if(n.asu){
+        const a = div.querySelector('.asu');
+        a.textContent = '⚠' + (n.asu.ghosts?(' 幽灵'+n.asu.ghosts):'')
+                            + (n.asu.detached?(' 游离'+n.asu.detached):'');
+        a.style.cssText = 'color:var(--red);font-weight:600';
+        a.title = 'ASU 红旗：幽灵原子嫌疑 '+n.asu.ghosts+' · 未连接原子 '
+                  +n.asu.detached+'（assemble_asu / 删测裁决）';
+      }
+      div.querySelector('.r1').textContent = (n.r1!=null? ('R1 '+n.r1+(n.metrics_current?'':'*')) : '');
+      div.title = 'branch '+n.branch+' · '+n.n_atoms+' atoms · 点击查看 3D';
+      div.onclick = ()=>show3D(n.id);
+      bar.appendChild(div);
+    }
+    bar.scrollTop = 1e9;
+    if(d.active_node && shownNode !== d.active_node) show3D(d.active_node);
+  }).catch(()=>{});
+}
+
+function show3D(nodeId){
+  if(window._no3d || typeof $3Dmol === 'undefined'){ return; }
+  fetch('/api/wb/refine/file?project='+encodeURIComponent(projectPath)
+        +'&node='+nodeId+'&name=model.cif')
+  .then(r=>{ if(!r.ok) throw 0; return r.text(); })
+  .then(cif=>{
+    shownNode = nodeId;
+    const el = $('viewer'); el.innerHTML='';
+    if(!glviewer){ glviewer = $3Dmol.createViewer(el, {backgroundColor:'white'}); }
+    else { glviewer.clear(); }
+    glviewer.addModel(cif, 'cif', {doAssembly:true, duplicateAssemblyAtoms:true, normalizeAssembly:true});
+    glviewer.setStyle({}, {stick:{radius:.12}, sphere:{scale:.22}});
+    glviewer.zoomTo(); glviewer.render();
+    const tag = document.createElement('span');
+    tag.className='pill'; tag.style.cssText='position:absolute;left:8px;top:8px';
+    tag.textContent = nodeId; el.appendChild(tag);
+  }).catch(()=>{});
+}
+
+function connect(){
+  if(es) es.close();
+  es = new EventSource('/api/projects/feed?path=' + encodeURIComponent(projectPath));
+  es.onmessage = m => {
+    const ev = JSON.parse(m.data);
+    switch(ev.kind){
+      case 'user_message': addMsg('user', ev.text); agentDiv = null; break;
+      case 'agent_delta':
+        if(!agentDiv) agentDiv = addMsg('agent', '');
+        agentDiv.textContent += ev.delta; $('chat').scrollTop = 1e9; break;
+      case 'agent_message':
+        if(agentDiv){ agentDiv.textContent = ev.text; } else addMsg('agent', ev.text);
+        agentDiv = null; break;
+      case 'reasoning_summary': {
+        const d = document.createElement('div'); d.className='think';
+        d.textContent = ev.text; $('chat').appendChild(d); break; }
+      case 'tool_started': break;
+      case 'tool_progress': setStatus('工具运行中… '+(ev.message||''), true); break;
+      case 'tool_completed': {
+        toolCard(ev);
+        try{ const j = JSON.parse(ev.result_tail||'{}');
+             const s = j.summary || {};
+             updateMetrics(s);
+             if(['refine','edit_atoms','fit_fragment','add_atoms_from_difference_map',
+                 'add_hydrogens','run_shelxl','checkout','branch','solvent_mask',
+                 'optimize_weights','write_outputs'].includes(ev.tool)) refreshNodes();
+        }catch(_){}
+        break; }
+      case 'command_started': addAct('cmd', '$ ' + ev.command); break;
+      case 'command_completed':
+        addAct(String(ev.status).includes('fail')?'fail':'ok',
+               (ev.output_tail||'').slice(-500) || '(no output)'); break;
+      case 'approval_request': showApproval(ev); break;
+      case 'approval_decision': setStatus('审批: '+ev.decision, true); break;
+      case 'token_usage': lastUsage = ev.total || lastUsage; break;
+      case 'turn_completed': {
+        const u = lastUsage ? ' · '+lastUsage.input_tokens+'→'+lastUsage.output_tokens+' tok' : '';
+        setStatus('回合完成'+u); refreshNodes(); break; }
+      case 'turn_failed': setStatus('回合失败'); addAct('fail', JSON.stringify(ev.error)); break;
+      case 'client_error': addAct('fail', ev.error); break;
+      case 'mcp_down': showMcpDown(ev); break;
+      case 'engine_restarted': hideMcpDown(); setStatus('引擎已重启，工具面已恢复'); break;
+      case 'idle': setStatus('就绪'); renderArtifacts(ev.artifacts||[]); break;
+    }
+  };
+}
+
+function showMcpDown(ev){
+  if(document.getElementById('mcpDownBanner')) return;
+  const div = document.createElement('div');
+  div.id = 'mcpDownBanner';
+  div.className = 'approval';
+  div.style.borderColor = '#c0392b';
+  div.innerHTML = '<b>晶体学工具通道已断开</b><div class="cmdline"></div>';
+  div.querySelector('.cmdline').textContent =
+    (ev.detail||'') + ' — 引擎进程内的 MCP 传输已死亡，工具调用会连续失败。' +
+    '重启引擎后同一线程可继续（对话与节点都保留）。';
+  const btn = document.createElement('button');
+  btn.className = 'primary';
+  btn.textContent = '重启引擎续跑';
+  btn.onclick = async () => {
+    btn.disabled = true; btn.textContent = '重启中…';
+    const r = await fetch('/api/projects/restart_engine', {method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({path: projectPath})});
+    if(!r.ok){ btn.disabled = false; btn.textContent = '重启引擎续跑';
+      addAct('fail', '重启失败：' + (await r.text()).slice(0,300)); }
+  };
+  div.appendChild(btn);
+  $('activity').appendChild(div); $('activity').scrollTop = 1e9;
+}
+
+function hideMcpDown(){
+  const b = document.getElementById('mcpDownBanner');
+  if(b) b.remove();
+}
+
+function showApproval(ev){
+  const div = document.createElement('div');
+  div.className = 'approval';
+  let title = 'AI 请求批准', body = '';
+  if(ev.mcp_server){
+    title = 'AI 请求批准工具调用';
+    body = (ev.mcp_message||'') + '\n' + JSON.stringify(ev.mcp_tool_params||{});
+  } else {
+    body = (ev.detail && (ev.detail.command || JSON.stringify(ev.detail.changes||''))) || '';
+  }
+  div.innerHTML = '<b></b> <span class="pill"></span><div class="cmdline"></div>';
+  div.querySelector('b').textContent = title;
+  div.querySelector('.pill').textContent = ev.mcp_server ? ('MCP · '+ev.mcp_server) : ev.method;
+  div.querySelector('.cmdline').textContent = String(body).slice(0, 500);
+  const ok = document.createElement('button'); ok.className='primary'; ok.textContent='批准';
+  const no = document.createElement('button'); no.textContent='拒绝';
+  const decide = d => { fetch('/api/approvals/decide', {method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({approval_id: ev.approval_id, decision: d})});
+      div.style.opacity=.55; ok.disabled=no.disabled=true; };
+  ok.onclick = ()=>decide('accept'); no.onclick = ()=>decide('reject');
+  div.appendChild(ok); div.appendChild(no);
+  $('activity').appendChild(div); $('activity').scrollTop = 1e9;
+}
+
+function renderArtifacts(list){
+  const box = $('artifacts'); box.innerHTML='';
+  if(!list.length){ box.innerHTML='<span class="pill">尚无产物</span>'; return; }
+  for(const a of list){
+    const el = document.createElement('a');
+    el.className='art'; el.href='/api/wb/artifact?path='+encodeURIComponent(a.path);
+    el.target='_blank'; el.textContent = a.rel + '  ('+a.size+' B)';
+    box.appendChild(el);
+  }
+}
+</script>
+</body>
+</html>

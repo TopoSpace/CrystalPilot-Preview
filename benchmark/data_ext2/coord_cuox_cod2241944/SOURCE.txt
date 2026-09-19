@@ -1,0 +1,29 @@
+slug: coord_cuox_cod2241944
+source: COD entry 2241944 (mirrors IUCr/journal deposition)
+entry page: https://www.crystallography.net/cod/2241944.html
+doi: 10.1107/S2056989016017631
+journal: Acta Crystallographica Section E (2016)
+title: Crystal structure of catena-poly[diammonium [di-μ-oxalato-cuprate(II)]]
+license: COD terms: data provided by IUCr Journals, free use within the scientific community with attribution to the source article
+chemical formula: C4 H8 Cu N2 O8
+space group: P 1 21/c 1   Z: 2
+cell: 4.8564(2), 13.5188(5), 6.7205(3), 90, 96.992(2), 90
+temperature: 100.(2) K   radiation: Mo K\a lambda=0.71073
+device: Bruker Kappa APEXII CCD
+published R1(gt): 0.0179   wR2: 0.0509
+
+files:
+  ref.cif  = final refined CIF as deposited (downloaded from https://www.crystallography.net/cod/2241944.cif)
+  ref.fcf  = structure-factor file as deposited (downloaded from https://www.crystallography.net/cod/2241944.hkl);
+             format: CIF reflection file, SHELX LIST 4 (_shelx_refln_list_code 4):
+             loop of h k l F_squared_calc F_squared_meas F_squared_sigma status
+  ref.hkl  = DERIVED locally from ref.fcf: SHELX HKLF4 fixed format (3I4,2F8.2), columns h k l Fo^2 sigma(Fo^2), terminated by 0 0 0 line.
+
+verification: gemmi parses ref.cif and ref.fcf; n_reflections(fcf) = 1672;
+  R1 recomputed from fcf (Fo>2sig) = 0.0178 vs published R1(gt) = 0.0179 -> pairing check
+  cell(fcf) matches cell(cif): True
+
+why selected: Clean coordination polymer (Cu oxalate chain), very low R1=0.018. Baseline metal-organic validation.
+
+key refinement instruction lines (embedded .res in CIF):
+  HKLF 4

@@ -1,0 +1,26 @@
+slug: twintrap_nm_cod2229074
+source: COD entry 2229074 (mirrors IUCr/journal deposition)
+entry page: https://www.crystallography.net/cod/2229074.html
+doi: 10.1107/S1600536811002236
+journal: Acta Crystallographica Section E (2011)
+title: Ethyl 2-(4-nitrobenzamido)benzoate, a non-merohedral twin
+license: COD terms: data provided by IUCr Journals, free use within the scientific community with attribution to the source article
+chemical formula: C16 H14 N2 O5
+space group: P -1   Z: 2
+cell: 6.9802(3), 9.3570(4), 12.5779(5), 102.833(4), 94.296(4), 107.567(4)
+temperature: 295(2) K   radiation: CuK\a lambda=1.54178
+device: Oxford Diffraction Xcalibur Ruby Gemini
+published R1(gt): 0.0526   wR2: 0.1574
+
+files:
+  ref.cif  = final refined CIF as deposited (downloaded from https://www.crystallography.net/cod/2229074.cif)
+  ref.fcf  = structure-factor file as deposited (downloaded from https://www.crystallography.net/cod/2229074.hkl);
+             format: CIF reflection file, SHELX LIST 4 (_shelx_refln_list_code 4):
+             loop of h k l F_squared_calc F_squared_meas F_squared_sigma status
+  ref.hkl  = DERIVED locally from ref.fcf: SHELX HKLF4 fixed format (3I4,2F8.2), columns h k l Fo^2 sigma(Fo^2), terminated by 0 0 0 line.
+
+verification: gemmi parses ref.cif and ref.fcf; n_reflections(fcf) = 10410;
+  R1 recomputed from fcf (Fo>2sig) = 0.0526 vs published R1(gt) = 0.0526 -> pairing check
+  cell(fcf) matches cell(cif): True
+
+why selected: Non-merohedral twin whose deposited CIF contains NO twin tags (title only); fcf is detwinned LIST4 data. Hidden-pathology trap: does validation notice silently detwinned data / disorder (PART 1/2)?

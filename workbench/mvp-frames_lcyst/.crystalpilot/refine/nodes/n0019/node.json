@@ -1,0 +1,57 @@
+{
+  "id": "n0019",
+  "parent": "n0018",
+  "branch": "(detached from n0018)",
+  "ts": 1787948933.028455,
+  "tool": "refine",
+  "params": {
+    "mode": "aniso_heavy",
+    "n_cycles": 12,
+    "fix_atoms": [
+      "H1X",
+      "H2X",
+      "H3X",
+      "H4X",
+      "H5X",
+      "H6X",
+      "H7X"
+    ],
+    "label": "fixed-geometry H; anisotropic non-H final refinement"
+  },
+  "note": "",
+  "metrics": {
+    "label": "fixed-geometry H; anisotropic non-H final refinement",
+    "r1_strong": 0.0436,
+    "r1_all": 0.0486,
+    "wr2": 0.1377,
+    "goof": 0.944,
+    "n_params": 63,
+    "n_reflections": 2589,
+    "diff_map_max": 0.64,
+    "diff_map_min": -0.5,
+    "notes": "",
+    "scale_k": 1.3506037770394619
+  },
+  "metrics_current": true,
+  "model": {
+    "n_atoms": 14,
+    "element_counts": {
+      "S": 1,
+      "O": 2,
+      "N": 1,
+      "C": 3,
+      "H": 7
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 1.3506037770394619,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

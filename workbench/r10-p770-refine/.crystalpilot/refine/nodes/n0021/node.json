@@ -1,0 +1,51 @@
+{
+  "id": "n0021",
+  "parent": "n0020",
+  "branch": "hklf5_twin",
+  "ts": 1788072199.7098436,
+  "tool": "add_hydrogens",
+  "params": {
+    "elements": [
+      "C"
+    ],
+    "sp2_avg_bond_max": 1.52
+  },
+  "note": "",
+  "metrics": null,
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 111,
+    "element_counts": {
+      "La": 1,
+      "Ni": 1,
+      "P": 2,
+      "N": 8,
+      "C": 44,
+      "H": 55
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 1.0,
+  "mask": null,
+  "hydrogens": {
+    "present": true,
+    "elements": [
+      "C"
+    ],
+    "n_groups": 27
+  },
+  "disorder_groups": [],
+  "twin": {
+    "matrix": null,
+    "n": 2,
+    "basf": [
+      0.1
+    ]
+  },
+  "label_renames": {},
+  "asu": null
+}

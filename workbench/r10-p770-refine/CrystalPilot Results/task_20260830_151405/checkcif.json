@@ -1,0 +1,838 @@
+{
+  "target": "publication:CrystalPilot Results/task_20260830_151405/final.cif",
+  "counts": {
+    "A": 4,
+    "B": 2,
+    "C": 14,
+    "G": 57
+  },
+  "alerts": [
+    {
+      "code": "029",
+      "type": 3,
+      "level": "A",
+      "text": "_diffrn_measured_fraction_theta_full value Low .      0.907 Why?",
+      "kb": {
+        "meaning": "_diffrn_measured_fraction_theta_full 偏低",
+        "causes": "数据完整度不足（常见于高角缺失或探测器几何）",
+        "remedy": "报告真实完整度并解释（如低温机遮挡、快速衰减晶体）"
+      }
+    },
+    {
+      "code": "080",
+      "type": 2,
+      "level": "A",
+      "text": "Maximum Shift/Error ............................       1.95 Why ?",
+      "kb": {
+        "meaning": "最大 shift/su 偏大（精修未收敛）",
+        "causes": "精修轮数不足；非正定 ADP；末端甲基等基团取向摆动",
+        "remedy": "加大 L.S. 轮数再精修；仍不收敛则查模型（非正定原子、可旋转甲基做无序/AFIX 137）"
+      }
+    },
+    {
+      "code": "699",
+      "type": 1,
+      "level": "A",
+      "text": "Missing _exptl_crystal_description Value .......     Please Do !",
+      "kb": {
+        "meaning": "缺晶体外观描述 (_exptl_crystal_description)",
+        "causes": "未记录晶体形貌",
+        "remedy": "补 experiment.crystal"
+      }
+    },
+    {
+      "code": "881",
+      "type": 1,
+      "level": "A",
+      "text": "No Datum for _diffrn_reflns_av_R_equivalents ...     Please Do !",
+      "kb": {
+        "meaning": "Report missing datum for_diffrn_reflns_av_R_equivalents.",
+        "remedy": "有则补上，无则给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT881-883》"
+      }
+    },
+    {
+      "code": "025",
+      "type": 1,
+      "level": "B",
+      "text": "Hmin..Lmax Data Incomplete or Missing ..........     Please Check",
+      "kb": {
+        "meaning": "Check for Hmin..Lmax.",
+        "remedy": "一般不会出现。精修重新生成CIF文件即可。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT025》"
+      }
+    },
+    {
+      "code": "995",
+      "type": 1,
+      "level": "B",
+      "text": "Can not Recreate .fcf from Embedded  .res & .hkl          ! Check",
+      "kb": {
+        "meaning": "无法从内嵌 .res+.hkl 复算 .fcf",
+        "causes": "精修含 .fab（掩膜）贡献而 fab 未内嵌，PLATON 复算必然不一致",
+        "remedy": "随附 final.fab 或说明掩膜工作流；这是掩膜结构的已知提示"
+      }
+    },
+    {
+      "code": "052",
+      "type": 1,
+      "level": "C",
+      "text": "Info on Absorption Correction Method   Not Given     Please Do !",
+      "kb": {
+        "meaning": "Test for specification absorption correction method [0,1].",
+        "remedy": "在CIF文件中\"_exptl_absorpt_correction_type\"项给出吸收校正方法即可。若未做吸收校正，此项填写'none'或'?'，并将\"_exptl_absorpt_correction_T_max\"、\"_exptl_absorpt_correction_T_min\"和\"_exptl_absorpt_process_details\"项内容改为'?'即可。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT052》"
+      }
+    },
+    {
+      "code": "053",
+      "type": 1,
+      "level": "C",
+      "text": "Minimum Crystal Dimension Missing (or Error) ...     Please Check",
+      "kb": {
+        "meaning": "Test for specification xtal_dimension_min[0,1].",
+        "remedy": "在_exptl_crystal_size_min项中给出晶体最小尺寸，单位为毫米。或者在ins中添加SIZE指令后精修。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT053》"
+      }
+    },
+    {
+      "code": "054",
+      "type": 1,
+      "level": "C",
+      "text": "Medium  Crystal Dimension Missing (or Error) ...     Please Check",
+      "kb": {
+        "meaning": "Test for specification xtal_dimension_mid [0,1].",
+        "remedy": "在_exptl_crystal_size_mid项中给出晶体中间尺寸，单位为毫米。或者在ins中添加SIZE指令后精修。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT054》"
+      }
+    },
+    {
+      "code": "055",
+      "type": 1,
+      "level": "C",
+      "text": "Maximum Crystal Dimension Missing (or Error) ...     Please Check",
+      "kb": {
+        "meaning": "Test for specification xtal_dimension_max [0,1].",
+        "remedy": "在_exptl_crystal_size_max项中给出晶体最大尺寸，单位为毫米。或者在ins中添加SIZE指令后精修。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT055》"
+      }
+    },
+    {
+      "code": "234",
+      "type": 4,
+      "level": "C",
+      "text": "Large Hirshfeld Difference C11      --C38B     .       0.19 Ang.",
+      "kb": {
+        "meaning": "Hirshfeld Rigid-Bond Test (Acta Cryst (1976), A32, 239-244).",
+        "remedy": "如果仅是个别原子不正常，检查原子类型是否定错，是否需要无序处理，或采用DELU(DELU 0.01 0.02 C4BA C0AA)或者ISOR限制精修；如果整体原子位移参数不正常，检查数据质量是否足够高，或者定错空间群。(DELU限制所指定的原子具有接近指定范围内的位移参数，0.02 0.01必须成倍数关系)",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT234》"
+      }
+    },
+    {
+      "code": "241",
+      "type": 2,
+      "level": "C",
+      "text": "High   'MainMol' Ueq as Compared to Neighbors of         N4 Check",
+      "kb": {
+        "meaning": "原子 Ueq 明显高于相邻原子",
+        "causes": "占有率<1 的位置按全占精修；轻元素被判成重元素",
+        "remedy": "检查该位点元素/占有率是否有密度依据"
+      }
+    },
+    {
+      "code": "242",
+      "type": 2,
+      "level": "C",
+      "text": "Low    'MainMol' Ueq as Compared to Neighbors of         C3 Check",
+      "kb": {
+        "meaning": "原子 Ueq 明显低于相邻原子",
+        "causes": "重元素被判成轻元素；或该位点确为更重原子",
+        "remedy": "同 241，反向核查"
+      }
+    },
+    {
+      "code": "242",
+      "type": 2,
+      "level": "C",
+      "text": "Low    'MainMol' Ueq as Compared to Neighbors of        C11 Check",
+      "kb": {
+        "meaning": "原子 Ueq 明显低于相邻原子",
+        "causes": "重元素被判成轻元素；或该位点确为更重原子",
+        "remedy": "同 241，反向核查"
+      }
+    },
+    {
+      "code": "242",
+      "type": 2,
+      "level": "C",
+      "text": "Low    'MainMol' Ueq as Compared to Neighbors of        C27 Check",
+      "kb": {
+        "meaning": "原子 Ueq 明显低于相邻原子",
+        "causes": "重元素被判成轻元素；或该位点确为更重原子",
+        "remedy": "同 241，反向核查"
+      }
+    },
+    {
+      "code": "250",
+      "type": 2,
+      "level": "C",
+      "text": "Large U3/U1 Ratio for <U(i,j)> Tensor(Resd    2)        2.2 Note",
+      "kb": {
+        "meaning": "平均 ADP 张量 U3/U1 比大（整体各向异性强）",
+        "causes": "层状/链状晶体真实热振动各向异性；数据各向异性截断",
+        "remedy": "结构合理时如实说明"
+      }
+    },
+    {
+      "code": "250",
+      "type": 2,
+      "level": "C",
+      "text": "Large U3/U1 Ratio for <U(i,j)> Tensor(Resd    3)        2.1 Note",
+      "kb": {
+        "meaning": "平均 ADP 张量 U3/U1 比大（整体各向异性强）",
+        "causes": "层状/链状晶体真实热振动各向异性；数据各向异性截断",
+        "remedy": "结构合理时如实说明"
+      }
+    },
+    {
+      "code": "260",
+      "type": 2,
+      "level": "C",
+      "text": "Large Average Ueq of Residue Including       C28      0.116 Check",
+      "kb": {
+        "meaning": "某原子 Ueq 异常大",
+        "causes": "鬼原子/部分占有/无序",
+        "remedy": "检查差值密度支持，必要时删除或设占有率"
+      }
+    },
+    {
+      "code": "260",
+      "type": 2,
+      "level": "C",
+      "text": "Large Average Ueq of Residue Including      C28B      0.115 Check",
+      "kb": {
+        "meaning": "某原子 Ueq 异常大",
+        "causes": "鬼原子/部分占有/无序",
+        "remedy": "检查差值密度支持，必要时删除或设占有率"
+      }
+    },
+    {
+      "code": "342",
+      "type": 3,
+      "level": "C",
+      "text": "Low Bond Precision on  C-C Bonds ...............    0.01088 Ang.",
+      "kb": {
+        "meaning": "Check Bond Precision for C-C in Structures (Z(max) > 39).",
+        "remedy": "找出有问题的C-C键，限制一下试试。检查精修模型是否正确，是否有末端需要无序处理，晶胞参数误差是否过大。如果均无法解决可尝试收集低温数据。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT342》"
+      }
+    },
+    {
+      "code": "002",
+      "type": 2,
+      "level": "G",
+      "text": "Number of Distance or Angle Restraints on AtSite         41 Note",
+      "kb": {
+        "meaning": "Report number of atom sites with distance/angle restraints.",
+        "remedy": "一般无需解决，限制命令有合理解释即可。去掉一些非必要的限制或许可以消除。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT002》"
+      }
+    },
+    {
+      "code": "003",
+      "type": 2,
+      "level": "G",
+      "text": "Number of Uiso or Uij Restrained non-H Atoms ...         39 Report",
+      "kb": {
+        "meaning": "Report number of non-H atoms with Uiso or Uij restraints.",
+        "remedy": "一般无需解决，限制命令有合理解释即可。去掉一些非必要的限制可能可以消除。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT003》"
+      }
+    },
+    {
+      "code": "083",
+      "type": 2,
+      "level": "G",
+      "text": "SHELXL Second Parameter in WGHT  Unusually Large      14.29 Why ?",
+      "kb": {
+        "meaning": "Test for extreme second weighting parameter (SHELXL).",
+        "remedy": "OMIT掉误差较大的点或者按孪晶精修。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT083》"
+      }
+    },
+    {
+      "code": "164",
+      "type": 4,
+      "level": "G",
+      "text": "Nr. of Refined C-H H-Atoms in Heavy-Atom Struct.          1 Note",
+      "kb": {
+        "meaning": "Check for Refined C-H H-Atoms.",
+        "remedy": "一般不会出现，对C-H类型的氢原子采用理论加氢即可。 / 有合理解释即可。 / 一般不会出现，将其标准偏差改为0即可。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT164-166》"
+      }
+    },
+    {
+      "code": "172",
+      "type": 4,
+      "level": "G",
+      "text": "The CIF-Embedded .res File Contains DFIX Records         13 Report",
+      "kb": {
+        "meaning": "Check for DFIX Record(s) in CIF-Embedded shelxl.res.",
+        "remedy": "一般不用解决，有合理解释即可。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT172》"
+      }
+    },
+    {
+      "code": "174",
+      "type": 4,
+      "level": "G",
+      "text": "The CIF-Embedded .res File Contains FLAT Records          2 Report",
+      "kb": {
+        "meaning": "Check for FLAT Record(s) in CIF-Embedded shelxl.res.",
+        "remedy": "一般不用解决，有合理解释即可。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT173-174》"
+      }
+    },
+    {
+      "code": "176",
+      "type": 4,
+      "level": "G",
+      "text": "The CIF-Embedded .res File Contains SADI Records          4 Report",
+      "kb": {
+        "meaning": "Check for SADI Record(s) in CIF-Embedded shelxl.res.",
+        "remedy": "一般不用解决，有合理解释即可。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT175-176》"
+      }
+    },
+    {
+      "code": "178",
+      "type": 4,
+      "level": "G",
+      "text": "The CIF-Embedded .res File Contains SIMU Records          4 Report",
+      "kb": {
+        "meaning": "Check for SIMU Record(s) in CIF-Embedded shelxl.res.",
+        "remedy": "一般不用解决，有合理解释即可。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT177-178》"
+      }
+    },
+    {
+      "code": "188",
+      "type": 3,
+      "level": "G",
+      "text": "A Non-default SIMU Restraint Value has been used     0.0100 Report"
+    },
+    {
+      "code": "188",
+      "type": 3,
+      "level": "G",
+      "text": "A Non-default SIMU Restraint Value has been used     0.0100 Report"
+    },
+    {
+      "code": "188",
+      "type": 3,
+      "level": "G",
+      "text": "A Non-default SIMU Restraint Value has been used     0.0100 Report"
+    },
+    {
+      "code": "188",
+      "type": 3,
+      "level": "G",
+      "text": "A Non-default SIMU Restraint Value has been used     0.0100 Report"
+    },
+    {
+      "code": "199",
+      "type": 1,
+      "level": "G",
+      "text": "Reported _cell_measurement_temperature ..... (K)        293 Check",
+      "kb": {
+        "meaning": "Test for SHELXL Roomtemperature Default(Cell).",
+        "remedy": "根据实际情况在CIF中_diffrn_ambient_temperature填上即可。 / 检查是否与实际情况相符，否则根据实际情况在CIF中_cell_measurement_temperature改正即可。 / 检查是否与实际情况相符，否则根据实际情况在CIF中_diffrn_ambient_temperature改正即可。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT198-200》"
+      }
+    },
+    {
+      "code": "200",
+      "type": 1,
+      "level": "G",
+      "text": "Reported   _diffrn_ambient_temperature ..... (K)        293 Check",
+      "kb": {
+        "meaning": "Test for SHELXL Roomtemperature Default (Datacollection).",
+        "remedy": "根据实际情况在CIF中_diffrn_ambient_temperature填上即可。 / 检查是否与实际情况相符，否则根据实际情况在CIF中_cell_measurement_temperature改正即可。 / 检查是否与实际情况相符，否则根据实际情况在CIF中_diffrn_ambient_temperature改正即可。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT198-200》"
+      }
+    },
+    {
+      "code": "230",
+      "type": 2,
+      "level": "G",
+      "text": "Hirshfeld Test Diff for    N4       --C3       .        7.4 s.u.",
+      "kb": {
+        "meaning": "Hirshfeld 刚性键检验差值大",
+        "causes": "成键两原子 ADP 沿键方向差异大：元素判错或无序",
+        "remedy": "复查元素归属；考虑 DELU/RIGU 或无序模型"
+      }
+    },
+    {
+      "code": "232",
+      "type": 2,
+      "level": "G",
+      "text": "Hirshfeld Test Diff (M-X)  Ni1      --N4       .        8.0 s.u.",
+      "kb": {
+        "meaning": "Hirshfeld 检验（金属-配体键）差异大",
+        "causes": "金属位点元素/占有率问题",
+        "remedy": "同 230"
+      }
+    },
+    {
+      "code": "301",
+      "type": 3,
+      "level": "G",
+      "text": "Main Residue  Disorder ..............(Resd    1)        24% Note",
+      "kb": {
+        "meaning": "主要残基中存在异常配位/化合价",
+        "causes": "金属氧化态-配位数组合少见；或模型缺配体",
+        "remedy": "对照合成先验说明金属价态与配位环境"
+      }
+    },
+    {
+      "code": "302",
+      "type": 4,
+      "level": "G",
+      "text": "Anion/Solvent/Minor-Residue Disorder (Resd    2)       100% Note",
+      "kb": {
+        "meaning": "Test for (anion/solvent) disorder %.",
+        "remedy": "无需解决，无序处理有合理解释即可。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT302》"
+      }
+    },
+    {
+      "code": "302",
+      "type": 4,
+      "level": "G",
+      "text": "Anion/Solvent/Minor-Residue Disorder (Resd    3)       100% Note",
+      "kb": {
+        "meaning": "Test for (anion/solvent) disorder %.",
+        "remedy": "无需解决，无序处理有合理解释即可。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT302》"
+      }
+    },
+    {
+      "code": "304",
+      "type": 4,
+      "level": "G",
+      "text": "Non-Integer Number of Atoms in ..... (Resd    2)       8.57 Check",
+      "kb": {
+        "meaning": "Test for non-integer number of atoms in residue.",
+        "remedy": "检查是否占有率定错，改正即可。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT304》"
+      }
+    },
+    {
+      "code": "304",
+      "type": 4,
+      "level": "G",
+      "text": "Non-Integer Number of Atoms in ..... (Resd    3)       3.43 Check",
+      "kb": {
+        "meaning": "Test for non-integer number of atoms in residue.",
+        "remedy": "检查是否占有率定错，改正即可。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT304》"
+      }
+    },
+    {
+      "code": "343",
+      "type": 2,
+      "level": "G",
+      "text": "Unusual sp?      Angle Range in Main Residue for         C4 Check",
+      "kb": {
+        "meaning": "Hybridisation Problem on C in main residue(s).",
+        "remedy": "仔细检查所报告的碳原子的几何构型，检查精修模型是否正确，这些有问题的碳原子是否需要无序处理。 / 可用DFIX限制其键长，或将其删除后进行理论加氢。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT343-350》"
+      }
+    },
+    {
+      "code": "412",
+      "type": 2,
+      "level": "G",
+      "text": "Short Intra XH3 .. XHn     H0       ..H36      .       1.87 Ang.",
+      "kb": {
+        "meaning": "分子内 H...H 短接触（AFIX 组间）",
+        "causes": "甲基/亚甲基取向不合理",
+        "remedy": "专家做法：DFIX <目标距离> 0.01 两 H 标签，从略大于当前值起试；或重置加氢取向"
+      }
+    },
+    {
+      "code": "720",
+      "type": 4,
+      "level": "G",
+      "text": "Number of Unusual/Non-Standard Labels ..........          1 Note",
+      "kb": {
+        "meaning": "存在非标准原子标签",
+        "causes": "标签与元素不一致（如 Zr 用了 FE01 标签）或含后缀",
+        "remedy": "重命名为元素一致的标签（PLATON 按标签猜元素做键价）"
+      }
+    },
+    {
+      "code": "721",
+      "type": 1,
+      "level": "G",
+      "text": "Bond    Calc     0.96000, Rep     0.97410 Dev...       0.01 Ang.",
+      "kb": {
+        "meaning": "Test for consistency of Bonds and Coordinates in CIF.",
+        "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。 / 几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT720-721》"
+      }
+    },
+    {
+      "code": "721",
+      "type": 1,
+      "level": "G",
+      "text": "Bond    Calc     0.96000, Rep     0.97960 Dev...       0.02 Ang.",
+      "kb": {
+        "meaning": "Test for consistency of Bonds and Coordinates in CIF.",
+        "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。 / 几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT720-721》"
+      }
+    },
+    {
+      "code": "721",
+      "type": 1,
+      "level": "G",
+      "text": "Bond    Calc     0.96000, Rep     0.97710 Dev...       0.02 Ang.",
+      "kb": {
+        "meaning": "Test for consistency of Bonds and Coordinates in CIF.",
+        "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。 / 几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT720-721》"
+      }
+    },
+    {
+      "code": "721",
+      "type": 1,
+      "level": "G",
+      "text": "Bond    Calc     0.96000, Rep     0.98230 Dev...       0.02 Ang.",
+      "kb": {
+        "meaning": "Test for consistency of Bonds and Coordinates in CIF.",
+        "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。 / 几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT720-721》"
+      }
+    },
+    {
+      "code": "721",
+      "type": 1,
+      "level": "G",
+      "text": "Bond    Calc     0.96000, Rep     0.98340 Dev...       0.02 Ang.",
+      "kb": {
+        "meaning": "Test for consistency of Bonds and Coordinates in CIF.",
+        "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。 / 几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT720-721》"
+      }
+    },
+    {
+      "code": "721",
+      "type": 1,
+      "level": "G",
+      "text": "Bond    Calc     0.96000, Rep     0.98320 Dev...       0.02 Ang.",
+      "kb": {
+        "meaning": "Test for consistency of Bonds and Coordinates in CIF.",
+        "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。 / 几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT720-721》"
+      }
+    },
+    {
+      "code": "721",
+      "type": 1,
+      "level": "G",
+      "text": "Bond    Calc     0.97000, Rep     0.96000 Dev...       0.01 Ang.",
+      "kb": {
+        "meaning": "Test for consistency of Bonds and Coordinates in CIF.",
+        "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。 / 几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT720-721》"
+      }
+    },
+    {
+      "code": "721",
+      "type": 1,
+      "level": "G",
+      "text": "Bond    Calc     0.96000, Rep     0.99840 Dev...       0.04 Ang.",
+      "kb": {
+        "meaning": "Test for consistency of Bonds and Coordinates in CIF.",
+        "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。 / 几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT720-721》"
+      }
+    },
+    {
+      "code": "721",
+      "type": 1,
+      "level": "G",
+      "text": "Bond    Calc     0.96000, Rep     0.99890 Dev...       0.04 Ang.",
+      "kb": {
+        "meaning": "Test for consistency of Bonds and Coordinates in CIF.",
+        "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。 / 几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT720-721》"
+      }
+    },
+    {
+      "code": "721",
+      "type": 1,
+      "level": "G",
+      "text": "Bond    Calc     0.96000, Rep     1.00060 Dev...       0.04 Ang.",
+      "kb": {
+        "meaning": "Test for consistency of Bonds and Coordinates in CIF.",
+        "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。 / 几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT720-721》"
+      }
+    },
+    {
+      "code": "721",
+      "type": 1,
+      "level": "G",
+      "text": "Bond    Calc     0.95000, Rep     0.96010 Dev...       0.01 Ang.",
+      "kb": {
+        "meaning": "Test for consistency of Bonds and Coordinates in CIF.",
+        "remedy": "将原子标号改成Cu1类似格式，而不是Cu01，H0A等类似格式。 / 几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT720-721》"
+      }
+    },
+    {
+      "code": "722",
+      "type": 1,
+      "level": "G",
+      "text": "Angle   Calc      106.00, Rep      104.90 Dev...       1.10 Degree",
+      "kb": {
+        "meaning": "Test for consistency of Angles and Coordinates in CIF.",
+        "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT722》"
+      }
+    },
+    {
+      "code": "722",
+      "type": 1,
+      "level": "G",
+      "text": "Angle   Calc      110.00, Rep      112.70 Dev...       2.70 Degree",
+      "kb": {
+        "meaning": "Test for consistency of Angles and Coordinates in CIF.",
+        "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT722》"
+      }
+    },
+    {
+      "code": "722",
+      "type": 1,
+      "level": "G",
+      "text": "Angle   Calc      109.00, Rep      107.30 Dev...       1.70 Degree",
+      "kb": {
+        "meaning": "Test for consistency of Angles and Coordinates in CIF.",
+        "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT722》"
+      }
+    },
+    {
+      "code": "722",
+      "type": 1,
+      "level": "G",
+      "text": "Angle   Calc      110.00, Rep      111.20 Dev...       1.20 Degree",
+      "kb": {
+        "meaning": "Test for consistency of Angles and Coordinates in CIF.",
+        "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT722》"
+      }
+    },
+    {
+      "code": "722",
+      "type": 1,
+      "level": "G",
+      "text": "Angle   Calc      109.00, Rep      107.90 Dev...       1.10 Degree",
+      "kb": {
+        "meaning": "Test for consistency of Angles and Coordinates in CIF.",
+        "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT722》"
+      }
+    },
+    {
+      "code": "722",
+      "type": 1,
+      "level": "G",
+      "text": "Angle   Calc      110.00, Rep      111.40 Dev...       1.40 Degree",
+      "kb": {
+        "meaning": "Test for consistency of Angles and Coordinates in CIF.",
+        "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT722》"
+      }
+    },
+    {
+      "code": "722",
+      "type": 1,
+      "level": "G",
+      "text": "Angle   Calc      110.00, Rep      111.90 Dev...       1.90 Degree",
+      "kb": {
+        "meaning": "Test for consistency of Angles and Coordinates in CIF.",
+        "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT722》"
+      }
+    },
+    {
+      "code": "722",
+      "type": 1,
+      "level": "G",
+      "text": "Angle   Calc      109.00, Rep      107.10 Dev...       1.90 Degree",
+      "kb": {
+        "meaning": "Test for consistency of Angles and Coordinates in CIF.",
+        "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT722》"
+      }
+    },
+    {
+      "code": "722",
+      "type": 1,
+      "level": "G",
+      "text": "Angle   Calc      110.00, Rep      111.80 Dev...       1.80 Degree",
+      "kb": {
+        "meaning": "Test for consistency of Angles and Coordinates in CIF.",
+        "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT722》"
+      }
+    },
+    {
+      "code": "722",
+      "type": 1,
+      "level": "G",
+      "text": "Angle   Calc      109.00, Rep      107.20 Dev...       1.80 Degree",
+      "kb": {
+        "meaning": "Test for consistency of Angles and Coordinates in CIF.",
+        "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT722》"
+      }
+    },
+    {
+      "code": "722",
+      "type": 1,
+      "level": "G",
+      "text": "Angle   Calc      109.00, Rep      107.10 Dev...       1.90 Degree",
+      "kb": {
+        "meaning": "Test for consistency of Angles and Coordinates in CIF.",
+        "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT722》"
+      }
+    },
+    {
+      "code": "722",
+      "type": 1,
+      "level": "G",
+      "text": "Angle   Calc      109.00, Rep      113.10 Dev...       4.10 Degree",
+      "kb": {
+        "meaning": "Test for consistency of Angles and Coordinates in CIF.",
+        "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT722》"
+      }
+    },
+    {
+      "code": "722",
+      "type": 1,
+      "level": "G",
+      "text": "Angle   Calc      110.00, Rep      113.30 Dev...       3.30 Degree",
+      "kb": {
+        "meaning": "Test for consistency of Angles and Coordinates in CIF.",
+        "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT722》"
+      }
+    },
+    {
+      "code": "722",
+      "type": 1,
+      "level": "G",
+      "text": "Angle   Calc      110.00, Rep      105.30 Dev...       4.70 Degree",
+      "kb": {
+        "meaning": "Test for consistency of Angles and Coordinates in CIF.",
+        "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT722》"
+      }
+    },
+    {
+      "code": "722",
+      "type": 1,
+      "level": "G",
+      "text": "Angle   Calc      109.00, Rep      113.80 Dev...       4.80 Degree",
+      "kb": {
+        "meaning": "Test for consistency of Angles and Coordinates in CIF.",
+        "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT722》"
+      }
+    },
+    {
+      "code": "722",
+      "type": 1,
+      "level": "G",
+      "text": "Angle   Calc      109.00, Rep      105.40 Dev...       3.60 Degree",
+      "kb": {
+        "meaning": "Test for consistency of Angles and Coordinates in CIF.",
+        "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT722》"
+      }
+    },
+    {
+      "code": "722",
+      "type": 1,
+      "level": "G",
+      "text": "Angle   Calc      110.00, Rep      105.20 Dev...       4.80 Degree",
+      "kb": {
+        "meaning": "Test for consistency of Angles and Coordinates in CIF.",
+        "remedy": "几个的话可以删掉，如果很多的话，说明结构解析有问题。否则需要给出合理解释。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT722》"
+      }
+    },
+    {
+      "code": "802",
+      "type": 4,
+      "level": "G",
+      "text": "CIF Input Record(s) with more than 80 Characters          1 Info",
+      "kb": {
+        "meaning": "CIF 行超长等语法问题",
+        "causes": "生成器未按 80 列折行",
+        "remedy": "修正 CIF 写出"
+      }
+    },
+    {
+      "code": "811",
+      "type": 5,
+      "level": "G",
+      "text": "No ADDSYM Analysis: Too Many Excluded Atoms ....          ! Info",
+      "kb": {
+        "meaning": "Test for No ADDSYM Analysis.",
+        "remedy": "添加权重方案后进行精修即可。否则需要给出合理解释。 / 一般不会出现，重新精修生成CIF文件。 / 无需解决，有合理解释即可。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT809-811》"
+      }
+    },
+    {
+      "code": "860",
+      "type": 3,
+      "level": "G",
+      "text": "Number of Least-Squares Restraints .............        539 Note",
+      "kb": {
+        "meaning": "SQUEEZE/掩膜处理信息缺失",
+        "causes": "用了溶剂掩膜但 CIF 未写 _platon_squeeze_* 文档",
+        "remedy": "CrystalPilot 装配器自动补 _platon_squeeze_details+void 环"
+      }
+    },
+    {
+      "code": "941",
+      "type": 3,
+      "level": "G",
+      "text": "Average HKL Measurement Multiplicity ...........        1.0 Low",
+      "kb": {
+        "meaning": "计算与报告的 F000 不一致",
+        "causes": "组成/掩膜电子",
+        "remedy": "确认 UNIT 组成；掩膜电子不计入 F000 属正常"
+      }
+    },
+    {
+      "code": "965",
+      "type": 2,
+      "level": "G",
+      "text": "The SHELXL WEIGHT Optimisation has not Converged     Please Check",
+      "kb": {
+        "meaning": "Test whether the SHELXL weight optimisation has converged.",
+        "remedy": "使用程序推荐的权重进行精修重新生成CIF文件即可，否则需要给出合理解释。 / 换用合适的精修程序进行精修。",
+        "src": "DJ_Tokyo CheckCIF 字典《CheckCIF-PLAT965-970》"
+      }
+    }
+  ]
+}

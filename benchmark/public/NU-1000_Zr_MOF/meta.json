@@ -1,0 +1,16 @@
+{
+  "cod_id": "4120127",
+  "note": "NU-1000 Zr6-oxo/tetratopic pyrene MOF (JACS 2013, single-crystal Cu-Ka)",
+  "source_url": "https://www.crystallography.net/cod/4120127.html",
+  "sf_url": "https://www.crystallography.net/cod/hkl/4/12/01/4120127.hkl",
+  "doi": "10.1021/ja4050828",
+  "journal": "Journal of the American Chemical Society",
+  "year": "2013",
+  "license_note": "COD entry; data placed in the public domain by the contributors (per COD file header).",
+  "formula": "C88 H44 O32 Zr6",
+  "z": 3.0,
+  "space_group": "P 6/m m m",
+  "radiation": "CuK\\a",
+  "wavelength": 1.54178,
+  "temperature_K": "99.99"
+}

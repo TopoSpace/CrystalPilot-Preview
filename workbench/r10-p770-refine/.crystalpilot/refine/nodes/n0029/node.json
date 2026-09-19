@@ -1,0 +1,227 @@
+{
+  "id": "n0029",
+  "parent": "n0028",
+  "branch": "benzene_disorder_noh",
+  "ts": 1788072464.1153078,
+  "tool": "set_restraints",
+  "params": {
+    "action": "add",
+    "restraints": [
+      {
+        "kind": "SADI",
+        "sigma": 0.02,
+        "atoms": [
+          [
+            "C28",
+            "C40"
+          ],
+          [
+            "C40",
+            "C42"
+          ],
+          [
+            "C42",
+            "C34"
+          ],
+          [
+            "C34",
+            "C39"
+          ],
+          [
+            "C39",
+            "C43"
+          ],
+          [
+            "C43",
+            "C28"
+          ],
+          [
+            "C28B",
+            "C40B"
+          ],
+          [
+            "C40B",
+            "C42B"
+          ],
+          [
+            "C42B",
+            "C34B"
+          ],
+          [
+            "C34B",
+            "C39B"
+          ],
+          [
+            "C39B",
+            "C43B"
+          ],
+          [
+            "C43B",
+            "C28B"
+          ]
+        ]
+      }
+    ]
+  },
+  "note": "",
+  "metrics": null,
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 62,
+    "element_counts": {
+      "La": 1,
+      "Ni": 1,
+      "P": 2,
+      "N": 8,
+      "C": 50
+    }
+  },
+  "restraints": [
+    {
+      "kind": "SADI",
+      "atoms": [
+        [
+          "C28",
+          "C40"
+        ],
+        [
+          "C40",
+          "C42"
+        ],
+        [
+          "C42",
+          "C34"
+        ],
+        [
+          "C34",
+          "C39"
+        ],
+        [
+          "C39",
+          "C43"
+        ],
+        [
+          "C43",
+          "C28"
+        ],
+        [
+          "C28B",
+          "C40B"
+        ],
+        [
+          "C40B",
+          "C42B"
+        ],
+        [
+          "C42B",
+          "C34B"
+        ],
+        [
+          "C34B",
+          "C39B"
+        ],
+        [
+          "C39B",
+          "C43B"
+        ],
+        [
+          "C43B",
+          "C28B"
+        ]
+      ],
+      "sigma": 0.02
+    }
+  ],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 0.03581914769892491,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "disorder_groups": [
+    {
+      "fvar_index": 2,
+      "value": 0.8,
+      "members": [
+        {
+          "label": "C28",
+          "part": 1,
+          "sign": 1,
+          "mult": 1.0
+        },
+        {
+          "label": "C28B",
+          "part": 2,
+          "sign": -1,
+          "mult": 1.0
+        },
+        {
+          "label": "C34",
+          "part": 1,
+          "sign": 1,
+          "mult": 1.0
+        },
+        {
+          "label": "C34B",
+          "part": 2,
+          "sign": -1,
+          "mult": 1.0
+        },
+        {
+          "label": "C39",
+          "part": 1,
+          "sign": 1,
+          "mult": 1.0
+        },
+        {
+          "label": "C39B",
+          "part": 2,
+          "sign": -1,
+          "mult": 1.0
+        },
+        {
+          "label": "C40",
+          "part": 1,
+          "sign": 1,
+          "mult": 1.0
+        },
+        {
+          "label": "C40B",
+          "part": 2,
+          "sign": -1,
+          "mult": 1.0
+        },
+        {
+          "label": "C42",
+          "part": 1,
+          "sign": 1,
+          "mult": 1.0
+        },
+        {
+          "label": "C42B",
+          "part": 2,
+          "sign": -1,
+          "mult": 1.0
+        },
+        {
+          "label": "C43",
+          "part": 1,
+          "sign": 1,
+          "mult": 1.0
+        },
+        {
+          "label": "C43B",
+          "part": 2,
+          "sign": -1,
+          "mult": 1.0
+        }
+      ]
+    }
+  ],
+  "twin": null,
+  "label_renames": {},
+  "asu": null
+}

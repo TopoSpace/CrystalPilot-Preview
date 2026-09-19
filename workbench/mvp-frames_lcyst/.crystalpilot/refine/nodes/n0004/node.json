@@ -1,0 +1,47 @@
+{
+  "id": "n0004",
+  "parent": "n0003",
+  "branch": "main",
+  "ts": 1787948602.8706646,
+  "tool": "refine",
+  "params": {
+    "mode": "isotropic",
+    "n_cycles": 10,
+    "label": "complete L-cysteine element assignment"
+  },
+  "note": "",
+  "metrics": {
+    "label": "complete L-cysteine element assignment",
+    "r1_strong": 0.091,
+    "r1_all": 0.0985,
+    "wr2": 0.2858,
+    "goof": 1.991,
+    "n_params": 28,
+    "n_reflections": 2589,
+    "diff_map_max": 2.73,
+    "diff_map_min": -2.17,
+    "notes": "",
+    "scale_k": 1.2930013639499522
+  },
+  "metrics_current": true,
+  "model": {
+    "n_atoms": 7,
+    "element_counts": {
+      "S": 1,
+      "O": 2,
+      "N": 1,
+      "C": 3
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 1.2930013639499522,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

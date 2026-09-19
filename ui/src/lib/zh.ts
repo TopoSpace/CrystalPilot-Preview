@@ -1,0 +1,1213 @@
+/** All zh-CN UI strings for the workbench, in one place. */
+
+export const zh = {
+  // brand / shell
+  appName: "CrystalPilot",
+  legacyUi: "旧版界面",
+  localUser: "本地工作台",
+  settings: "设置",
+  appearance: "外观",
+  themeSystem: "跟随系统",
+  themeLight: "浅色",
+  themeDark: "深色",
+  fontSize: "字号",
+  fontSizeNames: { 13: "小", 14: "标准", 15: "大", 16: "特大" } as Record<
+    number,
+    string
+  >,
+  sidebarStatusNodes: "节点",
+  sidebarStatusAlertsA: "A 级",
+  sidebarStatusNoWork: "尚无精修节点",
+
+  // sidebar
+  newThread: "新对话",
+  projects: "项目",
+  recentProjects: "最近项目",
+  moreProjects: "更多",
+  moreProjectsTip: "自动生成的测试项目（ui-import-…）和你隐藏的项目",
+  hideProject: "隐藏",
+  hideProjectTip: "从最近列表移到「更多」（只影响这个浏览器）",
+  unhideProject: "恢复",
+  renameProject: "改名",
+  renameProjectTip:
+    "给项目起一个显示名，存进项目设置，左栏、状态板、打开对话框一起改；留空恢复目录名",
+  renamePlaceholder: "显示名，回车保存，Esc 取消",
+  openProject: "打开项目",
+  noThreads: "还没有对话",
+  running: "运行中",
+
+  // project status board
+  statusBoard: "项目现状",
+  statusOpen: "已打开",
+  statusIdle: "空闲",
+  statusNoWork: "尚未开始",
+  statusNodes: "节点",
+  statusDeliveries: "交付",
+  statusBestR1: "最好 R1",
+  statusAlertsA: "A 级警报",
+  statusRefresh: "刷新",
+
+  // open-project dialog
+  openProjectTitle: "打开项目",
+  openProjectMode: "打开方式",
+  openFolderMode: "项目文件夹",
+  openCifMode: "仅查看 CIF",
+  openProjectHint: "输入工作台所在机器的项目路径；新项目请放在程序目录之外。",
+  pathPlaceholder: "H:\\CrystalPilot-projects\\sample",
+  cifChooseFile: "选择 CIF 文件",
+  cifDestination: "保存到新的结构项目",
+  cifDestinationHint: "H:\\CrystalPilot-projects\\sample-view",
+  cifImport: "导入查看",
+  cifImportHint:
+    "无需 HKL：查看结构、测量和堆积分析。原文件不会修改；没有衍射数据时不计算精修指标、差值密度或残余电子数。",
+  cifBlockLabel: "多结构文件：指定数据块（可选）",
+  cifBlockHint: "通常留空；多个结构时填写 data_ 后的名称",
+  structureOnlyTitle: "结构只读分析",
+  structureOnlyNote: "没有反射数据 · 文献指标不等于本次精修结果",
+  structureNeedsReflections:
+    "没有观测反射数据，密度图和残余峰不可用；几何孔道仍可查看。",
+  structureReportedMetrics: "源 CIF 报告的指标（未重新精修）",
+  electronsNotComputed: "电子数未计算",
+  analysisKeepStructure: "分析时保留结构视图",
+  analysisStageNames: {
+    interactions: "相互作用",
+    topology: "拓扑与形状",
+    guests: "客体位置",
+    pores: "孔道与堆积",
+  },
+  analysisStageStates: {
+    waiting: "等待计算",
+    running: "正在计算",
+    ready: "结果就绪",
+    error: "计算未成功",
+    unsupported: "当前数据不支持",
+    cancelled: "未继续计算",
+  },
+  analysisWorking: "先看已完成项，其余正在计算",
+  analysisFinished: "本轮分析已结束",
+  analysisCached: "已读取现有分析结果",
+  analysisStop: "停止后续计算",
+  analysisPaused: "本窗口已停止等待",
+  analysisPauseNote: "已完成的结果仍保留；其他窗口使用的共享任务可能继续。",
+  analysisCancelNote: "当前引擎计算不能立即中断；返回后不再开始下一项。",
+  analysisErrorDetails: "查看原因",
+  open: "打开",
+  opening: "正在打开…",
+  cancel: "取消",
+
+  // welcome / project home
+  heroTitle: "我们要对这颗晶体做些什么？",
+  heroSubtitle: "打开一个项目文件夹，把衍射数据交给 CrystalPilot。",
+  projectHeroSubtitle: "描述你的晶体和目标，开始一次自主精修对话。",
+
+  // composer
+  composerPlaceholder: "随心输入（可粘贴 / 拖入图片与文件）",
+  send: "发送",
+  stop: "停止",
+  steer: "插话",
+  attach: "添加附件",
+  uploading: "正在上传…",
+  attachedPrefix: "附件",
+  attachRemove: "移除附件",
+  attachRetry: "重试上传",
+  attachTooMany: "一条消息最多 8 个附件",
+  attachTooLarge: "超过 50 MB 上限",
+  attachUploadFailed: "上传失败",
+  attachWaitUploading: "附件仍在上传，请稍候…",
+  dropToAttach: "松开鼠标，将文件作为附件加入输入框",
+  attachImageHint: "图片将随消息直接发给模型；PDF/Word 会自动抽取文本",
+  resizeHandle: "拖动调整栏宽（双击恢复默认）",
+
+  // permission modes
+  permReadonly: "只读",
+  permCopilot: "请求批准",
+  permAuto: "自动",
+  permFull: "完全访问",
+  permReadonlyDesc: "只允许读取项目，不做任何修改",
+  permCopilotDesc: "改模型、写文件和命令都先请我批准",
+  permAutoDesc: "工作区内自动执行，越界（凭据、E 盘、kill、push）时询问",
+  permFullDesc: "可不受限制地访问你电脑上的文件",
+  permTitle: "应如何批准 CrystalPilot 操作？",
+  permChangeBusyError: "回合运行中无法切换权限模式",
+
+  // chat items
+  reasoningSummary: "思考摘要",
+  technicalDetails: "技术详情",
+  rawCommand: "原始命令",
+  toolRunning: "正在运行",
+  toolDone: "完成",
+  toolFailed: "失败",
+  toolInterrupted: "未完成",
+  toolNoResult: "未收到结果",
+  // project storage (project home)
+  storageTitle: "项目占用",
+  storageUser: "用户数据",
+  storageResults: "交付件",
+  storageSystem: "系统生成",
+  storageReclaimable: "可回收",
+  storagePreview: "查看可清理项",
+  storageNothing: "无可清理项",
+  storageApply: "执行清理",
+  storageFreed: "已释放",
+  storageSkipped: "项跳过",
+  storageBusy: "回合运行中，结束后再清理",
+  storagePlanHint: "先列清单再执行：只处理未被节点或交付引用的中间产物，用户文件、节点库、反射数据版本与 CrystalPilot Results 一律不动。",
+  storagePlanList: "逐项清单",
+  storageKindLink: "改为硬链接（内容不变）",
+  storageKindStrip: "CIF 内嵌反射改为引用（交付时恢复）",
+  storageKindDelete: "删除中间文件",
+  storageKindRmdir: "删除已完成的暂存目录",
+  storageRules: "保留规则：被节点树或交付引用的作业完整保留；未引用作业保留 .ins/.res/.lst，只回收结构因子表；反射数据只存一份（数据版本），作业目录用硬链接引用。",
+  toolNoResultHint:
+    "这一步已经开始，但在回合结束前没有收到它的完成事件；系统不把它算作成功或失败。下面是收到的原始事件。",
+  toolInterruptedHint: "回合在这一步运行时被停止或失败，没有收到它的结果。",
+  rawEvents: "原始事件",
+  imageView: "查看图片",
+  railQuestion: "等待回答",
+  command: "命令",
+  exitCode: "退出码",
+  output: "输出",
+  fileChange: "文件变更",
+  digestPrefix: "运行了 ",
+  digestCommands: "条命令",
+  digestObserves: "次检视",
+  digestOthers: "项动作",
+  workedFor: "已工作",
+  workThinking: "思考",
+  // 峰卡编号语义（P3 峰表同源核查）
+  peakOrdinalNote:
+    "编号为查看器内部序号；给 agent 描述峰请用位置/高度（引用按钮已按此措辞）",
+  // 全局显示密度开关（P1-6）
+  viewConcise: "简洁",
+  viewVerbose: "详细",
+  viewModeTitle: "显示密度：简洁只看结论，详细展开全部命令与输出",
+  // sticky 当前动作行（P1-5）
+  stickyThinking: "思考中…",
+  stickyApproval: "等待审批…",
+  stickyEditingFile: "正在修改文件…",
+  stickySearching: "正在搜索网页…",
+  // turn 失败人话化（P1-9）
+  turnErrTimeout: "上游响应超时，稍后重试即可，已完成的节点不受影响",
+  turnErrRateLimit: "上游限流（429），稍等片刻重发消息即可",
+  turnErrUpstream: "上游服务错误",
+  showEarlierPrefix: "显示更早的 ",
+  showEarlierSuffix: " 项",
+  showEarlierServer: "加载更早的记录",
+  showEarlierLoading: "正在加载…",
+  showEarlierRemainingPrefix: "还有 ",
+  earlierInputs: "更早的输入（相关过程见「显示更早」）",
+  jumpToLatest: "回到最新",
+  railIdle: "空闲",
+  railLastTurn: "上次回合",
+  railNode: "节点",
+  railSteerable: "可插话",
+  railFresh: "还没有开始",
+  railApproval: "等待你的批准",
+  railFailed: "上次回合失败",
+  railInterrupted: "上次回合已中断",
+  deliveryStatusFinal: "定稿",
+  deliveryStatusProvisional: "暂定",
+  deliveryStatusDiagnostic: "诊断性",
+  deliveryNode: "节点",
+  deliveryAllFiles: "全部",
+  deliveryFilesUnit: "个文件",
+  deliveryOpenArtifacts: "产物页签",
+  // round-3 WP1 status envelope (summary.tool_status)
+  envNoChange: "无变化",
+  envInconclusive: "未定论",
+  envAgainst: "证据相反",
+  envTimeout: "超时 · 部分结果",
+  envCancelled: "已取消",
+  showEarlierRemainingSuffix: " 条",
+  commandFullOutput: "查看完整输出",
+  commandFullOutputChars: " 字符",
+  commandFullOutputMissing: "服务器上没有这条命令的完整输出",
+  errorAreaTitle: "这一区域出错了",
+  errorAreaHint: "其他区域不受影响；诊断已记录。",
+  errorAreaRetry: "重新加载此区域",
+  errorAreaCopy: "复制诊断",
+  errorAreaCopied: "已复制",
+  asuFlagTipPrefix: "ASU 警示：",
+  asuFlagDetached: "游离片段",
+  asuFlagGhosts: "幽灵嫌疑",
+  asuFlagTipSuffix:
+    "，审稿人眼中的错误；交付前用 assemble_asu / 幽灵裁决流程处理",
+  webSearch: "网页搜索",
+  todoList: "待办列表",
+  errorItem: "错误",
+  clientError: "客户端错误",
+
+  // approvals
+  approve: "批准",
+  reject: "拒绝",
+  approveForSession: "本次会话总是允许",
+  approvalPending: "等待批准",
+  approvalAccepted: "已批准",
+  approvalRejected: "已拒绝",
+  approvalAuto: "已自动批准",
+  approvalTimeout: "已超时",
+  approvalResolved: "已在后台处理",
+  approvalAutoSession: "已自动批准（本次会话允许）",
+  approvalInComposer: "在下方输入区审批",
+  approvalQueuePrefix: "待审批",
+  approvalShowParams: "参数",
+  approvalRunCommand: "执行命令：",
+  approvalMcpTool: "调用工具 ",
+
+  // MCP engine health
+  mcpDownBanner: "晶体学工具服务失联，精修工具暂不可用，建议重启引擎恢复",
+  mcpRestart: "重启引擎",
+  mcpRestarting: "正在重启引擎…",
+  mcpRestartBusy: "回合运行中，等它结束后再重启",
+  sysMcpDown: "晶体学工具服务失联",
+  sysMcpWaiting: "正在启动晶体学工具服务…",
+  sysMcpReady: "晶体学工具已就绪",
+  sysMcpFailed: "晶体学工具启动失败",
+  sysMcpToolsUnit: "个工具",
+  sysMcpTimeout: "晶体学工具在限定时间内未就绪，本回合可能缺少工具",
+  sysEngineRestarted: "引擎已重启，工具服务恢复",
+
+  // attach menu / raw frames directory
+  attachUpload: "上传文件（cif/hkl/res 等小文件）",
+  attachFramesDir: "引用原始帧目录…",
+  attachFramesDirDesc:
+    "成百上千张衍射帧不经上传：填本机目录路径，校验后交给 import_frames 就地读取",
+  framesDirPlaceholder: "如 D:\\data\\scan1 或 H:\\...\\cbf",
+  framesProbe: "检测",
+  framesFound: "张衍射帧",
+  framesNone: "未发现已知格式的衍射帧",
+  framesInsert: "插入到输入框",
+
+  // turn status
+  turnStarted: "回合开始",
+  turnCompleted: "回合完成",
+  turnDone: "已完成",
+  turnInterrupted: "已中断",
+  turnFailed: "失败",
+  working: "正在处理…",
+
+  // channel status
+  connecting: "正在连接…",
+  reconnecting: "正在重新连接…",
+  recovering: "正在重新连接项目…",
+  channelDead: "连接已断开，稍后自动重试",
+
+  // right pane
+  rightPaneTitle: "晶体窗格",
+  rightPaneComing: "晶体窗格即将到位",
+  rightPaneComingDesc: "结构视图、节点树与指标将在下一阶段接入。",
+  tabStructure: "结构",
+  tabNodes: "节点树",
+  tabMetrics: "指标",
+  tabArtifacts: "产物",
+  tabValidation: "验证",
+  tabAnalysis: "分析",
+  // 分析 tab (R3.5)
+  anScope: "对称唯一表 · 整个晶体 · 不随显示范围变",
+  anInteractions: "相互作用",
+  anPores: "孔道",
+  anGuests: "客体位置",
+  anLoading: "正在计算分析表…",
+  anError: "分析表构建失败",
+  anRetry: "重试",
+  anNoNode: "还没有节点",
+  anNone: "无",
+  anNoInteractions: "按当前判据未找到相互作用",
+  anNoVoids: "该结构无溶剂可及孔道",
+  anPassing: "满足判据",
+  anIntra: "分子内",
+  anInter: "分子间",
+  anOf: "共",
+  anQuote: "引用",
+  anMore: "展开全部",
+  anLess: "收起",
+  anTruncated: "已截断，只保留最近的",
+  anMissingRings: "缺环",
+  anMissingRingsTail:
+    "穿过对称元素闭合的环，找环器不能表示；涉及它们的 π–π / C–H···π 行不在表内",
+  anRcsrComponents: "个分量",
+  anSystreError: "Systre 报错",
+  anPending: "未实现",
+  anDim: ["孤立空腔", "1-D 通道", "2-D 层", "3-D 网络"],
+  anLcd: "LCD",
+  anPld: "PLD",
+  anSite: {
+    cage_cavity: "笼内",
+    channel: "通道",
+    cavity: "分子间空腔",
+    interstitial: "晶格间隙",
+  } as Record<string, string>,
+  anSiteCage: "笼内",
+  anHost: "宿主",
+  anGuestCopies: "份",
+  anClearance: "最近间隙",
+  anToCentre: "距内切球心",
+  anCriteria: "判据定义",
+  anNoGuests: "模型里没有客体 / 抗衡离子片段",
+  anGuestsFailed: "客体归属未能计算",
+  sidebarOpen: "打开侧栏",
+  // completed-turn fold (R6)
+  turnFoldPrefix: "过程",
+  foldTools: "次工具",
+  foldThinks: "组思考",
+  foldCommands: "条命令",
+  foldApprovals: "次审批",
+  foldSubagents: "次子代理",
+  // delivery summary card (R6)
+  deliveryTitle: "交付摘要",
+  deliveryFromTools: "文件清单读自产物目录（工具结果），不是从对话文字里读的",
+  deliveryNoFiles: "产物目录还没有文件（或尚未刷新）",
+  deliveryWaived: "豁免",
+  // what final.cif IS, and whether a person can continue by hand
+  // (usertest 2026-09-08: res/cif/ins/hkl/p4p 是课题组的人工接手文件)
+  deliveryCifGradeActa: "SHELXL ACTA CIF",
+  deliveryCifGradeModel: "模型 CIF",
+  deliveryCifGradeModelTip:
+    "坐标来自节点，统计量来自该模型自身的测量（零周期 SHELXL 或当前指标）；没有 esd 和几何表。要得到 ACTA CIF 需在该节点上 run_shelxl(mode='adopt', l_s≥1)",
+  deliveryHandoverReady: "人工接手文件齐全（res / cif / ins / hkl / p4p）",
+  deliveryHandoverMissing: "人工接手缺",
+  // approval facets (R6)
+  approvalWhat: "做什么",
+  approvalWhy: "为什么",
+  approvalRisk: "风险",
+  approvalFiles: "涉及",
+  riskObserve: "只读工具：不改模型、不写文件",
+  riskMutate: "改模型：成功后自动提交为新节点，可 checkout 回滚",
+  riskDeliver: "写出交付文件（CIF / 报告）到项目目录",
+  riskUpload: "把 CIF 与结构因子上传到外网 checkcif.iucr.org",
+  riskShell: "运行 shell 命令（沙箱外，按黑名单判定）",
+  riskFile: "修改工作区文件",
+  riskUnknown: "未识别的操作类型，请看参数",
+  // quote anchors (R6) + composer chips / transcript jumps (round-3 R6)
+  anchorChip: "锚",
+  anchorRailLabel: "引用",
+  anchorRemove: "移除这条引用",
+  anchorJump: (node: string) => `回到 ${node} 查看这个引用（历史值，不检出）`,
+  // steer receipts (round-3 R6)
+  receiptSending: "发送中…",
+  receiptPersisted: "已记录",
+  receiptSubmitted: "已送达模型",
+  receiptFailed: "未送达模型",
+  receiptRetry: "重试",
+  // question cards (round-3 R6)
+  askTitle: "需要你决定",
+  askSettled: "已确定",
+  askDispute: "分歧",
+  askQuestion: "问题",
+  askFallback: "不知道时",
+  askAnswerSelf: "自己回答",
+  askHint: "你的回答会作为先验交给智能体，由它用数据验证；不清楚就选“不知道”，它会走保守路径。",
+  // stage track (R6)
+  stageTrackTitle: "阶段",
+  stageBasisSituation: "阶段由 situation_report 判定",
+  stageBasisTool: "阶段按最近一次工具推断",
+  stageNoTurns: "这一阶段还没有完成的回合",
+  stageToolsUnit: "次工具",
+  // subagent directory (R6)
+  subagentsTrigger: "子代理",
+  subagentsNone: "本线程没有委派过子代理",
+  subagentPrompt: "任务",
+  subagentStatus: "状态",
+  collabRow: "子代理",
+  // structure class (analysis tab)
+  scTitle: "结构类别",
+  scAuto: "未指定（按建议）",
+  scClasses: {
+    small_molecule: "小分子",
+    macrocycle: "大环",
+    cage: "笼",
+    framework: "周期框架（MOF / COF / HOF）",
+    salt_cocrystal: "盐 / 共晶",
+  } as Record<string, string>,
+  scSuggested: "系统建议",
+  scBasis: "依据",
+  scAdopt: "采用",
+  scTip:
+    "告诉系统这颗晶体是什么，分析页签只展开与它相关的区块；未展开的区块仍可用“显示全部”打开。这个类别也会写进项目设置供 agent 读取。",
+  scHiddenPrefix: "按类别收起：",
+  scShowAll: "显示全部",
+  scShowByClass: "按类别显示",
+  scSaveFailed: "类别已在本机记住，但未能写入项目设置：",
+  sidebarClose: "关闭侧栏",
+  // 拓扑 (R4)
+  anTopology: "拓扑",
+  anNets: "独立网",
+  anNetsUnit: "个网",
+  anNoNets: "没有周期性网（分子晶体）",
+  anNoNetsShort: "无周期网",
+  anInterpenetrated: "对称相关多网 · 互穿未判定",
+  anInterpenetratedYes: "互穿 · 环穿越判定",
+  anInterpenetratedNo: "对称相关但不互穿（环穿越未发现）",
+  anInterlocked: "一维链对称相关（机械互锁未判定）",
+  anInterlockedYes: "一维链机械互锁（环穿越判定）",
+  anRelation: {
+    translation: "晶格平移相关",
+    space_group_op: "空间群操作相关",
+    independent: "晶体学独立",
+  } as Record<string, string>,
+  anSimplifiedNet: "简化网",
+  anNodes: "节点",
+  anEdges: "边",
+  anNodeKind: {
+    metal_cluster: "金属簇",
+    branch_linker: "分支连接子",
+  } as Record<string, string>,
+  anRod: "棒状（周期性簇）",
+  anHelices: "螺旋链",
+  anNoHelices: "没有螺旋链",
+  anHand: { right: "右手", left: "左手" } as Record<string, string>,
+  anAchiral: "无手性",
+  anRacemic: "外消旋堆积",
+  anPitch: "螺距",
+  anFinite: "有限片段（分子 / 笼 / 抗衡离子）",
+  anHostRole: "宿主",
+  anGuestRole: "客体",
+  anLargestCycle: "最大无弦环",
+  anNoRing: "无环",
+  anSphericity: "球形度",
+  anAspect: "纵横比",
+  anLongest: "最长轴",
+  anDefinition: "定义与说明",
+  anTopologyFailed: "拓扑块未能计算",
+  ovNet: "简化网",
+  ovNetTip:
+    "节点–连接子简化网（R4）：金属簇收缩为节点、连接子为带晶格平移的边，是描述，供人核对，不是判定；读自该节点的分析产物",
+  netLoading: "正在取简化网…",
+  netEmpty: "简化网为空：没有金属节点，或连接子全为端基",
+  anPacking: "堆积指数",
+  anPerAtom: "Å³/非氢原子",
+  anCentre: "内切球心",
+  anCentroid: "质心",
+  anElectrons: "e",
+  anPldAlong: "沿 a/b/c",
+  anElectronsRecomputed: "重算掩膜电子",
+  anElectronsSnapshot: "精修掩膜快照",
+  anElectronsPerCell: "e/胞",
+  anElectronsDisagree: "两者口径相同（整胞）但相差 >20 %：计量以精修掩膜快照为准",
+  anElectronsUnconverged: "重算未收敛，以精修掩膜快照为准",
+  anParamsNode: "掩膜参数来自该节点自己的 solvent_mask",
+  anParamsDefaults: "掩膜参数为默认值预览（该节点未跑 solvent_mask）",
+  collapse: "收起",
+  expand: "展开",
+  focusEnter: "聚焦结构：右栏占到窗口 64% 以上，左栏收成抽屉；Esc 或再点一次还原",
+  focusExit: "退出聚焦",
+
+  // validation tab (checkCIF)
+  ccEmptyTitle: "还没有 checkCIF 结果",
+  ccEmptyDesc: "运行 run_checkcif 后此处显示警报",
+  ccRunning: "正在运行 checkCIF…",
+  ccFailed: "checkCIF 运行失败",
+  ccPartialNote:
+    "警报明细不完整、含无法解析的记录或计数不一致；未知总数只按已恢复的警报给出下限。请核对原始检查报告。",
+  ccCountsUnknown: "总数未知",
+  ccViewReport: "查看逐条解释",
+  ccViewAlerts: "返回警报列表",
+  ccNoKb: "该警报暂无知识库注释",
+  ccKbMeaning: "含义",
+  ccKbCauses: "常见原因",
+  ccKbRemedy: "常规处理",
+  ccSourceLocal: "本地 PLATON",
+  ccSourceSameNode: "报告来自当前查看节点",
+  ccSourceDifferentNode: "这是其他节点的检查，不代表当前模型已验证",
+  ccSourceOlderDelivery: "交付版本已更新，这份报告不是新版本的检查",
+  ccSourceUnknown: "来源版本未记录或暂时无法读取，按历史报告展示",
+  ccDeliveryVersion: "交付版本",
+  ccViewSourceNode: "查看来源节点",
+  ccReportScope:
+    "这里显示本对话最近一次检查报告，不随历史节点切换而重算；模型或数据改变后需重新验证。",
+  ccQuoteAlertTip: "把这条警报的代号和原文放进对话框，问它该怎么处理",
+  ccQuoteAllTip: "把 A/B 级警报清单放进对话框，问先处理哪一条",
+  ccSourceIucr: "IUCr 官方",
+  ccLevelA: "A 严重",
+  ccLevelB: "B 潜在严重",
+  ccLevelC: "C 需核查",
+  ccLevelG: "G 提示",
+
+  // coordination section (metrics tab)
+  coordTitle: "配位环境",
+  coordMetal: "金属",
+  coordCN: "CN",
+  coordRange: "键长范围 (Å)",
+  coordLigands: "配体",
+  coordNone: "当前场景中没有金属原子",
+  coordHint: "点击行在结构视图中高亮该原子",
+  coordAsuCaveat:
+    "按当前场景（非对称单元）统计，跨对称的配位键不在内，切到「生长」模式可见完整配位球",
+
+  // branch compare (nodes tab)
+  branchCompareTitle: "分支对比",
+  branchHead: "头节点",
+  branchBest: "R1 最低值",
+  branchViewing: "正在查看",
+
+  // artifacts / usage
+  artifacts: "产物",
+  tokens: "令牌",
+  contextWindow: "上下文",
+  tokensUsed: "本会话已用 token",
+  usageTitle: "令牌用量",
+  usageInput: "输入",
+  usageCached: "缓存",
+  usageOutput: "输出",
+  contextUsedSuffix: "已用",
+  noUsage: "本回合尚无用量数据",
+
+  // crystal pane - structure header card (Olex2 info-panel analog)
+  headerVsParent: "父节点",
+  headerFormulaTip:
+    "非对称单元的组成（按 Hill 次序，由恒等操作的原子统计），" +
+    "换范围或生长都不会变，因为它数的始终是独立部分",
+  headerDmin: "分辨率",
+  headerDminTip: "本次精修实际用到的最高分辨率（含 SHEL 截断）",
+  headerRintTip:
+    "合并一致性 Rint，数据本身的内部自洽程度，它给 R1 划了一条谁也" +
+    "跨不过去的下界；判读要结合晶体质量与衍射强度，不看某条固定线",
+  headerCompleteness: "完整度",
+  headerUnique: "独立衍射",
+  headerUniqueTip: "独立反射数（副标为冗余度 = 总观测 / 独立）",
+  headerPeak: "残峰",
+  headerHole: "残洞",
+  headerParamsTip:
+    "精修参数数（副标为限制数；第二行是数据/参数比，比值太低说明模型" +
+    "自由度已经超出数据能支撑的范围）",
+  headerDataRecomputed:
+    "（这个节点提交时没有记录数据块，以上数据是刚刚用项目当前的衍射" +
+    "文件重新合并得到的，如果中途换过数据，它未必是这个节点当初拟合的那一套）",
+  headerDataRecomputedChip: "数据为重算",
+  headerFlackTip:
+    "Flack 参数（绝对构型；接近 0 表示当前手性正确，接近 0.5 表示" +
+    "无法判定，esd 见指标页）",
+  headerSpaceGroupTip:
+    "空间群（来自当前场景）。Olex2 把它放在右上角斜体，因为它是画面上最要紧、也最常错的判断",
+  headerQuote: "引用",
+  headerQuoteTip:
+    "把这张卡片上的胞、空间群、R 因子与数据质量一并带进对话，" +
+    "省得手敲，也保证 agent 拿到的是你正在看的这一组数",
+
+  // crystal pane - extent (what slice of the crystal is drawn)
+  modeAsu: "非对称单元",
+  modeAsuTip: "只画 .res 里的独立原子，不做任何对称展开（Olex2 fuse 的落点）",
+  modeCell: "晶胞",
+  modeCellTip:
+    "填满一个晶胞（Olex2 pack），有限分子按质心整体入胞不切碎，" +
+    "骨架/链按原子折叠",
+  modeGrow: "生长",
+  growTip:
+    "生长是对当前画面做的动作，不是一种画面（Olex2 里也是这样：先 pack " +
+    "出晶胞，再从它 grow）。所以它对上面任何一种范围都能用，而且可以" +
+    "连着按，每按一次多长一层。",
+  growOnce: "生长",
+  growOnceTip: "沿成键关系再向外长一层对称邻居（Olex2 grow -s）；可连按",
+  growAtMaxTip:
+    "已到 4 层显示上限，并不保证分子已完整。周期骨架是无限网络；" +
+    "可改用晶胞、超胞或半径范围检查更大区域",
+  modeSuper: "超胞",
+  modeSuperTip: "多个晶胞并排（堆积、孔道贯通性、层间关系）",
+  growAll: "长满",
+  growAllTip:
+    "沿成键关系一直长，直到再次遇到该片段已用过的对称元素为止（Olex2 grow）：" +
+    "有限分子长完整（含跨晶胞边界与靠对称闭合的分子）；链 / 层 / 骨架长满一个周期后停止，" +
+    "周期键只画一个端帽，范围药丸标明“周期截断”",
+  growAllPeriodic: "周期截断",
+  growAllBudget: "原子预算截断",
+  drawStyleLabel: "样式",
+
+  // crystal pane - toolbar groups
+  grpExtent: "范围",
+  secSpace: "空间",
+  grpDraw: "绘制",
+  elemLabel: "元素",
+  elemTip:
+    "按元素显示/隐藏（Olex2 元素行），MOF 上最常用的一招是把 C、H 藏起来" +
+    "只看金属-氧节点；换范围时 H 会自动跟着藏/显，你手动藏的其他元素不受影响",
+  grpDisplay: "显示",
+  grpRelations: "关系",
+  grpRelationsTip: "原子表里没有、要另算出来的几何关系",
+  grpEvidence: "证据",
+  grpEvidenceTip: "来自实验数据而非模型的图层（各自单独计算，首次点开要等）",
+  grpView: "视图",
+
+  // crystal pane - overlays / toolbar
+  ovPolyhedra: "多面体",
+  ovMap: "密度图",
+  mapKindFofc: "Fo−Fc",
+  mapKindFofcTip:
+    "差值（残差）密度：绿=模型缺电子、红=模型多电子，找漏原子/无序/错元素",
+  mapKind2fofc: "2Fo−Fc",
+  mapKind2fofcTip:
+    "总密度（Coot 惯例蓝面）：看骨架实密度与配体贴合度，低分辨率下判断" +
+    "建模是否跟得上实验密度",
+  drawWire: "线框",
+  drawWireTip:
+    "只画键不画球（Olex2 wireframe），生长/超胞下球棍会糊成一团，" +
+    "去掉球才看得清连通性与孔道走向",
+  drawBall: "球棍",
+  drawBallTip: "球棍模型：原子按元素着色的小球 + 键棒（Olex2 ball&stick）",
+  drawEllipsoid: "椭球",
+  drawEllipsoidTip:
+    "50% 概率热椭球（各向异性原子；ORTEP 约定），审稿人先看这个：" +
+    "扁平/雪茄形/异常大的椭球是无序、错元素或位置有问题的第一线索",
+  drawSpace: "空间填充",
+  drawSpaceTip:
+    "范德华半径实心球（Olex2 spacefill），判断孔道是不是真的通、" +
+    "客体塞不塞得进去；其他表示法都看不出这件事",
+  ovLabels: "标签",
+  ovCapped:
+    "原子数超过显示上限，本图层已自动回退；开关保留，切回较小的范围就会恢复",
+  ovHbonds: "氢键",
+  ovHbondsTip:
+    "氢键（相互作用引擎）：D–H···A，默认 Olex2 htab 判据 D···A ≤ 2.9 Å、" +
+    "∠D–H···A ≥ 150°；无 H 时只报 D···A；骑乘 H 的 H···A 系统性偏长约 " +
+    "0.1–0.15 Å，点虚线看几何与判据；范围边缘的伙伴用对称码标出（光环规则）",
+  ovPipi: "π–π",
+  ovPipiTip:
+    "芳香环质心间距 ≤ 4.0 Å、法线夹角 ≤ 30°、滑移 ≤ 3.0 Å（Olex2 pipi 默认；" +
+    "Janiak 2000），两侧垂直距离与滑移都报，不只报一个数",
+  ovChpi: "C–H···π",
+  ovChpiTip:
+    "H···环心 ≤ 3.2 Å、∠C–H···Cg ≥ 120°、H 的法向投影落在环半径 +0.5 Å 内（Nishio）",
+  ovChx: "C–H···X",
+  ovChxTip:
+    "H···A ≤ 范德华半径和、∠C–H···A ≥ 120°，A ∈ O/N/F/Cl/S（cctbx vdW 表）",
+  ovHalogen: "卤键",
+  ovHalogenTip:
+    "X ∈ Cl/Br/I，X···Y ≤ 范德华半径和、∠C–X···Y ≥ 155°（IUPAC 2013 σ-hole）",
+  ovAnionPi: "阴离子–π",
+  ovAnionPiTip: "阴离子质心到环心 ≤ 4.5 Å 且偏移在环半径内，弱读数，只作提示",
+  ixKind: {
+    hbond: "氢键",
+    pipi: "π–π 堆积",
+    chpi: "C–H···π",
+    chx: "C–H···X",
+    halogen: "卤键",
+    anion_pi: "阴离子–π",
+  } as Record<string, string>,
+  ixPasses: "满足判据",
+  ixFails: "距离在范围内，角度不满足判据",
+  ixBoundary: "伙伴在显示范围外",
+  ixSymop: "对称码",
+  ixCriteria: "判据",
+  ixHSource: {
+    riding: "骑乘 H：H···A 系统性偏长 0.1–0.15 Å，角度由约束决定",
+    refined: "H 位置来自精修",
+    absent: "无 H：只报 D···A，角度不可得",
+    mixed: "部分 H 为骑乘 H",
+    unknown: "H 来源未知",
+  } as Record<string, string>,
+  ixHaloShort: "光环不足：范围边缘可能漏报伙伴",
+  ixTruncated: "已截断",
+  ixQuote: "引用这条相互作用",
+  measureClear: "清除测量",
+  measureHint: "连续点击 2/3/4 个原子测距离/角度/二面角",
+  measureQuote: "引用",
+  measureQuoteTip:
+    "把这条测量读数带进对话（视图读数无 esd，agent 需要时会自己算）",
+  ovStubs: "生长键",
+  ovStubsTip: "显示可点击的悬挂生长方向（虚线短棒；点幽灵球把对称邻居长出来）",
+  ovSymm: "对称元素",
+  ovSymmTip:
+    "空间群对称元素三维显示：旋转/螺旋轴（按阶次着色，螺旋轴虚线）、" +
+    "镜面/滑移面（半透明面，滑移面更透）、反演中心（灰点），判断特殊位置、" +
+    "教学与检查对称性用；符号按 ITA 惯例（2₁、c、m、-1…）",
+  ovSlab: "切片",
+  ovSlabTip:
+    "周期性切片（VESTA 式），沿 a/b/c 轴按分数坐标裁剪显示，看 MOF 孔道" +
+    "截面与层状结构剖面；密度图与孔道等值面不受裁剪",
+  slabPos: "位置",
+  slabThick: "厚度",
+  ovContacts: "短接触",
+  ovContactsTip:
+    "范德华短接触（d ≤ vdW 半径和，Olex2 grow -s 惯例），泛泛的堆积邻居，" +
+    "不分类型；π–π、C–H···π、卤键等各有自己的图层。灰虚线连已显示原子，" +
+    "青色幽灵球可点击把堆积邻居长出来（氢键距离内的极性对不重复显示）",
+  ovPub: "出版样式",
+  ovPubTip: "白底、加粗键、深色标签，论文配图预设",
+  askWithView: "带图提问",
+  askWithViewTip:
+    "把当前画面作为图片附到输入框，并写好一句说明（节点/范围/开着哪些图层），让 agent 直接看见你看到的东西，而不是只读一句描述",
+  exportPng: "导出图",
+  exportPngTip: "把当前视角导出为 PNG（配合出版样式使用）",
+  digestNodes: "节点",
+  fuse: "收回",
+  extentSecRange: "范围",
+  extentSecAction: "动作",
+  extentMenuTip:
+    "范围与生长：画哪一片晶体、向外长多远（按 Olex2 的 fuse / grow / pack / compaq 语义）",
+  growShell: "长一层",
+  growComplete: "补全",
+  growCompleteTip:
+    "把已用到的对称算符施加到整个非对称单元，让溶剂/抗衡离子跟着长出来的像一起出现（Olex2 grow -w）",
+  modeRadius: "半径",
+  modeRange: "分数盒",
+  packRadiusCentre: "以此为中心",
+  packRadiusAsu: "非对称单元质心",
+  assembleAsu: "装配非对称单元…",
+  assembleAsuTip:
+    "把请求预填进输入框，由 agent 调用 assemble_asu（这会改模型）",
+  assembleTemplate:
+    "请用 assemble_asu 把非对称单元装配成连贯的分子/片段（Olex2 compaq -a 语义：按对称把每个碎片折到一起），装配后告诉我搬动了哪些原子、键合关系有没有变化。",
+  headerExpand: "展开结构卡",
+  headerCollapse: "收起结构卡",
+  fuseTip: "回到未生长的状态：清掉逐层生长与手工点出来的拷贝（Olex2 fuse）",
+  partFilterLabel: "无序:",
+  partAll: "全部",
+  ovPeaks: "Q峰",
+  ovPeaksTip:
+    "差值密度残峰的离散显示（橙球，半径∝峰高），判断漏原子/无序分量/" +
+    "溶剂位置的核心证据；点击峰可引用给 agent",
+  peaksLoading: "正在计算 Q 峰表…",
+  peakNearest: "最近原子",
+  peakQuote: "引用此峰到对话",
+  ovVoids: "孔道",
+  ovVoidsTip:
+    "溶剂可及孔道等值面（探针 1.2 Å，与 Olex2/PLATON 惯例一致）" +
+    "，MOF 孔道连通性与 SQUEEZE 决策的直观依据；每孔标注体积与电子数" +
+    "（注：分孔电子数含 BYPASS 重标定，化学推理以整胞总数为准）",
+  voidsLoading: "正在计算孔道网格…",
+  voidsNone: "该结构无溶剂可及孔道",
+  voidsQuoteTip:
+    "把整胞孔体积与残余电子数带进对话（掩膜/SQUEEZE 决策就看这两个数）",
+  compareBtn: "对比",
+  compareBaselineTip: "以此节点为对比基线（任意两节点对比）",
+  compareBaselineChip: "对比基线",
+  compareClearTip: "清除对比基线（恢复与父节点对比）",
+  ovParts: "无序异色",
+  ovPartsTip:
+    "无序 PART 组同屏异色（Olex2 part 着色），两套无序取向一眼可辨；" +
+    "开启标签时 PART 原子附占有率数值",
+  ovDiff: "结构变化",
+  ovSpin: "自旋",
+  resetView: "重置视角",
+  isoLabel: "等值面",
+
+  // crystal pane - status / banner
+  historyViewingPrefix: "正在查看历史节点",
+  backToLatest: "返回最新",
+  sceneLoading: "正在生成结构场景…",
+  sceneError: "场景加载失败",
+  sceneTruncated: "显示已截断",
+  sceneTruncatedTip:
+    "原子数触到显示上限，当前画面只是结构的一部分，周期骨架在「生长/全部」下必然如此（无限网络长不完）。判断连通性/孔道时请据此留意，或改用晶胞/超胞视图。",
+  // 与「显示已截断」是两回事，绝不合并：原子画全了，但按胞计算的图层
+  // （孔道/密度图/Q 峰/对称元素）只铺到其中一部分胞（round-2 R2.2, D7）
+  layerRangeTruncated: (shown: number, total: number) =>
+    `图层覆盖 ${shown} / ${total} 胞`,
+  layerRangeTruncatedTip:
+    "原子范围横跨的晶胞太多，孔道/密度图/Q 峰/对称元素这些「按胞计算」的图层只铺在离中心最近的若干胞上，边缘的原子旁边没有画这些图层，不代表那里没有孔道或残余密度。缩小范围即可铺满。",
+  mapLoading: "正在计算密度图（首次约 3 秒）…",
+  mapError: "密度图加载失败",
+  nodesLoading: "正在加载节点…",
+  nodesEmpty: "该项目还没有精修节点",
+  refreshNodes: "刷新",
+
+  // crystal pane - metrics / node tree
+  nodeLabel: "节点",
+  branchLabel: "分支",
+  atomsLabel: "原子",
+  restraintsLabel: "约束",
+  paramsLabel: "参数",
+  peakLabel: "峰值",
+  checkoutBtn: "检出",
+  checkoutTemplatePrefix: "检出到节点 ",
+  checkoutTemplateSuffix: "，从这里继续精修",
+  activeTag: "当前",
+  metricsTrend: "指标趋势",
+  dataSectionTitle: "数据",
+  dataCompleteness: "完整度",
+  dataUnique: "独立衍射",
+  dataRedundancy: "冗余",
+  dataSpaceGroup: "空间群",
+  dataShelTip: "已设分辨率截断（SHEL）",
+  dataDminNominal: "d_min（数据标称）",
+  dataDminWorking: "工作截断（SHEL）",
+  dataHklf5Tip: "反射文件为 HKLF5 批次格式（孪晶复合观测）",
+  lineageTitle: "谱系（到所查看节点）",
+  staleMetrics: "待精修",
+  headerInherited: "沿用",
+  headerInheritedTip:
+    "本节点没有自己的测量（几何操作提交）；显示的是最近一个有测量的祖先节点的指标，仅供参考，在本节点上精修后才是它自己的",
+  treeNodesUnit: "节点",
+  treeBranchesUnit: "条",
+  treeDiagGroup: "诊断分支",
+  treeDiagGroupTip:
+    "工具自动创建的一次性诊断节点（ghost_test / element_scan / probe_site 的候选与参照），默认收起",
+  treeFoldTip: "折叠 / 展开这条分支的节点",
+  treeDelivered: "已交付",
+  treeDeliveredTip: "write_outputs 从这个节点交付过",
+  treeBestTip: "仅标示最低数值；未核对各节点比较条件，不代表结构最优（不含诊断分支）",
+  treeInherited: "沿用",
+  treeInheritedTip: "这个节点没有精修；R1 沿用最近一次精修的祖先节点",
+  treeCompareNote: "不含诊断分支",
+  treeCompareOpen: "展开分支对比",
+  treeCompareClose: "收起分支对比",
+  staleMetricsTip:
+    "结构在该节点被修改后尚未重新精修；所示指标沿用上一次精修结果",
+
+  // crystal pane - selection
+  selOccupancy: "占有率",
+  selSymop: "对称操作",
+  selNpd: "ADP 非正定（NPD），以标记球显示",
+  adpBadgeTip:
+    "位移椭球异常（NPD/轴比>4/U_eq 极端），点击逐个跳转查看原因；" +
+    "常提示该处需拆无序或修正元素指认",
+  selCenter: "居中",
+  selCenterTip: "把镜头对准这个原子（以选中为中心，动画 0.3 s）；重置视角回到全景",
+  selQuote: "在对话中引用",
+  selQuotePrefix: "查看 ",
+  selQuoteSuffix: " 附近的密度与配位",
+
+  // artifacts panel
+  openArtifact: "打开",
+  previewArtifact: "预览",
+  noArtifacts: "还没有成果文件",
+  artifactsTopLevel: "顶层交付",
+  artifactsMainOnly: "只看主文件",
+  artifactsLogs: "运行日志",
+  artifactsLogsTip: "命令输出等运行记录，不是交付物",
+  artifactsPending: "回合运行中，产物生成后会自动出现…",
+
+  // settings menu (composer permission chip)
+  settingsSection: "项目设置",
+  settingsIucrTitle: "允许上传到 IUCr checkCIF",
+  settingsIucrDesc:
+    "允许把 CIF/结构因子上传到 IUCr checkcif.iucr.org（外网）。默认关闭；开启后 agent 调用 submit_iucr_checkcif 时仍需逐次审批。",
+  settingsSpecialistsTitle: "启用专家子代理（实验性）",
+  settingsSubagentsTitle: "只读审计子代理",
+  settingsSubagentsHint:
+    "开着时，推理档位为最高档的项目会在 AGENTS.md 里得到一段“可委派只读审计”的提示，并在项目里生成 5 个只读角色（各连一个只读的晶体学工具进程，写类工具被拒绝）；低档位不生效。“最高档主动委派”在 最高/超高 档位改为三个固定检查点主动委派并写裁决表。改动对下一个对话生效。",
+  settingsSubagentsActive: "当前档位已开启：角色 ",
+  settingsSubagentsInactive: "当前未开启（需最高档 ",
+  settingsSubagentsOff: "已关：任何档位都不提示、不生成角色",
+  settingsSubagentsAggressive: "当前档位已开启主动委派（三个检查点）：角色 ",
+  settingsSubagentsInactiveAggressive: "当前只有提示，主动委派需要 ",
+  subagentPolicyLabels: {
+    top_tier: "最高档提示（默认）",
+    aggressive: "最高档主动委派",
+    off: "关闭",
+  } as Record<string, string>,
+  settingsSpecialistsDesc:
+    "允许 agent 在困难分叉时咨询只读分析专家（空间群/化学/密度/验证/策略）。每次咨询消耗一次完整模型对话。切换会透明重启该项目的 agent 服务。",
+  settingsSpecialistsBusy: "等待当前回合结束",
+
+  // system rows (centered, Codex style)
+  sysSpecialistsOn: "已启用专家子代理",
+  sysDelegationOn:
+    "已进入委派档位：AGENTS.md 含只读审计委派段，项目里生成了 4 个只读角色（下一个对话生效）",
+  sysDelegationOff:
+    "已退出委派档位：委派段移除，只读角色文件已删除（下一个对话生效）",
+  sysSpecialistsOff: "已关闭专家子代理",
+  sysPermissionPrefix: "权限模式已切换为 ",
+  sysRebuilt: "（agent 服务已重启）",
+  settingsModel: "模型",
+  settingsEffort: "推理强度",
+  // round-3 R6: knowledge mode + structure class in the settings menu
+  settingsKnowledgeMode: "知识模式",
+  settingsKnowledgeModeHint: "完整 = 含专家判断规则；纯工具 = 只给操作契约（消融对照）。运行中不能切换。",
+  settingsKnowledgeModeBusy: "运行中不能切换知识模式，等本回合结束再试",
+  knowledgeModeLabels: { full: "完整", tools_only: "纯工具" } as Record<string, string>,
+  settingsStructureClass: "结构类别",
+  settingsStructureClassHint: "你声明的类别：分析页按它展开区块，智能体从 get_project_brief 读到。",
+  settingsStructureClassNone: "未声明",
+  settingsDefaultPrefix: "默认",
+  settingsNextTurnHint: "对下一条消息生效",
+  buildStamp: "前端构建",
+  buildStale:
+    "已过期：ui/src 比服务的构建新，请重新 npm run build 并重启服务器",
+  copyMessage: "复制",
+  copied: "已复制",
+
+  // approvals banner
+  approvalBannerSuffix: "个操作等待批准",
+  approvalJump: "查看",
+
+  // model menu (composer model button, 2026-09-07)
+  modelMenuTitle: "模型",
+  modelSearch: "搜索模型…",
+  modelProviderLabel: "提供方",
+  modelEffortLabel: "推理档位",
+  modelNoEffort: "该模型没有推理档位",
+  modelInCatalog: "已登记到内核",
+  modelNotInCatalog: "内核尚未登记（选中后自动登记，引擎重启后生效）",
+  modelUnlisted: "该接口的模型列表里没有它（仍可尝试）",
+  modelNewTag: "未登记",
+  modelVision: "视觉",
+  modelTextOnly: "纯文本",
+  modelContextShort: "上下文",
+  modelNextTurn: "对下一条消息生效",
+  modelProviderNote: "提供方在对话开始时固定：切换提供方后，新对话或分叉生效",
+  modelForkAction: "把当前对话分叉到新提供方继续",
+  modelNewThreadAction: "新建对话",
+  modelCustomId: "自定义模型 id…",
+  modelUseId: "使用",
+  modelLoading: "正在读取模型列表…",
+  modelListError: "模型列表读取失败",
+  modelRefresh: "刷新列表",
+  modelCurrent: "当前",
+  modelDefaultTag: "默认",
+  modelRestartPending: "引擎将在本回合结束后重启以应用改动",
+  modelEngineRestarted: "引擎已重启，新的内核设置已生效",
+  effortNoneLabel: "无",
+
+  // permission menu (slimmed)
+  permProjectSection: "项目设置",
+  subagentsSwitch: "是否开启子代理？",
+  subagentsTip:
+    "开=五个只读审计角色随时可委派，内核提供子代理工具；关=内核不提供子代理工具。自动：推理档位为最高档时开，否则关。",
+  subagentsAutoLabel: "自动",
+  subagentsAutoTip: "回到自动：最高档开，其他档关",
+  subagentsStateAutoOn: "自动 · 当前开（最高档）",
+  subagentsStateAutoOff: "自动 · 当前关",
+  subagentsStateOn: "已手动开启",
+  subagentsStateOff: "已手动关闭",
+  iucrTip: "把 CIF/结构因子上传到 IUCr checkcif.iucr.org（外网）；开启后每次仍需审批",
+  knowledgeTip: "完整=含专家判断规则；纯工具=只给操作契约（消融对照）。运行中不能切换",
+  structureClassTip: "声明晶体类别：分析页按它展开区块，智能体从项目简报读到",
+  openSettingsLink: "更多设置…",
+
+  // settings dialog
+  settingsTitle: "设置",
+  secProviders: "提供方与密钥",
+  secModels: "模型与推理",
+  secContext: "上下文",
+  secAppearance: "外观",
+  secAdvanced: "高级",
+  secAbout: "关于",
+  providerAdd: "添加提供方",
+  providerNew: "新提供方",
+  providerId: "标识",
+  providerIdHint: "小写字母/数字/连字符，如 deepseek",
+  providerName: "名称",
+  providerBaseUrl: "接口地址（base URL）",
+  providerBaseUrlHint: "https://openrouter.ai/api/v1",
+  providerApiKey: "API 密钥",
+  providerKeyPlaceholder: "粘贴密钥；留空则保持不变",
+  providerKeySet: "已配置",
+  providerKeyUnset: "未配置",
+  providerKeyUpdated: "更新于",
+  providerKeyNote: "可选托管密钥、环境变量或无认证；敏感值只在本机保存且不会回显。",
+  providerTest: "检查模型列表",
+  providerTesting: "检查中…",
+  providerTestOk: "模型列表可达",
+  providerTestFail: "模型列表不可达",
+  providerCatalogueOnly: "未验证模型调用",
+  providerModelsUnit: "个模型",
+  providerSave: "保存",
+  providerSaving: "保存中…",
+  providerSaved: "已保存",
+  providerDelete: "删除",
+  providerEdit: "编辑",
+  providerDeleteConfirm: "删除这个提供方？密钥文件会被停用（可在 secrets/ 目录找回）。",
+  providerSetDefault: "设为默认",
+  providerDefaultTag: "默认",
+  providerHeaders: "固定请求头（一行一个 Header: Value；敏感常量请改用托管密钥或环境请求头）",
+  providerEnvHeaders: "从环境变量读取的请求头（一行一个 Header: ENV_NAME）",
+  providerQueryParams: "查询参数（JSON 字符串对象；不保存密钥或 token）",
+  providerShowKey: "显示",
+  providerHideKey: "隐藏",
+  providerRemoveKey: "保存时移除本机托管密钥",
+  providerProtocol: "协议",
+  providerNative: "Codex 原生",
+  providerAdapterRequired: "需 Responses 适配器",
+  providerProtocolHelp: "Codex 原生只支持 OpenAI Responses；Chat、旧 Completions 与 Anthropic Messages 请接 Responses 兼容网关。",
+  providerUnsupported: "内核不支持",
+  providerAuthMode: "认证方式",
+  providerAuthManaged: "本机托管 API 密钥",
+  providerAuthEnvironment: "环境变量",
+  providerAuthNone: "无需认证",
+  providerAuthPreserve: "保留现有外部认证",
+  providerAuthPreserveHelp: "该提供方使用现有命令或内联认证；普通编辑会原样保留，改选认证方式才会替换。",
+  providerAuthExternal: "现有外部认证（未读取）",
+  providerEnvKey: "API 密钥环境变量名",
+  providerEnvUnavailable: "当前进程未设置",
+  providerAdvanced: "高级连接设置",
+  providerRequestRetries: "请求重试上限",
+  providerStreamRetries: "流重试上限",
+  providerIdleTimeout: "流空闲超时（ms）",
+  providerMapLineInvalid: "每行必须是 Name: Value",
+  providerMapDuplicate: "重复名称",
+  providerQueryInvalid: "查询参数必须是只含字符串值的 JSON 对象",
+  providerNumberInvalid: "请输入范围内的整数",
+  providerCurrentConfig: "当前配置文件",
+  providerKind: "类型",
+  providerKindOpenrouter: "OpenRouter",
+  providerKindCompat: "Responses 兼容端点",
+  providerUseInProject: "当前项目用此提供方",
+  providerUsedByProject: "当前项目正在使用",
+  cfgDefaultModel: "默认模型",
+  cfgDefaultEffort: "默认推理档位",
+  cfgDefaultProvider: "默认提供方",
+  cfgNote: "这些默认值用于没有单独设置的项目。当前项目的模型可在会话输入框旁单独选择。",
+  cfgSave: "保存默认值",
+  ctxWindow: "上下文窗口（token）",
+  ctxAutoCompact: "自动压缩阈值（token）",
+  ctxGlobal: "全局默认",
+  ctxProject: "当前项目覆盖",
+  ctxHint: "留空 = 按模型目录里的值；内核在上下文接近阈值时自动摘要压缩。改动在引擎重启后生效（空闲时立即，回合中则在回合结束后）。",
+  ctxCompactNow: "立即压缩当前对话",
+  ctxCompactSent: "已请求压缩",
+  ctxCurrentUsage: "当前对话上下文",
+  ctxEngineNow: "引擎当前",
+  ctxWindowShort: "窗口",
+  ctxCompactShort: "压缩阈值",
+  advSpecialists: "专家子代理（实验性）",
+  advSpecialistsTip: "consult_specialist 嵌套顾问；切换会重启该项目的引擎",
+  advKernel: "内核",
+  advKernelSource: "来源",
+  advKernelVersion: "版本",
+  advKernelPath: "路径",
+  advKernelNewer: "已安装更新版本",
+  advKernelUpdate: "升级内核：在命令行运行 scripts/update_codex_kernel.ps1（安装官方最新 @openai/codex 到 vendor/codex）",
+  advSdk: "Python SDK",
+  advCatalog: "模型目录",
+  advCatalogCounts: "内置 {b} 个 · 自定义 {c} 个",
+  advConfigPath: "配置文件",
+  advEngineRestart: "重启当前项目引擎",
+  advEngineRestarting: "正在重启…",
+  advOpenProjects: "已打开的项目",
+  aboutBuild: "前端构建",
+  aboutLegacy: "旧版界面",
+  settingsClose: "关闭",
+  settingsNoProject: "没有打开的项目",
+
+  // slash commands
+  slashHint: "输入 / 查看命令",
+  slashNoMatch: "没有匹配的命令",
+  slashRun: "回车执行",
+  noteStatusTitle: "当前状态",
+  noteMcpTitle: "晶体学工具（MCP）",
+  noteSkillsTitle: "技能",
+  noteContextTitle: "上下文",
+  noteMcpAbsent: "MCP 服务尚未挂载（首个回合开始时挂载）",
+  noteNoSkills: "没有找到技能",
+  noteRenamed: "对话已重命名",
+  noteForked: "已分叉到新对话",
+  noteNeedThread: "这个命令需要在对话里使用",
+  noteUnknownCommand: "未知命令；输入 / 查看命令列表",
+
+  // context / compaction
+  ctxTipTitle: "上下文窗口",
+  ctxTipUsed: "已用",
+  ctxTipRemaining: "剩余",
+  ctxTipTotal: "共",
+  ctxTipCompaction: "接近上限时内核会自动压缩上下文；也可输入 /compact 立即压缩",
+  ctxTipNoWindow: "该模型未报告上下文窗口大小",
+  railCompacting: "正在压缩上下文",
+  sysCompactionRequested: "已请求压缩上下文",
+  sysCompacting: "正在压缩上下文…",
+  sysCompacted: "已压缩上下文：早前内容改为摘要，上下文占用下降",
+  sysEngineWarning: "内核提示：",
+  sysModelRerouted: "模型已被内核改路由：",
+  sysEngineRestartedSettings: "引擎已按新设置重启",
+
+  // detached solver jobs (run_shelxt detach=true), 2026-09-18
+  bgProgramSuffix: "后台求解",
+  bgStageStarting: "启动中",
+  bgStagePhasing: "相位求解",
+  bgStagePhasingGrace: "相位求解（宽限中）",
+  bgStageSearch: "空间群搜索",
+  bgStageAssign: "元素指认",
+  bgStageFinished: "已完成",
+  bgStageKilled: "已按预算终止",
+  bgStageFailed: "失败",
+  bgStageDied: "进程已消失",
+  bgElapsedPrefix: "已",
+  bgTookPrefix: "用时",
+  bgMinutesUnit: "分",
+  bgSecondsUnit: "秒",
+  bgTriesUnit: "次尝试",
+  bgBestCfom: "最佳 CFOM",
+  bgSilentSearch: "此阶段 SHELXT 不输出任何内容",
+  bgSilentExhaustive: "声明了重原子，SHELXT 逐个评估 Laue 类内全部空间群，此阶段不输出任何内容",
+  bgRefPrefix: "本项目先前同类搜索约",
+  bgGroupsEvaluated: (n: number) => `评估了 ${n} 个空间群`,
+  bgSolutionUnadopted: (job: string) => `尚未采用，新回合里让 Agent 执行 run_shelxt(from_job='${job}') 即可采用`,
+  bgAdopted: "结果已采用",
+  bgAdoptedNode: "节点",
+  railBackgroundAfterTurn: "回合已结束，后台仍在求解，完成后会在对话里提示",
+  railSolutionReady: "SHELXT 求解已完成，待采用",
+
+  // sidebar / project home
+  newThreadIn: "新对话将创建在",
+  changeProject: "更换项目",
+  newThreadNoProject: "先打开一个项目，再新建对话",
+  renameThread: "重命名",
+  openThisProject: "打开",
+  openThisProjectTip: "切换到这个项目（在它的主页开始新对话）",
+  openProjectHome: "在这个项目里开始新对话",
+  threadRenamePlaceholder: "对话名称",
+  threadRenameTip: "重命名这个对话（同步到内核）",
+  browseFolder: "浏览…",
+  browsing: "系统对话框已打开…",
+  browseFailed: "无法打开系统对话框",
+
+  // misc
+  notFound: "页面不存在",
+  backHome: "返回首页",
+  loading: "加载中…",
+  emptyThread: "这个对话还没有内容",
+  today: "今天",
+} as const;
+
+export type ZhKey = keyof typeof zh;
+
+/** Display label for a permission mode. */
+export function permissionLabel(mode: string): string {
+  switch (mode) {
+    case "readonly":
+      return zh.permReadonly;
+    case "copilot":
+      return zh.permCopilot;
+    case "auto":
+      return zh.permAuto;
+    case "full":
+      return zh.permFull;
+    default:
+      return mode;
+  }
+}
+
+export function permissionDesc(mode: string): string {
+  switch (mode) {
+    case "readonly":
+      return zh.permReadonlyDesc;
+    case "copilot":
+      return zh.permCopilotDesc;
+    case "auto":
+      return zh.permAutoDesc;
+    case "full":
+      return zh.permFullDesc;
+    default:
+      return "";
+  }
+}
+
+/** "gpt-5.6-sol" -> "5.6 Sol"; unknown ids pass through. */
+export function formatModel(model: string | null | undefined): string {
+  if (!model) return "";
+  const parts = model.replace(/^gpt-/, "").split("-");
+  return parts
+    .map((p) => (/^[a-z]/.test(p) ? p.charAt(0).toUpperCase() + p.slice(1) : p))
+    .join(" ");
+}
+
+/** Reasoning effort -> zh label ("xhigh" -> 极高). */
+export function formatEffort(effort: string | null | undefined): string {
+  switch (effort) {
+    case "minimal":
+      return "最简";
+    case "low":
+      return "低";
+    case "medium":
+      return "中";
+    case "high":
+      return "高";
+    case "xhigh":
+      return "极高";
+    case "max":
+      return "最高";
+    case "ultra":
+      return "超高";
+    default:
+      return effort ?? "";
+  }
+}

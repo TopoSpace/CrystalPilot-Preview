@@ -1,0 +1,34 @@
+{
+  "chemistry": {
+    "metals": [],
+    "ligands": [
+      {
+        "name": "L-cysteine",
+        "smiles": "NC(CS)C(O)=O",
+        "note": "氨基酸小分子晶体，非 MOF"
+      }
+    ],
+    "solvents": [],
+    "synthesis_notes": "L-半胱氨酸单晶（教程级测试晶体）；同步辐射 Diamond I19 采集，λ≈0.6889 Å"
+  },
+  "experiment": {
+    "instrument": {
+      "diffractometer": "Diamond I19 (synchrotron)",
+      "source": "synchrotron",
+      "method": "phi scans"
+    },
+    "cell_measurement": {
+      "reflns_used": 3519,
+      "theta_min": 1.638,
+      "theta_max": 36.433
+    },
+    "computing": {
+      "data_reduction": "DIALS 3.30",
+      "cell_refinement": "DIALS 3.30"
+    }
+  },
+  "data": {
+    "hkl": "crystal.hkl",
+    "start_model": "start.res"
+  }
+}

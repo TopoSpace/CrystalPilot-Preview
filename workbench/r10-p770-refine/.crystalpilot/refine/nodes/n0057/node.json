@@ -1,0 +1,207 @@
+{
+  "id": "n0057",
+  "parent": "n0056",
+  "branch": "publication_h66",
+  "ts": 1788073113.66101,
+  "tool": "edit_atoms",
+  "params": {
+    "operations": [
+      {
+        "action": "reassign",
+        "atoms": [
+          "LA1"
+        ],
+        "element": "Si"
+      },
+      {
+        "action": "move",
+        "atoms": [
+          "C7"
+        ],
+        "site": [
+          0.22171272389743643,
+          0.16352992731408716,
+          0.11702589405657687
+        ]
+      },
+      {
+        "action": "move",
+        "atoms": [
+          "C16"
+        ],
+        "site": [
+          0.11581676955628235,
+          0.0189541074444831,
+          0.1750982975172942
+        ]
+      },
+      {
+        "action": "move",
+        "atoms": [
+          "C22"
+        ],
+        "site": [
+          0.22363693261907103,
+          -0.048868665161278725,
+          0.0632935928868071
+        ]
+      },
+      {
+        "action": "move",
+        "atoms": [
+          "C15"
+        ],
+        "site": [
+          0.6784287334263704,
+          0.13054134777796586,
+          0.36164909025488906
+        ]
+      },
+      {
+        "action": "move",
+        "atoms": [
+          "C19"
+        ],
+        "site": [
+          0.42222626439577915,
+          0.13449963902050596,
+          0.3766880383237112
+        ]
+      },
+      {
+        "action": "move",
+        "atoms": [
+          "C24"
+        ],
+        "site": [
+          0.49861727417665075,
+          -0.06311068142514048,
+          0.32130526816186583
+        ]
+      }
+    ]
+  },
+  "note": "",
+  "metrics": {
+    "label": "final H66 model after ASU audit",
+    "r1_strong": 0.0686,
+    "r1_all": 0.0753,
+    "wr2": 0.2143,
+    "goof": 1.047,
+    "n_params": 504,
+    "n_reflections": 12112,
+    "diff_map_max": 1.72,
+    "diff_map_min": -1.69,
+    "notes": "",
+    "scale_k": 0.036093078999749235
+  },
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 111,
+    "element_counts": {
+      "Si": 1,
+      "Ni": 1,
+      "P": 2,
+      "N": 8,
+      "C": 44,
+      "H": 55
+    }
+  },
+  "restraints": [
+    {
+      "kind": "DFIX",
+      "atoms": [
+        [
+          "C28",
+          "C40"
+        ]
+      ],
+      "target": 1.39,
+      "sigma": 0.01
+    },
+    {
+      "kind": "DFIX",
+      "atoms": [
+        [
+          "C40",
+          "C42"
+        ]
+      ],
+      "target": 1.39,
+      "sigma": 0.01
+    },
+    {
+      "kind": "DFIX",
+      "atoms": [
+        [
+          "C42",
+          "C34"
+        ]
+      ],
+      "target": 1.39,
+      "sigma": 0.01
+    },
+    {
+      "kind": "DFIX",
+      "atoms": [
+        [
+          "C34",
+          "C39"
+        ]
+      ],
+      "target": 1.39,
+      "sigma": 0.01
+    },
+    {
+      "kind": "DFIX",
+      "atoms": [
+        [
+          "C39",
+          "C43"
+        ]
+      ],
+      "target": 1.39,
+      "sigma": 0.01
+    },
+    {
+      "kind": "DFIX",
+      "atoms": [
+        [
+          "C43",
+          "C28"
+        ]
+      ],
+      "target": 1.39,
+      "sigma": 0.01
+    },
+    {
+      "kind": "FLAT",
+      "atoms": [
+        "C28",
+        "C40",
+        "C42",
+        "C34",
+        "C39",
+        "C43"
+      ],
+      "sigma": 0.01
+    }
+  ],
+  "weights": {
+    "a": 0.08266,
+    "b": 10.75862
+  },
+  "scale_k": 0.036093078999749235,
+  "mask": null,
+  "hydrogens": {
+    "present": true,
+    "elements": [
+      "C"
+    ],
+    "n_groups": 27
+  },
+  "disorder_groups": [],
+  "twin": null,
+  "label_renames": {},
+  "asu": null
+}

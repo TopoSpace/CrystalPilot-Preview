@@ -1,0 +1,98 @@
+{
+ "source": "usertest/test4-0909 task_20260909_000745 transcript eids 2139-2156 (outputs truncated, approvals dropped)",
+ "events": [
+  {
+   "kind": "thread_status",
+   "ts": 1788892564.6638806,
+   "eid": 2139
+  },
+  {
+   "kind": "command_started",
+   "ts": 1788892564.666528,
+   "eid": 2141,
+   "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath '6009A\\\\222.ins' -To",
+   "status": "CommandExecutionStatus.in_progress",
+   "exit_code": null,
+   "output_tail": null,
+   "item_id": "call_qZ0YZ40SrLf6hjfW4gW1Ssns"
+  },
+  {
+   "kind": "thread_status",
+   "ts": 1788892564.6710298,
+   "eid": 2143
+  },
+  {
+   "kind": "thread_status",
+   "ts": 1788892564.6992197,
+   "eid": 2144
+  },
+  {
+   "kind": "command_started",
+   "ts": 1788892564.7031517,
+   "eid": 2146,
+   "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath '6009A\\\\6009A444_0m.",
+   "status": "CommandExecutionStatus.in_progress",
+   "exit_code": null,
+   "output_tail": null,
+   "item_id": "call_E3lPonYqWumBPjheUF6ouYVv"
+  },
+  {
+   "kind": "thread_status",
+   "ts": 1788892564.7091558,
+   "eid": 2148
+  },
+  {
+   "kind": "thread_status",
+   "ts": 1788892564.769792,
+   "eid": 2149
+  },
+  {
+   "kind": "command_started",
+   "ts": 1788892564.7831419,
+   "eid": 2151,
+   "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg --files 'CrystalPilot Results\\\\task_202609",
+   "status": "CommandExecutionStatus.in_progress",
+   "exit_code": null,
+   "output_tail": null,
+   "item_id": "call_AMq1wgfbYBgxFelsGmGDicuB"
+  },
+  {
+   "kind": "thread_status",
+   "ts": 1788892564.7886608,
+   "eid": 2153
+  },
+  {
+   "kind": "command_completed",
+   "ts": 1788892567.4416819,
+   "eid": 2154,
+   "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath '6009A\\\\222.ins' -To",
+   "status": "CommandExecutionStatus.completed",
+   "exit_code": 0,
+   "output_tail": "TITL 222 in P64 #172\r\nCELL 0.71073 39.3289 39.3289 38.005 90",
+   "item_id": "call_qZ0YZ40SrLf6hjfW4gW1Ssns",
+   "output_len": 295
+  },
+  {
+   "kind": "command_completed",
+   "ts": 1788892567.4556973,
+   "eid": 2155,
+   "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath '6009A\\\\6009A444_0m.",
+   "status": "CommandExecutionStatus.completed",
+   "exit_code": 0,
+   "output_tail": "   -1   5 -20  -0.000 180.000 -89.500   0.000 1792.17 1815.2",
+   "item_id": "call_E3lPonYqWumBPjheUF6ouYVv",
+   "output_len": 3313
+  },
+  {
+   "kind": "command_completed",
+   "ts": 1788892567.5248535,
+   "eid": 2156,
+   "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg --files 'CrystalPilot Results\\\\task_202609",
+   "status": "CommandExecutionStatus.completed",
+   "exit_code": 0,
+   "output_tail": ".crystalpilot\\refine\\trial_ledger.json\n.crystalpilot\\refine\\",
+   "item_id": "call_AMq1wgfbYBgxFelsGmGDicuB",
+   "output_len": 933
+  }
+ ]
+}

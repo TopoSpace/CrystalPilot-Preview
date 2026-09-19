@@ -1,0 +1,39 @@
+{
+  "id": "n0006",
+  "parent": "n0003",
+  "branch": "test_delete_C33X",
+  "ts": 1787908996.848944,
+  "tool": "edit_atoms",
+  "params": {
+    "operations": [
+      {
+        "action": "delete",
+        "atoms": [
+          "C33X"
+        ]
+      }
+    ]
+  },
+  "note": "",
+  "metrics": null,
+  "metrics_current": false,
+  "model": {
+    "n_atoms": 39,
+    "element_counts": {
+      "Cu": 1,
+      "C": 33,
+      "O": 5
+    }
+  },
+  "restraints": [],
+  "weights": {
+    "a": 0.1,
+    "b": 0.0
+  },
+  "scale_k": 0.08254164975697685,
+  "mask": null,
+  "hydrogens": {
+    "present": false
+  },
+  "label_renames": {}
+}

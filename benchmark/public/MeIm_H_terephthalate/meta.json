@@ -1,0 +1,16 @@
+{
+  "cod_id": "2016645",
+  "note": "4-methylimidazolium hydrogen terephthalate, triclinic organic salt",
+  "source_url": "https://www.crystallography.net/cod/2016645.html",
+  "sf_url": "https://www.crystallography.net/cod/hkl/2/01/66/2016645.hkl",
+  "doi": "10.1107/S0108270108013024",
+  "journal": "Acta Crystallographica Section C",
+  "year": "2008",
+  "license_note": "COD entry originally provided by IUCr Journals; may be used within the scientific community with proper attribution to the journal article (per COD file header).",
+  "formula": "C12 H12 N2 O4",
+  "z": 2.0,
+  "space_group": "P -1",
+  "radiation": "Mo k\\a",
+  "wavelength": 0.71073,
+  "temperature_K": "298(2)"
+}
