@@ -252,7 +252,11 @@ boost deadlock). The protocol details were probed against the kernel before the 
   from the browser's stored choice (Settings › Appearance); API requests carry
   `X-CrystalPilot-Language`, and `crystalpilot/workbench/i18n.py` binds it so
   the few server-composed texts (route errors, generated thread titles,
-  analysis-job notes) follow the same choice. State = useReducer + split
+  analysis-job notes) follow the same choice. The switch also posts
+  `/api/language`; `workbench/preferences.py` remembers it, every open
+  project's AGENTS.md is re-rendered with the matching directive (marker
+  suffix `-en`) and its engine restarted, and new threads receive the same
+  directive as developer instructions. State = useReducer + split
   contexts folding the SSE event stream;
   transcript replay and live SSE share one code path.
 - **Scene service** (`refine/scene.py` + `/api/wb/refine/scene|map`):

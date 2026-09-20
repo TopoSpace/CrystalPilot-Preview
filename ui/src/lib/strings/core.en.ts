@@ -1168,7 +1168,7 @@ export const en: typeof zh = {
   secDescAbout: "CrystalPilot · keeping data, structures and the research process connected.",
   language: "Language",
   languageHint:
-    "The page reloads and every part of the interface switches to the chosen language. The agent's replies follow the project's AGENTS.md, which is Chinese in this preview.",
+    "The page reloads and every part of the interface switches to the chosen language. The agent's replies and the delivery summary follow it too: new conversations at once, a conversation in progress after its turn ends and the engine restarts.",
   appPalette: "Palette",
   appPaletteNote: "Style references · unofficial themes",
   appTheme: "Theme",

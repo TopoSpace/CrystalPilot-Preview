@@ -18,7 +18,7 @@ from typing import Any, Literal
 from fastapi import APIRouter, Body, HTTPException
 from pydantic import BaseModel
 
-from . import codex_config, kernel, model_catalog, models, providers
+from . import codex_config, i18n, kernel, model_catalog, models, preferences, providers
 from .i18n import msg
 from .routes import _by_thread_or_404, _session_or_404, pool
 
@@ -203,6 +203,35 @@ def set_config(patch: dict = Body(...)) -> dict:
         raise HTTPException(400, str(e)) from e
     _broadcast_settings()
     return get_config()
+
+
+# -- interface language ------------------------------------------------------
+class LanguageReq(BaseModel):
+    language: str
+
+
+@router.get("/language")
+def get_language() -> dict:
+    """The interface language the workbench remembers for the agent side."""
+    return {"language": preferences.language()}
+
+
+@router.post("/language")
+def set_language(req: LanguageReq) -> dict:
+    """Remember the interface language and make the agent follow it: every
+    open project gets its AGENTS.md rewritten and its engine restarted (or
+    the restart deferred to the end of the running turn)."""
+    if i18n.normalize(req.language) != req.language.strip().lower():
+        raise HTTPException(400, f"unsupported language {req.language!r}")
+    lang = preferences.set_language(req.language)
+    projects = []
+    for ps in pool.sessions():
+        try:
+            res = ps.apply_language(lang)
+        except Exception as e:  # noqa: BLE001 - one project must not block the others
+            res = {"error": f"{type(e).__name__}: {e}"[:200]}
+        projects.append({"path": str(ps.wb.project.path), **res})
+    return {"language": lang, "projects": projects}
 
 
 # -- codex-backed thread operations -----------------------------------------

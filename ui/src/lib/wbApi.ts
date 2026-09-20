@@ -87,6 +87,14 @@ function post<T>(url: string, body: unknown): Promise<T> {
   });
 }
 
+// ---------------------------------------------------------------- language
+
+/** Tell the server which interface language was chosen, so the agent's
+ * template and new threads follow it. */
+export function setInterfaceLanguage(lang: string): Promise<{ language: string }> {
+  return post("/api/language", { language: lang });
+}
+
 // ---------------------------------------------------------------- projects
 
 export function openProject(

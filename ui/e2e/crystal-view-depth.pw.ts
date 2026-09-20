@@ -5,6 +5,7 @@ import {
   type Page,
 } from "@playwright/test";
 import { projectUrl, watchErrors } from "./helpers";
+import { S, rx } from "./lang";
 
 const PROJECT = process.env.CP_CIF_PROJECT ?? "";
 
@@ -46,21 +47,21 @@ test("real CIF camera depth controls change and reset", async ({ page }) => {
   const errors = await openStructure(page);
   const pane = page.locator("aside");
 
-  const viewButton = pane.getByRole("button", { name: "视图", exact: true });
+  const viewButton = pane.getByRole("button", { name: S.grpView, exact: true });
   await expect(viewButton).toBeVisible();
   await viewButton.click();
   await expect(viewButton).toHaveAttribute("aria-expanded", "true");
 
-  const fog = pane.getByRole("button", { name: "远雾", exact: true });
-  const clip = pane.getByRole("slider", { name: "前后裁切", exact: true });
-  const reset = pane.getByRole("button", { name: "重置", exact: true });
+  const fog = pane.getByRole("button", { name: S.crystal.tbFog, exact: true });
+  const clip = pane.getByRole("slider", { name: S.crystal.tbClipAria, exact: true });
+  const reset = pane.getByRole("button", { name: S.crystal.tbReset, exact: true });
   await expect(fog).toHaveAttribute("aria-pressed", "false");
   await expect(clip).toHaveValue("100");
   await expect(reset).toBeDisabled();
 
   await fog.click();
   await expect(fog).toHaveAttribute("aria-pressed", "true");
-  const fogStart = pane.getByRole("slider", { name: "远雾起点", exact: true });
+  const fogStart = pane.getByRole("slider", { name: S.crystal.tbFogStartAria, exact: true });
   await expect(fogStart).toHaveValue("55");
 
   await clip.press("Home");
@@ -94,21 +95,21 @@ test("real CIF supercell reports symmetry coverage 8/N", async ({ page }) => {
       && url.searchParams.get("mode") === "supercell"
       && url.searchParams.get("n") === "4";
   });
-  await pane.getByRole("menuitem", { name: /^超胞 4×4×4/ }).click();
+  await pane.getByRole("menuitem", { name: new RegExp("^" + rx(`${S.modeSuper} 4×4×4`)) }).click();
   const scene = await (await supercellResponse).json() as SceneResponse;
   expect(scene.mode).toBe("supercell");
   expect(scene.range?.n_tiles).toBeGreaterThan(8);
   expect(scene.range?.tiles.length).toBeLessThanOrEqual(64);
   expect(scene.sym_elements?.length).toBeGreaterThan(0);
 
-  const relations = pane.getByRole("button", { name: "关系", exact: true });
+  const relations = pane.getByRole("button", { name: S.grpRelations, exact: true });
   await relations.click();
   await expect(relations).toHaveAttribute("aria-expanded", "true");
-  const symmetry = pane.getByRole("button", { name: "对称元素", exact: true });
+  const symmetry = pane.getByRole("button", { name: S.ovSymm, exact: true });
   await symmetry.click();
   await expect(symmetry).toHaveAttribute("aria-pressed", "true");
   await expect(
-    pane.getByText(`对称 8/${scene.range!.n_tiles} 胞`, { exact: true }),
+    pane.getByText(S.crystal.paneSymmetryCoverage(8, scene.range!.n_tiles), { exact: true }),
   ).toBeVisible();
   expect(errors.pageErrors).toEqual([]);
   expect(errors.consoleErrors).toEqual([]);

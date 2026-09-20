@@ -94,3 +94,76 @@ def test_naming_instructions_follow_the_language():
     assert "English" in thread_titles.INSTRUCTIONS_EN and "60" in thread_titles.INSTRUCTIONS_EN
     assert thread_titles.clean_title("Title: sample_042 · refinement") == "sample_042 · refinement"
     assert thread_titles.clean_title("标题：alanine_042 · 单晶求解") == "alanine_042 · 单晶求解"
+
+
+# -- the remembered language reaches the agent side --------------------------
+
+def test_preferences_round_trip_and_default(tmp_path, monkeypatch):
+    from crystalpilot.workbench import preferences
+
+    monkeypatch.setenv("CRYSTALPILOT_PREFERENCES_FILE", str(tmp_path / "prefs.json"))
+    assert preferences.language() == "zh"
+    assert preferences.set_language("en-US") == "en"
+    assert preferences.language() == "en"
+    assert preferences.set_language("xx") == "zh"
+    assert preferences.language() == "zh"
+    (tmp_path / "prefs.json").write_text("not json", encoding="utf-8")
+    assert preferences.language() == "zh"
+
+
+def test_agent_template_follows_the_language_with_its_own_marker(tmp_path):
+    from crystalpilot.workbench import agents_md as am
+
+    zh_text = am.render_agents_md()
+    en_text = am.render_agents_md(language="en")
+    assert zh_text.startswith(am.VERSION_MARKER)
+    assert en_text.startswith(am.VERSION_MARKER.replace(" -->", "-en -->"))
+    assert "与用户交流用中文。" in zh_text and "中文 SUMMARY.md" in zh_text
+    assert "与用户交流用中文" not in en_text
+    assert "communicate with the user in English" in en_text
+    assert "英文 SUMMARY.md" in en_text
+    tools_only_en = am.render_agents_md("tools_only", language="en")
+    assert tools_only_en.startswith(am.VERSION_MARKER_TOOLS_ONLY.replace(" -->", "-en -->"))
+    assert "英文 `SUMMARY.md`" in tools_only_en
+    # the rest of the template is identical: only the directive lines differ
+    diff = [a for a, b in zip(zh_text.splitlines(), en_text.splitlines()) if a != b]
+    assert 1 <= len(diff) <= 3, diff
+    # a language switch regenerates the project's file, both ways
+    f = tmp_path / "AGENTS.md"
+    assert am.ensure_agents_md(tmp_path)["action"] == "written"
+    assert am.ensure_agents_md(tmp_path, language="zh")["action"] == "current"
+    r = am.ensure_agents_md(tmp_path, language="en")
+    assert r["action"] == "written" and r["language"] == "en"
+    assert f.read_text(encoding="utf-8") == en_text
+    assert am.ensure_agents_md(tmp_path, language="en")["action"] == "current"
+    assert am.ensure_agents_md(tmp_path)["action"] == "written"
+    assert f.read_text(encoding="utf-8") == zh_text
+    assert am.agents_md_sha256(language="en") != am.agents_md_sha256()
+
+
+def test_language_route_stores_the_choice_and_rejects_unknown_values(tmp_path, monkeypatch):
+    from crystalpilot.workbench import preferences
+    from server.app import app
+
+    monkeypatch.setenv("CRYSTALPILOT_PREFERENCES_FILE", str(tmp_path / "prefs.json"))
+    client = TestClient(app, base_url="http://127.0.0.1")  # the host guard admits loopback only
+    assert client.get("/api/language").json() == {"language": "zh"}
+    res = client.post("/api/language", json={"language": "en"})
+    assert res.status_code == 200
+    body = res.json()
+    assert body["language"] == "en" and isinstance(body["projects"], list)
+    assert preferences.language() == "en"
+    assert client.get("/api/language").json() == {"language": "en"}
+    assert client.post("/api/language", json={"language": "fr"}).status_code == 400
+    assert preferences.language() == "en"
+    assert client.post("/api/language", json={"language": "zh"}).json()["language"] == "zh"
+
+
+def test_new_threads_get_the_english_directive_only_in_english(tmp_path, monkeypatch):
+    from crystalpilot.workbench import core, preferences
+
+    monkeypatch.setenv("CRYSTALPILOT_PREFERENCES_FILE", str(tmp_path / "prefs.json"))
+    assert core._language_instruction() == ""
+    preferences.set_language("en")
+    text = core._language_instruction()
+    assert "communicate with them in English" in text and "SUMMARY.md" in text

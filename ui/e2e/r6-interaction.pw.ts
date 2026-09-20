@@ -12,6 +12,7 @@
  *   CP_EVIDENCE_ROUND=r3-r6 CP_E2E_PROJECT=<path> npx playwright test e2e/r6-interaction.pw.ts */
 import { expect, test, type Page } from "@playwright/test";
 import { pickTarget, setTheme, shotPath, THEMES, threadUrl, watchErrors, type Target } from "./helpers";
+import { S, rx } from "./lang";
 
 const CARD =
   "骨架已稳定（R1 0.085）。\n\n```ask\n" +
@@ -118,15 +119,15 @@ for (const theme of THEMES) {
 
       // 2. receipts on the two steers
       const submitted = page.locator('[data-testid="user-bubble"][data-receipt="submitted"]').last();
-      await expect(submitted).toContainText("已送达模型");
+      await expect(submitted).toContainText(S.receiptSubmitted);
       const failed = page.locator('[data-testid="user-bubble"][data-receipt="failed"]').last();
-      await expect(failed).toContainText("未送达模型");
-      await expect(failed.getByRole("button", { name: "重试" })).toBeVisible();
+      await expect(failed).toContainText(S.receiptFailed);
+      await expect(failed.getByRole("button", { name: S.receiptRetry })).toBeVisible();
       await page.screenshot({ path: shotPath(`r6-${theme}-card-receipts`) });
 
       // 3. one click answers: a [prior] message, then the dock closes
       await dock.getByRole("button", { name: "有", exact: true }).click();
-      await expect.poll(() => sent).toBe("[prior] 问题：合成时是否加入了对溴苯乙酸？\n回答：有");
+      await expect.poll(() => sent).toBe(S.libs.askPriorReply("[prior]", "合成时是否加入了对溴苯乙酸？", "有"));
       await expect(dock).toHaveCount(0);
 
       // 4. the anchor chip jumps the crystal pane to the quoted node (history view)
@@ -144,13 +145,14 @@ for (const theme of THEMES) {
       await expect(rail).toBeVisible();
       await expect(rail).toContainText(anchorNode);
       await page.screenshot({ path: shotPath(`r6-${theme}-quote-chip`) });
-      await rail.getByRole("button", { name: "移除这条引用" }).click();
+      await rail.getByRole("button", { name: S.anchorRemove }).click();
       await expect(ta).toHaveValue("看看 附近的密度");
       await expect(rail).toHaveCount(0);
       await ta.fill("");
 
       // 6. settings menu: knowledge mode + structure class rows
-      await page.getByRole("button", { name: /^(自动|只读|协驾|副驾|完全访问|完全)$/ }).first().click();
+      const permissionLabels = [S.permReadonly, S.permCopilot, S.permAuto, S.permFull].map(rx).join("|");
+      await page.getByRole("button", { name: new RegExp(`^(${permissionLabels})$`) }).first().click();
       await expect(page.getByTestId("settings-knowledge-mode")).toBeVisible();
       await expect(page.getByTestId("settings-structure-class")).toBeVisible();
       await expect(page.getByTestId("settings-knowledge-mode").locator("select")).toHaveValue(/full|tools_only/);

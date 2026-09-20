@@ -2,6 +2,7 @@
  * no real credentials, remote probes or model requests are used. */
 import { expect, test } from "@playwright/test";
 import { projectUrl, shotPath, watchErrors } from "./helpers";
+import { S } from "./lang";
 
 for (const width of [1366, 390]) {
   test(`provider configuration at ${width}px`, async ({ page, request }) => {
@@ -16,7 +17,7 @@ for (const width of [1366, 390]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto(projectUrl(project!));
     if (!(await page.getByTestId("open-settings").isVisible())) {
-      await page.getByRole("button", { name: "打开侧栏", exact: true }).click();
+      await page.getByRole("button", { name: S.sidebarOpen, exact: true }).click();
     }
     await page.getByTestId("open-settings").click();
     const dialog = page.getByTestId("settings-dialog");
@@ -42,7 +43,7 @@ for (const width of [1366, 390]) {
     await form.getByTestId("provider-auth-mode").selectOption("environment");
     await expect(form.getByTestId("provider-test")).toBeDisabled();
     await form.getByTestId("provider-advanced").locator("summary").click();
-    await expect(form).toContainText("流空闲超时");
+    await expect(form).toContainText(S.providerIdleTimeout);
     expect(await form.evaluate((el) => el.scrollWidth <= el.clientWidth + 1)).toBe(true);
     await page.screenshot({ path: shotPath(`providers-${width}-advanced`) });
     expect(writes).toEqual([]);
@@ -61,12 +62,12 @@ test("save advanced settings through the real UI and remove only the test provid
     await page.getByTestId("provider-add").click();
     const form = page.getByTestId("provider-form");
     await form.getByTestId("provider-id").fill(id);
-    await form.getByRole("textbox", { name: "名称", exact: true }).fill("配置保存回归");
+    await form.getByRole("textbox", { name: S.providerName, exact: true }).fill("配置保存回归");
     await form.getByTestId("provider-base-url").fill("http://127.0.0.1:9/v1");
     await form.getByTestId("provider-auth-mode").selectOption("none");
     await form.getByTestId("provider-advanced").locator("summary").click();
-    await form.getByRole("spinbutton", { name: "请求重试上限", exact: true }).fill("3");
-    await form.getByRole("spinbutton", { name: "流空闲超时（ms）", exact: true }).fill("45000");
+    await form.getByRole("spinbutton", { name: S.providerRequestRetries, exact: true }).fill("3");
+    await form.getByRole("spinbutton", { name: S.providerIdleTimeout, exact: true }).fill("45000");
     const saved = page.waitForResponse((r) => r.request().method() === "POST" && new URL(r.url()).pathname === "/api/providers");
     await form.getByTestId("provider-save").click();
     expect((await saved).status()).toBe(200);

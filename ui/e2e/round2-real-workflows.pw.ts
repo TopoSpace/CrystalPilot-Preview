@@ -1,6 +1,7 @@
 /** Real completed experiments only: no injected events, model calls or user answers. */
 import { expect, test } from "@playwright/test";
 import { shotPath, threadUrl, watchErrors } from "./helpers";
+import { S, rx } from "./lang";
 
 const CAGE = process.env.CP_CAGE_PROJECT;
 const CAGE_THREAD = process.env.CP_CAGE_THREAD;
@@ -40,7 +41,7 @@ test("real Cage retains chemistry questions and coalesces startup across live an
     await expect(page.getByTestId("ask-dock")).toHaveCount(0);
     await expect(page.getByTestId("status-rail")).toHaveAttribute("data-state", "idle");
   }
-  const readiness = page.getByText(/^晶体学工具已就绪/);
+  const readiness = page.getByText(new RegExp("^" + rx(S.sysMcpReady)));
   await expect(readiness).toHaveCount(readyCycles);
   await expect(readiness).not.toContainText("?");
   await expect(readiness).not.toContainText("？");
@@ -63,7 +64,7 @@ test("real small-molecule checkCIF counts and node source agree with the sidebar
   await page.goto(threadUrl({ project: SMALL!, threadId: SMALL_THREAD! }) + "&view=structure");
   const pane = page.locator("aside");
   await expect(pane.locator("canvas").first()).toBeVisible();
-  await pane.getByRole("button", { name: /^验证/ }).first().click();
+  await pane.getByRole("button", { name: new RegExp("^" + rx(S.tabValidation)) }).first().click();
   await expect(pane.getByTestId("validation-origin")).toContainText(report.source.node);
   for (const level of ["A", "B", "C"]) {
     await expect(pane.getByText(`${level}×${report.counts[level]}`, { exact: true })).toBeVisible();

@@ -16,6 +16,7 @@
  *   CP_E2E_PROJECT=<copy> CP_SOL_THREAD=<thread> npx playwright test e2e/slash-commands.pw.ts */
 import { expect, test, type Page } from "@playwright/test";
 import { pickTarget, threadUrl, watchErrors, type Target } from "./helpers";
+import { S, rx } from "./lang";
 
 type Check = (page: Page, seen: Set<string>) => Promise<void>;
 
@@ -38,10 +39,10 @@ const EXPECTATIONS: Array<{ name: string; check: Check; leavesThread?: boolean }
   { name: "permissions", check: visible("permission-menu") },
   { name: "subagents", check: visible("permission-menu") },
   { name: "compact", check: requested("compact") },
-  { name: "context", check: noteWith(/上下文/) },
-  { name: "status", check: noteWith(/模型|状态/) },
-  { name: "mcp", check: noteWith(/工具|MCP/) },
-  { name: "skills", check: noteWith(/技能|skill/i) },
+  { name: "context", check: noteWith(S.noteContextTitle) },
+  { name: "status", check: noteWith(S.noteStatusTitle) },
+  { name: "mcp", check: noteWith(S.noteMcpTitle) },
+  { name: "skills", check: noteWith(new RegExp(rx(S.noteSkillsTitle) + "|skill", "i")) },
   { name: "rename", check: noteWith(/rename/) },
   { name: "settings", check: visible("settings-dialog") },
   { name: "stop", check: async (page) => { await expect(page.getByTestId("slash-palette")).toHaveCount(0); } },

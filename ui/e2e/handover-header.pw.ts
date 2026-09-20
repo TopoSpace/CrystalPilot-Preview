@@ -6,6 +6,7 @@
  * a synthetic node tree. */
 import { expect, test } from "@playwright/test";
 import { projectUrl, shotPath, watchErrors } from "./helpers";
+import { S } from "./lang";
 
 const PROJECT = process.env.CP_E2E_PROJECT ?? "";
 
@@ -40,14 +41,14 @@ test("geometry-only node shows the inherited R factors, named", async ({ page, r
     const n = await folded.count();
     for (let i = 0; i < n; i += 1) await folded.nth(0).click();
   }
-  const row = page.getByRole("button", { name: `查看节点 ${target.id}`, exact: true });
+  const row = page.getByRole("button", { name: S.crystal.viewNodeAria(target.id), exact: true });
   await row.scrollIntoViewIfNeeded();
   await row.click();
   // the header's own chip (the node tree rows carry their own "沿用" text
   // already; the header used to show "—" beside them)
-  const chip = page.getByTitle(/本节点没有自己的测量/).first();
+  const chip = page.getByTitle(S.headerInheritedTip).first();
   await expect(chip).toBeVisible();
-  await expect(chip).toContainText(`沿用 ${from}`);
+  await expect(chip).toContainText(`${S.headerInherited} ${from}`);
   // the number shown is the ancestor's (dimmed on the stat itself)
   const r1Text = own.r1!.toFixed(4);
   await expect(page.locator("aside").getByText(r1Text, { exact: true }).first()).toBeVisible();

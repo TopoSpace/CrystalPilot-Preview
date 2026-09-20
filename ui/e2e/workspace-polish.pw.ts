@@ -2,17 +2,18 @@
  * sending model messages or changing scientific inputs. */
 import { expect, test, type Page } from "@playwright/test";
 import { threadUrl, shotPath, watchErrors } from "./helpers";
+import { S, rx } from "./lang";
 
 const project = process.env.CP_E2E_PROJECT;
 const threadId = process.env.CP_SOL_THREAD;
-const tabs = ["结构", "分析", "节点树", "指标", "验证", "产物"];
+const tabs = [S.tabStructure, S.tabAnalysis, S.tabNodes, S.tabMetrics, S.tabValidation, S.tabArtifacts];
 
 async function open(page: Page) {
   await page.goto(threadUrl({ project: project!, threadId: threadId! }));
   await expect(page.locator('aside canvas').first()).toBeVisible({ timeout: 45_000 });
 }
 async function tab(page: Page, name: string) {
-  await page.getByRole("group", { name: "结构工作区页面" }).getByRole("button", { name: new RegExp(`^${name}`) }).click();
+  await page.getByRole("group", { name: S.shell.rightPaneTabs }).getByRole("button", { name: new RegExp("^" + rx(name)) }).click();
 }
 async function settings(page: Page) {
   const opener = page.getByTestId("open-settings");
@@ -36,19 +37,19 @@ test("all research panels show real data, with unchanged active scientific node"
   for (const name of tabs) {
     await tab(page, name);
     await page.waitForTimeout(500);
-    await expect(page.getByRole("group", { name: "结构工作区页面" }).getByRole("button", { name: new RegExp(`^${name}`) })).toHaveAttribute("aria-pressed", "true");
+    await expect(page.getByRole("group", { name: S.shell.rightPaneTabs }).getByRole("button", { name: new RegExp("^" + rx(name)) })).toHaveAttribute("aria-pressed", "true");
     await page.screenshot({ path: shotPath(`polished-${name}`) });
   }
-  await tab(page, "指标");
+  await tab(page, S.tabMetrics);
   const metrics = page.getByTestId("metrics-panel");
   for (const label of ["R1", "wR2", "GooF"]) await expect(metrics.getByText(label, { exact: true }).first()).toBeVisible();
   await expect(metrics.locator(".metric-tile, .panel-heading")).toHaveCount(0);
   expect(await metrics.innerText()).not.toContain("NaN");
-  await tab(page, "分析");
+  await tab(page, S.tabAnalysis);
   await expect(page.getByTestId("analysis-panel")).toBeVisible();
-  await page.getByRole("button", { name: "收起结构", exact: true }).click();
-  await expect(page.getByRole("button", { name: "显示结构", exact: true })).toBeVisible();
-  await page.getByRole("button", { name: "显示结构", exact: true }).click();
+  await page.getByRole("button", { name: S.crystal.paneCollapseStructure, exact: true }).click();
+  await expect(page.getByRole("button", { name: S.crystal.paneShowStructure, exact: true })).toBeVisible();
+  await page.getByRole("button", { name: S.crystal.paneShowStructure, exact: true }).click();
   const after = await (await request.get(`/api/wb/refine/nodes?project=${encodeURIComponent(project!)}`)).json();
   expect(after.active_node).toBe(before.active_node);
   expect(errors.pageErrors).toEqual([]);
@@ -77,7 +78,7 @@ for (const theme of ["light", "dark"] as const) {
     await expect(page.getByTestId("open-settings")).toBeFocused();
     await page.getByTestId("model-button").click();
     await expect(page.getByTestId("model-menu")).toBeVisible();
-    await page.getByPlaceholder("搜索模型…").fill("luna");
+    await page.getByPlaceholder(S.modelSearch).fill("luna");
     await expect(page.getByTestId("model-list")).toContainText(/luna/i);
     await page.screenshot({ path: shotPath(`model-polished-${theme}`) });
     await page.keyboard.press("Escape");
@@ -96,12 +97,12 @@ for (const theme of ["light", "dark"] as const) {
 
 test("server folder browsing, CIF mode and dialog close work without a desktop picker", async ({ page }) => {
   await open(page);
-  await page.getByRole("button", { name: "打开项目", exact: true }).first().click();
-  const dialog = page.getByRole("dialog", { name: "打开项目", exact: true });
+  await page.getByRole("button", { name: S.openProject, exact: true }).first().click();
+  const dialog = page.getByRole("dialog", { name: S.openProjectTitle, exact: true });
   expect(await dialog.evaluate(el => el.getBoundingClientRect().width)).toBe(page.viewportSize()!.width);
   await dialog.getByTestId("browse-folder").click();
   const browser = dialog.getByTestId("folder-browser");
-  const choose = browser.getByRole("button", { name: "选择此文件夹" });
+  const choose = browser.getByRole("button", { name: S.shell.folderChoose });
   await expect(choose).toBeEnabled();
   // Walk to the project from wherever the browser starts (the default
   // projects folder on the Linux host; a drive root or the dialog's current
@@ -112,23 +113,23 @@ test("server folder browsing, CIF mode and dialog close work without a desktop p
   const shown = async () => norm((await browser.locator("span.font-mono").first().getAttribute("title")) ?? "");
   const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   for (let guard = 0; guard < 12 && !(target === (await shown()) || target.startsWith((await shown()) + "/")); guard += 1) {
-    const up = browser.getByRole("button", { name: "上一级文件夹" });
+    const up = browser.getByRole("button", { name: S.shell.folderUp });
     if (!(await up.isEnabled())) break;
     await up.click();
     await expect(choose).toBeEnabled();
   }
   for (const segment of target.slice((await shown()).length).split("/").filter(Boolean)) {
-    await browser.getByLabel("筛选文件夹").fill(segment);
+    await browser.getByLabel(S.shell.folderFilter).fill(segment);
     await browser.getByRole("button", { name: new RegExp(`^${escape(segment)}$`, "i") }).click();
     await expect(choose).toBeEnabled();
   }
   expect(await shown()).toBe(target);
   await choose.click();
   expect(norm(await dialog.getByRole("textbox").first().inputValue())).toBe(target);
-  await dialog.getByRole("button", { name: "仅查看 CIF", exact: true }).click();
+  await dialog.getByRole("button", { name: S.openCifMode, exact: true }).click();
   await expect(dialog.locator('input[type="file"]')).toBeVisible();
   await page.screenshot({ path: shotPath("open-project-polished") });
-  await dialog.getByRole("button", { name: "关闭项目选择" }).click();
+  await dialog.getByRole("button", { name: S.shell.closeProjectPicker }).click();
   await expect(dialog).toBeHidden();
 });
 
@@ -137,8 +138,8 @@ test("structure control groups, clipping, rendering toggles and image export", a
   const errors = watchErrors(page);
   await open(page);
   const bar = page.getByTestId("viewer-control-bar");
-  for (const name of ["绘制", "关系", "证据", "视图"]) {
-    await bar.getByRole("button", { name: new RegExp(`^${name}`) }).click();
+  for (const name of [S.grpDraw, S.grpRelations, S.grpEvidence, S.grpView]) {
+    await bar.getByRole("button", { name: new RegExp("^" + rx(name)) }).click();
     const panel = page.getByTestId("viewer-control-panel");
     await expect(panel).toBeVisible();
     const box = await panel.boundingBox();
@@ -162,7 +163,7 @@ test("structure control groups, clipping, rendering toggles and image export", a
   }
   const extent = page.locator('aside button[aria-haspopup="menu"]').first();
   await extent.click(); await expect(page.getByRole("menu")).toBeVisible(); await page.keyboard.press("Escape");
-  const exportButton = bar.getByRole("button", { name: /导出.*PNG|导出.*图/ });
+  const exportButton = bar.getByRole("button", { name: new RegExp(rx(S.exportPngTip) + "|" + rx(S.exportPng)) });
   const download = page.waitForEvent("download");
   await exportButton.click();
   expect((await download).suggestedFilename()).toMatch(/\.png$/);
@@ -180,8 +181,8 @@ test("phone settings and project dialog stay inside the viewport", async ({ page
   await page.screenshot({ path: shotPath("settings-polished-mobile") });
   await page.keyboard.press("Escape");
   if (!(await page.getByTestId("sidebar-collapse").isVisible())) await page.getByTestId("sidebar-expand").click();
-  await page.getByRole("button", { name: "打开项目", exact: true }).first().click();
-  const picker = page.getByRole("dialog", { name: "打开项目", exact: true });
+  await page.getByRole("button", { name: S.openProject, exact: true }).first().click();
+  const picker = page.getByRole("dialog", { name: S.openProjectTitle, exact: true });
   await picker.getByTestId("browse-folder").click();
   await expect(picker.getByTestId("folder-browser")).toBeVisible();
   expect(await picker.evaluate(el => el.scrollWidth <= innerWidth)).toBe(true);
@@ -192,8 +193,8 @@ test("presentation branding persists, can be disabled, and copyright stays below
   await open(page);
   let dialog = await settings(page);
   await dialog.getByTestId('settings-nav-appearance').click();
-  const toggle = () => dialog.getByRole('switch', { name: '展示模式', exact: true });
-  const name = () => dialog.getByRole('textbox', { name: '左上角显示名称', exact: true });
+  const toggle = () => dialog.getByRole('switch', { name: S.appPresentation, exact: true });
+  const name = () => dialog.getByRole('textbox', { name: S.appBrandName, exact: true });
   await expect(toggle()).toHaveAttribute('aria-checked', 'false');
   await expect(name()).toBeDisabled();
   await toggle().click();
@@ -249,17 +250,17 @@ test("Linux delivery links open the actual artifact instead of the application s
 
 test("CIF import keeps the chosen file while browsing for its destination", async ({ page, request }) => {
   await open(page);
-  await page.getByRole("button", { name: "打开项目", exact: true }).first().click();
-  const dialog = page.getByRole("dialog", { name: "打开项目", exact: true });
-  await dialog.getByRole("button", { name: "仅查看 CIF", exact: true }).click();
+  await page.getByRole("button", { name: S.openProject, exact: true }).first().click();
+  const dialog = page.getByRole("dialog", { name: S.openProjectTitle, exact: true });
+  await dialog.getByRole("button", { name: S.openCifMode, exact: true }).click();
   const file = dialog.locator('input[type="file"]');
   await file.setInputFiles("../benchmark/public/sucrose/ref_cif.cif");
   await dialog.getByTestId("browse-folder").click();
-  await dialog.getByRole("button", { name: "返回路径输入", exact: true }).click();
+  await dialog.getByRole("button", { name: S.shell.folderBackToPath, exact: true }).click();
   expect(await file.evaluate((el: HTMLInputElement) => el.files?.[0]?.name)).toBe("ref_cif.cif");
   const destination = project!.replace(/[^/]+$/, `ui-cif-browser-${Date.now()}`);
-  await dialog.getByLabel("保存到新的结构项目", { exact: true }).fill(destination);
-  await dialog.getByRole("button", { name: "导入查看", exact: true }).click();
+  await dialog.getByLabel(S.cifDestination, { exact: true }).fill(destination);
+  await dialog.getByRole("button", { name: S.cifImport, exact: true }).click();
   await expect(dialog).toBeHidden({ timeout: 45_000 });
   await expect(page.locator('aside canvas').first()).toBeVisible({ timeout: 45_000 });
   const response = await request.post("/api/projects/settings", { data: { path: destination, settings: { model_override: "gpt-5.6-luna", subagents: "off" } } });

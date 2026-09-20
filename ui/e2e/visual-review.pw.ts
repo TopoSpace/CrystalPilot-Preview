@@ -6,6 +6,9 @@
  *   CP_EVIDENCE_ROUND=review-r6 npx playwright test e2e/visual-review.pw.ts */
 import { expect, test, type Page } from "@playwright/test";
 import { pickTarget, setTheme, shotPath, threadUrl, type Target } from "./helpers";
+import { S, rx } from "./lang";
+
+const startsWith = (label: string) => new RegExp("^" + rx(label));
 
 const SIZES: ReadonlyArray<readonly [string, number, number]> = [
   ["narrow", 1100, 700],
@@ -36,7 +39,8 @@ test.describe("visual review", () => {
       await page.screenshot({ path: shotPath(`${name}-thread`) });
 
       // composer permission menu
-      const permChip = page.locator("button", { hasText: /^(只读|Copilot|自动|完全访问)$/ }).first();
+      const permLabels = [S.permReadonly, S.permCopilot, S.permAuto, S.permFull].map(rx).join("|");
+      const permChip = page.locator("button", { hasText: new RegExp(`^(${permLabels})$`) }).first();
       if (await permChip.count()) {
         await permChip.click();
         await settle(page, 500);
@@ -45,11 +49,11 @@ test.describe("visual review", () => {
       }
 
       // right pane: 绘制 panel + 关系 panel
-      await pane.getByRole("button", { name: /^绘制/ }).click();
+      await pane.getByRole("button", { name: startsWith(S.grpDraw) }).click();
       await settle(page, 500);
       await page.screenshot({ path: shotPath(`${name}-panel-draw`) });
       await page.keyboard.press("Escape");
-      await pane.getByRole("button", { name: /^关系/ }).click();
+      await pane.getByRole("button", { name: startsWith(S.grpRelations) }).click();
       await settle(page, 500);
       await page.screenshot({ path: shotPath(`${name}-panel-relations`) });
       await page.keyboard.press("Escape");
@@ -63,24 +67,24 @@ test.describe("visual review", () => {
       await headerToggle.click();
 
       // 分析 / 节点树 / 验证 tabs
-      await pane.getByRole("button", { name: /^分析/ }).first().click();
+      await pane.getByRole("button", { name: startsWith(S.tabAnalysis) }).first().click();
       await expect(page.getByTestId("analysis-panel")).toBeVisible({ timeout: 90_000 });
       await settle(page, 1200);
       await page.screenshot({ path: shotPath(`${name}-analysis`) });
-      await pane.getByRole("button", { name: /^节点树/ }).first().click();
+      await pane.getByRole("button", { name: startsWith(S.tabNodes) }).first().click();
       await settle(page, 800);
       await page.screenshot({ path: shotPath(`${name}-nodes`) });
-      await pane.getByRole("button", { name: /^验证/ }).first().click();
+      await pane.getByRole("button", { name: startsWith(S.tabValidation) }).first().click();
       await settle(page, 800);
       await page.screenshot({ path: shotPath(`${name}-validation`) });
 
       // 详细 view mode
-      const verbose = page.getByRole("button", { name: "详细" }).first();
+      const verbose = page.getByRole("button", { name: S.viewVerbose }).first();
       if (await verbose.count()) {
         await verbose.click();
         await settle(page, 800);
         await page.screenshot({ path: shotPath(`${name}-verbose`) });
-        await page.getByRole("button", { name: "简洁" }).first().click();
+        await page.getByRole("button", { name: S.viewConcise }).first().click();
       }
     });
   }
@@ -94,7 +98,7 @@ test.describe("visual review", () => {
     await expect(pane.locator("canvas").first()).toBeVisible({ timeout: 60_000 });
     await settle(page, 2500);
     await page.screenshot({ path: shotPath("laptop-dark-thread") });
-    await pane.getByRole("button", { name: /^分析/ }).first().click();
+    await pane.getByRole("button", { name: startsWith(S.tabAnalysis) }).first().click();
     await expect(page.getByTestId("analysis-panel")).toBeVisible({ timeout: 90_000 });
     await settle(page, 1200);
     await page.screenshot({ path: shotPath("laptop-dark-analysis") });

@@ -22,6 +22,7 @@ import {
   listModels,
   restartEngine,
   setGlobalConfig,
+  setInterfaceLanguage,
 } from "../../lib/wbApi";
 import type { GlobalConfig, ModelEntry, UiBuildInfo } from "../../lib/wbTypes";
 import { LANGUAGES, LANGUAGE_NAMES, formatEffort, language, setLanguage, t } from "../../lib/i18n";
@@ -388,7 +389,11 @@ function AppearanceSection() {
           onChange={(next) => {
             if (next === language) return;
             rememberSettingsSection("appearance");
-            setLanguage(next);
+            // the server side (agent template, new threads) follows the
+            // choice; the page switches even if that call fails
+            void setInterfaceLanguage(next)
+              .catch(() => undefined)
+              .finally(() => setLanguage(next));
           }}
         />
         <p className="text-2xs leading-relaxed text-ink-3">{t.languageHint}</p>

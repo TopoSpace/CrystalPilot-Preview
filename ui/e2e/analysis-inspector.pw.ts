@@ -6,6 +6,7 @@ import { expect, test, type Page } from "@playwright/test";
 import type { AnalysisResponse, SceneResponse } from "../src/lib/wbTypes";
 import { interactionLabel } from "../src/lib/interactions";
 import { projectUrl, shotPath, watchErrors } from "./helpers";
+import { S, rx } from "./lang";
 
 const PROJECT = process.env.CP_E2E_PROJECT ?? "";
 const params = () => `project=${encodeURIComponent(PROJECT)}`;
@@ -57,15 +58,15 @@ test("real symmetry row selects its exact endpoint, quotes values and refuses an
   await expect(page.getByRole("menu")).toHaveCount(0);
   await expect(extent).toBeFocused();
   await expect(page.getByTestId("focus-toggle")).toHaveAttribute("aria-pressed", "true");
-  await range(page, /^晶胞/, "cell");
+  await range(page, new RegExp("^" + rx(S.modeCell)), "cell");
   const panel = page.getByTestId("analysis-panel");
-  const more = panel.getByRole("button", { name: /展开全部/ });
+  const more = panel.getByRole("button", { name: new RegExp(rx(S.anMore)) });
   for (const button of await more.all()) await button.click();
   const item = panel.getByTestId("interaction-row")
-    .filter({ has: page.getByRole("button", { name: `定位 ${interactionLabel(row)}`, exact: true }) })
+    .filter({ has: page.getByRole("button", { name: S.crystal.locateAria(interactionLabel(row)), exact: true }) })
     .filter({ hasText: row.op }).first();
   const response = page.waitForResponse((r) => r.ok() && r.url().includes("/api/wb/refine/scene") && r.url().includes("interactions=1"));
-  const locate = item.getByRole("button", { name: /^定位 / });
+  const locate = item.getByRole("button", { name: new RegExp("^" + rx(S.crystal.locateAria(""))) });
   await locate.focus();
   await locate.press("Enter");
   const scene = await (await response).json() as SceneResponse;
@@ -81,7 +82,7 @@ test("real symmetry row selects its exact endpoint, quotes values and refuses an
   await expect(inspector).toHaveAttribute("data-atom-label", atom.label);
   await expect(inspector).toHaveAttribute("data-symop", atom.symop!);
   await expect(locate).toHaveAttribute("aria-pressed", "true");
-  await item.getByRole("button", { name: "引用", exact: true }).press("Space");
+  await item.getByRole("button", { name: S.anQuote, exact: true }).press("Space");
   await expect(page.locator("textarea").first()).toHaveValue(new RegExp(`\\[anchor node=${data.node}`));
   const draft = await page.locator("textarea").first().inputValue();
   expect(draft).toContain(`[anchor node=${data.node}`);
@@ -89,9 +90,9 @@ test("real symmetry row selects its exact endpoint, quotes values and refuses an
   if (typeof row.d_HA === "number") expect(draft).toContain(row.d_HA.toFixed(2));
   await page.screenshot({ path: shotPath("inspector-real-symmetry") });
 
-  await range(page, /^非对称单元/, "asu");
+  await range(page, new RegExp("^" + rx(S.modeAsu)), "asu");
   await expect(inspector).toHaveAttribute("data-match", "unavailable");
-  await expect(inspector).toContainText("未替选 ASU 原子");
+  await expect(inspector).toContainText(S.crystal.inspNoMatch);
   await expect(inspector).not.toHaveAttribute("data-atom-label");
   await expect(item).toContainText(row.op);
   const after = await (await request.get(`/api/wb/refine/nodes?${params()}`)).json();
@@ -124,20 +125,20 @@ for (const [width, height, palette, theme, font] of layouts) {
     const viewport = page.getByTestId("structure-viewport");
     const oldHeight = (await viewport.boundingBox())!.height;
     expect(oldHeight).toBeGreaterThan(120);
-    const slider = page.getByRole("slider", { name: "结构显示比例" });
+    const slider = page.getByRole("slider", { name: S.crystal.paneStructureShareAria });
     await slider.focus();
     await slider.press("ArrowLeft");
     await expect(slider).toHaveValue("50");
     await expect.poll(async () => (await viewport.boundingBox())!.height).toBeLessThan(oldHeight);
-    await page.getByTestId("analysis-panel").getByText("当前显示配位", { exact: true }).click();
-    const metal = page.getByRole("button", { name: /^定位配位原子 / }).first();
+    await page.getByTestId("analysis-panel").getByText(S.crystal.anCurrentCoordination, { exact: true }).click();
+    const metal = page.getByRole("button", { name: new RegExp("^" + rx(S.crystal.coordLocateAria(""))) }).first();
     await expect(metal).toBeVisible();
     await metal.press("Space");
     await expect(metal).toHaveAttribute("aria-pressed", "true");
     await expect(page.getByTestId("analysis-inspector")).toHaveAttribute("data-match", "atom");
     const header = page.getByTestId("identity-row1");
     const expand = header.locator("button[aria-expanded]");
-    await header.getByRole("button", { name: "引用", exact: true }).press("Space");
+    await header.getByRole("button", { name: S.headerQuote, exact: true }).press("Space");
     await expect(expand).toHaveAttribute("aria-expanded", "false");
     const node = (await header.innerText()).match(/\bn\d+\b/)?.[0];
     expect(node).toBeTruthy();

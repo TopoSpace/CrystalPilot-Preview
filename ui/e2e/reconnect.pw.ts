@@ -14,6 +14,7 @@
  *   CP_EVIDENCE_ROUND=r3-r1 CP_E2E_PROJECT=<path> npx playwright test e2e/reconnect.pw.ts */
 import { expect, test, type APIRequestContext, type Page } from "@playwright/test";
 import { pickTarget, shotPath, threadUrl, watchErrors, type Target } from "./helpers";
+import { S, rx } from "./lang";
 
 interface TranscriptPage {
   events: Array<{ kind: string; text?: string; eid?: number }>;
@@ -58,7 +59,7 @@ async function bubbleTexts(page: Page): Promise<string[]> {
 async function loadEverything(page: Page): Promise<number> {
   let clicks = 0;
   for (let i = 0; i < 40; i += 1) {
-    const earlier = page.getByText(/^显示更早的 /);
+    const earlier = page.getByText(new RegExp("^" + rx(S.showEarlierPrefix)));
     const server = page.getByTestId("load-earlier");
     if (await earlier.isVisible().catch(() => false)) {
       await earlier.click();
@@ -79,7 +80,7 @@ async function loadEverything(page: Page): Promise<number> {
           },
           { timeout: 30_000 },
         )
-        .not.toMatch(/正在加载/);
+        .not.toMatch(new RegExp(rx(S.showEarlierLoading)));
       await page.waitForTimeout(300);
       continue;
     }

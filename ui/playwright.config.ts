@@ -7,6 +7,12 @@
  * CP_EVIDENCE_ROUND=r1 CP_E2E_PROJECT=<path>). */
 import { defineConfig } from "@playwright/test";
 
+/** Interface language under test: CP_E2E_LANG=en drives the English
+ * interface; the default is Chinese. The specs read their expected texts
+ * from the same dictionaries the interface renders (e2e/lang.ts). */
+const LANG = process.env.CP_E2E_LANG === "en" ? "en" : "zh";
+const BASE_URL = process.env.CP_BASE_URL ?? "http://127.0.0.1:8010";
+
 export default defineConfig({
   testDir: "./e2e",
   testMatch: /.*\.pw\.ts$/,
@@ -20,7 +26,12 @@ export default defineConfig({
   ],
   outputDir: "../workdir/ui-evidence/_test-results",
   use: {
-    baseURL: process.env.CP_BASE_URL ?? "http://127.0.0.1:8010",
+    baseURL: BASE_URL,
+    // the language is read from localStorage before first paint (ui/index.html)
+    storageState: {
+      cookies: [],
+      origins: [{ origin: BASE_URL, localStorage: [{ name: "crystalpilot-language", value: LANG }] }],
+    },
     channel: process.env.CP_BROWSER_CHANNEL ?? (process.platform === "win32" ? "msedge" : "chrome"),
     headless: true,
     viewport: { width: 1600, height: 1000 },

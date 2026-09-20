@@ -1,5 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 import { pickTarget, shotPath, threadUrl, watchErrors, type Target } from "./helpers";
+import { S, rx } from "./lang";
 
 // Controlled event fixtures test React transitions, not crystallographic results.
 const REPORT = { alerts: [{ code: "PLAT029", level: "A", text: "Lifecycle regression fixture" }],
@@ -85,8 +86,8 @@ test.describe("checkCIF lifecycle (event fixtures)", () => {
     });
     await page.goto(threadUrl(target!));
     const pane = page.locator("aside");
-    await pane.getByRole("button", { name: /^验证/ }).first().click();
-    await expect(pane.getByText("checkCIF 运行失败", { exact: true })).toBeVisible();
+    await pane.getByRole("button", { name: new RegExp("^" + rx(S.tabValidation)) }).first().click();
+    await expect(pane.getByText(S.ccFailed, { exact: true })).toBeVisible();
     await expect(pane.getByText(/Synthetic PLATON timeout/)).toBeVisible();
     await expect(pane.getByTestId("validation-origin")).toContainText("n0002");
     await expect(pane.getByText(/A×0|B×0|C×0|G×0/)).toHaveCount(0);
@@ -100,24 +101,24 @@ test.describe("checkCIF lifecycle (event fixtures)", () => {
       const errors = watchErrors(page);
       await page.goto(threadUrl(target!));
       const pane = page.locator("aside");
-      await pane.getByRole("button", { name: /^验证/ }).first().click();
+      await pane.getByRole("button", { name: new RegExp("^" + rx(S.tabValidation)) }).first().click();
       await expect.poll(() => page.evaluate(() => Boolean((window as TestWindow).__cpValidationEvent))).toBe(true);
       if (artifact) await expect(pane.getByText("Lifecycle regression fixture", { exact: true })).toBeVisible();
-      else await expect(pane.getByText("还没有 checkCIF 结果", { exact: true })).toBeVisible();
+      else await expect(pane.getByText(S.ccEmptyTitle, { exact: true })).toBeVisible();
 
       await emit(page, "tool_started", null, null);
-      await expect(pane.getByText("正在运行 checkCIF…", { exact: true })).toBeVisible();
+      await expect(pane.getByText(S.ccRunning, { exact: true })).toBeVisible();
       await expect(pane.getByText("Lifecycle regression fixture", { exact: true })).toHaveCount(0);
       await emit(page, "tool_completed", true, { ok: true, summary: REPORT });
       await expect(pane.getByText("Lifecycle regression fixture", { exact: true })).toBeVisible();
       await emit(page, "tool_started", null, null);
       await emit(page, "tool_completed", false, { ok: false, error: "test failure" });
-      await expect(pane.getByText("checkCIF 运行失败", { exact: true })).toBeVisible();
+      await expect(pane.getByText(S.ccFailed, { exact: true })).toBeVisible();
       await expect(pane.getByText("Lifecycle regression fixture", { exact: true })).toHaveCount(0);
 
       await emit(page, "tool_started", null, null);
       await emit(page, "tool_completed", true, {});
-      await expect(pane.getByText("总数未知", { exact: true })).toBeVisible();
+      await expect(pane.getByText(S.ccCountsUnknown, { exact: true })).toBeVisible();
       await expect(pane.getByText(/A×0|B×0|C×0|G×0/)).toHaveCount(0);
       await page.screenshot({ path: shotPath(`validation-event-fixture-${artifact ? "artifact" : "empty"}`) });
       expect(errors.pageErrors).toEqual([]);

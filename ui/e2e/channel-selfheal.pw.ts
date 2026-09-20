@@ -8,6 +8,7 @@
  *   CP_E2E_PROJECT=<copy> CP_SOL_THREAD=<thread> npx playwright test e2e/channel-selfheal.pw.ts */
 import { expect, test, type Page } from "@playwright/test";
 import { pickTarget, shotPath, threadUrl, watchErrors, type Target } from "./helpers";
+import { S, rx } from "./lang";
 
 interface Probe {
   status: string;
@@ -78,7 +79,8 @@ test.describe("thread channel self-healing", () => {
     await page.clock.runFor(60_000);
     // recovery fails offline -> "连接已断开，稍后自动重试", visibly
     await expect(page.getByTestId("channel-banner")).toBeVisible({ timeout: 30_000 });
-    await expect(page.getByTestId("channel-banner")).toContainText(/重新连接|断开/);
+    // ChannelBanner shows one of the three non-live channel strings
+    await expect(page.getByTestId("channel-banner")).toContainText(new RegExp([S.reconnecting, S.recovering, S.channelDead].map(rx).join("|")));
     await page.screenshot({ path: shotPath("channel-offline-banner") });
     await context.setOffline(false);
     // the retry timer (8 s) is on the fake clock too

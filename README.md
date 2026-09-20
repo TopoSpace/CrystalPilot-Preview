@@ -29,9 +29,9 @@ through typed crystallographic tools, while you watch the crystal, the node tree
 </p>
 
 <p align="center">
-  <img src="docs/readme/workbench-live-run.png" alt="CrystalPilot workbench during a live NU-1000 refinement" width="960">
+  <img src="docs/readme/workbench-live-run.png" alt="CrystalPilot workbench during a live NU-1000 refinement, shown with the English interface" width="960">
 </p>
-<p align="center"><sub>A live run on NU-1000 data (September 2026). Left: projects and conversations. Centre: the agent's tool rows, packing views and narration, with the stage rail on top. Right: the current node, its metrics and the structure in 3D.</sub></p>
+<p align="center"><sub>A live run on NU-1000 data (September 2026), shown with the English interface. Left: projects and conversations. Centre: the agent's tool rows, packing views and narration, with the stage rail on top. Right: the current node, its metrics and the structure in 3D.</sub></p>
 
 ---
 
@@ -41,7 +41,7 @@ CrystalPilot is a program you run on your own computer. It opens a project folde
 
 The model does not do any crystallographic arithmetic itself. Space-group screening, phasing, least-squares refinement, difference maps, geometry, validation and CIF assembly are performed by established engines: cctbx and smtbx in-process, SHELXT and SHELXL as external programs, PLATON for checkCIF, DIALS for raw frames. The model supplies what these programs cannot: reading a difference map as chemistry, recognising a broken ligand or a mistyped metal, deciding when a solvent region should be modelled and when it should be masked, and saying plainly what the data cannot support.
 
-The project was written for metal-organic frameworks first, because that is what the group that built it works on. Small molecules, salts, co-crystals, cages and macrocycles run through the same tools. The interface is available in Chinese and English (Settings › Appearance › Language); the agent's narration and the delivered summary follow the project's AGENTS.md and are Chinese in this preview. The code, the tool contracts and this documentation are in English.
+The project was written for metal-organic frameworks first, because that is what the group that built it works on. Small molecules, salts, co-crystals, cages and macrocycles run through the same tools. The interface is available in Chinese and English (Settings › Appearance › Language), and the agent's narration and the delivered summary follow that choice. The code, the tool contracts and this documentation are in English.
 
 This is a development preview. It is used daily on real data inside one research group, it has a large test suite, and it still has rough edges that are listed below.
 
@@ -57,7 +57,7 @@ This is a development preview. It is used daily on real data inside one research
 
 **Lets you steer.** While a turn runs you can send a message that reaches the model in flight, approve or reject an action, or stop. When the agent lacks a fact that would change its next step, it asks with a question card that offers options and lets you answer in your own words. Four permission modes decide how much it may do without asking, from read-only to fully automatic.
 
-**Delivers what a crystallographer hands over.** A delivery writes `final.cif` on the SHELXL ACTA backbone with only measured or recorded metadata, `final.fcf`, `final.res`, `final.ins`, `final.hkl`, `final.p4p` when it was captured, `final.fab` when a solvent mask is active, a `REPORT.json` with the source of every file, a Chinese `SUMMARY.md`, a `VALIDATION.md` that explains every checkCIF alert of level A, B and C, and the checkCIF result itself. A delivery is sealed as final, provisional or diagnostic. A diagnostic delivery is a structure that is not ready for publication, with its open items written down, and it is still delivered rather than refused.
+**Delivers what a crystallographer hands over.** A delivery writes `final.cif` on the SHELXL ACTA backbone with only measured or recorded metadata, `final.fcf`, `final.res`, `final.ins`, `final.hkl`, `final.p4p` when it was captured, `final.fab` when a solvent mask is active, a `REPORT.json` with the source of every file, a `SUMMARY.md` in the interface language, a `VALIDATION.md` that explains every checkCIF alert of level A, B and C, and the checkCIF result itself. A delivery is sealed as final, provisional or diagnostic. A diagnostic delivery is a structure that is not ready for publication, with its open items written down, and it is still delivered rather than refused.
 
 **Remembers what the group has learned.** Expert knowledge lives in small Markdown units under `knowledge/`. Tools compute facts; the units say how to judge them. The agent reads them on demand and can save a new one, with its source and a stated confidence, when a session produced a reusable rule.
 
@@ -160,7 +160,7 @@ These are the runs that were evaluated against a human reference or a hard gate.
 
 Working and in daily use: the refinement workbench with the tools listed above, the node store, the three-pane interface, four permission modes, publication CIF assembly on the SHELXL ACTA backbone, local checkCIF with per-alert explanation, disorder and twin handling, the staged raw-frame chain, background solver jobs, reflection-data versioning and storage cleanup.
 
-Known limits: the agent's narration is Chinese only; Windows is the primary platform and Linux is supported as a server install; SHELXL, SHELXT and PLATON must be obtained under their own licences and are not shipped; the frame-stage twin rescue on non-merohedral twins is still being tested; disorder with three or more sites is modelled by hand; powder data, incommensurate structures and proteins are out of scope.
+Known limits: Windows is the primary platform and Linux is supported as a server install; SHELXL, SHELXT and PLATON must be obtained under their own licences and are not shipped; the frame-stage twin rescue on non-merohedral twins is still being tested; disorder with three or more sites is modelled by hand; powder data, incommensurate structures and proteins are out of scope.
 
 The most recent fix came out of two runs that appeared to stall: the cause was a SHELXT space-group search that was invisible in the interface, and detached solver jobs are now shown in the conversation and the status rail until their result is adopted.
 

@@ -2,6 +2,7 @@
  * Model turns and all project writes are intercepted; no scientific claims. */
 import { expect, test, type Page } from "@playwright/test";
 import { threadUrl, shotPath, watchErrors } from "./helpers";
+import { S, rx } from "./lang";
 
 const project = process.env.CP_E2E_PROJECT;
 const threadId = process.env.CP_SOL_THREAD;
@@ -242,7 +243,7 @@ test("scientific successes stay visible, auxiliary work folds, arrows follow tex
   for (const tool of ["inspect_model", "refine", "run_checkcif"]) {
     await expect(page.locator(`[data-tool="${tool}"] > summary`)).toBeVisible();
   }
-  await expect(page.getByText("可疑原子 0", { exact: false }).first()).toBeVisible();
+  await expect(page.getByText(S.toolCards.suspectAtoms(0), { exact: false }).first()).toBeVisible();
   const summary = page.locator('[data-tool="inspect_model"] > summary');
   // Scientific icons describe the operation, with compact consecutive rows.
   const solve = page.locator('[data-tool="run_shelxt"]');
@@ -275,7 +276,7 @@ test("scientific successes stay visible, auxiliary work folds, arrows follow tex
   await group.locator(":scope > summary").click();
   await expect(group).toHaveAttribute("open", "");
   // All original command output remains available through nested folds.
-  await page.getByRole("button", { name: "详细", exact: true }).click();
+  await page.getByRole("button", { name: S.viewVerbose, exact: true }).click();
   await expect(page.getByText("data_specimen", { exact: false })).toBeVisible();
   await expect(page.locator('[data-testid="command-row"] [data-activity-icon="book"]').first()).toBeVisible();
   await expect(page.locator('[data-testid="command-row"] [data-activity-icon="search"]').first()).toBeVisible();
@@ -285,7 +286,7 @@ test("scientific successes stay visible, auxiliary work folds, arrows follow tex
   for (const row of await page.locator('[data-testid="tool-row"] > summary, [data-testid="command-row"] > summary').all()) {
     expect(await row.innerText()).not.toMatch(/12\.345|98\.765|12\.3\s*s|98\.8\s*s/);
   }
-  await page.getByRole("button", { name: "简洁", exact: true }).click();
+  await page.getByRole("button", { name: S.viewConcise, exact: true }).click();
   await page.screenshot({ path: shotPath("transcript-scientific-concise") });
   expect(errors.pageErrors).toEqual([]);
 });
@@ -353,7 +354,7 @@ test("both collapsed panels reserve header space and can reopen at desktop and p
 
 test("panels ease through intermediate widths, reverse smoothly and respect reduced motion", async ({ page }) => {
   await fixture(page);
-  await page.getByRole('group', { name: '结构工作区页面' }).getByRole('button', { name: /^指标/ }).click();
+  await page.getByRole('group', { name: S.shell.rightPaneTabs }).getByRole('button', { name: new RegExp("^" + rx(S.tabMetrics)) }).click();
   for (const side of ['left', 'right'] as const) {
     const close = side === 'left' ? 'sidebar-collapse' : 'right-collapse';
     const expand = side === 'left' ? 'sidebar-expand' : 'right-expand';
@@ -396,7 +397,7 @@ test("model search and node references remain available", async ({ page }) => {
   await anchor.click();
   await expect(page.locator('aside canvas').first()).toBeVisible();
   await page.getByTestId("model-button").click();
-  const search = page.getByPlaceholder("搜索模型…");
+  const search = page.getByPlaceholder(S.modelSearch);
   await expect(search).toBeVisible();
   await search.fill("gpt-5.6-sol");
   await expect(page.getByRole("dialog").getByRole("button").filter({ hasText: /gpt-5.6-sol/i }).first()).toBeVisible();

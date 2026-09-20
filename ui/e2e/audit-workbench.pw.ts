@@ -1,6 +1,7 @@
 /** Real structure, palette, range and quote integration. No model calls or mocked data. */
 import { expect, test } from "@playwright/test";
 import { projectUrl, shotPath, watchErrors } from "./helpers";
+import { S, rx } from "./lang";
 
 const PROJECT = process.env.CP_CIF_PROJECT;
 const CASES = [
@@ -32,7 +33,7 @@ for (const [palette, mode, width, height] of CASES) {
     const pane = page.locator("aside");
     await expect(pane.locator("canvas").first()).toBeVisible();
     await expect(pane.getByTestId("identity-row1")).toContainText(node.id);
-    await pane.getByRole("button", { name: "引用", exact: true }).click();
+    await pane.getByRole("button", { name: S.headerQuote, exact: true }).click();
     await expect(page.getByTestId("anchor-rail")).toContainText(node.id);
     await expect(page.locator("textarea").first()).toHaveValue(new RegExp(`\\[anchor node=${node.id}`));
     const extent = pane.locator('button[aria-haspopup="menu"]').first();
@@ -43,15 +44,15 @@ for (const [palette, mode, width, height] of CASES) {
       return r.ok() && url.pathname === "/api/wb/refine/scene"
         && url.searchParams.get("mode") === "supercell" && url.searchParams.get("n") === "2";
     });
-    await pane.getByRole("menuitem", { name: /超胞 2×2×2/ }).click();
+    await pane.getByRole("menuitem", { name: new RegExp(rx(`${S.modeSuper} 2×2×2`)) }).click();
     const scene = await (await nextScene).json();
     expect(scene.atoms.length).toBeGreaterThan(node.n_atoms);
     expect(scene.range.n_tiles).toBeGreaterThanOrEqual(8);
     await expect(extent).toContainText("2×2×2");
     await expect(pane.getByTestId("identity-row2")).toContainText(String(scene.meta.n_atoms));
     await page.screenshot({ path: shotPath(`crystal-${palette}-${mode}-supercell`) });
-    await pane.getByRole("button", { name: "视图", exact: true }).click();
-    await expect(pane.getByRole("slider", { name: "前后裁切" })).toBeVisible();
+    await pane.getByRole("button", { name: S.grpView, exact: true }).click();
+    await expect(pane.getByRole("slider", { name: S.crystal.tbClipAria })).toBeVisible();
     await page.screenshot({ path: shotPath(`crystal-${palette}-${mode}-view`) });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     expect(errors.pageErrors).toEqual([]);

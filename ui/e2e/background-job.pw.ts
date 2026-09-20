@@ -12,8 +12,14 @@ import { expect, test } from "@playwright/test";
 import fs from "node:fs";
 import path from "node:path";
 import { pickTarget, shotPath, threadUrl, watchErrors, type Target } from "./helpers";
+import { S, rx } from "./lang";
 
 const JOB = "job_e2e_bg";
+/** Row heading: `${program} ${bgProgramSuffix}` (lib/backgroundJobs.ts). */
+const JOB_TITLE = `SHELXT ${S.bgProgramSuffix}`;
+/** The search stage shows one of two "prints nothing" notes depending on
+ * whether the -a exhaustive search was detected; accept either. */
+const SILENT_NOTE = new RegExp(rx(S.bgSilentSearch) + "|" + rx(S.bgSilentExhaustive));
 
 const LXT_SEARCHING = `
  Command line parameters:  -t4 -d1 job
@@ -113,17 +119,18 @@ test.describe("detached solver job visibility", () => {
     test.skip(target === null, "no project with a thread on this machine");
     const errors = watchErrors(page);
     await page.goto(threadUrl(target!));
-    const row = page.getByTestId("background-job-row");
+    // the project may carry finished jobs of its own: follow the planted one
+    const row = page.locator(`[data-testid="background-job-row"][data-job="${JOB}"]`);
     await expect(row).toHaveCount(1, { timeout: 30_000 });
     await expect(row).toHaveAttribute("data-running", "true");
-    await expect(row).toContainText("SHELXT 后台求解");
-    await expect(row).toContainText("空间群搜索");
-    await expect(row).toContainText("不输出任何内容");
+    await expect(row).toContainText(JOB_TITLE);
+    await expect(row).toContainText(S.bgStageSearch);
+    await expect(row).toContainText(SILENT_NOTE);
     const rail = page.getByTestId("status-rail");
     await expect(rail).toHaveAttribute("data-state", "background", { timeout: 10_000 });
     const action = page.getByTestId("rail-action");
-    await expect(action).toContainText("SHELXT 后台求解");
-    await expect(action).toContainText("回合已结束，后台仍在求解");
+    await expect(action).toContainText(JOB_TITLE);
+    await expect(action).toContainText(S.railBackgroundAfterTurn);
     await row.scrollIntoViewIfNeeded();
     await page.screenshot({ path: shotPath("background-job-running") });
 
@@ -131,17 +138,17 @@ test.describe("detached solver job visibility", () => {
     // every 3 s while a job runs
     finish(planted!);
     await expect(row).toHaveAttribute("data-running", "false", { timeout: 20_000 });
-    await expect(row).toContainText("已完成");
-    await expect(row).toContainText("尚未采用");
+    await expect(row).toContainText(S.bgStageFinished);
+    await expect(row).toContainText(S.bgSolutionUnadopted(JOB));
     await expect(row).toContainText(`run_shelxt(from_job='${JOB}')`);
     await expect(rail).not.toHaveAttribute("data-state", "background");
-    await expect(action).toContainText("SHELXT 求解已完成，待采用");
+    await expect(action).toContainText(S.railSolutionReady);
     await page.screenshot({ path: shotPath("background-job-finished") });
 
     // a reload rebuilds the same single row from transcript + live snapshot
     await page.reload();
-    await expect(page.getByTestId("background-job-row")).toHaveCount(1, { timeout: 30_000 });
-    await expect(page.getByTestId("background-job-row")).toContainText("尚未采用");
+    await expect(row).toHaveCount(1, { timeout: 30_000 });
+    await expect(row).toContainText(S.bgSolutionUnadopted(JOB));
     expect(errors.pageErrors).toEqual([]);
   });
 });

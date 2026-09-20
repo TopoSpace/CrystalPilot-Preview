@@ -15,6 +15,7 @@ import {
   watchErrors,
   type Target,
 } from "./helpers";
+import { S, rx } from "./lang";
 
 const SIZES: ReadonlyArray<readonly [string, number, number]> = [
   ["900", 900, 650],
@@ -74,12 +75,12 @@ for (const theme of THEMES) {
         await pane.locator('button[aria-haspopup="menu"]').first().click();
         const menu = pane.getByRole("menu");
         await expect(menu).toBeVisible();
-        expect(await menu.locator('[role="presentation"]').allTextContents()).toEqual(["范围", "动作"]);
+        expect(await menu.locator('[role="presentation"]').allTextContents()).toEqual([S.extentSecRange, S.extentSecAction]);
         const items = await menu.getByRole("menuitem").allTextContents();
-        expect(items[0]).toContain("非对称单元");
-        expect(items.at(-1)).toContain("装配非对称单元");
-        expect(items.findIndex((t) => t.includes("长一层"))).toBeGreaterThan(
-          items.findIndex((t) => t.includes("分数盒")),
+        expect(items[0]).toContain(S.modeAsu);
+        expect(items.at(-1)).toContain(S.assembleAsu);
+        expect(items.findIndex((t) => t.includes(S.growShell))).toBeGreaterThan(
+          items.findIndex((t) => t.includes(S.modeRange)),
         );
         await page.screenshot({ path: shotPath(`${name}-${theme}-extent-menu`) });
         await page.keyboard.press("Escape");
@@ -89,17 +90,17 @@ for (const theme of THEMES) {
         const anomaly = pane.getByRole("button", { name: /ADP$/ }).first();
         if (await anomaly.count()) {
           await anomaly.click();
-          const centre = pane.getByRole("button", { name: "居中", exact: true });
+          const centre = pane.getByRole("button", { name: S.selCenter, exact: true });
           await expect(centre).toBeVisible();
           await centre.click();
           await settle(page, 700);
           await page.screenshot({ path: shotPath(`${name}-${theme}-centered`) });
-          await pane.getByRole("button", { name: "重置视角", exact: true }).click();
-          await pane.getByRole("button", { name: "取消", exact: true }).first().click().catch(() => undefined);
+          await pane.getByRole("button", { name: S.resetView, exact: true }).click();
+          await pane.getByRole("button", { name: S.cancel, exact: true }).first().click().catch(() => undefined);
         }
 
         // node tree: branch headers, the diag family folded, a graph that fits
-        await pane.getByRole("button", { name: /^节点树/ }).first().click();
+        await pane.getByRole("button", { name: new RegExp("^" + rx(S.tabNodes)) }).first().click();
         const tree = page.getByTestId("node-tree");
         await expect(tree).toBeVisible();
         await settle(page, 600);
@@ -125,7 +126,7 @@ for (const theme of THEMES) {
         await page.screenshot({ path: shotPath(`${name}-${theme}-nodes`) });
 
         // artifacts: grouped by delivery, no backslash paths on screen
-        await pane.getByRole("button", { name: /^产物/ }).first().click();
+        await pane.getByRole("button", { name: new RegExp("^" + rx(S.tabArtifacts)) }).first().click();
         await settle(page, 800);
         const panel = page.getByTestId("artifacts-panel");
         if (await panel.count()) {
@@ -145,7 +146,7 @@ for (const theme of THEMES) {
         await page.screenshot({ path: shotPath(`${name}-${theme}-artifacts`) });
 
         // focus mode: >= 60 % for the structure, the conversation keeps a column, Esc leaves
-        await pane.getByRole("button", { name: /^结构/ }).first().click();
+        await pane.getByRole("button", { name: new RegExp("^" + rx(S.tabStructure)) }).first().click();
         await pane.getByTestId("focus-toggle").click();
         await settle(page, 900);
         expect(page.url()).toContain("focus=1");

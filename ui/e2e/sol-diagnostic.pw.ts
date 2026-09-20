@@ -1,6 +1,7 @@
 /** Replay a completed REAL Sol diagnosis; never synthesize events or invoke a model. */
 import { expect, test } from "@playwright/test";
 import { setTheme, shotPath, threadUrl, watchErrors } from "./helpers";
+import { S } from "./lang";
 
 const PROJECT = process.env.CP_E2E_PROJECT;
 const THREAD = process.env.CP_SOL_THREAD;
@@ -21,7 +22,7 @@ for (const theme of ["light", "dark"] as const) {
     await page.goto(threadUrl({ project: PROJECT!, threadId: THREAD! }) + "&view=structure");
     await expect(page.locator("aside canvas").first()).toBeVisible();
     await expect(page.getByTestId("model-button")).toContainText("Sol");
-    await expect(page.getByTestId("model-button")).toContainText("极高");
+    await expect(page.getByTestId("model-button")).toContainText(S.effortLabels.xhigh);
     await expect(page.getByText(/目前没有重新精修/)).toBeVisible();
     await expect(page.getByTestId("status-rail")).toHaveAttribute("data-state", "idle");
     await page.screenshot({ path: shotPath(`sol-diagnostic-${theme}`) });

@@ -75,6 +75,20 @@ VERSION_MARKER_AGGRESSIVE = "<!-- crystalpilot-agents-v44-aggressive -->"
 #: every AGENTS.md CrystalPilot writes starts with a marker carrying this
 #: prefix; a file without it belongs to the user and is never overwritten
 MARKER_PREFIX = "<!-- crystalpilot-agents-"
+
+#: The agent narrates, asks and delivers in the interface language the person
+#: chose (Settings > Appearance). The template itself stays Chinese; only the
+#: directive and the language of the delivered prose change, and the marker
+#: carries "-en" so a language switch regenerates the file.
+AGENT_LANGUAGES = ("zh", "en")
+DEFAULT_AGENT_LANGUAGE = "zh"
+REPLY_LANGUAGE = {
+    "zh": "与用户交流用中文。",
+    "en": ("与用户交流一律用英文（communicate with the user in English）："
+           "叙述、提问卡、审批说明、VALIDATION.md 与 SUMMARY.md 全部用英文；"
+           "工具名、文件名与晶体学记号照原样。"),
+}
+SUMMARY_LANGUAGE = {"zh": "中文", "en": "英文"}
 KNOWLEDGE_MODES = ("full", "tools_only")
 DEFAULT_KNOWLEDGE_MODE = "full"
 VERSION_MARKER_TOOLS_ONLY = "<!-- crystalpilot-agents-tools-only-v6 -->"
@@ -134,7 +148,7 @@ TEMPLATE_TOOLS_ONLY = """\
 你是 CrystalPilot 的晶体学智能体：用户给你单晶 X 射线衍射数据，你用本项目的
 MCP 工具完成结构求解、精修、验证与交付。晶体学上怎么判断、用什么参数、何时
 截断、如何处置无序/溶剂/元素身份，全部由你自己依据数据与化学常识决定；本文件
-只规定操作契约与诚实守则，不给任何判断规则或数值标准。与用户交流用中文。
+只规定操作契约与诚实守则，不给任何判断规则或数值标准。{reply_language}
 
 ## 操作契约
 
@@ -164,7 +178,7 @@ MCP 工具完成结构求解、精修、验证与交付。晶体学上怎么判�
   res/cif/fcf/ins/hkl/p4p/fab 及每个文件的来源；未配对时自动给带统计块的模型 CIF，
   绝不为拿 CIF 而动原子；`bond_table_audit` 有嫌疑键就按提示加 `FREE` 卡重跑）→
   `run_checkcif(cif=…/final.cif)` → 输出目录写 `VALIDATION.md`（对每一条 A/B/C
-  警报逐条写含义、本结构中的原因、做过的检查与影响）和中文 `SUMMARY.md`
+  警报逐条写含义、本结构中的原因、做过的检查与影响）和{summary_language} `SUMMARY.md`
   （做了什么、为什么、指标、每条 restraint 的理由、未解决问题、缺失输入如 p4p）→
   `finalize_delivery`（未达发表级也交付：status=diagnostic 照样封存，缺 fcf/checkcif
   记为待办项）。交付物放 `CrystalPilot Results/<task-id>/`，不用 shell 手拼交付文件。
@@ -195,7 +209,7 @@ TEMPLATE = """\
 用户给你反射数据、一个粗解模型和合成先验（用了什么金属/配体/溶剂）；你像课题组的
 老师兄一样，反复观察电子密度与模型，提出化学假设，修改模型，数值精修，直到得到
 可辩护的发表级结构。
-与用户交流用中文。
+{reply_language}
 
 ## 判断方式（最高原则）
 
@@ -393,7 +407,7 @@ diagnostic)` 照样封存，缺 fcf/checkcif 记为待办项；SUMMARY.md 写明
 ## 项目约定
 
 - 交付物放 `CrystalPilot Results/<task-id>/`：write_outputs 产物 +
-  VALIDATION.md（checkCIF 逐条）+ 中文 SUMMARY.md（做了什么、为什么、
+  VALIDATION.md（checkCIF 逐条）+ {summary_language} SUMMARY.md（做了什么、为什么、
   指标、每条 restraint 的理由、未解决问题）。
 - 附件在项目 `uploads/`：图片随消息附上（若确实没收到图像内容，直接说明，不猜
   图上画了什么）；PDF/Word 文本已抽取。
@@ -424,16 +438,25 @@ def normalize_knowledge_mode(mode: str | None) -> str:
     return m
 
 
+def normalize_agent_language(language: str | None) -> str:
+    """'en' for English, otherwise the Chinese default (None/'' included)."""
+    return "en" if (language or "").strip().lower().startswith("en") else DEFAULT_AGENT_LANGUAGE
+
+
 def marker_for(mode: str | None = None, delegate: bool = False,
-               aggressive: bool = False) -> str:
+               aggressive: bool = False, language: str | None = None) -> str:
     tools_only = normalize_knowledge_mode(mode) == "tools_only"
     if delegate and aggressive:
-        return (VERSION_MARKER_TOOLS_ONLY_AGGRESSIVE if tools_only
+        base = (VERSION_MARKER_TOOLS_ONLY_AGGRESSIVE if tools_only
                 else VERSION_MARKER_AGGRESSIVE)
-    if tools_only:
-        return (VERSION_MARKER_TOOLS_ONLY_DELEGATE if delegate
+    elif tools_only:
+        base = (VERSION_MARKER_TOOLS_ONLY_DELEGATE if delegate
                 else VERSION_MARKER_TOOLS_ONLY)
-    return VERSION_MARKER_DELEGATE if delegate else VERSION_MARKER
+    else:
+        base = VERSION_MARKER_DELEGATE if delegate else VERSION_MARKER
+    if normalize_agent_language(language) == "en":
+        return base.replace(" -->", "-en -->")
+    return base
 
 
 def delegation_section(delegate: bool, aggressive: bool = False) -> str:
@@ -443,28 +466,33 @@ def delegation_section(delegate: bool, aggressive: bool = False) -> str:
 
 
 def render_agents_md(mode: str | None = None, delegate: bool = False,
-                     aggressive: bool = False) -> str:
+                     aggressive: bool = False, language: str | None = None) -> str:
     """The template for `mode`; `delegate` adds DELEGATION_SECTION (and
     switches the marker) - the workbench passes True only while the
     project's delegation tier is active; `aggressive` (round-3 R7) swaps in
-    the proactive section at the aggressive tier."""
+    the proactive section at the aggressive tier; `language` ('zh' default,
+    'en') sets the language the agent talks and delivers in."""
     mode = normalize_knowledge_mode(mode)
+    lang = normalize_agent_language(language)
     tpl = TEMPLATE_TOOLS_ONLY if mode == "tools_only" else TEMPLATE
-    return tpl.format(marker=marker_for(mode, delegate, aggressive),
+    return tpl.format(marker=marker_for(mode, delegate, aggressive, lang),
                       engine_py=str(ENGINE_PY),
                       kb_dir=str(ENGINE_ROOT / "knowledge" / "expert-cases"),
-                      delegation=delegation_section(delegate, aggressive))
+                      delegation=delegation_section(delegate, aggressive),
+                      reply_language=REPLY_LANGUAGE[lang],
+                      summary_language=SUMMARY_LANGUAGE[lang])
 
 
 def agents_md_sha256(mode: str | None = None, delegate: bool = False,
-                     aggressive: bool = False) -> str:
+                     aggressive: bool = False, language: str | None = None) -> str:
     return hashlib.sha256(
-        render_agents_md(mode, delegate, aggressive).encode("utf-8")).hexdigest()
+        render_agents_md(mode, delegate, aggressive, language).encode("utf-8")).hexdigest()
 
 
 def ensure_agents_md(project_dir: Path, mode: str | None = None,
                      delegate: bool = False,
-                     aggressive: bool = False) -> dict[str, Any]:
+                     aggressive: bool = False,
+                     language: str | None = None) -> dict[str, Any]:
     """Make <project>/AGENTS.md the current template for `mode`.
 
     Three outcomes, reported in the returned dict's "action":
@@ -479,12 +507,13 @@ def ensure_agents_md(project_dir: Path, mode: str | None = None,
                      template.
     """
     mode = normalize_knowledge_mode(mode)
+    lang = normalize_agent_language(language)
     p = Path(project_dir) / "AGENTS.md"
     aggressive = bool(delegate and aggressive)
-    marker = marker_for(mode, delegate, aggressive)
+    marker = marker_for(mode, delegate, aggressive, lang)
     out: dict[str, Any] = {"path": str(p), "mode": mode, "marker": marker,
                            "delegate": bool(delegate),
-                           "aggressive": aggressive,
+                           "aggressive": aggressive, "language": lang,
                            "action": "written", "warning": None}
     if p.exists():
         try:
@@ -501,7 +530,7 @@ def ensure_agents_md(project_dir: Path, mode: str | None = None,
                 f"(codex injects THAT file, not the {mode!r} template). "
                 "Move it aside to get the template.")
             return out
-    p.write_text(render_agents_md(mode, delegate, aggressive),
+    p.write_text(render_agents_md(mode, delegate, aggressive, lang),
                  encoding="utf-8")
     return out
 

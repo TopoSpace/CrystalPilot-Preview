@@ -2,17 +2,18 @@
  * Run: npx playwright test e2e/appearance.pw.ts */
 import { expect, test, type Page } from "@playwright/test";
 import { shotPath, watchErrors } from "./helpers";
+import { S } from "./lang";
 
 const PALETTES = ["anthropic", "openai", "kimi"] as const;
 const MODES = [
-  { label: "浅色", value: "light" },
-  { label: "深色", value: "dark" },
+  { label: S.themeLight, value: "light" },
+  { label: S.themeDark, value: "dark" },
 ] as const;
 
 async function openAppearance(page: Page): Promise<void> {
   const settings = page.getByTestId("open-settings");
   if (!(await settings.isVisible().catch(() => false))) {
-    await page.getByRole("button", { name: "打开侧栏", exact: true }).click();
+    await page.getByRole("button", { name: S.sidebarOpen, exact: true }).click();
     await expect(settings).toBeVisible();
   }
   await settings.click();
@@ -47,7 +48,7 @@ test("palette and light/dark choices persist", async ({ page }) => {
   await page.reload();
   await openAppearance(page);
   await expect(page.getByTestId("palette-kimi")).toHaveAttribute("aria-pressed", "true");
-  await expect(page.getByRole("button", { name: "深色", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByRole("button", { name: S.themeDark, exact: true })).toHaveAttribute("aria-pressed", "true");
   expect(errors.pageErrors).toEqual([]);
   expect(errors.consoleErrors).toEqual([]);
 });

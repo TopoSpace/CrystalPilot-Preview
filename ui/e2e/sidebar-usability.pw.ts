@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { pickTarget, setTheme, shotPath, THEMES, threadUrl, watchErrors, type Target } from "./helpers";
+import { S, rx } from "./lang";
 
 for (const theme of THEMES) {
   test.describe(`sidebar usability (${theme})`, () => {
@@ -26,7 +27,7 @@ for (const theme of THEMES) {
         const pane = page.locator("aside");
         const canvas = pane.locator("canvas").first();
         await expect(canvas).toBeVisible({ timeout: 60_000 });
-        const reset = pane.getByRole("button", { name: "重置视角", exact: true });
+        const reset = pane.getByRole("button", { name: S.resetView, exact: true });
         await expect(reset).toBeVisible();
         const paneBox = (await pane.boundingBox())!;
         const resetBox = (await reset.boundingBox())!;
@@ -39,25 +40,25 @@ for (const theme of THEMES) {
         expect(Math.min(...fonts)).toBeGreaterThanOrEqual(11);
         await page.screenshot({ path: shotPath(`sidebar-300-${fontSize}-${theme}`) });
 
-        await pane.getByTitle("展开结构卡", { exact: true }).click();
+        await pane.getByTitle(S.headerExpand, { exact: true }).click();
         await pane.locator('button[aria-haspopup="menu"]').first().click();
         const menu = pane.getByRole("menu");
         const menuBox = (await menu.boundingBox())!;
         const canvasBox = (await canvas.boundingBox())!;
         expect(menuBox.y + menuBox.height).toBeLessThanOrEqual(canvasBox.y + canvasBox.height);
-        const last = menu.getByRole("menuitem", { name: /^装配非对称单元/ });
+        const last = menu.getByRole("menuitem", { name: new RegExp("^" + rx(S.assembleAsu)) });
         await last.scrollIntoViewIfNeeded();
         const lastBox = (await last.boundingBox())!;
         expect(lastBox.y + lastBox.height).toBeLessThanOrEqual(canvasBox.y + canvasBox.height);
         await page.screenshot({ path: shotPath(`sidebar-menu-300-${fontSize}-${theme}`) });
         await page.keyboard.press("Escape");
-        await pane.getByTitle("收起结构卡", { exact: true }).click();
+        await pane.getByTitle(S.headerCollapse, { exact: true }).click();
 
         // A real ADP flag selects a real atom without a pixel-coordinate guess.
         const anomaly = pane.getByRole("button", { name: /ADP$/ }).first();
         if (await anomaly.count()) {
           await anomaly.click();
-          await pane.getByRole("button", { name: "在对话中引用", exact: true }).click();
+          await pane.getByRole("button", { name: S.selQuote, exact: true }).click();
           const draft = page.locator("textarea").first();
           await expect(draft).toHaveValue(new RegExp(`\\[anchor node=${scene.node} atoms=`));
           await expect(draft).toHaveValue(/Å²/);

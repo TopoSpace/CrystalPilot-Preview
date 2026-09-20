@@ -18,7 +18,7 @@ from collections import deque
 from pathlib import Path
 from typing import Any
 
-from . import i18n, registry
+from . import i18n, preferences, registry
 from .attachments import compose_message, resolve_attachments
 from .agent_roles import (SUBAGENT_POLICIES, delegation_tier,
                           effective_model, ensure_agent_roles, normalize_subagent_policy,
@@ -526,6 +526,7 @@ class ProjectSession:
         #: a settings change that needs a process-level codex flag arrived
         #: while a turn was running: rebuild when it ends
         self._restart_pending = False
+        self._agents_md_dirty = False  # AGENTS.md changed while a turn ran
         self._running_catalog_stamp: float | None = None
         self.wb = self._build_workbench(path)
         self.wb.start()
@@ -753,7 +754,8 @@ class ProjectSession:
                 tier = delegation_tier_for(self.wb.project.settings)
                 info = ensure_agents_md(
                     path, new_mode, tier != "off",
-                    aggressive=(tier == "aggressive"))
+                    aggressive=(tier == "aggressive"),
+                    language=preferences.language())
                 try:
                     self.wb.close()
                 except Exception:  # noqa: BLE001
@@ -802,7 +804,8 @@ class ProjectSession:
         on = subagents_on(st.settings)
         tier = "aggressive" if on else "off"
         mode = st.settings.get("knowledge_mode")
-        info = ensure_agents_md(st.path, mode, on, aggressive=on)
+        info = ensure_agents_md(st.path, mode, on, aggressive=on,
+                                language=preferences.language())
         roles = ensure_agent_roles(st.path, on, mode,
                                    effective_model(st.settings))
         st.agents_md = info
@@ -813,6 +816,31 @@ class ProjectSession:
                           "roles_removed": roles.get("removed")})
         return {"active": on, "tier": tier, "agents_md": info,
                 "roles": roles}
+
+    def apply_language(self, language: str) -> dict:
+        """The interface language changed (Settings > Appearance): rewrite
+        AGENTS.md so the agent narrates and delivers in that language, then
+        restart the engine so resumed threads read the new file (codex only
+        reads AGENTS.md when a thread starts or resumes). While a turn runs
+        the restart is deferred to the end of the turn."""
+        st = self.wb.project
+        on = subagents_on(st.settings)
+        info = ensure_agents_md(st.path, st.settings.get("knowledge_mode"), on,
+                                aggressive=on, language=language)
+        st.agents_md = info
+        changed = info.get("action") == "written"
+        restarted = False
+        if changed:
+            restarted = self._rebuild_or_defer(
+                {"kind": "engine_restarted", "reason": "language",
+                 "language": language})
+            if not restarted:
+                self._agents_md_dirty = True
+        self._push(None, {"kind": "language", "language": language,
+                          "agents_md": info.get("action"),
+                          "restart_pending": self.restart_pending})
+        return {"language": language, "agents_md": info,
+                "restarted": restarted, "restart_pending": self.restart_pending}
 
     def _turn_kwargs(self) -> dict:
         from openai_codex import Sandbox
@@ -901,7 +929,7 @@ class ProjectSession:
     def _apply_pending_restart(self) -> None:
         if not self._restart_pending:
             return
-        if self._engine_flags() == self._running_flags():
+        if self._engine_flags() == self._running_flags() and not self._agents_md_dirty:
             self._restart_pending = False
             return
         try:
@@ -910,6 +938,7 @@ class ProjectSession:
         except Exception:  # noqa: BLE001 - a turn slipped in; try after it
             return
         self._restart_pending = False
+        self._agents_md_dirty = False
         self._push_settings()
 
     def _push_settings(self) -> None:

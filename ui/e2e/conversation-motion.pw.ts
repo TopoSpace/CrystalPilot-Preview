@@ -3,6 +3,7 @@
  * Run against an isolated Vite preview (CP_BASE_URL) or the integrated UI. */
 import { expect, test, type Page } from "@playwright/test";
 import { shotPath, threadUrl, watchErrors } from "./helpers";
+import { S, rx } from "./lang";
 
 const project = process.env.CP_E2E_PROJECT;
 const threadId = process.env.CP_SOL_THREAD;
@@ -86,8 +87,8 @@ test("real read-only transcript and renderer respect motion preferences", async 
   await expect(page.locator('[data-testid="tool-row"][data-status="running"]')).toHaveCount(0);
   await page.screenshot({ path: shotPath("conversation-real-replay") });
   const frame = () => canvas.evaluate((el) => (el as HTMLCanvasElement).toDataURL());
-  await page.getByRole("button", { name: "视图", exact: true }).click();
-  await page.getByRole("button", { name: "自旋", exact: true }).click();
+  await page.getByRole("button", { name: S.grpView, exact: true }).click();
+  await page.getByRole("button", { name: S.ovSpin, exact: true }).click();
   const spinning = await frame();
   await expect.poll(frame).not.toBe(spinning);
   await page.emulateMedia({ reducedMotion: "reduce" });
@@ -104,7 +105,7 @@ test("real read-only transcript and renderer respect motion preferences", async 
   expect(await frame()).toBe(hidden);
   await visibility(page, "visible");
   await expect.poll(frame).not.toBe(hidden);
-  await page.getByRole("button", { name: "自旋", exact: true }).click();
+  await page.getByRole("button", { name: S.ovSpin, exact: true }).click();
   await visibility(page, "hidden");
   await visibility(page, "visible");
   await page.waitForTimeout(150);
@@ -133,7 +134,7 @@ test("real 3Dmol depth survives centering cancelled before its first frame (Vite
       return original.apply(this, args);
     };
   }, moduleUrl!);
-  await page.getByTitle("重置视角", { exact: true }).click();
+  await page.getByTitle(S.resetView, { exact: true }).click();
   await expect.poll(() => page.evaluate(() => Boolean((window as any).depthTestViewer))).toBe(true);
   await page.waitForTimeout(600);
   await page.evaluate(() => {
@@ -142,7 +143,7 @@ test("real 3Dmol depth survives centering cancelled before its first frame (Vite
     if (!atom) throw new Error("No real selectable atom");
     atom.callback(atom, viewer);
   });
-  await expect(page.getByRole("button", { name: "居中", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: S.selCenter, exact: true })).toBeVisible();
   const before = await page.evaluate(() => (window as any).depthTestViewer.getSlab());
   await page.evaluate(() => {
     const frames = new Map<number, FrameRequestCallback>();
@@ -151,7 +152,7 @@ test("real 3Dmol depth survives centering cancelled before its first frame (Vite
     window.cancelAnimationFrame = (id) => { frames.delete(id); };
     (window as any).heldCenterFrames = frames;
   });
-  await page.getByRole("button", { name: "居中", exact: true }).evaluate((el) => el.click());
+  await page.getByRole("button", { name: S.selCenter, exact: true }).evaluate((el) => (el as HTMLElement).click());
   await expect.poll(() => page.evaluate(() => (window as any).heldCenterFrames.size)).toBeGreaterThan(0);
   await canvas.dispatchEvent("pointerdown", { pointerId: 1, pointerType: "mouse", button: 0 });
   expect(await page.evaluate(() => (window as any).heldCenterFrames.size)).toBe(0);
@@ -169,7 +170,7 @@ test("real 3Dmol depth survives centering cancelled before its first frame (Vite
 test("synthetic terminal rows retain focus, questions and explicit errors", async ({ page }) => {
   const errors = watchErrors(page);
   await fixture(page);
-  const reasoning = page.getByRole("button", { name: /思考摘要/ }).first();
+  const reasoning = page.getByRole("button", { name: new RegExp(rx(S.reasoningSummary)) }).first();
   await reasoning.click();
   await expect(reasoning).toBeFocused();
   await emit(page, { kind: "agent_message", ts: startTs + 3, text: '```ask\n{"question":"Synthetic prior question?"}\n```' });
@@ -196,11 +197,11 @@ test("synthetic focused tool fold survives termination and view-mode changes", a
   await expect(summary).toBeFocused();
   await expect(row).toHaveJSProperty("open", true);
   // Programmatic mode changes deliberately retain focus in the fold.
-  await page.getByRole("button", { name: "详细", exact: true }).evaluate((el) => el.click());
-  await page.getByRole("button", { name: "简洁", exact: true }).evaluate((el) => el.click());
+  await page.getByRole("button", { name: S.viewVerbose, exact: true }).evaluate((el) => (el as HTMLElement).click());
+  await page.getByRole("button", { name: S.viewConcise, exact: true }).evaluate((el) => (el as HTMLElement).click());
   await expect(row).toHaveJSProperty("open", true);
   await row.locator(":scope > div > details > summary").click();
-  await row.getByRole("button", { name: "复制", exact: true }).first().focus();
+  await row.getByRole("button", { name: S.copyMessage, exact: true }).first().focus();
   await row.evaluate((el) => { (el as HTMLDetailsElement).open = false; });
   await expect(summary).toBeFocused();
 });
@@ -241,7 +242,7 @@ test("synthetic pending history page cannot replace focused reasoning with a fai
   await fixture(page, tail, "working", earlier, () => pending);
   await page.getByTestId("load-earlier").click();
   await expect(page.getByTestId("load-earlier")).toBeDisabled();
-  const reasoning = page.getByRole("button", { name: /思考摘要/ }).first();
+  const reasoning = page.getByRole("button", { name: new RegExp(rx(S.reasoningSummary)) }).first();
   await reasoning.click();
   await expect(reasoning).toBeFocused();
   release();
@@ -281,11 +282,11 @@ test("synthetic history scroll stays anchored; reduced-motion jump is instant", 
   const before = await scroll.evaluate((el) => el.scrollTop);
   await emit(page, { kind: "agent_message", ts: startTs + 7, text: "Synthetic appended message must not force scrolling" });
   expect(await scroll.evaluate((el) => el.scrollTop)).toBeCloseTo(before, 0);
-  await scroll.getByRole("button", { name: /显示更早/ }).click();
+  await scroll.getByRole("button", { name: new RegExp(rx(S.showEarlierPrefix)) }).click();
   await page.emulateMedia({ reducedMotion: "reduce" });
   await scroll.evaluate((el) => {
     const scrollTo = el.scrollTo.bind(el);
-    el.scrollTo = (options: ScrollToOptions) => { el.setAttribute("data-scroll-behavior", options.behavior ?? ""); scrollTo(options); };
+    el.scrollTo = ((options: ScrollToOptions) => { el.setAttribute("data-scroll-behavior", options.behavior ?? ""); scrollTo(options); }) as typeof el.scrollTo;
   });
   await page.getByTestId("jump-to-latest").click();
   await expect(scroll).toHaveAttribute("data-scroll-behavior", "auto");

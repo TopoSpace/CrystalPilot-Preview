@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { projectUrl, shotPath, watchErrors } from "./helpers";
+import { S } from "./lang";
 
 const PROJECT = process.env.CP_CIF_PROJECT;
 
@@ -40,7 +41,7 @@ test("progressive transport keeps real completed blocks when a later block fails
     (route) => route.fulfill({ json: { released: true } }));
   const errors = watchErrors(page);
   await page.goto(projectUrl(PROJECT!) + "&view=structure");
-  await page.locator("aside").getByRole("button", { name: "分析", exact: true }).click();
+  await page.locator("aside").getByRole("button", { name: S.tabAnalysis, exact: true }).click();
   await expect(page.getByTestId("analysis-panel")).toBeVisible();
   await expect(page.locator('[data-stage="interactions"][data-status="ready"]')).toBeAttached();
   await expect(page.getByTestId("analysis-stage-pores")).toHaveAttribute("data-status", "running");
@@ -51,7 +52,7 @@ test("progressive transport keeps real completed blocks when a later block fails
   failPores = true;
   await expect(page.getByTestId("analysis-stage-pores")).toHaveAttribute("data-status", "error");
   await expect(page.locator('[data-stage="interactions"][data-status="ready"]')).toBeAttached();
-  await expect(page.getByTestId("analysis-stage-pores")).not.toContainText("无溶剂可及孔道");
+  await expect(page.getByTestId("analysis-stage-pores")).not.toContainText(S.anNoVoids);
   await page.getByTestId("analysis-stage-pores").scrollIntoViewIfNeeded();
   await page.screenshot({ path: shotPath("progressive-transport-fixture-partial") });
   expect(errors.pageErrors).toEqual([]);

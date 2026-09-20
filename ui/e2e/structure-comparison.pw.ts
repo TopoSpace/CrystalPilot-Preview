@@ -6,6 +6,7 @@ import { expect, test, type Page, type APIRequestContext } from "@playwright/tes
 import type { NodeComparisonResponse, NodeComparisonSource, NodesResponse, RefineNode } from "../src/lib/wbTypes";
 import { comparableMetric, comparisonNumber } from "../src/lib/structureComparison";
 import { shotPath, watchErrors } from "./helpers";
+import { S, rx } from "./lang";
 
 const project = process.env.CP_E2E_PROJECT ?? "";
 const baselineId = process.env.CP_COMPARE_BASELINE ?? "n0002";
@@ -13,6 +14,13 @@ const nodeId = process.env.CP_COMPARE_NODE ?? "n0004";
 const requireBound = process.env.CP_COMPARE_REQUIRE_BOUND === "1";
 const query = () => `project=${encodeURIComponent(project)}`;
 const forbidden = new WeakMap<Page, string[]>();
+/** The panel's "<node> · drawn N / scene M atoms" line for `id`, with the
+ * counts (unknown to the test) left open. */
+const drawnLine = (id: string) => new RegExp(
+  rx(S.crystal.cmpDrawnLine(id, 111111, 222222, false)).replace("111111", "\\d+").replace("222222", "\\d+"),
+);
+const viewSidePrefix = (baseline: boolean) => new RegExp("^" + rx(S.crystal.cmpViewAria(baseline, "")));
+const supercell2 = new RegExp("^" + rx(`${S.modeSuper} 2×2×2`));
 
 async function nodes(request: APIRequestContext): Promise<NodesResponse> {
   const response = await request.get(`/api/wb/refine/nodes?${query()}`);
@@ -23,14 +31,14 @@ async function nodes(request: APIRequestContext): Promise<NodesResponse> {
 async function openComparison(page: Page) {
   const errors = watchErrors(page);
   await page.goto(`/?${query()}&view=structure&tab=nodes&focus=1`);
-  await page.getByRole("button", { name: `查看节点 ${nodeId}`, exact: true }).click();
+  await page.getByRole("button", { name: S.crystal.viewNodeAria(nodeId), exact: true }).click();
   const entry = page.locator(`[data-comparison-node="${baselineId}"]`);
   await entry.focus();
   await entry.press("Enter");
   const panel = page.getByTestId("structure-comparison");
   await expect(panel).toHaveAttribute("data-node", nodeId);
   await expect(panel).toHaveAttribute("data-baseline", baselineId);
-  await expect(panel).toContainText(`${nodeId} · 绘制`);
+  await expect(panel).toContainText(drawnLine(nodeId));
   const canvas = page.getByTestId("structure-viewport").locator("canvas").first();
   await expect(canvas).toBeVisible();
   await expect.poll(() => canvas.evaluate((element) => {
@@ -51,8 +59,8 @@ async function openComparison(page: Page) {
 }
 
 async function side(page: Page, id: string) {
-  await page.getByRole("button", { name: `查看${id === baselineId ? "基线" : "对比"} ${id}`, exact: true }).click();
-  await expect(page.getByTestId("structure-comparison")).toContainText(`${id} · 绘制`);
+  await page.getByRole("button", { name: S.crystal.cmpViewAria(id === baselineId, id), exact: true }).click();
+  await expect(page.getByTestId("structure-comparison")).toContainText(drawnLine(id));
 }
 
 async function observeViewer(page: Page) {
@@ -70,7 +78,7 @@ async function observeViewer(page: Page) {
       return original.apply(this, args);
     };
   }, moduleUrl!);
-  await page.getByTitle("重置视角", { exact: true }).click();
+  await page.getByTitle(S.resetView, { exact: true }).click();
   await expect.poll(() => page.evaluate(() => !!(window as any).comparisonTestViewer)).toBe(true);
   await page.waitForTimeout(600); // existing ResizeObserver trailing-fit window
 }
@@ -127,7 +135,7 @@ test("real pair stays read-only, reports node facts, quotes both sources and res
   const panel = page.getByTestId("structure-comparison");
   await expect(panel.getByTestId("comparison-r1")).toContainText(comparisonNumber(current.r1, 4));
   await expect(panel.getByTestId("comparison-r1")).toContainText(comparisonNumber(baseline.r1, 4));
-  const asu = panel.getByRole("row").filter({ hasText: "模型 ASU" });
+  const asu = panel.getByRole("row").filter({ hasText: S.crystal.cmpModelAsu });
   await expect(asu).toContainText(String(current.n_atoms));
   await expect(asu).toContainText(String(baseline.n_atoms));
   const response = await request.get(`/api/wb/refine/comparison?${query()}&node=${nodeId}&baseline=${baselineId}`);
@@ -145,13 +153,13 @@ test("real pair stays read-only, reports node facts, quotes both sources and res
     await expect(panel.locator(".text-ok, .text-danger")).toHaveCount(0);
   }
   await side(page, baselineId);
-  await panel.getByRole("button", { name: "引用对比", exact: true }).press("Space");
+  await panel.getByRole("button", { name: S.crystal.cmpQuoteBtn, exact: true }).press("Space");
   await expect(page.locator("textarea").first()).toHaveValue(new RegExp(`\\[anchor node=${baselineId}`));
   const draft = await page.locator("textarea").first().inputValue();
   expect(draft).toContain(`[anchor node=${baselineId}`);
   expect(draft).toContain(`[anchor node=${nodeId}`);
   expect(draft).toContain(comparisonNumber(current.r1, 4));
-  await panel.getByRole("button", { name: "退出对比", exact: true }).click();
+  await panel.getByRole("button", { name: S.crystal.cmpExitBtn, exact: true }).click();
   await expect(page.locator(`[data-comparison-node="${baselineId}"]`)).toBeFocused();
   const after = await nodes(request);
   expect(after.active_node).toBe(before.active_node);
@@ -186,7 +194,7 @@ test("real renderer retains one canvas and independent per-node selection and ca
     const restored = await page.evaluate(() => (window as any).comparisonTestViewer.getView());
     restored.forEach((value: number, index: number) => expect(value).toBeCloseTo(originalView[index], 8));
   }
-  await page.getByTestId("atom-selection").getByRole("button", { name: "在对话中引用", exact: true }).click();
+  await page.getByTestId("atom-selection").getByRole("button", { name: S.selQuote, exact: true }).click();
   await expect(page.locator("textarea").first()).toHaveValue(new RegExp(`\\[anchor node=${nodeId}`));
   expect(errors.pageErrors).toEqual([]);
 });
@@ -205,9 +213,9 @@ test("real renderer fits an uncached extent instead of saving the ASU camera und
     const url = new URL(response.url());
     return response.ok() && url.pathname === "/api/wb/refine/scene" && url.searchParams.get("mode") === "supercell";
   });
-  await page.getByRole("menuitem", { name: /^超胞 2×2×2/ }).click();
+  await page.getByRole("menuitem", { name: supercell2 }).click();
   await scene;
-  await expect(page.getByTestId("structure-comparison")).toContainText(`${nodeId} · 绘制`);
+  await expect(page.getByTestId("structure-comparison")).toContainText(drawnLine(nodeId));
   await expect.poll(() => page.evaluate(() => (window as any).comparisonTestFitCalls)).toBeGreaterThan(before.fits);
   const after = await page.evaluate(() => (window as any).comparisonTestViewer.getView());
   expect(after).not.toEqual(before.view);
@@ -231,7 +239,7 @@ test("synthetic per-metric condition fixture gates colours without replacing rea
   await expect(panel.getByTestId("comparison-wr2")).toHaveAttribute("data-comparable", "false");
   await expect(panel.getByTestId("comparison-goof")).toHaveAttribute("data-comparable", "false");
   await expect(panel.getByTestId("comparison-goof").locator(".text-ok, .text-danger")).toHaveCount(0);
-  await expect(panel).toContainText("相机同步 · 选择独立");
+  await expect(panel).toContainText(S.crystal.cmpFrameCompatible);
 });
 
 test("synthetic wrong-pair response fixture remains neutral and cannot relabel sources", async ({ page, request }) => {
@@ -263,13 +271,13 @@ test("synthetic delayed scene delivery fixture cannot expose an old-node quote",
   await observeViewer(page);
   await pickFirstRealAtom(page);
   await expect(page.getByTestId("atom-selection")).toHaveAttribute("data-node", nodeId);
-  await page.getByRole("button", { name: `查看基线 ${baselineId}`, exact: true }).click();
-  await expect(page.getByTestId("structure-comparison")).toContainText(`正在加载 ${baselineId}`);
+  await page.getByRole("button", { name: S.crystal.cmpViewAria(true, baselineId), exact: true }).click();
+  await expect(page.getByTestId("structure-comparison")).toContainText(S.crystal.loadingNode(baselineId));
   await expect(page.getByTestId("atom-selection")).toHaveCount(0);
   await side(page, nodeId);
   release();
   await expect(page.getByTestId("atom-selection")).toHaveAttribute("data-node", nodeId);
-  await page.getByTestId("atom-selection").getByRole("button", { name: "在对话中引用", exact: true }).click();
+  await page.getByTestId("atom-selection").getByRole("button", { name: S.selQuote, exact: true }).click();
   await expect(page.locator("textarea").first()).toHaveValue(new RegExp(`\\[anchor node=${nodeId}`));
 });
 
@@ -295,8 +303,8 @@ for (const [width, height, palette, theme, font] of layouts) {
     expect(box.height).toBeGreaterThan(120);
     expect(box.width).toBeGreaterThan(260);
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
-    await panel.getByRole("button", { name: /^查看基线 / }).press("ArrowRight");
-    await expect(panel.getByRole("button", { name: /^查看对比 / })).toHaveAttribute("aria-pressed", "true");
+    await panel.getByRole("button", { name: viewSidePrefix(true) }).press("ArrowRight");
+    await expect(panel.getByRole("button", { name: viewSidePrefix(false) })).toHaveAttribute("aria-pressed", "true");
     await page.screenshot({ path: shotPath(`comparison-${width}-${palette}-${theme}`) });
     expect(errors.pageErrors).toEqual([]);
   });

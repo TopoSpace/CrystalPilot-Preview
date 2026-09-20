@@ -1167,7 +1167,7 @@ export const zh = {
   secDescAbout: "CrystalPilot · 让数据、结构与研究过程保持联系。",
   language: "语言",
   languageHint:
-    "切换后页面会重新加载，界面全部改用所选语言；智能体回复的语言由项目的 AGENTS.md 决定（本预览版为中文）。",
+    "切换后页面会重新加载，界面全部改用所选语言；智能体的回复与交付摘要也随之切换：新对话立即生效，正在进行的对话在本回合结束、引擎重启后生效。",
   appPalette: "配色",
   appPaletteNote: "风格参考 · 非官方主题",
   appTheme: "明暗",

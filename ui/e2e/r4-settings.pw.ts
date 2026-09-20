@@ -11,6 +11,7 @@
  *   CP_EVIDENCE_ROUND=fe-0907 CP_E2E_PROJECT=<path> npx playwright test e2e/r4-settings.pw.ts */
 import { expect, test, type Page } from "@playwright/test";
 import { pickTarget, projectUrl, setTheme, shotPath, THEMES, threadUrl, watchErrors, type Target } from "./helpers";
+import { S, rx } from "./lang";
 
 async function settle(page: Page, ms = 700): Promise<void> {
   await page.waitForLoadState("networkidle").catch(() => undefined);
@@ -18,6 +19,13 @@ async function settle(page: Page, ms = 700): Promise<void> {
 }
 
 const DEMO = process.env.CP_E2E_PROJECT ?? "H:\\CrystalPilot\\workbench\\demo-project";
+/** The /status note's model line, `statusModel(model, provider)` with the
+ * two values unknown to the test. */
+const STATUS_MODEL_LINE = new RegExp(
+  rx(S.shell.statusModel("__MODEL__", "__PROVIDER__")).replace("__MODEL__", ".+").replace("__PROVIDER__", ".+"),
+);
+/** Either automatic sub-agent state line (on at the top tier / off). */
+const SUBAGENTS_AUTO_STATE = new RegExp(`${rx(S.subagentsStateAutoOn)}|${rx(S.subagentsStateAutoOff)}`);
 
 for (const theme of THEMES) {
   test.describe(`front-end sync 2026-09-07 (${theme})`, () => {
@@ -32,7 +40,7 @@ for (const theme of THEMES) {
       // the composer: permission chip, slash hint, model button
       await expect(page.getByTestId("permission-chip")).toBeVisible();
       await expect(page.getByTestId("model-button")).toBeVisible();
-      await expect(page.getByTestId("new-thread-target")).toContainText("新对话将创建在");
+      await expect(page.getByTestId("new-thread-target")).toContainText(S.newThreadIn);
       await page.screenshot({ path: shotPath(`home-${theme}`) });
 
       // model menu: provider tabs, list from the API, effort rungs
@@ -57,18 +65,18 @@ for (const theme of THEMES) {
       await page.getByTestId("permission-chip").click();
       const perm = page.getByTestId("permission-menu");
       await expect(perm).toBeVisible();
-      await expect(perm.getByTestId("settings-subagents")).toContainText("是否开启子代理？");
+      await expect(perm.getByTestId("settings-subagents")).toContainText(S.subagentsSwitch);
       const tips = await perm.locator("[title]").evaluateAll((els) => els.map((e) => e.getAttribute("title") ?? ""));
-      expect(tips.some((t) => t.includes("子代理"))).toBe(true);
+      expect(tips.some((t) => t.includes(S.subagentsTip))).toBe(true);
       await page.screenshot({ path: shotPath(`permission-menu-${theme}`) });
       // toggle on -> the server records "on" and the state line follows; then back to auto
       const sw = perm.getByTestId("settings-subagents").getByRole("switch");
       const before = await sw.getAttribute("aria-checked");
       await sw.click();
-      await expect(perm.getByTestId("subagents-state")).toContainText(before === "true" ? "已手动关闭" : "已手动开启", { timeout: 30_000 });
+      await expect(perm.getByTestId("subagents-state")).toContainText(before === "true" ? S.subagentsStateOff : S.subagentsStateOn, { timeout: 30_000 });
       await page.screenshot({ path: shotPath(`permission-menu-toggled-${theme}`) });
-      await perm.getByTestId("settings-subagents").getByRole("button", { name: "自动" }).click();
-      await expect(perm.getByTestId("subagents-state")).toContainText("自动", { timeout: 30_000 });
+      await perm.getByTestId("settings-subagents").getByRole("button", { name: S.subagentsAutoLabel }).click();
+      await expect(perm.getByTestId("subagents-state")).toContainText(SUBAGENTS_AUTO_STATE, { timeout: 30_000 });
       await page.keyboard.press("Escape");
 
       // slash palette: "/" lists the commands; arrows move; Tab completes
@@ -88,14 +96,15 @@ for (const theme of THEMES) {
       // /status writes a local note (no thread yet -> the composer's own card)
       await ta.type("/status");
       await page.keyboard.press("Enter");
-      await expect(page.getByTestId("note-row")).toContainText("模型");
+      await expect(page.getByTestId("note-row")).toContainText(STATUS_MODEL_LINE);
       await page.screenshot({ path: shotPath(`slash-status-note-${theme}`) });
 
       // settings dialog: providers (no key ever shown), context, advanced/kernel
       await page.getByTestId("open-settings").click();
       const dlg = page.getByTestId("settings-dialog");
       await expect(dlg).toBeVisible();
-      await expect(dlg.getByTestId("provider-list")).toContainText("API 密钥");
+      // the list shows each provider's authentication state, never the key itself
+      await expect(dlg.getByTestId("provider-list")).toContainText(S.providerAuthMode);
       const bodyText = await dlg.innerText();
       expect(bodyText).not.toMatch(/sk-[A-Za-z0-9]{10,}/);
       await page.screenshot({ path: shotPath(`settings-providers-${theme}`) });
@@ -103,7 +112,7 @@ for (const theme of THEMES) {
       await expect(dlg.getByTestId("provider-form")).toBeVisible();
       await page.screenshot({ path: shotPath(`settings-provider-form-${theme}`) });
       await dlg.getByTestId("settings-nav-context").click();
-      await expect(dlg).toContainText("自动压缩阈值");
+      await expect(dlg).toContainText(S.ctxAutoCompact);
       await page.screenshot({ path: shotPath(`settings-context-${theme}`) });
       await dlg.getByTestId("settings-nav-advanced").click();
       await expect(dlg.getByTestId("kernel-info")).toContainText("codex");
@@ -113,7 +122,7 @@ for (const theme of THEMES) {
 
       // open-project dialog: the OS folder picker button exists (not clicked:
       // it would open a native dialog on the server desktop)
-      await page.getByRole("button", { name: "打开项目" }).first().click();
+      await page.getByRole("button", { name: S.openProject }).first().click();
       await expect(page.getByTestId("browse-folder")).toBeVisible();
       await page.screenshot({ path: shotPath(`open-project-dialog-${theme}`) });
       await page.keyboard.press("Escape");
@@ -122,7 +131,7 @@ for (const theme of THEMES) {
       const row = page.getByTestId("thread-row").first();
       if (await row.count()) {
         await row.hover();
-        await expect(page.getByRole("button", { name: "重命名" }).first()).toBeVisible();
+        await expect(page.getByRole("button", { name: S.renameThread }).first()).toBeVisible();
       }
 
       expect(errors.pageErrors).toEqual([]);
@@ -157,7 +166,7 @@ test.describe("thread view: context meter, /status card, thread switching", () =
     await ta.click();
     await ta.type("/status");
     await page.keyboard.press("Enter");
-    await expect(page.getByTestId("note-row").last()).toContainText("模型", { timeout: 15_000 });
+    await expect(page.getByTestId("note-row").last()).toContainText(STATUS_MODEL_LINE, { timeout: 15_000 });
     await page.screenshot({ path: shotPath("thread-status-card") });
 
     // switching threads by clicking the sidebar rows must land on the clicked
@@ -201,10 +210,10 @@ test.describe("sidebar: folders fold, switching projects keeps the pane", () => 
 
     // pin the right pane open: this is the state that keeps the 3Dmol viewer
     // mounted across the project switch (and the state the report came from)
-    const collapse = page.getByTitle("收起", { exact: true });
+    const collapse = page.getByTitle(S.collapse, { exact: true });
     if (await collapse.count()) {
       await collapse.first().click();
-      await page.getByTitle("展开", { exact: true }).first().click();
+      await page.getByTitle(S.expand, { exact: true }).first().click();
       await settle(page, 2000);
     }
 

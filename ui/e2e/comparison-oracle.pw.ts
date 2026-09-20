@@ -2,6 +2,7 @@
 import fs from "node:fs";
 import { expect, test } from "@playwright/test";
 import { shotPath, watchErrors } from "./helpers";
+import { S } from "./lang";
 
 interface Case {
   name: string;
@@ -32,7 +33,7 @@ for (const entry of cases) {
     });
     await page.setViewportSize({ width: 1366, height: 900 });
     await page.goto(`/?${query}&view=structure&tab=nodes&focus=1`);
-    await page.getByRole("button", { name: `查看节点 ${entry.node}`, exact: true }).click();
+    await page.getByRole("button", { name: S.crystal.viewNodeAria(entry.node), exact: true }).click();
     await page.locator(`[data-comparison-node="${entry.baseline}"]`).click();
     const panel = page.getByTestId("structure-comparison");
     await expect(panel).toHaveAttribute("data-node", entry.node);
@@ -44,8 +45,11 @@ for (const entry of cases) {
       await expect(row).toHaveAttribute("data-comparable", String(comparable));
       if (!comparable) await expect(row.locator(".text-ok, .text-danger")).toHaveCount(0);
     }
-    await page.getByRole("button", { name: `查看基线 ${entry.baseline}`, exact: true }).click();
-    await expect(panel).toContainText(`${entry.baseline} · 绘制`);
+    await page.getByRole("button", { name: S.crystal.cmpViewAria(true, entry.baseline), exact: true }).click();
+    // the drawn line reads `<baseline> · drawn N / scene M atoms`; the counts
+    // are not known here, so assert the prefix up to the first count
+    const drawnPrefix = S.crystal.cmpDrawnLine(entry.baseline, 0, 0, false).replace(/\s0\b.*$/, "");
+    await expect(panel).toContainText(drawnPrefix);
     await page.screenshot({ path: shotPath(`oracle-${entry.name}`) });
     const after = await (await request.get(`/api/wb/refine/nodes?${query}`)).json();
     expect(after.active_node).toBe(before.active_node);

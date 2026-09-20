@@ -98,6 +98,19 @@ def _toml_lit(s: str) -> str:
 MCP_SERVER_NAME = "crystalpilot"
 
 
+def _language_instruction() -> str:
+    """Developer-instruction sentence for a thread that starts while the
+    interface is English. AGENTS.md carries the same directive; new threads
+    get it here as well so it is in force from the first turn."""
+    from . import preferences  # runtime store; imported here to avoid a cycle
+    if preferences.language() != "en":
+        return ""
+    return (" The person is using the English interface: communicate with them "
+            "in English (narration, questions, approval notes, VALIDATION.md and "
+            "SUMMARY.md); keep tool names, file names and crystallographic "
+            "symbols as they are.")
+
+
 def _mcp_overrides(project_path: Path, approval: str | None = None,
                    readonly: bool = False,
                    knowledge_mode: str | None = None,
@@ -202,8 +215,10 @@ class ProjectState:
         tier = res if isinstance(res, str) else ("hint" if res else "off")
         delegate = tier != "off"
         mode = st.settings.get("knowledge_mode")
+        from . import preferences  # runtime store; imported here to avoid a cycle
         st.agents_md = ensure_agents_md(p, mode, delegate,
-                                        aggressive=(tier == "aggressive"))
+                                        aggressive=(tier == "aggressive"),
+                                        language=preferences.language())
         st.agent_roles = ensure_agent_roles(p, delegate, mode,
                                             effective_model(st.settings))
         return st
@@ -390,6 +405,7 @@ class Workbench:
                 "ends the turn. Tools that render pictures keep them on "
                 "disk for the user (`images_saved`); work from the numeric "
                 "reports they return.")
+        dev_instructions += _language_instruction()
         if model_provider:
             # A non-default (third-party) provider. codex advertises the MCP
             # tools as ONE Responses-API namespace tool (`mcp__crystalpilot`,
@@ -452,6 +468,7 @@ class Workbench:
             dev_instructions += (
                 " This model has NO image input: never call view_image and "
                 "never open, read or attach picture files (PNG/JPG).")
+        dev_instructions += _language_instruction()
         if model_provider:
             dev_instructions += (
                 f" Tool calling: every CrystalPilot crystallography tool lives "
