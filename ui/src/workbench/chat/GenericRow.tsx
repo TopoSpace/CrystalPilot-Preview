@@ -1,7 +1,7 @@
 /** One-line muted rows for secondary events: file changes, web search, todo
  * lists, error items, client errors, auto approvals - plus centered system
  * rows (family "system": permission_mode / specialists_toggled). */
-import { permissionLabel, zh } from "../../lib/zh";
+import { permissionLabel, t } from "../../lib/i18n";
 import { IconShield } from "../icons";
 import { Spinner } from "../../components/ui";
 import { jobRowText, type BackgroundJobInfo } from "../../lib/backgroundJobs";
@@ -16,20 +16,20 @@ import type { GenericItem } from "../../state/threadReducer";
 export function systemText(item: GenericItem): string {
   const d = (item.detail ?? {}) as Record<string, unknown>;
   if (item.kind === "specialists_toggled") {
-    return d.enabled === true ? zh.sysSpecialistsOn : zh.sysSpecialistsOff;
+    return d.enabled === true ? t.sysSpecialistsOn : t.sysSpecialistsOff;
   }
   if (item.kind === "delegation") {
-    return d.active === true ? zh.sysDelegationOn : zh.sysDelegationOff;
+    return d.active === true ? t.sysDelegationOn : t.sysDelegationOff;
   }
   if (item.kind === "permission_mode") {
     const mode = typeof d.mode === "string" ? d.mode : "";
     return (
-      zh.sysPermissionPrefix +
+      t.sysPermissionPrefix +
       permissionLabel(mode) +
-      (d.rebuilt === true ? zh.sysRebuilt : "")
+      (d.rebuilt === true ? t.sysRebuilt : "")
     );
   }
-  if (item.kind === "mcp_down") return zh.sysMcpDown;
+  if (item.kind === "mcp_down") return t.sysMcpDown;
   if (item.kind === "background_job") {
     return jobRowText(item.detail as BackgroundJobInfo);
   }
@@ -40,29 +40,29 @@ export function systemText(item: GenericItem): string {
       seconds?: number | null;
       error?: string | null;
     };
-    if (d.status === "waiting") return zh.sysMcpWaiting;
+    if (d.status === "waiting") return t.sysMcpWaiting;
     if (d.status === "ready") {
       const facts: string[] = [];
-      if (typeof d.n_tools === "number" && Number.isInteger(d.n_tools) && d.n_tools >= 0) facts.push(`${d.n_tools} ${zh.sysMcpToolsUnit}`);
+      if (typeof d.n_tools === "number" && Number.isInteger(d.n_tools) && d.n_tools >= 0) facts.push(`${d.n_tools} ${t.sysMcpToolsUnit}`);
       if (typeof d.seconds === "number" && Number.isFinite(d.seconds) && d.seconds >= 0) facts.push(`${d.seconds} s`);
-      return zh.sysMcpReady + (facts.length > 0 ? `（${facts.join(" · ")}）` : "");
+      return t.sysMcpReady + (facts.length > 0 ? t.shell.paren(facts.join(" · ")) : "");
     }
-    if (d.status === "failed" || d.status === "error") return `${zh.sysMcpFailed}${d.error ? ` · ${d.error}` : ""}`;
-    return `${zh.sysMcpTimeout}${d.seconds != null ? `（${d.seconds} s）` : ""}`;
+    if (d.status === "failed" || d.status === "error") return `${t.sysMcpFailed}${d.error ? ` · ${d.error}` : ""}`;
+    return `${t.sysMcpTimeout}${d.seconds != null ? t.shell.paren(`${d.seconds} s`) : ""}`;
   }
   if (item.kind === "engine_restarted") {
     const reason = typeof d.reason === "string" ? d.reason : "";
-    return reason.includes("settings") ? zh.sysEngineRestartedSettings : zh.sysEngineRestarted;
+    return reason.includes("settings") ? t.sysEngineRestartedSettings : t.sysEngineRestarted;
   }
-  if (item.kind === "compaction_requested") return zh.sysCompactionRequested;
-  if (item.kind === "compaction_started") return zh.sysCompacting;
-  if (item.kind === "compaction_completed") return zh.sysCompacted;
+  if (item.kind === "compaction_requested") return t.sysCompactionRequested;
+  if (item.kind === "compaction_started") return t.sysCompacting;
+  if (item.kind === "compaction_completed") return t.sysCompacted;
   if (item.kind === "engine_warning") {
-    return zh.sysEngineWarning + (typeof d.message === "string" ? d.message : "");
+    return t.sysEngineWarning + (typeof d.message === "string" ? d.message : "");
   }
   if (item.kind === "model_rerouted") {
-    return `${zh.sysModelRerouted}${String(d.from_model ?? "")} → ${String(d.to_model ?? "")}${
-      typeof d.reason === "string" && d.reason ? `（${d.reason}）` : ""
+    return `${t.sysModelRerouted}${String(d.from_model ?? "")} → ${String(d.to_model ?? "")}${
+      typeof d.reason === "string" && d.reason ? t.shell.paren(d.reason) : ""
     }`;
   }
   return item.kind;
@@ -114,21 +114,21 @@ function SystemRow({ item }: { item: GenericItem }) {
 function familyLabel(family: string): string {
   switch (family) {
     case "file_change":
-      return zh.fileChange;
+      return t.fileChange;
     case "webSearch":
-      return zh.webSearch;
+      return t.webSearch;
     case "todoList":
-      return zh.todoList;
+      return t.todoList;
     case "error":
-      return zh.errorItem;
+      return t.errorItem;
     case "imageView":
-      return zh.imageView;
+      return t.imageView;
     case "client_error":
-      return zh.clientError;
+      return t.clientError;
     case "approval_auto":
-      return zh.approvalAutoSession;
+      return t.approvalAutoSession;
     case "collab":
-      return zh.collabRow;
+      return t.collabRow;
     default:
       return family;
   }
@@ -137,7 +137,7 @@ function familyLabel(family: string): string {
 function detailText(item: GenericItem): string {
   const d = item.detail;
   if (typeof d === "string") return d;
-  if (Array.isArray(d)) return `${d.length} 项`;
+  if (Array.isArray(d)) return t.shell.countItems(d.length);
   if (d && typeof d === "object") {
     const rec = d as Record<string, unknown>;
     if (typeof rec.query === "string") return rec.query;
@@ -150,7 +150,7 @@ function detailText(item: GenericItem): string {
       return `${rec.tool}${who ? ` ×${who}` : ""}${what}`;
     }
     if (typeof rec.message === "string") return rec.message;
-    if (Array.isArray(rec.items)) return `${rec.items.length} 项`;
+    if (Array.isArray(rec.items)) return t.shell.countItems(rec.items.length);
   }
   return "";
 }
@@ -163,7 +163,7 @@ export function GenericRow({ item }: { item: GenericItem }) {
 
   const interrupted = item.phase === "interrupted";
   const noResult = item.phase === "no_result";
-  const issue = isError ? zh.toolFailed : noResult ? zh.toolNoResult : interrupted ? zh.toolInterrupted : undefined;
+  const issue = isError ? t.toolFailed : noResult ? t.toolNoResult : interrupted ? t.toolInterrupted : undefined;
   return (
     <ProcessDetails className="activity-row" running={running} data-testid="generic-row">
       <ActivitySummary icon={<ActivityIcon kind={genericGlyph(item.family)} />}
@@ -172,7 +172,7 @@ export function GenericRow({ item }: { item: GenericItem }) {
       </ActivitySummary>
       <div className="activity-body">
         {issue && <div className="text-sm text-ink-2">{issue}</div>}
-        {noResult && <div className="text-sm leading-relaxed text-ink-2" data-testid="tool-boundary-hint">{zh.toolNoResultHint}</div>}
+        {noResult && <div className="text-sm leading-relaxed text-ink-2" data-testid="tool-boundary-hint">{t.toolNoResultHint}</div>}
         <MonoBlock text={typeof item.detail === "string" ? item.detail : JSON.stringify(item.detail, null, 2) ?? item.kind}
           className="activity-output" />
       </div>

@@ -28,6 +28,7 @@ import time
 from typing import Any
 
 from . import model_catalog, providers
+from .i18n import msg
 from .model_caps import openrouter_models
 
 OPENROUTER_LADDER = ("low", "medium", "high")
@@ -114,7 +115,8 @@ def list_models(pid: str, refresh: bool = False, include_hidden: bool = False,
     if prov["kind"] == providers.KIND_OPENROUTER:
         recs = openrouter_models(refresh=refresh)
         if not recs:
-            out["note"] = "OpenRouter 模型列表暂不可得（离线且无缓存）；下面只列 codex 已知的模型"
+            out["note"] = msg("OpenRouter 模型列表暂不可得（离线且无缓存）；下面只列 codex 已知的模型",
+                              "The OpenRouter model list is unavailable (offline with no cache); only the models codex already knows are listed")
             out["models"] = [_catalog_entry(m, None) for m in catalog
                              if m.get("source") == "custom" and m.get("provider") == pid]
             return out

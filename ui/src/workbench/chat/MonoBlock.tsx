@@ -4,7 +4,7 @@
  * prose). The button pins to the wrapper, not the pre, so it stays put
  * while long output scrolls. */
 import { useState } from "react";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { IconCheck, IconCopy } from "../icons";
 
 export function CopyAction({ text }: { text: string }) {
@@ -21,8 +21,8 @@ export function CopyAction({ text }: { text: string }) {
   return (
     <button
       type="button"
-      title={copied ? zh.copied : zh.copyMessage}
-      aria-label={zh.copyMessage}
+      title={copied ? t.copied : t.copyMessage}
+      aria-label={t.copyMessage}
       onClick={onCopy}
       className="flex h-6 w-6 items-center justify-center rounded-md text-ink-3 transition-colors hover:bg-raised hover:text-ink"
     >

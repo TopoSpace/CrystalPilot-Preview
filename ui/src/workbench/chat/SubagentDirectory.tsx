@@ -4,7 +4,7 @@
 import { clickedOutside } from "../../lib/outsideClick";
 import { useEffect, useRef, useState } from "react";
 import { cx } from "../../lib/format";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { useThread } from "../../state/ThreadProvider";
 import { fmtMmSs } from "./TurnStatusRow";
 
@@ -36,9 +36,9 @@ export function SubagentDirectory() {
           "flex h-6 items-center gap-1 rounded-pill px-2 text-2xs transition-colors",
           live > 0 ? "bg-accent-fill/15 text-accent" : "text-ink-3 hover:bg-raised hover:text-ink",
         )}
-        title={zh.subagentsTrigger}
+        title={t.subagentsTrigger}
       >
-        / {subs.length} {zh.subagentsTrigger}
+        / {subs.length} {t.subagentsTrigger}
       </button>
       {open && (
         <div className="absolute top-full right-0 z-30 mt-1 w-[26rem] max-w-[90vw] rounded-card border border-line bg-bg p-2 shadow-lg">
@@ -61,7 +61,7 @@ export function SubagentDirectory() {
                   </div>
                   {s.prompt && (
                     <div className="mt-0.5 line-clamp-3 text-2xs text-ink-2" title={s.prompt}>
-                      {zh.subagentPrompt}：{s.prompt}
+                      {t.subagentPrompt}{t.shell.colon}{s.prompt}
                     </div>
                   )}
                   {s.message && <div className="mt-0.5 text-2xs text-ink-3">{s.message}</div>}

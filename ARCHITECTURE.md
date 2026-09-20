@@ -127,7 +127,7 @@ crystallographic capability is **internalized as typed tools** the agent calls
 through MCP - no shell-string gluing, every call logged and approvable.
 
 ```
-user browser ── React Workbench (ui/src/workbench, zh-CN, Codex-desktop-aligned)
+user browser ── React Workbench (ui/src/workbench, zh-CN / en-US, Codex-desktop-aligned)
    │  left: projects/threads   center: streaming chat + humanized tool cards +
    │  approval cards + composer (upload / mid-turn steer / permission modes)
    │  right: live crystal pane (asu|cell|grow|2³|3³ + polyhedra + Fo−Fc + diff)
@@ -247,7 +247,13 @@ boost deadlock). The protocol details were probed against the kernel before the 
   summaries, humanized tool cards with technical fold-outs, inline approval
   cards, markdown), composer with file upload + **mid-turn steer**
   (`TurnHandle.steer`), and a live crystal pane (3Dmol) driven by the scene
-  service. State = useReducer + split contexts folding the SSE event stream;
+  service. Every interface string comes from `ui/src/lib/i18n.ts`, which picks
+  the Chinese or English dictionary (`ui/src/lib/strings/`) once per page load
+  from the browser's stored choice (Settings › Appearance); API requests carry
+  `X-CrystalPilot-Language`, and `crystalpilot/workbench/i18n.py` binds it so
+  the few server-composed texts (route errors, generated thread titles,
+  analysis-job notes) follow the same choice. State = useReducer + split
+  contexts folding the SSE event stream;
   transcript replay and live SSE share one code path.
 - **Scene service** (`refine/scene.py` + `/api/wb/refine/scene|map`):
   symmetry-aware instancing (i_seq, rt_mx), closure bonds from the smtbx pair

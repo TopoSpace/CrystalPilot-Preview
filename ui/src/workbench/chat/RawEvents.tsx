@@ -2,7 +2,7 @@
  * (started / updated / completed / progress), so a row that ended without a
  * result can be read back to the wire instead of trusted or guessed. */
 import type { WbEvent } from "../../lib/wbTypes";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { keepFocusOnSummary } from "./detailsFocus";
 import { MonoBlock } from "./MonoBlock";
 
@@ -26,7 +26,7 @@ export function RawEvents({ raw }: { raw: readonly WbEvent[] | undefined }) {
   if (!raw || raw.length === 0) return null;
   return (
     <details onToggle={(event) => keepFocusOnSummary(event.currentTarget)} data-testid="raw-events">
-      <summary className="detail-toggle">{zh.rawEvents}（{raw.length}）</summary>
+      <summary className="detail-toggle">{t.rawEvents}{t.shell.paren(raw.length)}</summary>
       <MonoBlock text={render(raw)} wrapClassName="mt-2" className="activity-output" />
     </details>
   );

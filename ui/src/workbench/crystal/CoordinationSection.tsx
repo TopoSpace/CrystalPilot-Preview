@@ -14,7 +14,7 @@
 import { useMemo } from "react";
 import { cx } from "../../lib/format";
 import type { SceneAtom, SceneResponse } from "../../lib/wbTypes";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { useCrystal } from "../../state/CrystalProvider";
 
 export const BOND_COVALENT = 0;
@@ -157,42 +157,42 @@ export function CoordinationSection() {
     [scene, selectedIndex],
   );
 
-  if (scene === null || state.sceneStatus !== "ok") return <p className="px-3 py-2 text-xs text-ink-3">当前节点的显示成键列表尚不可用</p>;
+  if (scene === null || state.sceneStatus !== "ok") return <p className="px-3 py-2 text-xs text-ink-3">{t.crystal.coordUnavailable}</p>;
 
   return (
     <div>
       <div className="flex flex-wrap items-baseline gap-x-2 px-3 pt-1 pb-1">
         <span className="text-2xs font-medium text-ink-3">
-          {zh.coordTitle}
+          {t.coordTitle}
         </span>
         {rows.length > 0 && (
-          <span className="text-2xs text-ink-3">{zh.coordHint}</span>
+          <span className="text-2xs text-ink-3">{t.coordHint}</span>
         )}
       </div>
       {rows.length === 0 ? (
-        <div className="px-3 pb-2 text-2xs text-ink-3">{zh.coordNone}</div>
+        <div className="px-3 pb-2 text-2xs text-ink-3">{t.coordNone}</div>
       ) : (
         <div className="px-3 pb-1">
           {scene.mode === "asu" && (
             <div className="pb-1 text-2xs leading-snug text-ink-3">
-              {zh.coordAsuCaveat}
+              {t.coordAsuCaveat}
             </div>
           )}
-          <p className="pb-1 text-xs text-ink-3">仅当前显示成键，不是完整晶体的配位结论。</p>
-          {scene.meta.truncated && <p className="pb-1 text-xs text-warn">显示原子被截断，配位数可能不完整。</p>}
+          <p className="pb-1 text-xs text-ink-3">{t.crystal.coordDisplayOnly}</p>
+          {scene.meta.truncated && <p className="pb-1 text-xs text-warn">{t.crystal.coordTruncated}</p>}
           <div className="overflow-x-auto">
           <table className="w-full border-collapse font-mono text-xs tabular-nums">
             <thead>
               <tr className="text-left text-ink-3">
-                <th className="py-1 pr-2 font-medium">{zh.coordMetal}</th>
+                <th className="py-1 pr-2 font-medium">{t.coordMetal}</th>
                 <th className="py-1 pr-2 text-right font-medium">
-                  {zh.coordCN}
+                  {t.coordCN}
                 </th>
                 <th className="py-1 pr-2 text-right font-medium">
-                  {zh.coordRange}
+                  {t.coordRange}
                 </th>
                 <th className="py-1 text-right font-medium">
-                  {zh.coordLigands}
+                  {t.coordLigands}
                 </th>
               </tr>
             </thead>
@@ -209,11 +209,11 @@ export function CoordinationSection() {
                   )}
                 >
                   <td className="py-1 pr-2 font-semibold text-ink">
-                    <button type="button" aria-label={`定位配位原子 ${r.label}`} aria-pressed={r.index === selectedIndex}
+                    <button type="button" aria-label={t.crystal.coordLocateAria(r.label)} aria-pressed={r.index === selectedIndex}
                       title={scene.atoms[r.index].symop ?? "x,y,z"}
                       onClick={() => locate(scene.node, { atom: scene.atoms[r.index], index: r.index })}
                       className="rounded py-1 text-left hover:text-accent focus-visible:outline-2 focus-visible:outline-accent">
-                      {r.label}{scene.atoms[r.index].sym ? " · 对称像" : ""}
+                      {r.label}{scene.atoms[r.index].sym ? t.crystal.coordSymImage : ""}
                     </button>
                   </td>
                   <td className="py-1 pr-2 text-right">{r.cn}</td>
@@ -227,7 +227,7 @@ export function CoordinationSection() {
                     {r.etaRings > 0 && (
                       <span
                         className="text-ink-2"
-                        title={`${r.etaRings} 个 η 配体（环整体计一个配位位点）`}
+                        title={t.crystal.coordEtaTip(r.etaRings)}
                       >
                         {r.ligands ? " " : ""}
                         η×{r.etaRings}
@@ -236,7 +236,7 @@ export function CoordinationSection() {
                     {r.metalContacts > 0 && (
                       <span
                         className="text-ink-3"
-                        title={`${r.metalContacts} 个金属–金属接触（簇内），未计入 CN`}
+                        title={t.crystal.coordMetalContactsTip(r.metalContacts)}
                       >
                         {" "}
                         +{r.metalContacts}M

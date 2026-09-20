@@ -26,6 +26,7 @@ from openai_codex.generated.v2_all import (AskForApproval, AskForApprovalValue,
 from . import kernel
 from .agent_roles import effective_model, ensure_agent_roles
 from .agents_md import ensure_agents_md, normalize_knowledge_mode
+from .i18n import msg
 from ..runtime_paths import engine_python
 
 ENGINE_ROOT = Path(__file__).resolve().parents[2]       # H:\CrystalPilot
@@ -469,7 +470,7 @@ class Workbench:
             self._task_by_thread[new_id] = task_id
             self.project.threads.append({
                 "thread_id": new_id, "task_id": task_id,
-                "title": title or f"{rec.get('title') or rec['task_id']} (续)",
+                "title": title or f"{rec.get('title') or rec['task_id']} {msg('(续)', '(continued)')}",
                 "created": time.time(), "last_active": time.time(),
                 "forked_from": thread_id,
                 **({"model_provider": model_provider} if model_provider else {})})

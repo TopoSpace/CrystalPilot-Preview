@@ -7,7 +7,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { ApiError, projectCleanup, projectUsage } from "../lib/wbApi";
 import type { CleanupPlanResponse, ProjectUsage } from "../lib/wbTypes";
-import { zh } from "../lib/zh";
+import { t } from "../lib/i18n";
 
 export function fmtBytes(n: number): string {
   if (!Number.isFinite(n)) return "—";
@@ -18,10 +18,10 @@ export function fmtBytes(n: number): string {
 }
 
 const KIND_ZH: Record<string, string> = {
-  link: zh.storageKindLink,
-  strip: zh.storageKindStrip,
-  delete: zh.storageKindDelete,
-  rmdir: zh.storageKindRmdir,
+  link: t.storageKindLink,
+  strip: t.storageKindStrip,
+  delete: t.storageKindDelete,
+  rmdir: t.storageKindRmdir,
 };
 
 export function StorageCard({ project }: { project: string }) {
@@ -70,12 +70,12 @@ export function StorageCard({ project }: { project: string }) {
       const r = await projectCleanup(project, true);
       const freed = r.result?.freed_bytes ?? 0;
       const skipped = r.result?.n_skipped ?? 0;
-      setDone(`${zh.storageFreed} ${fmtBytes(freed)}${skipped > 0 ? ` · ${skipped} ${zh.storageSkipped}` : ""}`);
+      setDone(`${t.storageFreed} ${fmtBytes(freed)}${skipped > 0 ? ` · ${skipped} ${t.storageSkipped}` : ""}`);
       setPlan(null);
       if (r.usage) setUsage(r.usage);
       else void load();
     } catch (e) {
-      setError(e instanceof ApiError && e.status === 409 ? zh.storageBusy : e instanceof Error ? e.message : String(e));
+      setError(e instanceof ApiError && e.status === 409 ? t.storageBusy : e instanceof Error ? e.message : String(e));
     } finally {
       setBusy(null);
     }
@@ -89,7 +89,7 @@ export function StorageCard({ project }: { project: string }) {
       className="mx-auto mt-6 w-full max-w-2xl rounded-card border border-line bg-surface/60 px-4 py-3 text-left text-xs text-ink-2"
     >
       <div className="flex items-center justify-between gap-3">
-        <span className="font-medium text-ink">{zh.storageTitle}</span>
+        <span className="font-medium text-ink">{t.storageTitle}</span>
         {usage && (
           <span className="font-mono tabular-nums text-ink-2" data-testid="storage-total">
             {fmtBytes(usage.unique_bytes)}
@@ -98,11 +98,11 @@ export function StorageCard({ project }: { project: string }) {
       </div>
       {usage && (
         <div className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-4">
-          <Stat label={zh.storageUser} value={fmtBytes(usage.user_bytes)} />
-          <Stat label={zh.storageResults} value={fmtBytes(usage.results_bytes)} />
-          <Stat label={zh.storageSystem} value={fmtBytes(usage.system_bytes)} />
+          <Stat label={t.storageUser} value={fmtBytes(usage.user_bytes)} />
+          <Stat label={t.storageResults} value={fmtBytes(usage.results_bytes)} />
+          <Stat label={t.storageSystem} value={fmtBytes(usage.system_bytes)} />
           <Stat
-            label={zh.storageReclaimable}
+            label={t.storageReclaimable}
             value={fmtBytes(usage.reclaimable_bytes)}
             testId="storage-reclaimable"
             strong={usage.reclaimable_bytes > 0}
@@ -118,7 +118,7 @@ export function StorageCard({ project }: { project: string }) {
             data-testid="storage-preview"
             className="h-7 rounded-pill border border-line px-3 text-xs text-ink-2 transition-colors hover:bg-raised hover:text-ink disabled:opacity-50"
           >
-            {busy === "plan" ? zh.loading : usage !== null && usage.n_actions === 0 ? zh.storageNothing : zh.storagePreview}
+            {busy === "plan" ? t.loading : usage !== null && usage.n_actions === 0 ? t.storageNothing : t.storagePreview}
           </button>
         ) : (
           <>
@@ -129,14 +129,14 @@ export function StorageCard({ project }: { project: string }) {
               data-testid="storage-apply"
               className="h-7 rounded-pill bg-accent px-3 text-xs font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-50"
             >
-              {busy === "apply" ? zh.loading : `${zh.storageApply}（${fmtBytes(plan.reclaimable_bytes)}）`}
+              {busy === "apply" ? t.loading : `${t.storageApply}${t.paren(fmtBytes(plan.reclaimable_bytes))}`}
             </button>
             <button
               type="button"
               onClick={() => setPlan(null)}
               className="h-7 rounded-pill border border-line px-3 text-xs text-ink-2 hover:bg-raised"
             >
-              {zh.cancel}
+              {t.cancel}
             </button>
           </>
         )}
@@ -146,14 +146,14 @@ export function StorageCard({ project }: { project: string }) {
           disabled={busy !== null}
           className="h-7 rounded-pill px-2 text-xs text-ink-3 hover:text-ink"
         >
-          {zh.statusRefresh}
+          {t.statusRefresh}
         </button>
         {done && <span className="text-ok">{done}</span>}
         {error && <span className="text-warn">{error}</span>}
       </div>
       {plan !== null && (
         <div className="mt-2.5 rounded-lg bg-raised/40 p-2.5" data-testid="storage-plan">
-          <div className="text-2xs text-ink-3">{zh.storagePlanHint}</div>
+          <div className="text-2xs text-ink-3">{t.storagePlanHint}</div>
           <ul className="mt-1 flex flex-col gap-0.5">
             {Object.entries(plan.by_kind).map(([kind, v]) => (
               <li key={kind} className="flex justify-between font-mono text-2xs tabular-nums">
@@ -164,7 +164,7 @@ export function StorageCard({ project }: { project: string }) {
           </ul>
           <details className="mt-1.5">
             <summary className="cursor-pointer list-none text-2xs text-ink-3 select-none hover:text-ink-2">
-              {zh.storagePlanList}（{plan.actions.length}）
+              {t.storagePlanList}{t.paren(plan.actions.length)}
             </summary>
             <div className="mt-1 max-h-48 overflow-y-auto font-mono text-2xs leading-relaxed text-ink-3">
               {plan.actions.map((a, i) => (
@@ -175,11 +175,11 @@ export function StorageCard({ project }: { project: string }) {
             </div>
           </details>
           {plan.notes.length > 0 && (
-            <div className="mt-1 text-2xs text-ink-3">{plan.notes.join("；")}</div>
+            <div className="mt-1 text-2xs text-ink-3">{plan.notes.join(t.sepClause)}</div>
           )}
         </div>
       )}
-      <div className="mt-2 text-2xs text-ink-3">{zh.storageRules}</div>
+      <div className="mt-2 text-2xs text-ink-3">{t.storageRules}</div>
     </section>
   );
 }

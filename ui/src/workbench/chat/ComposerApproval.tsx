@@ -7,7 +7,7 @@
  * many are waiting behind it. Params fold out on demand.
  */
 import { useState } from "react";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { motionScrollBehavior, useMotionPreference } from "../../lib/motion";
 import type { ApprovalItem } from "../../state/threadReducer";
 import { useThread } from "../../state/ThreadProvider";
@@ -56,7 +56,7 @@ export function ComposerApproval() {
           <button
             type="button"
             onClick={jumpToContext}
-            title={zh.approvalJump}
+            title={t.approvalJump}
             className="block w-full truncate text-left text-sm font-medium text-ink hover:underline"
           >
             {message}
@@ -64,15 +64,15 @@ export function ComposerApproval() {
           <dl className="mt-1 grid grid-cols-[auto_1fr] gap-x-2 gap-y-0.5 text-2xs">
             {facets.why && (
               <>
-                <dt className="text-ink-3">{zh.approvalWhy}</dt>
+                <dt className="text-ink-3">{t.approvalWhy}</dt>
                 <dd className="text-ink-2">{facets.why}</dd>
               </>
             )}
-            <dt className="text-ink-3">{zh.approvalRisk}</dt>
+            <dt className="text-ink-3">{t.approvalRisk}</dt>
             <dd className="text-ink-2">{facets.risk}</dd>
             {facets.files.length > 0 && (
               <>
-                <dt className="text-ink-3">{zh.approvalFiles}</dt>
+                <dt className="text-ink-3">{t.approvalFiles}</dt>
                 <dd className="truncate font-mono text-ink-2" title={facets.files.join("\n")}>
                   {facets.files.join(" · ")}
                 </dd>
@@ -89,7 +89,7 @@ export function ComposerApproval() {
                 size={11}
                 className={showParams ? "rotate-90 transition-transform" : "transition-transform"}
               />
-              {zh.approvalShowParams} ({params.length})
+              {t.approvalShowParams} ({params.length})
             </button>
           )}
           {showParams && (
@@ -108,7 +108,7 @@ export function ComposerApproval() {
         </div>
         {pending.length > 1 && (
           <span className="mt-0.5 shrink-0 rounded-pill bg-warn/10 px-2 py-0.5 text-2xs tabular-nums text-warn">
-            {zh.approvalQueuePrefix} {pending.length}
+            {t.approvalQueuePrefix} {pending.length}
           </span>
         )}
       </div>
@@ -119,7 +119,7 @@ export function ComposerApproval() {
           onClick={() => void onDecide("accept")}
           className="h-7 rounded-lg bg-ink px-3 text-xs font-medium text-bg transition-opacity hover:opacity-85 disabled:opacity-40"
         >
-          {zh.approve}
+          {t.approve}
         </button>
         <button
           type="button"
@@ -127,7 +127,7 @@ export function ComposerApproval() {
           onClick={() => void onDecide("reject")}
           className="h-7 rounded-lg border border-line bg-bg px-3 text-xs font-medium text-ink transition-colors hover:bg-raised disabled:opacity-40"
         >
-          {zh.reject}
+          {t.reject}
         </button>
         <button
           type="button"
@@ -135,7 +135,7 @@ export function ComposerApproval() {
           onClick={() => void onDecide("accept_for_session")}
           className="h-7 rounded-lg px-2 text-xs text-ink-2 transition-colors hover:bg-raised hover:text-ink disabled:opacity-40"
         >
-          {zh.approveForSession}
+          {t.approveForSession}
         </button>
       </div>
     </div>

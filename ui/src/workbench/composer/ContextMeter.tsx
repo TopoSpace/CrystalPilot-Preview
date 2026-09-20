@@ -3,7 +3,7 @@
  * sees), the auto-compaction threshold, and a spinner while codex compacts. */
 import { Spinner } from "../../components/ui";
 import { fmtTokens } from "../../lib/format";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { useThreadOptional } from "../../state/ThreadProvider";
 import { useWorkbench } from "../../state/WorkbenchProvider";
 
@@ -39,7 +39,7 @@ export function ContextMeter() {
     <span className="group relative flex h-8 shrink-0 items-center" data-testid="context-meter">
       <span
         className="flex h-8 items-center gap-1 px-1 font-mono text-2xs text-ink-3 tabular-nums"
-        aria-label={zh.ctxTipTitle}
+        aria-label={t.ctxTipTitle}
       >
         {compacting ? (
           <Spinner className="h-3 w-3 text-ink-3" />
@@ -61,30 +61,30 @@ export function ContextMeter() {
             )}
           </svg>
         )}
-        {compacting ? zh.railCompacting : pct !== null ? `${pct.toFixed(0)}%` : `${fmtTokens(sessionTokens)} tok`}
+        {compacting ? t.railCompacting : pct !== null ? `${pct.toFixed(0)}%` : `${fmtTokens(sessionTokens)} tok`}
       </span>
       {/* hover card */}
       <span className="pointer-events-none absolute right-0 bottom-full z-30 mb-2 hidden w-64 rounded-card border border-line bg-bg p-3 text-left shadow-lg group-hover:block">
-        <span className="block text-xs font-medium text-ink">{zh.ctxTipTitle}</span>
+        <span className="block text-xs font-medium text-ink">{t.ctxTipTitle}</span>
         {window_ ? (
           <>
             <span className="mt-1 block font-mono text-2xs text-ink-2 tabular-nums">
-              {zh.ctxTipUsed} {fmtTokens(used)} / {zh.ctxTipTotal} {fmtTokens(window_)}
-              {pct !== null ? `（${pct.toFixed(0)}%）` : ""}
+              {t.ctxTipUsed} {fmtTokens(used)} / {t.ctxTipTotal} {fmtTokens(window_)}
+              {pct !== null ? t.paren(`${pct.toFixed(0)}%`) : ""}
             </span>
             <span className="block font-mono text-2xs text-ink-2 tabular-nums">
-              {zh.ctxTipRemaining} {fmtTokens(Math.max(0, window_ - used))}
+              {t.ctxTipRemaining} {fmtTokens(Math.max(0, window_ - used))}
             </span>
           </>
         ) : (
-          <span className="mt-1 block text-2xs text-ink-3">{zh.ctxTipNoWindow}</span>
+          <span className="mt-1 block text-2xs text-ink-3">{t.ctxTipNoWindow}</span>
         )}
         <span className="block font-mono text-2xs text-ink-3 tabular-nums">
-          {zh.tokensUsed} {fmtTokens(sessionTokens)}
+          {t.tokensUsed} {fmtTokens(sessionTokens)}
         </span>
         <span className="mt-1 block text-2xs leading-snug text-ink-3">
-          {limit ? `${zh.ctxAutoCompact} ${fmtTokens(limit)} · ` : ""}
-          {zh.ctxTipCompaction}
+          {limit ? `${t.ctxAutoCompact} ${fmtTokens(limit)} · ` : ""}
+          {t.ctxTipCompaction}
         </span>
       </span>
     </span>

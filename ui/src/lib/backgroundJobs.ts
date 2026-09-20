@@ -8,7 +8,7 @@
  * status rail and the current-action text, so all three say the same
  * thing. Pure functions only. */
 import type { BackgroundJobEvent } from "./wbTypes";
-import { zh } from "./zh";
+import { t } from "./i18n";
 
 export interface SearchReference {
   nJobs: number;
@@ -85,30 +85,30 @@ export function fmtDurationZh(s: number | null): string {
   const total = Math.max(0, Math.round(s));
   const m = Math.floor(total / 60);
   const sec = total % 60;
-  if (m === 0) return `${sec} ${zh.bgSecondsUnit}`;
-  return sec === 0 ? `${m} ${zh.bgMinutesUnit}` : `${m} ${zh.bgMinutesUnit} ${sec} ${zh.bgSecondsUnit}`;
+  if (m === 0) return `${sec} ${t.bgSecondsUnit}`;
+  return sec === 0 ? `${m} ${t.bgMinutesUnit}` : `${m} ${t.bgMinutesUnit} ${sec} ${t.bgSecondsUnit}`;
 }
 
 export function stageLabelZh(stage: string): string {
   switch (stage) {
     case "starting":
-      return zh.bgStageStarting;
+      return t.bgStageStarting;
     case "phasing":
-      return zh.bgStagePhasing;
+      return t.bgStagePhasing;
     case "phasing (grace)":
-      return zh.bgStagePhasingGrace;
+      return t.bgStagePhasingGrace;
     case "space-group search":
-      return zh.bgStageSearch;
+      return t.bgStageSearch;
     case "element assignment":
-      return zh.bgStageAssign;
+      return t.bgStageAssign;
     case "finished":
-      return zh.bgStageFinished;
+      return t.bgStageFinished;
     case "killed":
-      return zh.bgStageKilled;
+      return t.bgStageKilled;
     case "failed":
-      return zh.bgStageFailed;
+      return t.bgStageFailed;
     case "died":
-      return zh.bgStageDied;
+      return t.bgStageDied;
     default:
       return stage;
   }
@@ -130,40 +130,40 @@ export function liveElapsedS(info: BackgroundJobInfo, nowMs?: number): number | 
 /** The one-line summary for a running job: "SHELXT 后台求解 · 空间群搜索
  * · 已 5 分 12 秒（此阶段 SHELXT 不输出；本项目先前同类搜索约 13 分）". */
 export function runningJobLine(info: BackgroundJobInfo, nowMs?: number): string {
-  const parts: string[] = [`${info.program} ${zh.bgProgramSuffix}`, stageLabelZh(info.stage)];
+  const parts: string[] = [`${info.program} ${t.bgProgramSuffix}`, stageLabelZh(info.stage)];
   const el = liveElapsedS(info, nowMs);
-  if (el !== null) parts.push(`${zh.bgElapsedPrefix} ${fmtDurationZh(el)}`);
+  if (el !== null) parts.push(`${t.bgElapsedPrefix} ${fmtDurationZh(el)}`);
   const notes: string[] = [];
   if (info.stage === "space-group search") {
-    notes.push(info.exhaustive ? zh.bgSilentExhaustive : zh.bgSilentSearch);
-    if (info.searchRef) notes.push(`${zh.bgRefPrefix} ${fmtDurationZh(info.searchRef.medianS)}`);
+    notes.push(info.exhaustive ? t.bgSilentExhaustive : t.bgSilentSearch);
+    if (info.searchRef) notes.push(`${t.bgRefPrefix} ${fmtDurationZh(info.searchRef.medianS)}`);
   } else if (info.stage === "phasing" || info.stage === "phasing (grace)") {
     if (info.triesDone !== null && info.triesDone > 0) {
-      notes.push(`${info.triesDone} ${zh.bgTriesUnit}${info.bestCfom !== null ? `，${zh.bgBestCfom} ${info.bestCfom.toFixed(3)}` : ""}`);
+      notes.push(`${info.triesDone} ${t.bgTriesUnit}${info.bestCfom !== null ? `${t.libs.sepComma}${t.bgBestCfom} ${info.bestCfom.toFixed(3)}` : ""}`);
     }
   }
-  return notes.length > 0 ? `${parts.join(" · ")}（${notes.join("；")}）` : parts.join(" · ");
+  return notes.length > 0 ? `${parts.join(" · ")}${t.libs.parens(notes.join(t.libs.sepClause))}` : parts.join(" · ");
 }
 
 /** The system row text for any state of a job. */
 export function jobRowText(info: BackgroundJobInfo, nowMs?: number): string {
   if (info.running) return runningJobLine(info, nowMs);
-  const head = `${info.program} ${zh.bgProgramSuffix}`;
-  const took = info.elapsedS !== null ? `${zh.bgTookPrefix} ${fmtDurationZh(info.elapsedS)}` : "";
+  const head = `${info.program} ${t.bgProgramSuffix}`;
+  const took = info.elapsedS !== null ? `${t.bgTookPrefix} ${fmtDurationZh(info.elapsedS)}` : "";
   if (info.stage === "finished" && info.hasSolution) {
     const facts: string[] = [];
     if (took) facts.push(took);
-    if (info.bestCfom !== null) facts.push(`${zh.bgBestCfom} ${info.bestCfom.toFixed(3)}`);
-    if (info.nSpaceGroups !== null && info.laue) facts.push(`${info.laue} ${zh.bgGroupsEvaluated(info.nSpaceGroups)}`);
-    const base = `${head} ${zh.bgStageFinished}${facts.length > 0 ? `（${facts.join("，")}）` : ""}`;
+    if (info.bestCfom !== null) facts.push(`${t.bgBestCfom} ${info.bestCfom.toFixed(3)}`);
+    if (info.nSpaceGroups !== null && info.laue) facts.push(`${info.laue} ${t.bgGroupsEvaluated(info.nSpaceGroups)}`);
+    const base = `${head} ${t.bgStageFinished}${facts.length > 0 ? t.libs.parens(facts.join(t.libs.sepComma)) : ""}`;
     if (info.adopted) {
-      return `${base} · ${zh.bgAdopted}${info.adoptedNode ? ` → ${zh.bgAdoptedNode} ${info.adoptedNode}` : ""}`;
+      return `${base} · ${t.bgAdopted}${info.adoptedNode ? ` → ${t.bgAdoptedNode} ${info.adoptedNode}` : ""}`;
     }
-    return `${base} · ${zh.bgSolutionUnadopted(info.job)}`;
+    return `${base} · ${t.bgSolutionUnadopted(info.job)}`;
   }
   const label = stageLabelZh(info.stage === "finished" ? "failed" : info.stage);
   const tail = info.error ? ` · ${info.error.slice(0, 160)}` : "";
-  return `${head} ${label}${took ? `（${took}）` : ""}${tail}`;
+  return `${head} ${label}${took ? t.libs.parens(took) : ""}${tail}`;
 }
 
 export function runningJobs(jobs: Readonly<Record<string, BackgroundJobInfo>>): BackgroundJobInfo[] {

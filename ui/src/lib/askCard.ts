@@ -15,6 +15,7 @@
  * never data evidence. Pure functions here so the parsing and the "is it
  * still open" rule can be asserted without the DOM.
  */
+import { t } from "./i18n";
 
 export interface AskBlock {
   /** what the agent considers established (with its evidence) */
@@ -87,7 +88,7 @@ export const PRIOR_PREFIX = "[prior]";
  * agent (and a reader of the transcript) sees what was answered. */
 export function priorReply(ask: AskBlock, answer: string): string {
   const a = answer.trim();
-  return `${PRIOR_PREFIX} 问题：${ask.question}\n回答：${a}`;
+  return t.libs.askPriorReply(PRIOR_PREFIX, ask.question, a);
 }
 
 export function isPriorReply(text: string): boolean {

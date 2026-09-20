@@ -6,7 +6,7 @@
  * with no output and the last completion produced a duplicate. */
 import { describe, expect, it } from "vitest";
 import type { WbEvent } from "../lib/wbTypes";
-import { zh } from "../lib/zh";
+import { t } from "../lib/i18n";
 import { currentActionText } from "../lib/currentAction";
 import fixture from "./__fixtures__/concurrent-commands.json";
 import {
@@ -174,7 +174,7 @@ describe("synthetic: out-of-order and missing terminals", () => {
   it("a new turn starting closes the previous turn's leftovers as no_result", () => {
     const st = apply([start, tool("tool_started", "refine", "r1"), { ...start, ts: T0 + 20 }]);
     expect(tools(st)[0].status).toBe("no_result");
-    expect(currentActionText(st.items, st.openToolIds)).toBe(zh.stickyThinking);
+    expect(currentActionText(st.items, st.openToolIds)).toBe(t.stickyThinking);
   });
 
   it("a cut transcript (ends mid-turn, server says idle) closes its rows as no_result and the turn as inactive", () => {

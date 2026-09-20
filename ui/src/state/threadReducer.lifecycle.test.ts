@@ -4,7 +4,7 @@ import { currentActionText } from "../lib/currentAction";
 import { railAction, railModel } from "../lib/statusRail";
 import { humanizeTool } from "../lib/toolCards";
 import type { WbEvent } from "../lib/wbTypes";
-import { zh } from "../lib/zh";
+import { t } from "../lib/i18n";
 import { initialThreadState, threadReducer, type ThreadState, type ToolCardItem } from "./threadReducer";
 
 const start = { kind: "turn_started", ts: 1700000000 } as WbEvent;
@@ -41,9 +41,9 @@ for (const [terminal, closed] of [
     expect(st.crystalSignal?.tool).not.toBe("run_shelxl");
     expect(st.crystalSignal?.node).toBeUndefined();
     expect(st.metricsCursor).toEqual({});
-    expect(currentActionText(st.items, st.openToolIds)).toBe(zh.stickyThinking);
+    expect(currentActionText(st.items, st.openToolIds)).toBe(t.stickyThinking);
     expect(railModel(st, Date.now()).stages.find((s) => s.id === "refine")?.state).toBe("visited");
-    expect(humanizeTool(tools(st)[0])).toMatchObject({ warn: closed === "no_result" ? zh.toolNoResult : zh.toolInterrupted, chips: [], body: null });
+    expect(humanizeTool(tools(st)[0])).toMatchObject({ warn: closed === "no_result" ? t.toolNoResult : t.toolInterrupted, chips: [], body: null });
   });
 }
 
@@ -77,7 +77,7 @@ describe("synthetic completion boundaries", () => {
 
   it("a new turn cannot pick a previous generic action", () => {
     const st = apply([start, { kind: "webSearch_started", ts: start.ts + 1, detail: {} } as WbEvent, { ...start, ts: start.ts + 10 }]);
-    expect(currentActionText(st.items)).toBe(zh.stickyThinking);
+    expect(currentActionText(st.items)).toBe(t.stickyThinking);
   });
 
   it("finds live tools beyond a long reasoning run", () => {

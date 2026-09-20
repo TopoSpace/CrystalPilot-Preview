@@ -6,7 +6,7 @@ import {
   interactionQuote,
 } from "./interactions";
 import type { InteractionRow } from "./wbTypes";
-import { zh } from "./zh";
+import { t } from "./i18n";
 
 const base = {
   dist: 2.8, boundary: false, sym: "x,y,z", sym_i: "x,y,z", op: "x,y,z",
@@ -94,7 +94,7 @@ describe("interactionQuote on a canonical row", () => {
     expect(q).toContain("O1–H1···O2");
     expect(q).toContain("x-1,y,z");
     expect(q).toContain("满足");
-    expect(q).not.toContain(zh.ixBoundary);
+    expect(q).not.toContain(t.ixBoundary);
     expect(interactionLabel(row)).toBe("O1–H1···O2");
   });
 });

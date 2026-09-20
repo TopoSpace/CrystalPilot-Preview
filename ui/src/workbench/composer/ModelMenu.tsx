@@ -11,7 +11,7 @@ import { Spinner } from "../../components/ui";
 import { cx, fmtTokens } from "../../lib/format";
 import { forkThread, listModels } from "../../lib/wbApi";
 import type { ModelEntry, ModelListResponse } from "../../lib/wbTypes";
-import { formatEffort, formatModel, zh } from "../../lib/zh";
+import { formatEffort, formatModel, t } from "../../lib/i18n";
 import { useWorkbench } from "../../state/WorkbenchProvider";
 import { IconCheck, IconRefresh } from "../icons";
 import { projectHomeUrl, threadUrl } from "../urls";
@@ -204,7 +204,7 @@ export function ModelMenu({
     <div
       ref={ref}
       role="dialog"
-      aria-label={zh.modelMenuTitle}
+      aria-label={t.modelMenuTitle}
       data-testid="model-menu"
       className="workbench-popover absolute right-0 bottom-full z-30 mb-2 flex w-[440px] max-w-[92vw] flex-col rounded-card border border-line bg-bg shadow-xl"
     >
@@ -227,7 +227,7 @@ export function ModelMenu({
             >
               {shortProviderName(info?.name, pid)}
               {info && !info.has_key && info.auth_kind === "command" && (
-                <span className="ml-1 text-2xs text-warn" title={zh.providerKeyUnset}>
+                <span className="ml-1 text-2xs text-warn" title={t.providerKeyUnset}>
                   !
                 </span>
               )}
@@ -236,8 +236,8 @@ export function ModelMenu({
         })}
         <button
           type="button"
-          title={zh.modelRefresh}
-          aria-label={zh.modelRefresh}
+          title={t.modelRefresh}
+          aria-label={t.modelRefresh}
           onClick={() => void load(provider, true)}
           className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-ink-3 transition-colors hover:bg-raised hover:text-ink"
         >
@@ -251,8 +251,8 @@ export function ModelMenu({
           ref={searchRef}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder={zh.modelSearch}
-          aria-label={zh.modelSearch}
+          placeholder={t.modelSearch}
+          aria-label={t.modelSearch}
           className="h-8 w-full rounded-lg border border-line bg-surface px-2.5 text-sm text-ink outline-none placeholder:text-ink-3 focus:border-accent/60"
         />
       </div>
@@ -261,7 +261,7 @@ export function ModelMenu({
       <div ref={listRef} className="max-h-64 overflow-y-auto px-1.5 py-1.5" data-testid="model-list">
         {listError !== null && (
           <div className="px-2 py-1 text-2xs text-danger">
-            {zh.modelListError}：{listError}
+            {t.modelListError}{t.colon}{listError}
           </div>
         )}
         {list?.remote && !list.remote.ok && (
@@ -270,7 +270,7 @@ export function ModelMenu({
           </div>
         )}
         {rows.length === 0 && !loading && listError === null && (
-          <div className="px-2 py-2 text-xs text-ink-3">{list?.note ?? zh.slashNoMatch}</div>
+          <div className="px-2 py-2 text-xs text-ink-3">{list?.note ?? t.slashNoMatch}</div>
         )}
         {rows.map((m) => {
           const active = m.id === currentModel && provider === effectiveProvider;
@@ -284,7 +284,7 @@ export function ModelMenu({
               data-active={active ? "true" : undefined}
               disabled={busy}
               onClick={() => pickModel(m)}
-              title={unlisted ? `${m.id} · ${zh.modelUnlisted}` : (m.description ?? m.id)}
+              title={unlisted ? `${m.id} · ${t.modelUnlisted}` : (m.description ?? m.id)}
               className={cx(
                 "flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-left transition-colors hover:bg-raised disabled:opacity-60",
                 active && "bg-raised/60",
@@ -298,7 +298,7 @@ export function ModelMenu({
                 <span className="block truncate text-sm text-ink">
                   {m.display_name}
                   {isDefault && (
-                    <span className="ml-1.5 text-2xs text-ink-3">{zh.modelDefaultTag}</span>
+                    <span className="ml-1.5 text-2xs text-ink-3">{t.modelDefaultTag}</span>
                   )}
                 </span>
                 {m.display_name !== m.id && (
@@ -307,7 +307,7 @@ export function ModelMenu({
               </span>
               <span
                 className="shrink-0 font-mono text-2xs text-ink-3 tabular-nums"
-                title={zh.modelContextShort}
+                title={t.modelContextShort}
               >
                 {m.context_window ? fmtTokens(m.context_window) : ""}
               </span>
@@ -315,17 +315,17 @@ export function ModelMenu({
               {vision && (
                 <span
                   className="shrink-0 rounded-md border border-accent/30 px-1 text-2xs text-accent"
-                  title={zh.modelVision}
+                  title={t.modelVision}
                 >
-                  {zh.modelVision}
+                  {t.modelVision}
                 </span>
               )}
               {!m.in_catalog && (
                 <span
                   className="shrink-0 rounded-md border border-line px-1 text-2xs text-ink-3"
-                  title={zh.modelNotInCatalog}
+                  title={t.modelNotInCatalog}
                 >
-                  {zh.modelNewTag}
+                  {t.modelNewTag}
                 </span>
               )}
             </button>
@@ -347,8 +347,8 @@ export function ModelMenu({
         <input
           value={custom}
           onChange={(e) => setCustom(e.target.value)}
-          placeholder={zh.modelCustomId}
-          aria-label={zh.modelCustomId}
+          placeholder={t.modelCustomId}
+          aria-label={t.modelCustomId}
           spellCheck={false}
           className="h-6 min-w-0 flex-1 bg-transparent px-1 font-mono text-2xs text-ink outline-none placeholder:text-ink-3"
         />
@@ -358,7 +358,7 @@ export function ModelMenu({
             disabled={busy}
             className="h-6 shrink-0 rounded-md border border-line px-2 text-2xs text-ink-2 transition-colors hover:bg-raised hover:text-ink disabled:opacity-40"
           >
-            {zh.modelUseId}
+            {t.modelUseId}
           </button>
         )}
       </form>
@@ -366,16 +366,16 @@ export function ModelMenu({
       {/* effort: the model's own rungs, as they are */}
       <div className="border-t border-line px-3 py-2" data-testid="effort-picker">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-medium text-ink-2">{zh.modelEffortLabel}</span>
+          <span className="text-xs font-medium text-ink-2">{t.modelEffortLabel}</span>
           <span className="font-mono text-2xs text-ink-3">
             {modelDisplayName(currentModel, currentEntry?.display_name ?? s?.model_info?.display_name)}
             {currentEffort ? ` · ${formatEffort(currentEffort)}` : ""}
           </span>
         </div>
         {efforts.length === 0 ? (
-          <div className="pt-1 text-2xs text-ink-3">{zh.modelNoEffort}</div>
+          <div className="pt-1 text-2xs text-ink-3">{t.modelNoEffort}</div>
         ) : (
-          <div className="mt-1.5 flex flex-wrap gap-1" role="radiogroup" aria-label={zh.modelEffortLabel}>
+          <div className="mt-1.5 flex flex-wrap gap-1" role="radiogroup" aria-label={t.modelEffortLabel}>
             <button
               type="button"
               role="radio"
@@ -390,8 +390,8 @@ export function ModelMenu({
               )}
               title={effortDefault ?? ""}
             >
-              {zh.modelDefaultTag}
-              {effortDefault ? `（${formatEffort(effortDefault)}）` : ""}
+              {t.modelDefaultTag}
+              {effortDefault ? t.paren(formatEffort(effortDefault)) : ""}
             </button>
             {efforts.map((e) => {
               const chosen = s?.effort_override === e;
@@ -425,10 +425,10 @@ export function ModelMenu({
 
       {/* footer notes */}
       <div className="flex flex-col gap-1 border-t border-line px-3 py-2 text-2xs leading-snug text-ink-3">
-        <span>{zh.modelNextTurn}</span>
+        <span>{t.modelNextTurn}</span>
         {providerMismatch && (
           <span className="text-warn">
-            {zh.modelProviderNote}
+            {t.modelProviderNote}
             {project && (
               <>
                 {" · "}
@@ -438,7 +438,7 @@ export function ModelMenu({
                   onClick={() => void doFork()}
                   className="underline underline-offset-2 hover:text-ink"
                 >
-                  {zh.modelForkAction}
+                  {t.modelForkAction}
                 </button>
                 {" · "}
                 <button
@@ -449,13 +449,13 @@ export function ModelMenu({
                   }}
                   className="underline underline-offset-2 hover:text-ink"
                 >
-                  {zh.modelNewThreadAction}
+                  {t.modelNewThreadAction}
                 </button>
               </>
             )}
           </span>
         )}
-        {restartPending && <span className="text-warn">{zh.modelRestartPending}</span>}
+        {restartPending && <span className="text-warn">{t.modelRestartPending}</span>}
         {error !== null && <span className="text-danger">{error}</span>}
       </div>
     </div>

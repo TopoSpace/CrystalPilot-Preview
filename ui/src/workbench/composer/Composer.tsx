@@ -46,7 +46,7 @@ import {
   type FramesProbe,
 } from "../../lib/wbApi";
 import type { AttachmentRef, SubagentMode } from "../../lib/wbTypes";
-import { formatEffort, permissionLabel, zh } from "../../lib/zh";
+import { formatEffort, permissionLabel, t } from "../../lib/i18n";
 import { useComposerDraft } from "../../state/ComposerDraft";
 import { useThreadOptional } from "../../state/ThreadProvider";
 import { useWorkbench } from "../../state/WorkbenchProvider";
@@ -116,7 +116,7 @@ function AnchorRail({
   return (
     <div
       role="group"
-      aria-label={zh.anchorRailLabel}
+      aria-label={t.anchorRailLabel}
       data-testid="anchor-rail"
       className="flex flex-wrap gap-1.5 px-3.5 pt-3"
     >
@@ -126,13 +126,13 @@ function AnchorRail({
           className="inline-flex max-w-[260px] items-center gap-1 rounded-pill border border-line bg-raised/60 pl-2 pr-1 font-mono text-2xs text-ink-2"
           title={a.token}
         >
-          <span className="text-ink-3">{zh.anchorChip}</span>
+          <span className="text-ink-3">{t.anchorChip}</span>
           {a.node && <span>{a.node}</span>}
           {a.atoms.length > 0 && <span className="truncate">{a.atoms.join(" ")}</span>}
           <button
             type="button"
-            aria-label={zh.anchorRemove}
-            title={zh.anchorRemove}
+            aria-label={t.anchorRemove}
+            title={t.anchorRemove}
             onClick={() => onRemove(a.token)}
             className="ml-0.5 flex h-4 w-4 items-center justify-center rounded-full text-ink-3 hover:bg-raised hover:text-ink"
           >
@@ -159,7 +159,7 @@ function AttachmentRail({
   return (
     <div
       role="group"
-      aria-label={zh.attachedPrefix}
+      aria-label={t.attachedPrefix}
       className="flex flex-wrap gap-1.5 px-3.5 pt-3"
     >
       {drafts.map((d) => (
@@ -171,7 +171,7 @@ function AttachmentRail({
               ? "border-danger/60 bg-danger/5"
               : "border-line bg-raised/60",
           )}
-          title={d.status === "error" ? `${d.name}：${d.error}` : d.name}
+          title={d.status === "error" ? t.shell.pair(d.name, d.error ?? "") : d.name}
         >
           {d.previewUrl ? (
             <img
@@ -196,12 +196,12 @@ function AttachmentRail({
               onClick={() => onRetry(d.id)}
               className="px-1.5 text-2xs font-medium text-danger hover:underline"
             >
-              {zh.attachRetry}
+              {t.attachRetry}
             </button>
           )}
           <button
             type="button"
-            aria-label={`${zh.attachRemove}：${d.name}`}
+            aria-label={t.shell.pair(t.attachRemove, d.name)}
             onClick={() => onRemove(d.id)}
             className={cx(
               "flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-pill bg-ink/70 text-bg transition-opacity hover:bg-ink",
@@ -265,10 +265,7 @@ function AttachMenu({
     const exts = Object.entries(probe.by_ext)
       .map(([k, v]) => `${v}×${k}`)
       .join(" + ");
-    onInsert(
-      `原始衍射帧目录：${probe.path}（${exts}，共 ${probe.total_MB} MB）。` +
-        `请从 import_frames 开始分阶段还原，逐段汇报统计再前进。`,
-    );
+    onInsert(t.shell.composerFramesPrompt(probe.path, exts, probe.total_MB));
     onClose();
   };
 
@@ -288,7 +285,7 @@ function AttachMenu({
             className="flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-left text-sm text-ink transition-colors hover:bg-raised"
           >
             <IconPlus size={14} className="text-ink-3" />
-            {zh.attachUpload}
+            {t.attachUpload}
           </button>
           <button
             type="button"
@@ -297,17 +294,17 @@ function AttachMenu({
           >
             <span className="flex items-center gap-2 text-sm text-ink">
               <IconFolder size={14} className="text-ink-3" />
-              {zh.attachFramesDir}
+              {t.attachFramesDir}
             </span>
             <span className="pl-[22px] text-2xs leading-snug text-ink-3">
-              {zh.attachFramesDirDesc}
+              {t.attachFramesDirDesc}
             </span>
           </button>
         </>
       ) : (
         <div className="flex flex-col gap-2 p-2">
           <div className="text-xs font-medium text-ink-2">
-            {zh.attachFramesDir}
+            {t.attachFramesDir}
           </div>
           <div className="flex gap-1.5">
             <input
@@ -316,7 +313,7 @@ function AttachMenu({
               onKeyDown={(e) => {
                 if (e.key === "Enter") void doProbe();
               }}
-              placeholder={zh.framesDirPlaceholder}
+              placeholder={t.framesDirPlaceholder}
               autoFocus
               className="h-8 min-w-0 flex-1 rounded-lg border border-line bg-transparent px-2.5 font-mono text-xs text-ink outline-none placeholder:text-ink-3 focus:border-accent"
             />
@@ -326,7 +323,7 @@ function AttachMenu({
               onClick={() => void doProbe()}
               className="h-8 shrink-0 rounded-lg border border-line px-2.5 text-xs font-medium text-ink transition-colors hover:bg-raised disabled:opacity-40"
             >
-              {busy ? <Spinner className="h-3 w-3" /> : zh.framesProbe}
+              {busy ? <Spinner className="h-3 w-3" /> : t.framesProbe}
             </button>
           </div>
           {error !== null && (
@@ -336,8 +333,8 @@ function AttachMenu({
             <div className="flex flex-col gap-1.5">
               <div className="text-2xs leading-snug text-ink-2">
                 {probe.ok
-                  ? `${probe.n_frames} ${zh.framesFound} · ${probe.total_MB} MB · ${probe.sample.join(", ")}…`
-                  : (probe.note ?? zh.framesNone)}
+                  ? `${probe.n_frames} ${t.framesFound} · ${probe.total_MB} MB · ${probe.sample.join(", ")}…`
+                  : (probe.note ?? t.framesNone)}
               </div>
               {probe.ok && (
                 <button
@@ -345,7 +342,7 @@ function AttachMenu({
                   onClick={doInsert}
                   className="h-7 self-start rounded-lg bg-ink px-3 text-xs font-medium text-bg transition-opacity hover:opacity-85"
                 >
-                  {zh.framesInsert}
+                  {t.framesInsert}
                 </button>
               )}
             </div>
@@ -374,7 +371,7 @@ function LocalNote({
         <span className="text-2xs font-medium text-ink-3">{note.title}</span>
         <button
           type="button"
-          aria-label={zh.settingsClose}
+          aria-label={t.settingsClose}
           onClick={onClose}
           className="flex h-4 w-4 items-center justify-center rounded-full text-ink-3 hover:bg-raised hover:text-ink"
         >
@@ -457,7 +454,7 @@ export function Composer({
                     ...d,
                     status: "error",
                     error:
-                      e instanceof Error ? e.message : zh.attachUploadFailed,
+                      e instanceof Error ? e.message : t.attachUploadFailed,
                   }
                 : d,
             ),
@@ -472,12 +469,12 @@ export function Composer({
       if (files.length === 0 || !projectPath) return;
       // whole-batch validation: never partially add (no submit-time surprises)
       if (attachmentsRef.current.length + files.length > MAX_ATTACHMENTS) {
-        setError(zh.attachTooMany);
+        setError(t.attachTooMany);
         return;
       }
       const oversize = files.find((f) => f.size > MAX_FILE_BYTES);
       if (oversize) {
-        setError(`${oversize.name}：${zh.attachTooLarge}`);
+        setError(t.shell.pair(oversize.name, t.attachTooLarge));
         return;
       }
       setError(null);
@@ -489,7 +486,7 @@ export function Composer({
         const name =
           f.name && f.name !== "image.png"
             ? f.name
-            : `粘贴图片-${new Date().toTimeString().slice(0, 8).replaceAll(":", "")}.png`;
+            : t.shell.composerPastedImage(new Date().toTimeString().slice(0, 8).replaceAll(":", ""));
         return {
           id: `att${draftCounter}`,
           name,
@@ -640,7 +637,7 @@ export function Composer({
     const hasAtts = readyAttachments.length > 0;
     if ((trimmed === "" && !hasAtts) || sending) return;
     if (uploadsPending) {
-      setError(zh.attachWaitUploading);
+      setError(t.attachWaitUploading);
       return;
     }
     setSending(true);
@@ -685,22 +682,26 @@ export function Composer({
   const statusLines = (): string[] => {
     const s = wb.settings;
     const lines: string[] = [];
-    lines.push(`模型：${s?.model ?? "—"}（${s?.model_provider ?? "—"}）`);
+    lines.push(t.shell.statusModel(s?.model ?? "—", s?.model_provider ?? "—"));
     lines.push(
-      `推理档位：${s?.effort ? `${formatEffort(s.effort)} ${s.effort}` : zh.effortNoneLabel}` +
-        (s?.effort_choices?.length ? `，可选 ${s.effort_choices.join(" / ")}` : ""),
+      t.shell.statusEffort(
+        s?.effort ? `${formatEffort(s.effort)} ${s.effort}` : t.effortNoneLabel,
+        s?.effort_choices?.length ? s.effort_choices.join(" / ") : null,
+      ),
     );
-    lines.push(`权限：${permissionLabel(s?.permission_mode ?? "auto")}`);
+    lines.push(t.shell.statusPermission(permissionLabel(s?.permission_mode ?? "auto")));
     lines.push(
-      `子代理：${subagentStateText(s?.subagents ?? "auto", s?.delegation?.active ?? false, s?.delegation?.top_effort)}`,
+      t.shell.statusSubagents(
+        subagentStateText(s?.subagents ?? "auto", s?.delegation?.active ?? false, s?.delegation?.top_effort),
+      ),
     );
     if (s?.engine?.kernel_version) {
       lines.push(
-        `内核：codex ${s.engine.kernel_version}${s.engine.restart_pending ? `（${zh.modelRestartPending}）` : ""}`,
+        t.shell.statusKernel(s.engine.kernel_version, s.engine.restart_pending ? t.modelRestartPending : null),
       );
     }
-    if (threadId) lines.push(`对话：${threadId}`);
-    if (wb.projectPath) lines.push(`项目：${wb.projectPath}`);
+    if (threadId) lines.push(t.shell.statusThread(threadId));
+    if (wb.projectPath) lines.push(t.shell.statusProject(wb.projectPath));
     return lines;
   };
 
@@ -709,20 +710,25 @@ export function Composer({
     const lines: string[] = [];
     const win = u?.contextWindow ?? wb.settings?.engine?.context_window ?? null;
     if (!u?.total) {
-      lines.push(win ? `${zh.ctxTipTotal} ${fmtTokens(win)}` : zh.ctxTipNoWindow);
+      lines.push(win ? `${t.ctxTipTotal} ${fmtTokens(win)}` : t.ctxTipNoWindow);
     } else {
       const cur = u.last ?? u.total;
       const used = cur.input_tokens + cur.output_tokens;
       lines.push(
         win
-          ? `${zh.ctxTipUsed} ${fmtTokens(used)} / ${zh.ctxTipTotal} ${fmtTokens(win)}（${Math.round((used / win) * 100)}%）· ${zh.ctxTipRemaining} ${fmtTokens(Math.max(0, win - used))}`
-          : `${zh.ctxTipUsed} ${fmtTokens(used)}（${zh.ctxTipNoWindow}）`,
+          ? t.shell.ctxUsageLine(
+              `${t.ctxTipUsed} ${fmtTokens(used)}`,
+              `${t.ctxTipTotal} ${fmtTokens(win)}`,
+              Math.round((used / win) * 100),
+              `${t.ctxTipRemaining} ${fmtTokens(Math.max(0, win - used))}`,
+            )
+          : `${t.ctxTipUsed} ${fmtTokens(used)}${t.shell.paren(t.ctxTipNoWindow)}`,
       );
-      lines.push(`${zh.tokensUsed} ${fmtTokens(u.total.input_tokens + u.total.output_tokens)}`);
+      lines.push(`${t.tokensUsed} ${fmtTokens(u.total.input_tokens + u.total.output_tokens)}`);
     }
     const lim = wb.settings?.engine?.auto_compact_limit ?? wb.settings?.auto_compact_token_limit ?? null;
-    if (lim) lines.push(`${zh.ctxAutoCompact} ${fmtTokens(lim)}`);
-    lines.push(zh.ctxTipCompaction);
+    if (lim) lines.push(`${t.ctxAutoCompact} ${fmtTokens(lim)}`);
+    lines.push(t.ctxTipCompaction);
     return lines;
   };
 
@@ -731,7 +737,7 @@ export function Composer({
     setText("");
     requestAnimationFrame(autoGrow);
     if (!cmd) {
-      showNote(zh.noteUnknownCommand, [`/${name}`]);
+      showNote(t.noteUnknownCommand, [`/${name}`]);
       return;
     }
     const project = wb.projectPath;
@@ -760,7 +766,7 @@ export function Composer({
       }
       case "compact":
         if (!threadId) {
-          showNote(zh.noteNeedThread, [`/${cmd.name}`]);
+          showNote(t.noteNeedThread, [`/${cmd.name}`]);
           return;
         }
         try {
@@ -770,20 +776,20 @@ export function Composer({
         }
         return;
       case "context":
-        showNote(zh.noteContextTitle, contextLines());
+        showNote(t.noteContextTitle, contextLines());
         return;
       case "status":
-        showNote(zh.noteStatusTitle, statusLines());
+        showNote(t.noteStatusTitle, statusLines());
         return;
       case "mcp": {
         if (!project) return;
         try {
           const r = await mcpStatus(project);
           showNote(
-            zh.noteMcpTitle,
+            t.noteMcpTitle,
             r.present
-              ? [`${r.n_tools} ${zh.sysMcpToolsUnit}`, ...(r.error ? [r.error] : [])]
-              : [zh.noteMcpAbsent],
+              ? [`${r.n_tools} ${t.sysMcpToolsUnit}`, ...(r.error ? [r.error] : [])]
+              : [t.noteMcpAbsent],
           );
         } catch (e) {
           fail(e);
@@ -796,11 +802,8 @@ export function Composer({
           const r = await listSkills(project);
           const lines = r.skills
             .filter((s) => s.name)
-            .map(
-              (s) =>
-                `${s.name}${s.enabled === false ? "（已停用）" : ""}${s.description ? `：${s.description}` : ""}`,
-            );
-          showNote(zh.noteSkillsTitle, lines.length > 0 ? lines : [zh.noteNoSkills]);
+            .map((s) => t.shell.skillLine(s.name ?? "", s.enabled === false, s.description));
+          showNote(t.noteSkillsTitle, lines.length > 0 ? lines : [t.noteNoSkills]);
         } catch (e) {
           fail(e);
         }
@@ -811,18 +814,18 @@ export function Composer({
         return;
       case "rename": {
         if (!threadId) {
-          showNote(zh.noteNeedThread, [`/${cmd.name}`]);
+          showNote(t.noteNeedThread, [`/${cmd.name}`]);
           return;
         }
         const title = args.trim();
         if (title === "") {
-          showNote(zh.renameThread, ["/rename <名称>"]);
+          showNote(t.renameThread, [t.shell.renameUsage]);
           return;
         }
         try {
           await renameThread(threadId, title, project);
           void wb.refreshThreads();
-          showNote(zh.noteRenamed, [title]);
+          showNote(t.noteRenamed, [title]);
         } catch (e) {
           fail(e);
         }
@@ -830,7 +833,7 @@ export function Composer({
       }
       case "fork": {
         if (!threadId || !project) {
-          showNote(zh.noteNeedThread, [`/${cmd.name}`]);
+          showNote(t.noteNeedThread, [`/${cmd.name}`]);
           return;
         }
         try {
@@ -944,10 +947,10 @@ export function Composer({
           >
             <div className="rounded-card border-2 border-dashed border-accent bg-bg px-8 py-6 text-center shadow-xl">
               <div className="text-md font-medium text-ink">
-                {zh.dropToAttach}
+                {t.dropToAttach}
               </div>
               <div className="mt-1 text-xs text-ink-3">
-                {zh.attachImageHint}
+                {t.attachImageHint}
               </div>
             </div>
           </div>
@@ -968,8 +971,8 @@ export function Composer({
           ref={taRef}
           rows={1}
           value={text}
-          placeholder={zh.composerPlaceholder}
-          aria-label={zh.composerPlaceholder}
+          placeholder={t.composerPlaceholder}
+          aria-label={t.composerPlaceholder}
           onChange={(e) => {
             setText(e.target.value);
             autoGrow();
@@ -983,8 +986,8 @@ export function Composer({
           <div className="relative">
             <button
               type="button"
-              title={zh.attach}
-              aria-label={zh.attach}
+              title={t.attach}
+              aria-label={t.attach}
               disabled={!wb.projectPath}
               onClick={() => setAttachOpen((o) => !o)}
               className="flex h-8 w-8 shrink-0 items-center justify-center rounded-pill text-ink-2 transition-colors hover:bg-raised hover:text-ink disabled:opacity-40"
@@ -1043,10 +1046,10 @@ export function Composer({
           </div>
 
           {turnActive && (
-            <span className="text-2xs text-ink-3">{zh.steer}</span>
+            <span className="text-2xs text-ink-3">{t.steer}</span>
           )}
           {!turnActive && !hasText && (
-            <span className="hidden text-2xs text-ink-3 sm:inline">{zh.slashHint}</span>
+            <span className="hidden text-2xs text-ink-3 sm:inline">{t.slashHint}</span>
           )}
 
           <div className="flex-1" />
@@ -1060,7 +1063,7 @@ export function Composer({
               <button
                 type="button"
                 data-testid="model-button"
-                title={zh.modelMenuTitle}
+                title={t.modelMenuTitle}
                 aria-haspopup="dialog"
                 aria-expanded={modelOpen}
                 onClick={() => {
@@ -1076,7 +1079,7 @@ export function Composer({
                 {restartPending && (
                   <span
                     className="h-1.5 w-1.5 shrink-0 rounded-full bg-warn"
-                    title={zh.modelRestartPending}
+                    title={t.modelRestartPending}
                   />
                 )}
                 <IconChevronDown size={13} className="shrink-0 text-ink-3" />
@@ -1091,8 +1094,8 @@ export function Composer({
           {turnActive && hasContent && onStop && (
             <button
               type="button"
-              title={zh.stop}
-              aria-label={zh.stop}
+              title={t.stop}
+              aria-label={t.stop}
               onClick={onStop}
               className="flex h-8 w-8 shrink-0 items-center justify-center rounded-pill text-ink-2 transition-colors hover:bg-raised hover:text-ink"
             >
@@ -1104,8 +1107,8 @@ export function Composer({
           {showStop ? (
             <button
               type="button"
-              title={zh.stop}
-              aria-label={zh.stop}
+              title={t.stop}
+              aria-label={t.stop}
               onClick={onStop}
               className="flex h-9 w-9 shrink-0 items-center justify-center rounded-pill bg-ink text-bg transition-opacity hover:opacity-85"
             >
@@ -1114,8 +1117,8 @@ export function Composer({
           ) : (
             <button
               type="button"
-              title={turnActive ? zh.steer : zh.send}
-              aria-label={turnActive ? zh.steer : zh.send}
+              title={turnActive ? t.steer : t.send}
+              aria-label={turnActive ? t.steer : t.send}
               disabled={!hasContent || sending || uploadsPending}
               onClick={() => {
                 const parsed = parseSlash(text.trim());

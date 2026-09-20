@@ -31,7 +31,7 @@ import {
   type TreeRow,
 } from "../../lib/nodeTree";
 import { useTheme } from "../../lib/theme";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import type { DeliveryMark, RefineNode } from "../../lib/wbTypes";
 import { useComposerDraft } from "../../state/ComposerDraft";
 import { useCrystal } from "../../state/CrystalProvider";
@@ -202,12 +202,12 @@ function MetricsText({
         mv.current ? "text-ink-2" : "text-ink-3 opacity-80",
         className,
       )}
-      title={mv.current ? undefined : `${zh.treeInheritedTip}${mv.source ? `（${mv.source}）` : ""}`}
+      title={mv.current ? undefined : `${t.treeInheritedTip}${mv.source ? t.paren(mv.source) : ""}`}
     >
       R1 {mv.r1.toFixed(4)}
       {!mv.current && (
         <span className="ml-1">
-          · {zh.treeInherited}
+          · {t.treeInherited}
           {mv.source ? ` ${mv.source}` : ""}
         </span>
       )}
@@ -221,12 +221,12 @@ function DeliveredChip({ marks }: { marks: DeliveryMark[] }) {
   return (
     <span
       data-testid="tree-delivered"
-      title={`${zh.treeDeliveredTip}\n${marks
+      title={`${t.treeDeliveredTip}\n${marks
         .map((m) => `${m.rel} · ${deliveryStatusLabel(m.status)}`)
         .join("\n")}`}
       className={cx("shrink-0 rounded-md px-1 text-2xs font-medium", tone)}
     >
-      {zh.treeDelivered}
+      {t.treeDelivered}
       {marks.length > 1 ? ` ×${marks.length}` : ""}
     </span>
   );
@@ -273,7 +273,7 @@ function BranchCompareCard({
       <button
         type="button"
         aria-expanded={open}
-        title={open ? zh.treeCompareClose : zh.treeCompareOpen}
+        title={open ? t.treeCompareClose : t.treeCompareOpen}
         onClick={toggle}
         className="flex w-full items-center gap-1.5 px-2.5 py-1.5 text-left select-none"
       >
@@ -281,9 +281,9 @@ function BranchCompareCard({
           size={11}
           className={cx("shrink-0 text-ink-3 transition-transform", open && "rotate-90")}
         />
-        <span className="text-2xs font-medium text-ink-2">{zh.branchCompareTitle}</span>
+        <span className="text-2xs font-medium text-ink-2">{t.branchCompareTitle}</span>
         <span className="text-2xs text-ink-3">
-          {rows.length} · {zh.treeCompareNote}
+          {rows.length} · {t.treeCompareNote}
         </span>
       </button>
       {open && (
@@ -291,13 +291,13 @@ function BranchCompareCard({
           <table className="w-full border-collapse font-mono text-2xs tabular-nums">
             <thead>
               <tr className="text-left text-ink-3">
-                <th className="py-1 pr-2 font-medium">{zh.branchLabel}</th>
-                <th className="py-1 pr-2 font-medium">{zh.branchHead}</th>
+                <th className="py-1 pr-2 font-medium">{t.branchLabel}</th>
+                <th className="py-1 pr-2 font-medium">{t.branchHead}</th>
                 <th className="py-1 pr-2 text-right font-medium">R1</th>
                 <th className="py-1 pr-2 text-right font-medium">wR2</th>
                 <th className="py-1 pr-2 text-right font-medium">GooF</th>
-                <th className="py-1 pr-2 text-right font-medium">{zh.peakLabel}</th>
-                <th className="py-1 text-right font-medium">{zh.paramsLabel}</th>
+                <th className="py-1 pr-2 text-right font-medium">{t.peakLabel}</th>
+                <th className="py-1 text-right font-medium">{t.paramsLabel}</th>
               </tr>
             </thead>
             <tbody>
@@ -309,7 +309,7 @@ function BranchCompareCard({
                   <tr
                     key={r.branch}
                     onClick={() => viewNodeAction(r.headId)}
-                    title={isViewing ? zh.branchViewing : `${zh.checkoutBtn} ${r.headId}`}
+                    title={isViewing ? t.branchViewing : `${t.checkoutBtn} ${r.headId}`}
                     className={cx(
                       "cursor-pointer border-t border-line/60 transition-colors",
                       isViewing ? "bg-accent/8 text-ink" : "text-ink-2 hover:bg-raised/40",
@@ -340,12 +340,12 @@ function BranchCompareCard({
                       title={
                         r.mv.current || r.mv.source === null
                           ? undefined
-                          : `${zh.treeInherited} ${r.mv.source}`
+                          : `${t.treeInherited} ${r.mv.source}`
                       }
                     >
                       {f(r.mv.r1, 4)}
                       {isBest && (
-                        <span title={zh.treeBestTip} className="ml-0.5 text-ink-3">
+                        <span title={t.treeBestTip} className="ml-0.5 text-ink-3">
                           ·
                         </span>
                       )}
@@ -370,7 +370,7 @@ function BranchCompareCard({
               })}
             </tbody>
           </table>
-          <div className="pt-1 text-2xs text-ink-3">* {zh.treeInheritedTip}</div>
+          <div className="pt-1 text-2xs text-ink-3">* {t.treeInheritedTip}</div>
         </div>
       )}
     </div>
@@ -430,7 +430,7 @@ export function NodeTreePanel() {
                   tabIndex={0}
                   data-testid="tree-diag"
                   aria-expanded={!r.folded}
-                  title={zh.treeDiagGroupTip}
+                  title={t.treeDiagGroupTip}
                   onClick={toggleDiag}
                   onKeyDown={keyActivate(toggleDiag)}
                   style={{ height: HEAD_H, paddingLeft: lay.width }}
@@ -440,9 +440,9 @@ export function NodeTreePanel() {
                     size={11}
                     className={cx("shrink-0 transition-transform", !r.folded && "rotate-90")}
                   />
-                  <span className="font-medium">{zh.treeDiagGroup}</span>
+                  <span className="font-medium">{t.treeDiagGroup}</span>
                   <span className="tabular-nums">
-                    {r.branches} {zh.treeBranchesUnit} · {r.nodes} {zh.treeNodesUnit}
+                    {r.branches} {t.treeBranchesUnit} · {r.nodes} {t.treeNodesUnit}
                   </span>
                 </div>
               );
@@ -457,7 +457,7 @@ export function NodeTreePanel() {
                   data-testid="tree-branch"
                   data-folded={r.folded ? "1" : "0"}
                   aria-expanded={!r.folded}
-                  title={`${r.branch}\n${zh.treeFoldTip}`}
+                  title={`${r.branch}\n${t.treeFoldTip}`}
                   onClick={() => toggleBranch(r.branch)}
                   onKeyDown={keyActivate(() => toggleBranch(r.branch))}
                   style={{ height: HEAD_H, paddingLeft: lay.width }}
@@ -468,9 +468,9 @@ export function NodeTreePanel() {
                     className={cx("shrink-0 text-ink-3 transition-transform", !r.folded && "rotate-90")}
                   />
                   <span className="min-w-0 truncate font-mono font-medium text-ink-2">{r.branch}</span>
-                  {isActiveBranch && <span className="shrink-0 text-accent">{zh.activeTag}</span>}
+                  {isActiveBranch && <span className="shrink-0 text-accent">{t.activeTag}</span>}
                   <span className="shrink-0 text-ink-3 tabular-nums">
-                    {r.count} {zh.treeNodesUnit}
+                    {r.count} {t.treeNodesUnit}
                   </span>
                   {r.folded && (
                     <span className="ml-auto flex min-w-0 shrink items-baseline gap-1.5 font-mono text-ink-3 tabular-nums">
@@ -485,14 +485,14 @@ export function NodeTreePanel() {
             const isViewed = n.id === state.viewNode;
             const asuBad = n.asu != null && (n.asu.detached > 0 || n.asu.ghosts > 0);
             const asuTip = asuBad
-              ? zh.asuFlagTipPrefix +
+              ? t.asuFlagTipPrefix +
                 [
-                  n.asu!.detached > 0 ? `${zh.asuFlagDetached}×${n.asu!.detached}` : "",
-                  n.asu!.ghosts > 0 ? `${zh.asuFlagGhosts}×${n.asu!.ghosts}` : "",
+                  n.asu!.detached > 0 ? `${t.asuFlagDetached}×${n.asu!.detached}` : "",
+                  n.asu!.ghosts > 0 ? `${t.asuFlagGhosts}×${n.asu!.ghosts}` : "",
                 ]
                   .filter(Boolean)
-                  .join("、") +
-                zh.asuFlagTipSuffix
+                  .join(t.sepList) +
+                t.asuFlagTipSuffix
               : undefined;
             const marks = delivered.get(n.id) ?? [];
             return (
@@ -507,12 +507,12 @@ export function NodeTreePanel() {
                   isViewed ? "bg-raised/80" : "hover:bg-raised/40",
                 )}
               >
-                <button type="button" aria-label={`查看节点 ${n.id}`} onClick={() => viewNodeAction(n.id)}
+                <button type="button" aria-label={t.crystal.viewNodeAria(n.id)} onClick={() => viewNodeAction(n.id)}
                   className="min-w-0 flex-1 rounded-md pl-1 text-left">
                   <div className="flex items-baseline gap-1.5">
                     <span className="shrink-0 font-mono text-2xs font-semibold text-ink">{n.id}</span>
                     {n.id === state.activeNode && (
-                      <span className="shrink-0 text-2xs text-accent">{zh.activeTag}</span>
+                      <span className="shrink-0 text-2xs text-accent">{t.activeTag}</span>
                     )}
                     {asuBad && (
                       <span title={asuTip} className="shrink-0 text-2xs text-danger">
@@ -523,10 +523,10 @@ export function NodeTreePanel() {
                     {n.id === best && (
                       <span
                         data-testid="tree-best"
-                        title={zh.treeBestTip}
+                        title={t.treeBestTip}
                         className="shrink-0 rounded-md bg-raised px-1 text-2xs font-medium text-ink-3"
                       >
-                        {zh.branchBest}
+                        {t.branchBest}
                       </span>
                     )}
                     <span className="min-w-0 truncate text-2xs text-ink-2">{n.tool}</span>
@@ -539,7 +539,7 @@ export function NodeTreePanel() {
                 <button
                   type="button"
                   data-comparison-node={n.id}
-                  title={zh.compareBaselineTip}
+                  title={t.compareBaselineTip}
                   disabled={n.id === (state.comparison?.node ?? state.viewNode)}
                   onClick={() => beginComparison(n.id)}
                   className={cx(
@@ -549,17 +549,17 @@ export function NodeTreePanel() {
                       : "border-line text-ink-3 md:opacity-0 group-hover:opacity-100 hover:bg-raised hover:text-ink",
                   )}
                 >
-                  {zh.compareBtn}
+                  {t.compareBtn}
                 </button>
                 <button
                   type="button"
                   onClick={(e) => {
                     e.stopPropagation();
-                    draft.insert(`${zh.checkoutTemplatePrefix}${n.id}${zh.checkoutTemplateSuffix}`);
+                    draft.insert(`${t.checkoutTemplatePrefix}${n.id}${t.checkoutTemplateSuffix}`);
                   }}
                   className="ml-1.5 h-5 shrink-0 rounded-md border border-line px-1.5 text-2xs text-ink-3 opacity-0 transition-opacity group-hover:opacity-100 hover:bg-raised hover:text-ink"
                 >
-                  {zh.checkoutBtn}
+                  {t.checkoutBtn}
                 </button>
               </div>
             );

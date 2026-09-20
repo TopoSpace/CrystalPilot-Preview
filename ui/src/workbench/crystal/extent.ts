@@ -5,7 +5,7 @@
  * status line. If they drifted, a frame quote would claim one extent while
  * the panel above it showed another.
  */
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import type { CrystalMode, PackRange } from "../../state/crystalReducer";
 
 function fmtFrac(v: number): string {
@@ -32,18 +32,18 @@ export function extentLabel(s: {
 }): string {
   const slice =
     s.mode === "super"
-      ? `${zh.modeSuper} ${s.superN}×${s.superN}×${s.superN}`
+      ? `${t.modeSuper} ${s.superN}×${s.superN}×${s.superN}`
       : s.mode === "radius"
-        ? `${zh.modeRadius} ${s.packRadius ?? 8} Å${s.packCenter ? ` · ${s.packCenter}` : ""}`
+        ? `${t.modeRadius} ${s.packRadius ?? 8} Å${s.packCenter ? ` · ${s.packCenter}` : ""}`
         : s.mode === "range"
-          ? `${zh.modeRange} ${rangeLabel(s.packRange ?? { lo: [-0.5, -0.5, -0.5], hi: [1.5, 1.5, 1.5] })}`
+          ? `${t.modeRange} ${rangeLabel(s.packRange ?? { lo: [-0.5, -0.5, -0.5], hi: [1.5, 1.5, 1.5] })}`
           : s.mode === "cell"
-            ? zh.modeCell
-            : zh.modeAsu;
+            ? t.modeCell
+            : t.modeAsu;
   const extra: string[] = [];
-  if (s.growLevel > 0) extra.push(`${zh.modeGrow} ${s.growLevel} 层`);
-  if (s.growAll) extra.push(zh.growAll);
-  if (s.complete) extra.push(zh.growComplete);
-  if (s.grown.length > 0) extra.push(`手工 ${s.grown.length} 处`);
-  return extra.length > 0 ? `${slice}（${extra.join("，")}）` : slice;
+  if (s.growLevel > 0) extra.push(`${t.modeGrow} ${t.crystal.extGrowLayers(s.growLevel)}`);
+  if (s.growAll) extra.push(t.growAll);
+  if (s.complete) extra.push(t.growComplete);
+  if (s.grown.length > 0) extra.push(t.crystal.extManual(s.grown.length));
+  return extra.length > 0 ? t.crystal.extWithExtras(slice, extra) : slice;
 }

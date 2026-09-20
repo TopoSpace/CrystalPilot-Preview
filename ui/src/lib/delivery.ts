@@ -1,7 +1,7 @@
 /** Delivery card data (round-3 R2-A): what a delivery is, in four facts and
  * four files, instead of a wall of every path under the results folder. */
 import type { ArtifactEntry, DeliveryMark } from "./wbTypes";
-import { zh } from "./zh";
+import { t } from "./i18n";
 
 /** The files a reader opens first, in this order: the hand-over set the
  * group continues from by hand (res / cif / ins / hkl / p4p, + fab for a
@@ -49,9 +49,9 @@ export interface DeliveryFacts {
 export function cifGradeLabel(grade: string | null): string {
   switch (grade) {
     case "shelxl-acta":
-      return zh.deliveryCifGradeActa;
+      return t.deliveryCifGradeActa;
     case "model":
-      return zh.deliveryCifGradeModel;
+      return t.deliveryCifGradeModel;
     default:
       return grade ?? "";
   }
@@ -98,11 +98,11 @@ export function mainFiles(
 export function deliveryStatusLabel(status: string | null): string {
   switch (status) {
     case "final":
-      return zh.deliveryStatusFinal;
+      return t.deliveryStatusFinal;
     case "provisional":
-      return zh.deliveryStatusProvisional;
+      return t.deliveryStatusProvisional;
     case "diagnostic":
-      return zh.deliveryStatusDiagnostic;
+      return t.deliveryStatusDiagnostic;
     default:
       return status ?? "";
   }

@@ -8,7 +8,7 @@ import { cx, fmtTokens } from "../../lib/format";
 import { metricDelta } from "../../lib/metricDelta";
 import { comparableMetric, signedDifference } from "../../lib/structureComparison";
 import { useNodeComparison } from "../../state/useNodeComparison";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { shelWorkingCutoff } from "../../lib/shel";
 import type { RefineNode } from "../../lib/wbTypes";
 import { useCrystal } from "../../state/CrystalProvider";
@@ -62,7 +62,7 @@ function Sparkline({
   const previous = pts.at(-2);
   const last = pts.at(-1);
   return (
-    <svg width={width} height={height} role="img" aria-label="节点数值记录；仅连接已核对的最后一对">
+    <svg width={width} height={height} role="img" aria-label={t.crystal.mtSparklineAria}>
       {comparable && previous && last && <line x1={previous[0]} y1={previous[1]} x2={last[0]} y2={last[1]}
         stroke="var(--color-ink-3)" strokeWidth={2} />}
       {pts.map((point, index) => point && <circle key={nodes[index] ?? index} cx={point[0]} cy={point[1]}
@@ -156,12 +156,12 @@ function LineageTable({
       <table className="w-full border-collapse font-mono text-2xs tabular-nums">
         <thead>
           <tr className="text-left text-ink-3">
-            <th className="py-1 pr-2 font-medium">{zh.nodeLabel}</th>
-            <th className="py-1 pr-2 font-medium">工具</th>
+            <th className="py-1 pr-2 font-medium">{t.nodeLabel}</th>
+            <th className="py-1 pr-2 font-medium">{t.crystal.mtToolCol}</th>
             <th className="py-1 pr-2 text-right font-medium">R1</th>
             <th className="py-1 pr-2 text-right font-medium">wR2</th>
             <th className="py-1 pr-2 text-right font-medium">GooF</th>
-            <th className="py-1 text-right font-medium">{zh.atomsLabel}</th>
+            <th className="py-1 text-right font-medium">{t.atomsLabel}</th>
           </tr>
         </thead>
         <tbody>
@@ -169,10 +169,10 @@ function LineageTable({
             <tr
               key={n.id}
               tabIndex={0}
-              aria-label={`查看节点 ${n.id}`}
+              aria-label={t.crystal.viewNodeAria(n.id)}
               onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onView(n.id); } }}
               onClick={() => onView(n.id)}
-              title={n.metrics_current ? undefined : zh.staleMetricsTip}
+              title={n.metrics_current ? undefined : t.staleMetricsTip}
               className={cx(
                 "cursor-pointer border-t border-line/60 transition-colors",
                 n.id === viewNode
@@ -224,9 +224,9 @@ function UsageSection() {
   const thread = useThreadOptional();
   const usage = thread?.state.usage ?? null;
   if (!usage?.total) {
-    return <div className="px-3 py-2 text-2xs text-ink-3">{zh.noUsage}</div>;
+    return <div className="px-3 py-2 text-2xs text-ink-3">{t.noUsage}</div>;
   }
-  const t = usage.total;
+  const total = usage.total;
   const window_ = usage.contextWindow;
   // context bar tracks the LAST request (current context occupancy);
   // the number row above stays cumulative (session spend). A visible
@@ -247,24 +247,24 @@ function UsageSection() {
     <div className="px-3 py-2">
       <div className="flex flex-wrap gap-x-3 gap-y-0.5 font-mono text-2xs text-ink-2 tabular-nums">
         <span>
-          {zh.usageInput} {fmtTokens(t.input_tokens)}
+          {t.usageInput} {fmtTokens(total.input_tokens)}
         </span>
         <span>
-          {zh.usageCached} {fmtTokens(t.cached_input_tokens)}
+          {t.usageCached} {fmtTokens(total.cached_input_tokens)}
         </span>
         <span>
-          {zh.usageOutput} {fmtTokens(t.output_tokens)}
+          {t.usageOutput} {fmtTokens(total.output_tokens)}
         </span>
       </div>
       {pct !== null && (
         <div className="mt-2">
           <div className="flex items-baseline justify-between font-mono text-2xs text-ink-3 tabular-nums">
             <span>
-              {zh.contextWindow} {fmtTokens(used)} /{" "}
+              {t.contextWindow} {fmtTokens(used)} /{" "}
               {fmtTokens(window_ as number)}
             </span>
             <span>
-              {pct.toFixed(0)}% {zh.contextUsedSuffix}
+              {pct.toFixed(0)}% {t.contextUsedSuffix}
             </span>
           </div>
           <div className="mt-1 h-1.5 overflow-hidden rounded-pill bg-raised">
@@ -294,30 +294,30 @@ function DataSection({ node }: { node: RefineNode | undefined }) {
   const cells: Array<[string, string]> = [];
   if (d.r_int !== undefined) cells.push(["Rint", d.r_int.toFixed(4)]);
   if (d.completeness !== undefined) {
-    cells.push([zh.dataCompleteness, `${(d.completeness * 100).toFixed(1)}%`]);
+    cells.push([t.dataCompleteness, `${(d.completeness * 100).toFixed(1)}%`]);
   }
   // d_min is what the data nominally reach; a SHEL card narrows the working
   // range, and the two were shown side by side without saying which is which
   // (round-3 visual review, item 6)
   if (d.d_min !== undefined) {
-    cells.push([zh.dataDminNominal, `${d.d_min.toFixed(2)} Å`]);
+    cells.push([t.dataDminNominal, `${d.d_min.toFixed(2)} Å`]);
   }
   const shelHi = shelWorkingCutoff(d.shel);
   if (shelHi !== null)
-    cells.push([zh.dataDminWorking, `${shelHi.toFixed(2)} Å`]);
+    cells.push([t.dataDminWorking, `${shelHi.toFixed(2)} Å`]);
   if (d.n_unique !== undefined) {
-    cells.push([zh.dataUnique, d.n_unique.toLocaleString()]);
+    cells.push([t.dataUnique, d.n_unique.toLocaleString()]);
   }
   if (d.n_obs !== undefined && d.n_unique) {
-    cells.push([zh.dataRedundancy, (d.n_obs / d.n_unique).toFixed(1)]);
+    cells.push([t.dataRedundancy, (d.n_obs / d.n_unique).toFixed(1)]);
   }
-  if (d.space_group) cells.push([zh.dataSpaceGroup, d.space_group]);
+  if (d.space_group) cells.push([t.dataSpaceGroup, d.space_group]);
   if (cells.length === 0) return null;
   return (
     <div className="mt-1.5 shrink-0 border-t border-line pt-1.5">
       <div className="flex items-baseline gap-2 px-3 pt-1 pb-1">
         <span className="text-2xs font-medium text-ink-3">
-          {zh.dataSectionTitle}
+          {t.dataSectionTitle}
         </span>
         {d.hklf === 5 && (
           <span className="rounded-sm bg-warn/10 px-1 text-2xs text-warn">
@@ -327,7 +327,7 @@ function DataSection({ node }: { node: RefineNode | undefined }) {
         {d.shel && (
           <span
             className="rounded-sm bg-raised px-1 font-mono text-2xs text-ink-3"
-            title={zh.dataShelTip}
+            title={t.dataShelTip}
           >
             {d.shel}
           </span>
@@ -380,7 +380,7 @@ export function MetricsPanel() {
       <div className="shrink-0 pt-1.5">
         <div className="flex items-baseline gap-2 px-3 pt-1 pb-0.5">
           <span className="text-2xs font-medium text-ink-3">
-            {zh.metricsTrend}
+            {t.metricsTrend}
           </span>
           {viewed !== undefined && (
             <span className="font-mono text-2xs text-ink-3">{viewed.id}</span>
@@ -388,18 +388,18 @@ export function MetricsPanel() {
           {viewed !== undefined && !viewed.metrics_current && (
             <span
               className="rounded-sm bg-warn/10 px-1 text-2xs text-warn"
-              title={zh.staleMetricsTip}
+              title={t.staleMetricsTip}
             >
-              {zh.staleMetrics}
+              {t.staleMetrics}
             </span>
           )}
         </div>
         <MetricRow label="R1" values={r1} nodes={nodeIds} digits={4} comparable={canCompare("r1")} />
         <MetricRow label="wR2" values={wr2} nodes={nodeIds} digits={4} comparable={canCompare("wr2")} />
         <MetricRow label="GooF" values={goof} nodes={nodeIds} digits={2} ideal={1} comparable={canCompare("goof")} />
-        <MetricRow label={zh.peakLabel} values={peak} nodes={nodeIds} digits={2} unit="eÅ⁻³" />
+        <MetricRow label={t.peakLabel} values={peak} nodes={nodeIds} digits={2} unit="eÅ⁻³" />
         <MetricRow
-          label={zh.paramsLabel}
+          label={t.paramsLabel}
           values={nParams}
           nodes={nodeIds}
           digits={0}
@@ -412,7 +412,7 @@ export function MetricsPanel() {
       </div>
       <div className="mt-1.5 shrink-0 border-t border-line pt-1.5">
         <div className="px-3 pt-1 pb-1 text-2xs font-medium text-ink-3">
-          {zh.lineageTitle}
+          {t.lineageTitle}
         </div>
         <LineageTable
           lineage={lineage}
@@ -422,7 +422,7 @@ export function MetricsPanel() {
       </div>
       <div className="mt-auto shrink-0 border-t border-line pt-0.5 pb-1.5">
         <div className="px-3 pt-1.5 pb-0.5 text-2xs font-medium text-ink-3">
-          {zh.usageTitle}
+          {t.usageTitle}
         </div>
         <UsageSection />
       </div>

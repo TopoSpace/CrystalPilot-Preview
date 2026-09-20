@@ -15,6 +15,7 @@ import {
   type ReactNode,
 } from "react";
 import { setDiagnosticContext } from "../lib/diagnostics";
+import { t } from "../lib/i18n";
 import {
   ApiError,
   decideApproval,
@@ -187,7 +188,7 @@ export function ThreadProvider({
       attachments?: AttachmentRef[],
     ): Promise<string | null> => {
       const proj = projectRef.current;
-      if (!proj) return "没有打开的项目";
+      if (!proj) return t.settingsNoProject;
       optimisticCounter += 1;
       dispatch({
         type: "optimistic_user",
@@ -240,7 +241,7 @@ export function ThreadProvider({
         if (e instanceof ApiError && e.status === 409) {
           // thread idle -> plain send
           const proj = projectRef.current;
-          if (!proj) return "没有打开的项目";
+          if (!proj) return t.settingsNoProject;
           try {
             await sendMessage({
               project: proj,

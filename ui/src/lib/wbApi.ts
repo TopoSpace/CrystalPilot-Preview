@@ -4,6 +4,7 @@
  * through URLSearchParams (i.e. encodeURIComponent) - never in URL path
  * segments.
  */
+import { LANGUAGE_HEADER, language } from "./i18n";
 import type {
   ApprovalDecisionChoice,
   ArtifactEntry,
@@ -58,7 +59,9 @@ function qs(params: Record<string, string | number | undefined>): string {
 }
 
 async function request<T>(url: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(url, init);
+  const headers = new Headers(init?.headers);
+  headers.set(LANGUAGE_HEADER, language);
+  const res = await fetch(url, { ...init, headers });
   if (!res.ok) {
     let detail = res.statusText;
     try {

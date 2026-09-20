@@ -1,4 +1,5 @@
-/** All zh-CN UI strings for the workbench, in one place. */
+/** Chinese interface strings: the reference dictionary. Keep keys grouped by
+ *  the area that uses them; parametrised strings are arrow functions. */
 
 export const zh = {
   // brand / shell
@@ -220,7 +221,7 @@ export const zh = {
   envCancelled: "已取消",
   showEarlierRemainingSuffix: " 条",
   commandFullOutput: "查看完整输出",
-  commandFullOutputChars: " 字符",
+  commandFullOutputChars: "字符",
   commandFullOutputMissing: "服务器上没有这条命令的完整输出",
   errorAreaTitle: "这一区域出错了",
   errorAreaHint: "其他区域不受影响；诊断已记录。",
@@ -317,7 +318,7 @@ export const zh = {
   anPassing: "满足判据",
   anIntra: "分子内",
   anInter: "分子间",
-  anOf: "共",
+  anPassingOf: (passing: number, total: number) => `满足判据 ${passing} / 共 ${total}`,
   anQuote: "引用",
   anMore: "展开全部",
   anLess: "收起",
@@ -1146,68 +1147,44 @@ export const zh = {
   loading: "加载中…",
   emptyThread: "这个对话还没有内容",
   today: "今天",
-} as const;
+  // punctuation used when a component composes a sentence from parts
+  colon: "：",
+  sepList: "、",
+  sepClause: "；",
+  sepComma: "，",
+  paren: (inner: string | number) => `（${inner}）`,
+  closeDrawer: "关闭侧栏",
+  cmpCondComparable: "条件可比",
+  cmpCondDifferent: "条件不同",
+  cmpCondUnknown: "条件未明",
 
-export type ZhKey = keyof typeof zh;
+  // settings dialog: section descriptions and the appearance section
+  secDescProviders: "连接模型服务，管理本机凭据与可用模型。",
+  secDescModels: "选择默认模型与思考深度，平衡能力、速度和使用成本。",
+  secDescContext: "控制会话记忆与压缩时机，让长时间研究保持连贯。",
+  secDescAppearance: "选择界面语言、配色、明暗模式与阅读字号。",
+  secDescAdvanced: "查看运行环境，并在需要时维护项目引擎。",
+  secDescAbout: "CrystalPilot · 让数据、结构与研究过程保持联系。",
+  language: "语言",
+  languageHint:
+    "切换后页面会重新加载，界面全部改用所选语言；智能体回复的语言由项目的 AGENTS.md 决定（本预览版为中文）。",
+  appPalette: "配色",
+  appPaletteNote: "风格参考 · 非官方主题",
+  appTheme: "明暗",
+  appPresentation: "展示模式",
+  appBrandName: "左上角显示名称",
+  appBrandNameHint: "开启后使用自定义名称；关闭或留空时显示 CrystalPilot。",
+  appBrandNamePlaceholder: "例如：TopoSpace Crystal",
+  providerAuthChanged: "认证设置已变更，请保存后检查",
 
-/** Display label for a permission mode. */
-export function permissionLabel(mode: string): string {
-  switch (mode) {
-    case "readonly":
-      return zh.permReadonly;
-    case "copilot":
-      return zh.permCopilot;
-    case "auto":
-      return zh.permAuto;
-    case "full":
-      return zh.permFull;
-    default:
-      return mode;
-  }
-}
-
-export function permissionDesc(mode: string): string {
-  switch (mode) {
-    case "readonly":
-      return zh.permReadonlyDesc;
-    case "copilot":
-      return zh.permCopilotDesc;
-    case "auto":
-      return zh.permAutoDesc;
-    case "full":
-      return zh.permFullDesc;
-    default:
-      return "";
-  }
-}
-
-/** "gpt-5.6-sol" -> "5.6 Sol"; unknown ids pass through. */
-export function formatModel(model: string | null | undefined): string {
-  if (!model) return "";
-  const parts = model.replace(/^gpt-/, "").split("-");
-  return parts
-    .map((p) => (/^[a-z]/.test(p) ? p.charAt(0).toUpperCase() + p.slice(1) : p))
-    .join(" ");
-}
-
-/** Reasoning effort -> zh label ("xhigh" -> 极高). */
-export function formatEffort(effort: string | null | undefined): string {
-  switch (effort) {
-    case "minimal":
-      return "最简";
-    case "low":
-      return "低";
-    case "medium":
-      return "中";
-    case "high":
-      return "高";
-    case "xhigh":
-      return "极高";
-    case "max":
-      return "最高";
-    case "ultra":
-      return "超高";
-    default:
-      return effort ?? "";
-  }
-}
+  // reasoning effort (formatEffort)
+  effortLabels: {
+    minimal: "最简",
+    low: "低",
+    medium: "中",
+    high: "高",
+    xhigh: "极高",
+    max: "最高",
+    ultra: "超高",
+  } as Record<string, string>,
+};

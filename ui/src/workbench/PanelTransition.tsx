@@ -1,4 +1,5 @@
 import { useLayoutEffect, useState, type ReactNode } from "react";
+import { t } from "../lib/i18n";
 import { useMotionPreference } from "../lib/motion";
 
 const DURATION = 300;
@@ -61,7 +62,7 @@ export function PanelDrawer({ open, side, onClose, children }: {
     data-testid={side === "left" ? "sidebar-drawer" : "mobile-structure-pane"}
     {...{ inert: open ? undefined : "" }} aria-hidden={!open || undefined}
     style={{ pointerEvents: open ? undefined : "none" }}>
-    {onClose && <button type="button" aria-label="关闭侧栏" onClick={onClose}
+    {onClose && <button type="button" aria-label={t.closeDrawer} onClick={onClose}
       className="absolute inset-0 bg-ink/20" style={{ opacity: expanded ? 1 : 0, transition: `opacity ${duration}ms ease` }} />}
     <div className={`absolute inset-y-0 flex ${side === "left" ? "left-0 shadow-xl" : "inset-x-0 bg-bg"}`}
       data-testid={`${side}-drawer-surface`}

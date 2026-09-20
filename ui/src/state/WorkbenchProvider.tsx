@@ -26,7 +26,7 @@ import {
   setSettings,
   type SettingsUpdateBody,
 } from "../lib/wbApi";
-import { zh } from "../lib/zh";
+import { t } from "../lib/i18n";
 import type {
   KernelInfo,
   PendingApproval,
@@ -238,13 +238,13 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   const patchSettings = useCallback(
     async (body: SettingsUpdateBody): Promise<string | null> => {
       const path = pathRef.current;
-      if (!path) return "没有打开的项目";
+      if (!path) return t.settingsNoProject;
       try {
         setSettingsState(await setSettings(path, { settings: body }));
         return null;
       } catch (e) {
         if (e instanceof ApiError && e.status === 409) {
-          return zh.settingsSpecialistsBusy;
+          return t.settingsSpecialistsBusy;
         }
         return e instanceof Error ? e.message : String(e);
       }
@@ -255,7 +255,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   const changePermissionMode = useCallback(
     async (mode: string): Promise<string | null> => {
       const path = pathRef.current;
-      if (!path) return "没有打开的项目";
+      if (!path) return t.settingsNoProject;
       try {
         setSettingsState(await setSettings(path, { permission_mode: mode }));
         return null;
@@ -301,11 +301,11 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   const changeStructureClass = useCallback(
     async (cls: string | null): Promise<string | null> => {
       const path = pathRef.current;
-      if (!path) return "没有打开的项目";
+      if (!path) return t.settingsNoProject;
       writeLocalStructureClass(path, cls);
       setLocalClass(cls);
       const err = await patchSettings({ structure_class: cls });
-      return err === null ? null : `${zh.scSaveFailed}${err}`;
+      return err === null ? null : `${t.scSaveFailed}${err}`;
     },
     [patchSettings],
   );
@@ -318,13 +318,13 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   const changeKnowledgeMode = useCallback(
     async (mode: string): Promise<string | null> => {
       const path = pathRef.current;
-      if (!path) return "没有打开的项目";
+      if (!path) return t.settingsNoProject;
       try {
         setSettingsState(await setSettings(path, { settings: { knowledge_mode: mode } }));
         return null;
       } catch (e) {
         if (e instanceof ApiError && e.status === 409) {
-          return zh.settingsKnowledgeModeBusy;
+          return t.settingsKnowledgeModeBusy;
         }
         return e instanceof Error ? e.message : String(e);
       }
@@ -335,7 +335,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   const changeSpecialists = useCallback(
     async (enable: boolean): Promise<string | null> => {
       const path = pathRef.current;
-      if (!path) return "没有打开的项目";
+      if (!path) return t.settingsNoProject;
       try {
         setSettingsState(
           await setSettings(path, { settings: { enable_specialists: enable } }),
@@ -344,7 +344,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       } catch (e) {
         // rebuild refused while a turn is running (409) / rebuild crash (500)
         if (e instanceof ApiError && (e.status === 409 || e.status === 500)) {
-          return zh.settingsSpecialistsBusy;
+          return t.settingsSpecialistsBusy;
         }
         return e instanceof Error ? e.message : String(e);
       }

@@ -253,7 +253,7 @@ function buildItems(events: RunEvent[]): Item[] {
         items.push({
           id: ev.event_id,
           type: "note",
-          text: `Proposed action rejected${comment ? `，“${comment}”` : ""}. The agent will reconsider.`,
+          text: `Proposed action rejected${comment ? `: "${comment}"` : ""}. The agent will reconsider.`,
         });
         break;
       }

@@ -3,7 +3,7 @@
  * Expanding shows every summary in order; activity stays on the status rail. */
 import { useState } from "react";
 import { cx } from "../../lib/format";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import type { ReasoningItem } from "../../state/threadReducer";
 import { IconChevronDown, IconSpark } from "../icons";
 
@@ -36,7 +36,7 @@ export function ReasoningGroup({ items }: { items: ReasoningItem[] }) {
       >
         <IconSpark size={17} className="shrink-0" />
         <span className="activity-copy">
-        <span className="shrink-0">{zh.reasoningSummary}</span>
+        <span className="shrink-0">{t.reasoningSummary}</span>
         {items.length > 1 && (
           <span className="shrink-0 text-ink-3 tabular-nums">
             ×{items.length}

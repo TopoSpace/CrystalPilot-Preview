@@ -3,11 +3,12 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { useLocation } from "react-router-dom";
 import { ErrorBoundary } from "../components/ErrorBoundary";
-import { zh } from "../lib/zh";
+import { t } from "../lib/i18n";
 import { IconPanelLeft, IconPanelRight, IconFolder } from "./icons";
 import { RightPane } from "./RightPane";
 import { SettingsDialog } from "./settings/SettingsDialog";
-import { useWorkbench } from "../state/WorkbenchProvider";
+import { useWorkbench, type SettingsSection } from "../state/WorkbenchProvider";
+import { takeSettingsSection } from "../lib/settingsReopen";
 import { Sidebar } from "./sidebar/Sidebar";
 import { useNarrow, useViewportWidth } from "./useViewport";
 import { ChromeControls, WorkbenchHeader } from "./WorkbenchHeader";
@@ -18,6 +19,13 @@ export function WorkbenchShell({ children }: { children: ReactNode }) {
   const { brandName } = useTheme();
   const location = useLocation();
   const wb = useWorkbench();
+  // a language switch reloads the page; come back to the settings section it was made in
+  useEffect(() => {
+    const section = takeSettingsSection();
+    if (section) wb.openSettings(section as SettingsSection);
+    // once, on mount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const inThread = location.pathname.startsWith("/thread/");
   const showStructure =
     new URLSearchParams(location.search).get("view") === "structure";
@@ -55,12 +63,12 @@ export function WorkbenchShell({ children }: { children: ReactNode }) {
 
   const controls = {
     left: drawerMode || sidebarCollapsed ? <button type="button" className="chrome-button"
-      title={zh.sidebarOpen} aria-label={zh.sidebarOpen} data-testid="sidebar-expand"
+      title={t.sidebarOpen} aria-label={t.sidebarOpen} data-testid="sidebar-expand"
       onClick={() => narrow || focus ? setDrawerOpen(true) : setSidebarCollapsed(false)}>
       <IconPanelLeft size={17} />
     </button> : undefined,
     right: !showRight ? <button type="button" className="chrome-button"
-      title={zh.expand} aria-label={zh.expand} data-testid="right-expand"
+      title={t.expand} aria-label={t.expand} data-testid="right-expand"
       onClick={() => setRightOpen(true)}><IconPanelRight size={17} /></button> : undefined,
   };
   return (

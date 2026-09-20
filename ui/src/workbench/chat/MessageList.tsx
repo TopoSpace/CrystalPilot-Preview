@@ -11,7 +11,7 @@ import { motionScrollBehavior, useMotionPreference } from "../../lib/motion";
 import { deliveryFacts, type DeliveryFacts } from "../../lib/delivery";
 import { humanizeTool, isCrystalTool, OBSERVE_TOOLS } from "../../lib/toolCards";
 import { finalReplyIds, pendingTurnIds, retainScientificResult } from "../../lib/transcriptPresentation";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import type {
   ApprovalItem,
   ChatItem,
@@ -345,14 +345,14 @@ export function foldLabel(
   opts: { approvals?: boolean } = {},
 ): string {
   const parts: string[] = [];
-  if (c.tools > 0) parts.push(`${c.tools} ${zh.foldTools}`);
-  if (c.thinks > 0) parts.push(`${c.thinks} ${zh.foldThinks}`);
-  if (c.commands > 0) parts.push(`${c.commands} ${zh.foldCommands}`);
+  if (c.tools > 0) parts.push(`${c.tools} ${t.foldTools}`);
+  if (c.thinks > 0) parts.push(`${c.thinks} ${t.foldThinks}`);
+  if (c.commands > 0) parts.push(`${c.commands} ${t.foldCommands}`);
   // resolved approvals are hidden in 简洁 (they duplicate the tool rows),
   // so their count is only meaningful in 详细
   if (c.approvals > 0 && opts.approvals)
-    parts.push(`${c.approvals} ${zh.foldApprovals}`);
-  if (c.subagents > 0) parts.push(`${c.subagents} ${zh.foldSubagents}`);
+    parts.push(`${c.approvals} ${t.foldApprovals}`);
+  if (c.subagents > 0) parts.push(`${c.subagents} ${t.foldSubagents}`);
   return parts.join(" · ");
 }
 
@@ -479,11 +479,11 @@ export function digestLabel(items: ChatItem[]): string {
     else if (it.type === "generic") nOther += 1;
   }
   const parts: string[] = [];
-  if (nCmd > 0) parts.push(`${nCmd} ${zh.digestCommands}`);
-  if (nObs > 0) parts.push(`${nObs} ${zh.digestObserves}`);
-  if (nOther > 0) parts.push(`${nOther} ${zh.digestOthers}`);
-  if (parts.length === 0) parts.push(`${items.length} ${zh.digestOthers}`);
-  return `${zh.digestPrefix}${parts.join(" · ")}`;
+  if (nCmd > 0) parts.push(`${nCmd} ${t.digestCommands}`);
+  if (nObs > 0) parts.push(`${nObs} ${t.digestObserves}`);
+  if (nOther > 0) parts.push(`${nOther} ${t.digestOthers}`);
+  if (parts.length === 0) parts.push(`${items.length} ${t.digestOthers}`);
+  return `${t.digestPrefix}${parts.join(" · ")}`;
 }
 
 function WorkGroup({ blocks }: { blocks: WorkChildBlock[] }) {
@@ -491,7 +491,7 @@ function WorkGroup({ blocks }: { blocks: WorkChildBlock[] }) {
   const label = foldLabel(foldCounts(blocks), { approvals: verbose });
   return (
     <ProcessDetails className="activity-row activity-group">
-      <ActivitySummary icon={<ActivityIcon kind="group" />}>{zh.workedFor}{label ? ` · ${label}` : ""}</ActivitySummary>
+      <ActivitySummary icon={<ActivityIcon kind="group" />}>{t.workedFor}{label ? ` · ${label}` : ""}</ActivitySummary>
       <div className="activity-body activity-group-body">
         {blocks.filter(b => visibleBlock(b, verbose)).map((b) =>
           b.kind === "reasoning" ? (
@@ -511,7 +511,7 @@ function TurnFold({ blocks, counts }: { blocks: Block[]; counts: FoldCounts }) {
   const { verbose } = useViewMode();
   return (
     <ProcessDetails className="activity-row activity-group" data-testid="turn-fold">
-      <ActivitySummary icon={<ActivityIcon kind="group" />}>{zh.turnFoldPrefix} · {foldLabel(counts, { approvals: verbose })}</ActivitySummary>
+      <ActivitySummary icon={<ActivityIcon kind="group" />}>{t.turnFoldPrefix} · {foldLabel(counts, { approvals: verbose })}</ActivitySummary>
       <div className="activity-body activity-group-body">
         {blocks.filter(b => visibleBlock(b, verbose)).map((b) => (
           <div key={blockKey(b)}>
@@ -812,12 +812,12 @@ export function MessageList() {
       <div ref={columnRef} className="transcript-column mx-auto flex w-full flex-col px-6 py-6">
         {state.items.length === 0 && state.channel !== "connecting" && (
           <div className="py-16 text-center text-sm text-ink-3">
-            {zh.emptyThread}
+            {t.emptyThread}
           </div>
         )}
         {state.channel === "connecting" && state.items.length === 0 && (
           <div className="flex items-center justify-center gap-2 py-16 text-sm text-ink-3">
-            {zh.loading}
+            {t.loading}
           </div>
         )}
         {hiddenUserBlocks.length > 0 && (
@@ -826,7 +826,7 @@ export function MessageList() {
             data-testid="earlier-inputs"
           >
             <div className="text-center text-2xs text-ink-3">
-              {zh.earlierInputs}
+              {t.earlierInputs}
             </div>
             {hiddenUserBlocks.map((block) => (
               <div key={blockKey(block)}>
@@ -841,9 +841,9 @@ export function MessageList() {
             onClick={showEarlier}
             className="mx-auto h-7 rounded-pill border border-line px-3 text-xs text-ink-3 transition-colors hover:bg-raised hover:text-ink"
           >
-            {zh.showEarlierPrefix}
+            {t.showEarlierPrefix}
             {Math.min(hiddenCount, RENDER_WINDOW_STEP)}
-            {zh.showEarlierSuffix}
+            {t.showEarlierSuffix}
           </button>
         ) : remainingOnServer > 0 ? (
           <button
@@ -854,8 +854,8 @@ export function MessageList() {
             className="mx-auto h-7 rounded-pill border border-line px-3 text-xs text-ink-3 transition-colors hover:bg-raised hover:text-ink disabled:opacity-60"
           >
             {state.page.loading
-              ? zh.showEarlierLoading
-              : `${zh.showEarlierServer} · ${zh.showEarlierRemainingPrefix}${remainingOnServer}${zh.showEarlierRemainingSuffix}`}
+              ? t.showEarlierLoading
+              : `${t.showEarlierServer} · ${t.showEarlierRemainingPrefix}${remainingOnServer}${t.showEarlierRemainingSuffix}`}
           </button>
         ) : null}
         {blocks.filter(block => visibleBlock(block, verbose) && !(block.kind === "item" && block.item.type === "turn" && waitingTurns.has(block.item.id))).map((block) => (
@@ -881,7 +881,7 @@ export function MessageList() {
             data-testid="jump-to-latest"
             className="row-in pointer-events-auto inline-flex h-7 items-center gap-1 rounded-pill border border-line bg-bg/95 px-3 text-xs text-ink-2 shadow-sm backdrop-blur-sm transition-colors hover:bg-raised hover:text-ink"
           >
-            ↓ {zh.jumpToLatest}
+            ↓ {t.jumpToLatest}
           </button>
         </div>
       )}

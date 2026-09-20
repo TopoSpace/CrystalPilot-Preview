@@ -12,7 +12,7 @@ import {
   reportUiDiagnostic,
   type DiagnosticReport,
 } from "../lib/diagnostics";
-import { zh } from "../lib/zh";
+import { t } from "../lib/i18n";
 
 interface Props {
   /** short region name that goes into the diagnostic line */
@@ -77,31 +77,31 @@ export class ErrorBoundary extends Component<Props, State> {
           "m-3 flex flex-col gap-2 rounded-card border border-danger/40 bg-surface p-4 text-sm text-ink"
         }
       >
-        <div className="font-medium text-danger">{zh.errorAreaTitle}</div>
+        <div className="font-medium text-danger">{t.errorAreaTitle}</div>
         <div className="font-mono text-2xs break-all text-ink-2">
           {report.message}
         </div>
-        <div className="text-2xs text-ink-3">{zh.errorAreaHint}</div>
+        <div className="text-2xs text-ink-3">{t.errorAreaHint}</div>
         <div className="flex flex-wrap gap-2 pt-1">
           <button
             type="button"
             onClick={this.retry}
             className="h-7 rounded-pill bg-accent-fill px-3 text-xs text-bg transition-colors hover:opacity-90"
           >
-            {zh.errorAreaRetry}
+            {t.errorAreaRetry}
           </button>
           <button
             type="button"
             onClick={this.copy}
             className="h-7 rounded-pill border border-line px-3 text-xs text-ink-2 transition-colors hover:bg-raised"
           >
-            {this.state.copied ? zh.errorAreaCopied : zh.errorAreaCopy}
+            {this.state.copied ? t.errorAreaCopied : t.errorAreaCopy}
           </button>
         </div>
         {report.componentStack && (
           <details className="text-2xs text-ink-3">
             <summary className="cursor-pointer select-none">
-              {zh.technicalDetails}
+              {t.technicalDetails}
             </summary>
             <pre className="mt-1 max-h-48 overflow-auto font-mono whitespace-pre-wrap">
               {report.componentStack.trim()}

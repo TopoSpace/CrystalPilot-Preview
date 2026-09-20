@@ -11,7 +11,7 @@ import { describe, expect, it } from "vitest";
 import { currentActionText } from "../lib/currentAction";
 import { railAction } from "../lib/statusRail";
 import type { WbEvent } from "../lib/wbTypes";
-import { zh } from "../lib/zh";
+import { t } from "../lib/i18n";
 import { systemText } from "../workbench/chat/GenericRow";
 import { initialThreadState, threadReducer, type GenericItem, type ThreadState } from "./threadReducer";
 
@@ -85,10 +85,10 @@ describe("background_job events", () => {
     expect(row.phase).toBe("running");
     const text = systemText(row);
     expect(text).toContain("SHELXT 后台求解");
-    expect(text).toContain(zh.bgStageSearch);
+    expect(text).toContain(t.bgStageSearch);
     expect(text).toContain("2 分");         // 120 s elapsed
-    expect(text).toContain(zh.bgSilentExhaustive);
-    expect(text).toContain(`${zh.bgRefPrefix} 12 分 55 秒`);
+    expect(text).toContain(t.bgSilentExhaustive);
+    expect(text).toContain(`${t.bgRefPrefix} 12 分 55 秒`);
     expect(st.backgroundJobs[JOB].running).toBe(true);
 
     st = run([bg("heartbeat", { elapsed_s: 135.0, ts: T0 + 135 })], st);
@@ -112,13 +112,13 @@ describe("background_job events", () => {
     expect(a.kind).toBe("working");
     const text = String(a.text);
     expect(text).toContain("SHELXT 后台求解");
-    expect(text).toContain(zh.bgStageSearch);
+    expect(text).toContain(t.bgStageSearch);
     // the local clock advances the server's elapsed value between heartbeats
     expect(text).toContain("2 分 10 秒");
     // without any live tool or command the solver line stands alone
     const alone = currentActionText([], [], st.backgroundJobs, (T0 + 130) * 1000);
     expect(String(alone).startsWith("SHELXT 后台求解")).toBe(true);
-    expect(currentActionText([], [], {}, 0)).toBe(zh.stickyThinking);
+    expect(currentActionText([], [], {}, 0)).toBe(t.stickyThinking);
   });
 
   it("a stopped turn does not silence a running solver", () => {
@@ -135,7 +135,7 @@ describe("background_job events", () => {
     expect(st.backgroundJobs[JOB].running).toBe(true);
     const a = railAction(st, (T0 + 331) * 1000);
     expect(a.kind).toBe("background");
-    expect(String(a.text)).toContain(zh.railBackgroundAfterTurn);
+    expect(String(a.text)).toContain(t.railBackgroundAfterTurn);
     expect(String(a.text)).toContain("SHELXT 后台求解");
     expect(a.elapsedMs).toBe(331_000);
     expect(a.muted).toBe(true);
@@ -152,14 +152,14 @@ describe("background_job events", () => {
     const row = jobRows(st)[0];
     expect(row.phase).toBe("completed");
     const text = systemText(row);
-    expect(text).toContain(zh.bgStageFinished);
+    expect(text).toContain(t.bgStageFinished);
     expect(text).toContain("14 分 23 秒");
     expect(text).toContain("最佳 CFOM 0.737");
     expect(text).toContain("6/mmm 评估了 18 个空间群");
     expect(text).toContain(`run_shelxt(from_job='${JOB}')`);
     const a = railAction(st, (T0 + 900) * 1000);
     expect(a.kind).toBe("interrupted");
-    expect(String(a.text)).toContain(zh.railSolutionReady);
+    expect(String(a.text)).toContain(t.railSolutionReady);
   });
 
   it("adoption in a later turn closes the loop - by the tool result and by the server transition", () => {
@@ -180,28 +180,28 @@ describe("background_job events", () => {
     expect(byTool.backgroundJobs[JOB].adopted).toBe(true);
     expect(byTool.backgroundJobs[JOB].adoptedNode).toBe("n0002");
     const text = systemText(jobRows(byTool)[0]);
-    expect(text).toContain(zh.bgAdopted);
+    expect(text).toContain(t.bgAdopted);
     expect(text).toContain("节点 n0002");
     expect(text).not.toContain("尚未采用");
     const a = railAction(byTool, (T0 + 1100) * 1000);
     expect(a.kind).toBe("idle");
-    expect(String(a.text)).not.toContain(zh.railSolutionReady);
+    expect(String(a.text)).not.toContain(t.railSolutionReady);
     // server side: the registry's adopted_at arrives as a transition
     const byServer = run([finished({ transition: "adopted", adopted_at: "2026-09-18T17:30:00", ts: T0 + 2640 })], base);
     expect(byServer.backgroundJobs[JOB].adopted).toBe(true);
-    expect(systemText(jobRows(byServer)[0])).toContain(zh.bgAdopted);
+    expect(systemText(jobRows(byServer)[0])).toContain(t.bgAdopted);
     expect(jobRows(byServer)).toHaveLength(1);
   });
 
   it("failure states are named, not dressed up", () => {
     const killed = run([bg("killed", { running: false, stage: "killed", elapsed_s: 1500, error: "shelxt hit the 600 s limit after 1500 s, but PHASING HAD ALREADY FINISHED", ts: T0 + 1500 })]);
     const text = systemText(jobRows(killed)[0]);
-    expect(text).toContain(zh.bgStageKilled);
+    expect(text).toContain(t.bgStageKilled);
     expect(text).toContain("25 分");
     expect(text).toContain("shelxt hit the 600 s limit");
     expect(jobRows(killed)[0].phase).toBe("failed");
     const died = run([bg("died", { running: false, stage: "died", elapsed_s: 300, ts: T0 + 300 })]);
-    expect(systemText(jobRows(died)[0])).toContain(zh.bgStageDied);
+    expect(systemText(jobRows(died)[0])).toContain(t.bgStageDied);
   });
 
   it("a transcript bootstrap with the live snapshot appended rebuilds the same single row", () => {
@@ -218,7 +218,7 @@ describe("background_job events", () => {
     expect(jobRows(st)).toHaveLength(1);
     expect(st.backgroundJobs[JOB].running).toBe(false);
     expect(st.backgroundJobs[JOB].hasSolution).toBe(true);
-    expect(systemText(jobRows(st)[0])).toContain(zh.bgStageFinished);
+    expect(systemText(jobRows(st)[0])).toContain(t.bgStageFinished);
     // the bootstrap closed nothing as "no result": the row is a system row
     expect(jobRows(st)[0].phase).toBe("completed");
   });

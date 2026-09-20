@@ -1,7 +1,7 @@
 /** Slim invisible drag strip straddling a panel border; shows an accent line
  * on hover/drag. Keyboard users can resize with arrow keys (8 px steps). */
 import { cx } from "../lib/format";
-import { zh } from "../lib/zh";
+import { t } from "../lib/i18n";
 import type { ResizableEdge } from "./useResizable";
 
 export function ResizeHandle({
@@ -16,7 +16,7 @@ export function ResizeHandle({
     <div
       role="separator"
       aria-orientation="vertical"
-      aria-label={zh.resizeHandle}
+      aria-label={t.resizeHandle}
       tabIndex={-1}
       {...resizable.handleProps}
       className={cx(

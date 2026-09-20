@@ -15,7 +15,7 @@ import { Spinner } from "../../components/ui";
 import { adpAnomalies } from "../../lib/adp";
 import { elementColor, partColor } from "../../lib/ellipsoid";
 import { cx } from "../../lib/format";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { useCrystal } from "../../state/CrystalProvider";
 import {
   DEFAULT_PACK_RANGE,
@@ -46,37 +46,37 @@ export const OVERLAY_GROUPS: {
   items: { id: OverlayId; label: string; title?: string }[];
 }[] = [
   {
-    label: zh.grpDisplay,
+    label: t.grpDisplay,
     items: [
-      { id: "labels", label: zh.ovLabels },
-      { id: "polyhedra", label: zh.ovPolyhedra },
-      { id: "parts", label: zh.ovParts, title: zh.ovPartsTip },
-      { id: "pub", label: zh.ovPub, title: zh.ovPubTip },
+      { id: "labels", label: t.ovLabels },
+      { id: "polyhedra", label: t.ovPolyhedra },
+      { id: "parts", label: t.ovParts, title: t.ovPartsTip },
+      { id: "pub", label: t.ovPub, title: t.ovPubTip },
     ],
   },
   {
-    label: zh.grpRelations,
-    title: zh.grpRelationsTip,
+    label: t.grpRelations,
+    title: t.grpRelationsTip,
     items: [
-      { id: "hbonds", label: zh.ovHbonds, title: zh.ovHbondsTip },
-      { id: "ixPipi", label: zh.ovPipi, title: zh.ovPipiTip },
-      { id: "ixChpi", label: zh.ovChpi, title: zh.ovChpiTip },
-      { id: "ixChx", label: zh.ovChx, title: zh.ovChxTip },
-      { id: "ixHalogen", label: zh.ovHalogen, title: zh.ovHalogenTip },
-      { id: "ixAnionPi", label: zh.ovAnionPi, title: zh.ovAnionPiTip },
-      { id: "contacts", label: zh.ovContacts, title: zh.ovContactsTip },
-      { id: "stubs", label: zh.ovStubs, title: zh.ovStubsTip },
-      { id: "symm", label: zh.ovSymm, title: zh.ovSymmTip },
-      { id: "net", label: zh.ovNet, title: zh.ovNetTip },
+      { id: "hbonds", label: t.ovHbonds, title: t.ovHbondsTip },
+      { id: "ixPipi", label: t.ovPipi, title: t.ovPipiTip },
+      { id: "ixChpi", label: t.ovChpi, title: t.ovChpiTip },
+      { id: "ixChx", label: t.ovChx, title: t.ovChxTip },
+      { id: "ixHalogen", label: t.ovHalogen, title: t.ovHalogenTip },
+      { id: "ixAnionPi", label: t.ovAnionPi, title: t.ovAnionPiTip },
+      { id: "contacts", label: t.ovContacts, title: t.ovContactsTip },
+      { id: "stubs", label: t.ovStubs, title: t.ovStubsTip },
+      { id: "symm", label: t.ovSymm, title: t.ovSymmTip },
+      { id: "net", label: t.ovNet, title: t.ovNetTip },
     ],
   },
   {
-    label: zh.grpEvidence,
-    title: zh.grpEvidenceTip,
+    label: t.grpEvidence,
+    title: t.grpEvidenceTip,
     items: [
-      { id: "map", label: zh.ovMap },
-      { id: "peaks", label: zh.ovPeaks, title: zh.ovPeaksTip },
-      { id: "voids", label: zh.ovVoids, title: zh.ovVoidsTip },
+      { id: "map", label: t.ovMap },
+      { id: "peaks", label: t.ovPeaks, title: t.ovPeaksTip },
+      { id: "voids", label: t.ovVoids, title: t.ovVoidsTip },
     ],
   },
 ];
@@ -213,10 +213,10 @@ function Line({
 }
 
 const DRAW_STYLES: { id: DrawStyle; label: string; title: string }[] = [
-  { id: "wire", label: zh.drawWire, title: zh.drawWireTip },
-  { id: "ball", label: zh.drawBall, title: zh.drawBallTip },
-  { id: "ellipsoid", label: zh.drawEllipsoid, title: zh.drawEllipsoidTip },
-  { id: "space", label: zh.drawSpace, title: zh.drawSpaceTip },
+  { id: "wire", label: t.drawWire, title: t.drawWireTip },
+  { id: "ball", label: t.drawBall, title: t.drawBallTip },
+  { id: "ellipsoid", label: t.drawEllipsoid, title: t.drawEllipsoidTip },
+  { id: "space", label: t.drawSpace, title: t.drawSpaceTip },
 ];
 
 const SUPER_NS = [2, 3, 4] as const;
@@ -303,9 +303,9 @@ export function extentItems(s: ExtentState, act: ExtentActions): ExtentItem[] {
   const items: ExtentItem[] = [
     {
       id: "asu",
-      label: zh.modeAsu,
+      label: t.modeAsu,
       hint: "fuse",
-      sectionLabel: zh.extentSecRange,
+      sectionLabel: t.extentSecRange,
       active: s.mode === "asu" && !grownAny,
       run: () => {
         act.setMode("asu");
@@ -316,7 +316,7 @@ export function extentItems(s: ExtentState, act: ExtentActions): ExtentItem[] {
     },
     {
       id: "cell",
-      label: zh.modeCell,
+      label: t.modeCell,
       hint: "pack cell",
       active: s.mode === "cell",
       run: () => act.setMode("cell"),
@@ -325,7 +325,7 @@ export function extentItems(s: ExtentState, act: ExtentActions): ExtentItem[] {
   for (const n of SUPER_NS) {
     items.push({
       id: `super${n}`,
-      label: `${zh.modeSuper} ${n}×${n}×${n}`,
+      label: `${t.modeSuper} ${n}×${n}×${n}`,
       hint: `pack 0 ${n}`,
       active: s.mode === "super" && s.superN === n,
       // setSuperN alone is a no-op when n is already the stored edge (the
@@ -340,7 +340,7 @@ export function extentItems(s: ExtentState, act: ExtentActions): ExtentItem[] {
   for (const r of PACK_RADII) {
     items.push({
       id: `radius${r}`,
-      label: `${zh.modeRadius} ${r} Å · ${centre ?? zh.packRadiusAsu}`,
+      label: `${t.modeRadius} ${r} Å · ${centre ?? t.packRadiusAsu}`,
       hint: `pack ${r}`,
       active: s.mode === "radius" && s.packRadius === r && s.packCenter === centre,
       run: () => act.setPackRadius(r, centre),
@@ -348,7 +348,7 @@ export function extentItems(s: ExtentState, act: ExtentActions): ExtentItem[] {
   }
   items.push({
     id: "range",
-    label: `${zh.modeRange} ${rangeLabel(DEFAULT_PACK_RANGE)}`,
+    label: `${t.modeRange} ${rangeLabel(DEFAULT_PACK_RANGE)}`,
     hint: "pack -0.5 1.5",
     active: s.mode === "range",
     run: () => act.setPackRange(DEFAULT_PACK_RANGE),
@@ -356,35 +356,35 @@ export function extentItems(s: ExtentState, act: ExtentActions): ExtentItem[] {
   // 动作 - what is done to the slice on screen (Olex2 grow / fuse / compaq)
   items.push({
     id: "grow1",
-    label: zh.growShell,
+    label: t.growShell,
     hint: "grow -s",
     section: true,
-    sectionLabel: zh.extentSecAction,
+    sectionLabel: t.extentSecAction,
     disabled: atMax,
     run: () => act.setGrowLevel(Math.min(MAX_GROW_LEVEL, s.growLevel + 1) as GrowLevel),
   });
   items.push({
     id: "growAll",
-    label: zh.growAll,
+    label: t.growAll,
     hint: "grow",
-    title: zh.growAllTip,
+    title: t.growAllTip,
     active: s.growAll,
     run: () => act.setGrowAll(!s.growAll),
   });
   items.push({
     id: "complete",
-    label: zh.growComplete,
+    label: t.growComplete,
     hint: "grow -w",
-    title: zh.growCompleteTip,
+    title: t.growCompleteTip,
     active: s.complete,
     run: () => act.setComplete(!s.complete),
   });
   if (grownAny) {
     items.push({
       id: "fuse",
-      label: zh.fuse,
+      label: t.fuse,
       hint: "fuse",
-      title: zh.fuseTip,
+      title: t.fuseTip,
       run: () => {
         act.setGrowLevel(0);
         act.setComplete(false);
@@ -395,9 +395,9 @@ export function extentItems(s: ExtentState, act: ExtentActions): ExtentItem[] {
   }
   items.push({
     id: "assemble",
-    label: zh.assembleAsu,
+    label: t.assembleAsu,
     hint: "compaq -a",
-    title: zh.assembleAsuTip,
+    title: t.assembleAsuTip,
     section: true,
     run: act.assemble,
   });
@@ -443,7 +443,7 @@ export function ExtentMenu({ onAssemble }: { onAssemble: () => void }) {
           type="button"
           aria-haspopup="menu"
           aria-expanded={open}
-          title={zh.extentMenuTip}
+          title={t.extentMenuTip}
           onClick={() => setOpen((v) => !v)}
           className={cx(
             "flex h-7 items-center gap-1 rounded-pill border border-line bg-bg/90 py-1 pr-1.5 pl-2.5 text-xs font-medium text-ink shadow-sm backdrop-blur-sm transition-colors hover:bg-raised",
@@ -458,7 +458,7 @@ export function ExtentMenu({ onAssemble }: { onAssemble: () => void }) {
         <button
           type="button"
           disabled={atMax}
-          title={atMax ? zh.growAtMaxTip : zh.growOnceTip}
+          title={atMax ? t.growAtMaxTip : t.growOnceTip}
           onClick={() => setGrowLevel((state.growLevel + 1) as GrowLevel)}
           className={cx(
             "h-7 rounded-pill border px-2.5 text-xs font-medium shadow-sm backdrop-blur-sm transition-colors",
@@ -467,7 +467,7 @@ export function ExtentMenu({ onAssemble }: { onAssemble: () => void }) {
               : "border-accent/40 bg-accent/10 text-accent hover:bg-accent/20",
           )}
         >
-          ＋{zh.growOnce}
+          ＋{t.growOnce}
         </button>
       </div>
       {open && (
@@ -537,8 +537,8 @@ function MapControls() {
       <span className="flex shrink-0 items-center rounded-md bg-raised/70 p-0.5">
         {(
           [
-            ["fofc", zh.mapKindFofc, zh.mapKindFofcTip],
-            ["2fofc", zh.mapKind2fofc, zh.mapKind2fofcTip],
+            ["fofc", t.mapKindFofc, t.mapKindFofcTip],
+            ["2fofc", t.mapKind2fofc, t.mapKind2fofcTip],
           ] as const
         ).map(([kind, label, tip]) => (
           <button
@@ -560,7 +560,7 @@ function MapControls() {
         ))}
       </span>
       <span className="shrink-0">
-        {zh.isoLabel} {state.mapKind === "fofc" ? "±" : ""}
+        {t.isoLabel} {state.mapKind === "fofc" ? "±" : ""}
         {(isoDraft ?? state.iso).toFixed(2)}
       </span>
       <input
@@ -610,11 +610,11 @@ function DrawPanel() {
   }, [state.scene]);
 
   const tooBig = (state.scene?.atoms.length ?? 0) > MAX_ELLIPSOID_ATOMS;
-  const cappedNote = `${zh.ovCapped}（${state.scene?.atoms.length} > ${MAX_ELLIPSOID_ATOMS}）`;
+  const cappedNote = `${t.ovCapped}${t.paren(`${state.scene?.atoms.length} > ${MAX_ELLIPSOID_ATOMS}`)}`;
 
   return (
     <>
-      <Line label={zh.drawStyleLabel}>
+      <Line label={t.drawStyleLabel}>
         <SegGroup
           values={DRAW_STYLES.map((d) => d.id)}
           value={state.drawStyle}
@@ -627,7 +627,7 @@ function DrawPanel() {
         />
       </Line>
       {elems.length > 0 && (
-        <Line label={zh.elemLabel} title={zh.elemTip}>
+        <Line label={t.elemLabel} title={t.elemTip}>
           {elems.map(({ elem, count }) => {
             const hidden = state.hiddenElems.includes(elem);
             return (
@@ -658,7 +658,7 @@ function DrawPanel() {
           })}
         </Line>
       )}
-      <Line label={zh.grpDisplay}>
+      <Line label={t.grpDisplay}>
         {OVERLAY_GROUPS[0].items.map((o) => (
           <Pill
             key={o.id}
@@ -671,7 +671,7 @@ function DrawPanel() {
         ))}
       </Line>
       {parts.length > 0 && (
-        <Line label={zh.partFilterLabel}>
+        <Line label={t.partFilterLabel}>
           {[null, ...parts].map((entry) => {
             const p = entry === null ? null : entry.p;
             const on = state.partFilter === p;
@@ -691,7 +691,7 @@ function DrawPanel() {
                 )}
               >
                 {p === null
-                  ? zh.partAll
+                  ? t.partAll
                   : `PART ${p}${tint && entry !== null ? ` · ${entry.occ.toFixed(2)}` : ""}`}
               </button>
             );
@@ -705,7 +705,7 @@ function DrawPanel() {
 function RelationsPanel() {
   const { state, toggleOverlay } = useCrystal();
   return (
-    <Line label="" title={zh.grpRelationsTip}>
+    <Line label="" title={t.grpRelationsTip}>
       {OVERLAY_GROUPS[1].items.map((o) => (
         <Pill
           key={o.id}
@@ -732,13 +732,13 @@ function EvidencePanel() {
   };
   return (
     <>
-      <Line label="" title={zh.grpEvidenceTip}>
+      <Line label="" title={t.grpEvidenceTip}>
         {OVERLAY_GROUPS[2].items.map((o) => (
           <Pill
             key={o.id}
             on={state.overlays[o.id] && !(noReflections && o.id !== "voids")}
             label={o.label}
-            title={noReflections && o.id !== "voids" ? "该节点反射来源未确认" : o.title}
+            title={noReflections && o.id !== "voids" ? t.crystal.tbReflectionsUnconfirmed : o.title}
             disabled={noReflections && o.id !== "voids"}
             busy={busyOf[o.id] && state.overlays[o.id] && !(noReflections && o.id !== "voids")}
             onClick={() => toggleOverlay(o.id)}
@@ -746,7 +746,7 @@ function EvidencePanel() {
         ))}
       </Line>
       {state.overlays.map && !noReflections && <MapControls />}
-      {noReflections && <div className="text-xs text-ink-3">{structureOnly ? zh.structureNeedsReflections : "反射来源未确认；仍可查看结构"}</div>}
+      {noReflections && <div className="text-xs text-ink-3">{structureOnly ? t.structureNeedsReflections : t.crystal.tbReflectionsUnconfirmedNote}</div>}
     </>
   );
 }
@@ -773,26 +773,26 @@ function ViewPanel() {
       <Line label="">
         <Pill
           on={state.slab !== null}
-          label={zh.ovSlab}
-          title={zh.ovSlabTip}
+          label={t.ovSlab}
+          title={t.ovSlabTip}
           onClick={() => {
             setSlabDraft(null);
             setSlab(state.slab === null ? { axis: 2, center: 0.25, thickness: 0.3 } : null);
           }}
         />
-        <Pill on={state.overlays.spin} label={zh.ovSpin} onClick={() => toggleOverlay("spin")} />
+        <Pill on={state.overlays.spin} label={t.ovSpin} onClick={() => toggleOverlay("spin")} />
         <button type="button" data-comparison-entry="parent"
           disabled={!!state.comparison || !state.nodes.find((node) => node.id === state.viewNode)?.parent}
           onClick={() => beginComparison()}
           className="h-7 rounded-pill border border-line px-2 text-xs text-ink-2 hover:bg-raised disabled:cursor-not-allowed disabled:opacity-40">
-          与父节点对比
+          {t.crystal.tbCompareParent}
         </button>
       </Line>
-      <Line label="相机" title="相机远雾与前后裁切；不改变晶体或分数剖面">
+      <Line label={t.crystal.tbCamera} title={t.crystal.tbCameraTip}>
         <Pill
           on={state.viewDepth.fog}
-          label="远雾"
-          title="仅淡化远处显示，不是景深"
+          label={t.crystal.tbFog}
+          title={t.crystal.tbFogTip}
           onClick={() => setViewDepth({ fog: !state.viewDepth.fog })}
         />
         <button
@@ -805,16 +805,16 @@ function ViewPanel() {
           onClick={resetViewDepth}
           className="h-6 rounded-pill border border-line px-2 text-2xs font-medium text-ink-2 transition-colors hover:bg-raised hover:text-ink disabled:cursor-not-allowed disabled:opacity-40"
         >
-          重置
+          {t.crystal.tbReset}
         </button>
       </Line>
       <div className="flex items-center gap-2 text-2xs text-ink-3">
         <span className="w-17 shrink-0 tabular-nums">
-          前后 {Math.round(state.viewDepth.clip * 100)}%
+          {t.crystal.tbClip(Math.round(state.viewDepth.clip * 100))}
         </span>
         <input
-          aria-label="前后裁切"
-          title="100% 显示全部原子；降低后从镜头前后对称裁切"
+          aria-label={t.crystal.tbClipAria}
+          title={t.crystal.tbClipTip}
           type="range"
           min={VIEW_CLIP_MIN * 100}
           max={VIEW_CLIP_MAX * 100}
@@ -826,10 +826,10 @@ function ViewPanel() {
         {state.viewDepth.fog && (
           <>
             <span className="shrink-0 tabular-nums">
-              雾起 {Math.round(state.viewDepth.fogStart * 100)}%
+              {t.crystal.tbFogStart(Math.round(state.viewDepth.fogStart * 100))}
             </span>
             <input
-              aria-label="远雾起点"
+              aria-label={t.crystal.tbFogStartAria}
               type="range"
               min={VIEW_FOG_START_MIN * 100}
               max={VIEW_FOG_START_MAX * 100}
@@ -862,7 +862,7 @@ function ViewPanel() {
             ))}
           </span>
           <span className="shrink-0">
-            {zh.slabPos} {(slabDraft?.center ?? state.slab.center).toFixed(2)}
+            {t.slabPos} {(slabDraft?.center ?? state.slab.center).toFixed(2)}
           </span>
           <input
             type="range"
@@ -880,7 +880,7 @@ function ViewPanel() {
             className="h-1 min-w-0 flex-1 accent-(--color-accent)"
           />
           <span className="shrink-0">
-            {zh.slabThick} {(slabDraft?.thickness ?? state.slab.thickness).toFixed(2)}
+            {t.slabThick} {(slabDraft?.thickness ?? state.slab.thickness).toFixed(2)}
           </span>
           <input
             type="range"
@@ -908,10 +908,10 @@ function ViewPanel() {
 type PanelId = "draw" | "rel" | "ev" | "view";
 
 const PANELS: { id: PanelId; label: string; title?: string }[] = [
-  { id: "draw", label: zh.grpDraw },
-  { id: "rel", label: zh.grpRelations, title: zh.grpRelationsTip },
-  { id: "ev", label: zh.grpEvidence, title: zh.grpEvidenceTip },
-  { id: "view", label: zh.grpView },
+  { id: "draw", label: t.grpDraw },
+  { id: "rel", label: t.grpRelations, title: t.grpRelationsTip },
+  { id: "ev", label: t.grpEvidence, title: t.grpEvidenceTip },
+  { id: "view", label: t.grpView },
 ];
 
 function IconButton({
@@ -1028,7 +1028,7 @@ export function FloatingBar({
             <Pill
               on
               tone="warn"
-              title={`${zh.adpBadgeTip}\n${anomalies.map((x) => x.atom.label).join(" ")}`}
+              title={`${t.adpBadgeTip}\n${anomalies.map((x) => x.atom.label).join(" ")}`}
               label={`⚠ ${anomalies.length} ADP`}
               onClick={cycleAnomaly}
             />
@@ -1036,24 +1036,24 @@ export function FloatingBar({
           {state.diffVs !== null && (
             <Pill
               on
-              title={zh.compareClearTip}
+              title={t.compareClearTip}
               label={
                 <span className="font-mono">
-                  {zh.compareBaselineChip} {state.diffVs} ×
+                  {t.compareBaselineChip} {state.diffVs} ×
                 </span>
               }
               onClick={() => setDiffVs(null)}
             />
           )}
-          <IconButton title={zh.askWithViewTip} tone="accent" onClick={onAskWithView}
+          <IconButton title={t.askWithViewTip} tone="accent" onClick={onAskWithView}
             disabled={!sceneReady}>
             <IconCamera size={15} />
           </IconButton>
-          <IconButton title={zh.exportPngTip} onClick={onExport}
+          <IconButton title={t.exportPngTip} onClick={onExport}
             disabled={!sceneReady}>
             <IconDownload size={15} />
           </IconButton>
-          <IconButton title={zh.resetView} onClick={onResetView}>
+          <IconButton title={t.resetView} onClick={onResetView}>
             <IconRefresh size={15} />
           </IconButton>
         </span>

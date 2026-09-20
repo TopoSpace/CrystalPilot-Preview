@@ -10,7 +10,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { projectsStatus } from "../lib/wbApi";
 import type { ProjectStatus } from "../lib/wbTypes";
-import { zh } from "../lib/zh";
+import { t } from "../lib/i18n";
 import { useWorkbench } from "../state/WorkbenchProvider";
 import { IconFolder } from "./icons";
 import { projectHomeUrl, projectLabel, RECENT_PROJECTS_LIMIT } from "./urls";
@@ -18,11 +18,11 @@ import { projectHomeUrl, projectLabel, RECENT_PROJECTS_LIMIT } from "./urls";
 function relTime(ts: number | null | undefined): string | null {
   if (!ts) return null;
   const mins = Math.round((Date.now() / 1000 - ts) / 60);
-  if (mins < 1) return "刚刚";
-  if (mins < 60) return `${mins} 分钟前`;
+  if (mins < 1) return t.shell.relJustNow;
+  if (mins < 60) return t.shell.relMinutesAgo(mins);
   const h = Math.round(mins / 60);
-  if (h < 24) return `${h} 小时前`;
-  return `${Math.round(h / 24)} 天前`;
+  if (h < 24) return t.shell.relHoursAgo(h);
+  return t.shell.relDaysAgo(Math.round(h / 24));
 }
 
 function Metric({
@@ -85,7 +85,7 @@ function StatusCard({ p }: { p: ProjectStatus }) {
           {projectLabel(p.path, p.display_name)}
         </span>
         <span className="shrink-0 text-2xs text-ink-3">
-          {p.busy ? zh.running : when}
+          {p.busy ? t.running : when}
         </span>
       </div>
 
@@ -96,19 +96,19 @@ function StatusCard({ p }: { p: ProjectStatus }) {
               high-angle data), and a green/plain split at some cutoff
               would put a verdict on a number that needs context */}
           <Metric label="R1" value={r1 === null ? "—" : r1.toFixed(4)} />
-          <Metric label={zh.statusNodes} value={String(p.n_nodes)} />
+          <Metric label={t.statusNodes} value={String(p.n_nodes)} />
           <Metric
-            label={zh.statusAlertsA}
+            label={t.statusAlertsA}
             value={alertsA === null ? "—" : String(alertsA)}
             tone={alertsA ? "danger" : alertsA === 0 ? "ok" : undefined}
           />
           <Metric
-            label={zh.statusDeliveries}
+            label={t.statusDeliveries}
             value={String(p.n_deliveries ?? 0)}
           />
         </div>
       ) : (
-        <div className="text-2xs text-ink-3">{zh.statusNoWork}</div>
+        <div className="text-2xs text-ink-3">{t.statusNoWork}</div>
       )}
 
       {p.last_title && (
@@ -142,7 +142,7 @@ export function ProjectStatusBoard() {
     <div className="mt-10 text-left">
       <div className="flex items-center gap-2 px-1">
         <span className="text-xs font-medium text-ink-3">
-          {zh.statusBoard}
+          {t.statusBoard}
         </span>
         <button
           type="button"
@@ -152,7 +152,7 @@ export function ProjectStatusBoard() {
           }}
           className="ml-auto text-2xs text-ink-3 transition-colors hover:text-ink-2"
         >
-          {zh.statusRefresh}
+          {t.statusRefresh}
         </button>
       </div>
       <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">

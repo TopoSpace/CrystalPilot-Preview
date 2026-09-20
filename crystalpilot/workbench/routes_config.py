@@ -19,6 +19,7 @@ from fastapi import APIRouter, Body, HTTPException
 from pydantic import BaseModel
 
 from . import codex_config, kernel, model_catalog, models, providers
+from .i18n import msg
 from .routes import _by_thread_or_404, _session_or_404, pool
 
 router = APIRouter(prefix="/api")
@@ -312,7 +313,7 @@ def pick_folder(req: PickFolder) -> dict:
     if os.name != "nt":
         raise HTTPException(501, "the native folder picker is Windows-only here")
     env = dict(os.environ)
-    env["CP_PICK_TITLE"] = (req.title or "选择项目文件夹")[:200]
+    env["CP_PICK_TITLE"] = (req.title or msg("选择项目文件夹", "Choose a project folder"))[:200]
     env["CP_PICK_INITIAL"] = req.initial or ""
     t0 = time.time()
     try:

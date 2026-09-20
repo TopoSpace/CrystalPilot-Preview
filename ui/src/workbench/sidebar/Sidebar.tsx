@@ -19,7 +19,7 @@ import type { RecentProject, ThreadMeta } from "../../lib/wbTypes";
 import { cx } from "../../lib/format";
 import { listThreads, projectsStatus, renameThread } from "../../lib/wbApi";
 import type { ProjectStatus } from "../../lib/wbTypes";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { useWorkbench } from "../../state/WorkbenchProvider";
 import {
   IconChevronRight,
@@ -85,7 +85,7 @@ function ProjectStatusLine({ status }: { status: ProjectStatus | null }) {
   if (!status) return null;
   if (!status.n_nodes) {
     return (
-      <div className="pl-[34px] text-2xs text-ink-3">{zh.sidebarStatusNoWork}</div>
+      <div className="pl-[34px] text-2xs text-ink-3">{t.sidebarStatusNoWork}</div>
     );
   }
   const r1 = status.r1 ?? status.r1_best ?? null;
@@ -100,13 +100,13 @@ function ProjectStatusLine({ status }: { status: ProjectStatus | null }) {
       )}
       <span aria-hidden>·</span>
       <span>
-        {status.n_nodes} {zh.sidebarStatusNodes}
+        {status.n_nodes} {t.sidebarStatusNodes}
       </span>
       {a !== null && (
         <>
           <span aria-hidden>·</span>
           <span className={a > 0 ? "font-medium text-danger" : undefined}>
-            {zh.sidebarStatusAlertsA} {a}
+            {t.sidebarStatusAlertsA} {a}
           </span>
         </>
       )}
@@ -171,8 +171,8 @@ function ThreadRow({
         <input
           ref={inputRef}
           value={draft}
-          placeholder={zh.threadRenamePlaceholder}
-          aria-label={zh.renameThread}
+          placeholder={t.threadRenamePlaceholder}
+          aria-label={t.renameThread}
           onChange={(e) => setDraft(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter") void commit();
@@ -201,19 +201,19 @@ function ThreadRow({
       >
         <span className="min-w-0 flex-1 truncate text-left">{thread.title}</span>
         {thread.busy === true && (
-          <span title={zh.running}>
+          <span title={t.running}>
             <StatusDot tone="green" pulse size={7} />
           </span>
         )}
       </button>
       <button
         type="button"
-        title={zh.threadRenameTip}
-        aria-label={zh.renameThread}
+        title={t.threadRenameTip}
+        aria-label={t.renameThread}
         onClick={begin}
         className="h-6 shrink-0 rounded-md px-1.5 text-2xs text-ink-3 opacity-0 transition-opacity group-hover:opacity-100 hover:bg-bg hover:text-ink focus:opacity-100"
       >
-        {zh.renameThread}
+        {t.renameThread}
       </button>
     </div>
   );
@@ -237,13 +237,13 @@ function ThreadList({
     return (
       <div className="flex items-center gap-1.5 py-1.5 pl-[34px] text-xs text-ink-3">
         <Spinner className="h-3 w-3" />
-        {zh.loading}
+        {t.loading}
       </div>
     );
   }
   if (threads.length === 0) {
     return (
-      <div className="px-2 py-1.5 pl-[34px] text-xs text-ink-3">{zh.noThreads}</div>
+      <div className="px-2 py-1.5 pl-[34px] text-xs text-ink-3">{t.noThreads}</div>
     );
   }
   return (
@@ -304,8 +304,8 @@ function CurrentProjectRow({
         <input
           ref={inputRef}
           value={draft}
-          placeholder={zh.renamePlaceholder}
-          aria-label={zh.renameProject}
+          placeholder={t.renamePlaceholder}
+          aria-label={t.renameProject}
           onChange={(e) => setDraft(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter") void commit();
@@ -335,20 +335,20 @@ function CurrentProjectRow({
       </button>
       <button
         type="button"
-        title={zh.openProjectHome}
+        title={t.openProjectHome}
         onClick={onOpenHome}
         className="h-6 shrink-0 rounded-md px-1.5 text-2xs text-ink-3 opacity-0 transition-opacity group-hover:opacity-100 hover:bg-bg hover:text-ink focus:opacity-100"
       >
-        {zh.newThread}
+        {t.newThread}
       </button>
       <button
         type="button"
-        title={zh.renameProjectTip}
-        aria-label={zh.renameProject}
+        title={t.renameProjectTip}
+        aria-label={t.renameProject}
         onClick={begin}
         className="h-6 shrink-0 rounded-md px-1.5 text-2xs text-ink-3 opacity-0 transition-opacity group-hover:opacity-100 hover:bg-bg hover:text-ink focus:opacity-100"
       >
-        {zh.renameProject}
+        {t.renameProject}
       </button>
     </div>
   );
@@ -389,20 +389,20 @@ function RecentRow({
         </button>
         <button
           type="button"
-          title={zh.openThisProjectTip}
+          title={t.openThisProjectTip}
           onClick={() => onOpenProject(row.path)}
           className="h-6 shrink-0 rounded-md px-1.5 text-2xs text-ink-3 opacity-0 transition-opacity group-hover:opacity-100 hover:bg-bg hover:text-ink focus:opacity-100"
         >
-          {zh.openThisProject}
+          {t.openThisProject}
         </button>
         <button
           type="button"
-          title={hidden ? zh.unhideProject : zh.hideProjectTip}
-          aria-label={hidden ? zh.unhideProject : zh.hideProject}
+          title={hidden ? t.unhideProject : t.hideProjectTip}
+          aria-label={hidden ? t.unhideProject : t.hideProject}
           onClick={() => onToggleHidden(row.path)}
           className="h-6 shrink-0 rounded-md px-1.5 text-2xs text-ink-3 opacity-0 transition-opacity group-hover:opacity-100 hover:bg-bg hover:text-ink focus:opacity-100"
         >
-          {hidden ? zh.unhideProject : zh.hideProject}
+          {hidden ? t.unhideProject : t.hideProject}
         </button>
       </div>
       {open && (
@@ -437,7 +437,7 @@ function RecentList({
   const { primary, more } = splitRecent(rows, hidden, RECENT_PROJECTS_LIMIT);
   return (
     <div className="mt-5">
-      <div className="px-2 pb-1 text-xs font-medium text-ink-3">{zh.recentProjects}</div>
+      <div className="px-2 pb-1 text-xs font-medium text-ink-3">{t.recentProjects}</div>
       <div className="flex flex-col gap-px" data-testid="recent-primary">
         {primary.map((r) => (
           <RecentRow
@@ -456,12 +456,12 @@ function RecentList({
           <button
             type="button"
             aria-expanded={moreOpen}
-            title={zh.moreProjectsTip}
+            title={t.moreProjectsTip}
             onClick={toggleMore}
             className="flex h-7 w-full items-center gap-1.5 rounded-lg px-2 text-xs text-ink-3 transition-colors hover:bg-raised hover:text-ink"
           >
             <span className={cx("text-2xs transition-transform", moreOpen && "rotate-90")}>▶</span>
-            {zh.moreProjects}
+            {t.moreProjects}
             <span className="font-mono text-2xs tabular-nums">{more.length}</span>
           </button>
           {moreOpen && (
@@ -528,7 +528,7 @@ export function Sidebar({ onCollapse, open = true }: { onCollapse?: () => void; 
           <span className="min-w-0 truncate">{brandName}</span>
         </Link>
         {onCollapse && <button type="button" className="chrome-button" onClick={onCollapse}
-          aria-label={zh.sidebarClose} title={zh.sidebarClose} data-testid="sidebar-collapse"><IconPanelLeft size={17} /></button>}
+          aria-label={t.sidebarClose} title={t.sidebarClose} data-testid="sidebar-collapse"><IconPanelLeft size={17} /></button>}
       </div>
 
       {/* new thread */}
@@ -538,14 +538,14 @@ export function Sidebar({ onCollapse, open = true }: { onCollapse?: () => void; 
           data-testid="new-thread"
           title={
             wb.projectPath
-              ? `${zh.newThreadIn} ${projectLabel(wb.projectPath, wb.settings?.display_name)}`
-              : zh.newThreadNoProject
+              ? `${t.newThreadIn} ${projectLabel(wb.projectPath, wb.settings?.display_name)}`
+              : t.newThreadNoProject
           }
           onClick={newThread}
           className="group flex h-8 w-full items-center gap-2.5 rounded-lg px-2 text-base text-ink transition-colors hover:bg-raised"
         >
           <IconCompose size={16} className="text-ink-2" />
-          <span className="flex-1 text-left">{zh.newThread}</span>
+          <span className="flex-1 text-left">{t.newThread}</span>
           <IconPlusCircle size={16} className="text-ink-3" />
         </button>
       </div>
@@ -553,11 +553,11 @@ export function Sidebar({ onCollapse, open = true }: { onCollapse?: () => void; 
       {/* projects */}
       <div className="mt-4 min-h-0 flex-1 overflow-y-auto px-2 pb-2">
         <div className="flex items-center justify-between px-2 pb-1">
-          <span className="text-xs font-medium text-ink-3">{zh.projects}</span>
+          <span className="text-xs font-medium text-ink-3">{t.projects}</span>
           <button
             type="button"
-            title={zh.openProject}
-            aria-label={zh.openProject}
+            title={t.openProject}
+            aria-label={t.openProject}
             onClick={() => setDialogOpen(true)}
             className="flex h-6 w-6 items-center justify-center rounded-md text-ink-3 transition-colors hover:bg-raised hover:text-ink"
           >
@@ -597,7 +597,7 @@ export function Sidebar({ onCollapse, open = true }: { onCollapse?: () => void; 
             className="flex h-8 w-full items-center gap-2.5 rounded-lg px-2 text-base text-ink-2 transition-colors hover:bg-raised hover:text-ink"
           >
             <IconFolder size={16} className="text-ink-3" />
-            {zh.openProject}
+            {t.openProject}
           </button>
         )}
 
@@ -616,11 +616,11 @@ export function Sidebar({ onCollapse, open = true }: { onCollapse?: () => void; 
         <span className="flex h-6 w-6 items-center justify-center rounded-pill bg-raised text-ink-2">
           <IconUser size={14} />
         </span>
-        <span className="flex-1 truncate text-sm text-ink">{zh.localUser}</span>
+        <span className="flex-1 truncate text-sm text-ink">{t.localUser}</span>
         <button
           type="button"
-          title={zh.settings}
-          aria-label={zh.settings}
+          title={t.settings}
+          aria-label={t.settings}
           data-testid="open-settings"
           aria-expanded={wb.settingsDialog.open}
           onClick={() => wb.openSettings()}

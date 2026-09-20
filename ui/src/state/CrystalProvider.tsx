@@ -56,6 +56,7 @@ import {
   type ViewDepthState,
 } from "./crystalReducer";
 import { useThreadOptional } from "./ThreadProvider";
+import { t } from "../lib/i18n";
 import { ComparisonCameras } from "../lib/structureComparison";
 import { useNodeComparison, type NodeComparisonResult } from "./useNodeComparison";
 
@@ -245,7 +246,7 @@ export function CrystalProvider({
     requestAnimationFrame(() => {
       const target = origin.baseline ? document.querySelector<HTMLButtonElement>(`[data-comparison-node="${CSS.escape(origin.baseline)}"]`)
         : document.querySelector<HTMLButtonElement>('[data-comparison-entry="parent"]');
-      (target ?? document.querySelector<HTMLButtonElement>('aside [aria-label="结构工作区页面"] button'))?.focus();
+      (target ?? document.querySelector<HTMLButtonElement>(`aside [aria-label="${t.shell.rightPaneTabs}"] button`))?.focus();
     });
   }, []);
 

@@ -14,8 +14,8 @@ import { liveElapsedS, runningJobLine, runningJobs, unadoptedSolutions } from ".
 import { currentActionText } from "./currentAction";
 import { latestOpenAsk } from "./askCard";
 import { fmtMmSs } from "./format";
-import { STAGE_ZH, stageState, stageTrack, type StageId, type StageState } from "./stages";
-import { zh } from "./zh";
+import { stageState, stageTrack, type StageId, type StageState } from "./stages";
+import { t } from "./i18n";
 
 export const SHIMMER_MUTE_MS = 5 * 60 * 1000;
 
@@ -83,7 +83,7 @@ export function railAction(state: ThreadState, nowMs: number): RailAction {
   if (state.channel === "connecting" && items.length === 0) {
     return {
       kind: "connecting",
-      text: zh.loading,
+      text: t.loading,
       elapsedMs: null,
       muted: false,
       node: null,
@@ -92,7 +92,7 @@ export function railAction(state: ThreadState, nowMs: number): RailAction {
   if (state.channel === "dead" || state.channel === "reconnecting" || state.channel === "recovering") {
     return {
       kind: "disconnected",
-      text: state.channel === "dead" ? zh.channelDead : state.channel === "recovering" ? zh.recovering : zh.reconnecting,
+      text: state.channel === "dead" ? t.channelDead : state.channel === "recovering" ? t.recovering : t.reconnecting,
       elapsedMs: null,
       muted: true,
       node: null,
@@ -101,7 +101,7 @@ export function railAction(state: ThreadState, nowMs: number): RailAction {
   if (hasPendingApproval(items)) {
     return {
       kind: "approval",
-      text: zh.railApproval,
+      text: t.railApproval,
       elapsedMs: null,
       muted: false,
       node: null,
@@ -110,7 +110,7 @@ export function railAction(state: ThreadState, nowMs: number): RailAction {
   if (!state.turn.active && latestOpenAsk(items)) {
     return {
       kind: "question",
-      text: zh.railQuestion,
+      text: t.railQuestion,
       elapsedMs: null,
       muted: true,
       node: null,
@@ -119,7 +119,7 @@ export function railAction(state: ThreadState, nowMs: number): RailAction {
   if (state.compacting) {
     return {
       kind: "compacting",
-      text: zh.railCompacting,
+      text: t.railCompacting,
       elapsedMs: null,
       muted: false,
       node: null,
@@ -150,7 +150,7 @@ export function railAction(state: ThreadState, nowMs: number): RailAction {
     const el = liveElapsedS(job, nowMs);
     return {
       kind: "background",
-      text: `${runningJobLine(job, nowMs)} · ${zh.railBackgroundAfterTurn}`,
+      text: `${runningJobLine(job, nowMs)} · ${t.railBackgroundAfterTurn}`,
       elapsedMs: el === null ? null : Math.round(el * 1000),
       muted: true,
       node: turn?.summary?.nodes.at(-1) ?? null,
@@ -160,7 +160,7 @@ export function railAction(state: ThreadState, nowMs: number): RailAction {
   if (turn === null) {
     return {
       kind: "fresh",
-      text: zh.railFresh,
+      text: t.railFresh,
       elapsedMs: null,
       muted: false,
       node: null,
@@ -170,7 +170,7 @@ export function railAction(state: ThreadState, nowMs: number): RailAction {
   if (turn.phase === "failed" || turn.status === "failed") {
     return {
       kind: "failed",
-      text: zh.railFailed,
+      text: t.railFailed,
       elapsedMs: null,
       muted: false,
       node,
@@ -179,17 +179,17 @@ export function railAction(state: ThreadState, nowMs: number): RailAction {
   if (turn.status === "interrupted") {
     return {
       kind: "interrupted",
-      text: waiting.length > 0 ? `${zh.railInterrupted} · ${zh.railSolutionReady}` : zh.railInterrupted,
+      text: waiting.length > 0 ? `${t.railInterrupted} · ${t.railSolutionReady}` : t.railInterrupted,
       elapsedMs: null,
       muted: false,
       node,
     };
   }
-  const parts: string[] = [zh.railIdle];
+  const parts: string[] = [t.railIdle];
   const d = fmtMmSs(turn.durationMs);
-  if (d) parts.push(`${zh.railLastTurn} ${d}`);
-  if (node) parts.push(`${zh.railNode} ${node}`);
-  if (waiting.length > 0) parts.push(zh.railSolutionReady);
+  if (d) parts.push(`${t.railLastTurn} ${d}`);
+  if (node) parts.push(`${t.railNode} ${node}`);
+  if (waiting.length > 0) parts.push(t.railSolutionReady);
   return {
     kind: "idle",
     text: parts.join(" · "),
@@ -203,7 +203,7 @@ export function railModel(state: ThreadState, nowMs: number): RailModel {
   const info = stageTrack(state.items, state.turn.active ? state.openToolIds : []);
   const stages: RailStage[] = info.stages.map((s) => ({
     id: s.id,
-    label: STAGE_ZH[s.id],
+    label: t.libs.stageNames[s.id],
     state: stageState(s.id, info.current, s.observed),
     nTools: s.nTools,
     turnIds: s.turns.map((t) => t.id),

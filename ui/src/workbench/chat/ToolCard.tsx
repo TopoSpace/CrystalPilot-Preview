@@ -5,7 +5,7 @@ import {
   type ToolChipSpec,
   type ToolHumanized,
 } from "../../lib/toolCards";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { ProcessDetails } from "./ProcessDetails";
 import type { ToolCardItem } from "../../state/threadReducer";
 import { toolGlyph } from "../../lib/activityIcons";
@@ -86,11 +86,11 @@ export function ToolCard({ item }: { item: ToolCardItem }) {
   const h = humanizeTool(item);
   const running = item.status === "running";
   const scientific = isCrystalTool(item);
-  const issue = item.status === "error" ? zh.toolFailed
-    : item.status === "interrupted" ? zh.toolInterrupted
-      : item.status === "no_result" ? zh.toolNoResult : undefined;
-  const boundaryHint = item.status === "no_result" ? zh.toolNoResultHint
-    : item.status === "interrupted" ? zh.toolInterruptedHint : null;
+  const issue = item.status === "error" ? t.toolFailed
+    : item.status === "interrupted" ? t.toolInterrupted
+      : item.status === "no_result" ? t.toolNoResult : undefined;
+  const boundaryHint = item.status === "no_result" ? t.toolNoResultHint
+    : item.status === "interrupted" ? t.toolInterruptedHint : null;
   const sentence = resultSentence(h, item.status);
   const hasBody = h.chips.length > 0 || h.warn !== null || h.body !== null || h.detail !== null;
 
@@ -112,7 +112,7 @@ export function ToolCard({ item }: { item: ToolCardItem }) {
         <span className={scientific ? "activity-title scientific-title" : "activity-title"}>{h.title}</span>
         {!running && sentence && <span className="activity-result"> · {sentence}</span>}
       </ActivitySummary>
-      <span className="sr-only">{running ? zh.toolRunning : issue ?? zh.toolDone}</span>
+      <span className="sr-only">{running ? t.toolRunning : issue ?? t.toolDone}</span>
       <div className="activity-body">
         {item.server && item.server !== "crystalpilot" && <div className="text-xs text-ink-3">{item.server}</div>}
         {running && item.progressLine && <div className="text-sm text-ink-2">{item.progressLine}</div>}
@@ -125,7 +125,7 @@ export function ToolCard({ item }: { item: ToolCardItem }) {
         {h.detail !== null && <div className="text-sm leading-relaxed text-ink-2">{h.detail}</div>}
         {hasBody ? (
           <details onToggle={(event) => keepFocusOnSummary(event.currentTarget)}>
-            <summary className="detail-toggle">{zh.technicalDetails}</summary>
+            <summary className="detail-toggle">{t.technicalDetails}</summary>
             <MonoBlock text={rawDetails(item)} wrapClassName="mt-2" className="activity-output" />
           </details>
         ) : <MonoBlock text={rawDetails(item)} className="activity-output" />}

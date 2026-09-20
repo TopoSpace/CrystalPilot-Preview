@@ -22,7 +22,7 @@ import { metricDelta as deltaOf } from "../../lib/metricDelta";
 import { comparableMetric, signedDifference } from "../../lib/structureComparison";
 import { structureQuote } from "../../lib/quote";
 import { formulaCount, hillFormula } from "../../lib/formula";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { useComposerDraft } from "../../state/ComposerDraft";
 import { useCrystal } from "../../state/CrystalProvider";
 import { useThreadOptional } from "../../state/ThreadProvider";
@@ -113,7 +113,7 @@ function KeyStat({
       {changed && (
         <span
           className={cx("font-mono text-2xs tabular-nums", improved ? "text-ok" : worsened ? "text-danger" : "text-ink-3")}
-          title={`${zh.headerVsParent} ${(prev as number).toFixed(digits)} · ${comparable ? "条件可比" : "条件未明或不同，仅显示数值变化"}`}
+          title={`${t.headerVsParent} ${(prev as number).toFixed(digits)} · ${comparable ? t.crystal.hdrComparable : t.crystal.hdrNotComparable}`}
         >
           {direction === "up" ? "▲" : direction === "down" ? "▼" : ""}
           {direction ? Math.abs((cur as number) - (prev as number)).toFixed(digits) : signedDifference(cur, prev, digits)}
@@ -176,7 +176,7 @@ function RFactor({
             "font-mono text-2xs tabular-nums",
             improved ? "text-ok" : worsened ? "text-danger" : "text-ink-3",
           )}
-          title={`${zh.headerVsParent} ${(prev as number).toFixed(digits)} · ${comparable ? "条件可比" : "条件未明或不同，仅显示数值变化"}`}
+          title={`${t.headerVsParent} ${(prev as number).toFixed(digits)} · ${comparable ? t.crystal.hdrComparable : t.crystal.hdrNotComparable}`}
         >
           {/* the arrow is the direction the NUMBER moved; the colour is
            * whether that was the right way. For an R factor the two always
@@ -311,14 +311,14 @@ export function StructureHeader() {
   // a recomputed block is drawn dim throughout, so "these came from the
   // current hkl, not from this node" is visible on the tiles themselves
   // rather than only in a tooltip somewhere
-  const dTip = dRecomputed ? `\n${zh.headerDataRecomputed}` : "";
+  const dTip = dRecomputed ? `\n${t.headerDataRecomputed}` : "";
   push(d?.d_min === undefined ? null : {
-    label: zh.headerDmin, value: d.d_min.toFixed(2), sub: "Å",
+    label: t.headerDmin, value: d.d_min.toFixed(2), sub: "Å",
     // SHEL and d_min disagreeing is not a bug: the in-process engine
     // ignores SHEL by design, so the merged d_min can be finer than the
     // cutoff the refinement was told to use. Say so where they collide.
     note: d.shel ?? undefined,
-    title: zh.headerDminTip + dTip, dim: dRecomputed,
+    title: t.headerDminTip + dTip, dim: dRecomputed,
   });
   push(d?.r_int === undefined ? null : {
     label: "Rint",
@@ -329,41 +329,41 @@ export function StructureHeader() {
       ? `m = ${(d.n_obs / d.n_unique).toFixed(1)}`
       : undefined,
     value: d.r_int.toFixed(3),
-    title: zh.headerRintTip + dTip, dim: dRecomputed,
+    title: t.headerRintTip + dTip, dim: dRecomputed,
   });
   push(d?.completeness === undefined ? null : {
-    label: zh.headerCompleteness,
+    label: t.headerCompleteness,
     value: (d.completeness * 100).toFixed(1), sub: "%",
-    title: dRecomputed ? zh.headerDataRecomputed : undefined,
+    title: dRecomputed ? t.headerDataRecomputed : undefined,
     dim: dRecomputed,
   });
   push(d?.n_unique === undefined ? null : {
-    label: zh.headerUnique, value: String(d.n_unique),
-    title: zh.headerUniqueTip + dTip, dim: dRecomputed,
+    label: t.headerUnique, value: String(d.n_unique),
+    title: t.headerUniqueTip + dTip, dim: dRecomputed,
   });
   push(peak === null || peak === undefined ? null : {
-    label: zh.headerPeak, value: peak.toFixed(2), sub: "e", dim: stale,
+    label: t.headerPeak, value: peak.toFixed(2), sub: "e", dim: stale,
   });
   push(viewed.diff_map_min === null ? null : {
-    label: zh.headerHole, value: viewed.diff_map_min.toFixed(2), sub: "e",
+    label: t.headerHole, value: viewed.diff_map_min.toFixed(2), sub: "e",
     dim: stale,
   });
   push(params === null ? null : {
-    label: zh.paramsLabel, value: String(params),
+    label: t.paramsLabel, value: String(params),
     // data-to-parameter ratio: the cheapest check that the model has not
     // been given more freedom than the data can pay for
     note: d?.n_unique
-      ? `数据/参数 ${(d.n_unique / params).toFixed(1)}`
+      ? t.crystal.hdrDataToParams((d.n_unique / params).toFixed(1))
       : undefined,
     sub: viewed.n_restraints > 0 ? `+${viewed.n_restraints}` : undefined,
-    title: zh.headerParamsTip, dim: stale,
+    title: t.headerParamsTip, dim: stale,
   });
   // Flack gets a tile when it exists and no tile when it does not. The atom
   // count used to sit here, and it earned its place back when the card had
   // no formula line - now the formula states it twice over (and the status
   // line a third time), so a tile for it was pure duplication.
   push(viewed.flack === undefined ? null : {
-    label: "Flack", value: viewed.flack.toFixed(2), title: zh.headerFlackTip,
+    label: "Flack", value: viewed.flack.toFixed(2), title: t.headerFlackTip,
   });
 
   // Asymmetric-unit content in Hill order, the line Olex2 gives the most
@@ -386,9 +386,9 @@ export function StructureHeader() {
   const m = scene?.meta;
   const sceneCounts = m
     ? [
-        `绘制 ${m.n_atoms} ${zh.atomsLabel}`,
-        `${m.n_bonds} 键`,
-        m.n_polyhedra > 0 ? `${m.n_polyhedra} 多面体` : null,
+        `${t.crystal.hdrDrawn} ${m.n_atoms} ${t.atomsLabel}`,
+        t.crystal.hdrBonds(m.n_bonds),
+        m.n_polyhedra > 0 ? t.crystal.hdrPolyhedra(m.n_polyhedra) : null,
       ]
         .filter(Boolean)
         .join(" · ")
@@ -408,22 +408,22 @@ export function StructureHeader() {
       <div className="@container">
         <div className="flex min-w-0 items-center gap-1 px-3 pt-1.5 pb-1" data-testid="identity-row1">
           <button type="button" aria-expanded={open} aria-controls="structure-details"
-            title={open ? zh.headerCollapse : zh.headerExpand} onClick={toggle}
+            title={open ? t.headerCollapse : t.headerExpand} onClick={toggle}
             className="flex min-w-0 flex-1 items-baseline gap-2 rounded py-1 text-left hover:bg-raised/40 focus-visible:outline-2 focus-visible:outline-accent">
             <span className={cx("shrink-0 rounded-md px-1.5 py-0.5 font-mono text-xs font-medium",
               isActive ? "bg-accent/12 text-accent" : "bg-raised text-ink")}>{viewed.id}</span>
             <span className="min-w-0 flex-1 truncate font-mono text-xs text-ink-3" title={viewed.branch}>{viewed.branch}</span>
-            {sg && <span className="max-w-[40%] truncate font-serif text-md italic text-ink" title={`${zh.headerSpaceGroupTip} · ${sg}`}>{sg}</span>}
+            {sg && <span className="max-w-[40%] truncate font-serif text-md italic text-ink" title={`${t.headerSpaceGroupTip} · ${sg}`}>{sg}</span>}
             <span aria-hidden="true" className={cx("shrink-0 text-2xs text-ink-3", open && "rotate-90")}>▶</span>
           </button>
-          <button type="button" title={zh.headerQuoteTip}
+          <button type="button" title={t.headerQuoteTip}
             onClick={() => draft.insert(structureQuote({
               node: viewed.id, spaceGroup: sg, cell, r1: viewed.r1, wr2: viewed.wr2,
               goof: viewed.goof, nAtoms: viewed.n_atoms, nParams: params,
               nRestraints: viewed.n_restraints, peak, hole: viewed.diff_map_min, data: d,
             }))}
             className="shrink-0 rounded-pill px-2 py-1 text-xs text-ink-3 hover:bg-accent/10 hover:text-accent focus-visible:outline-2 focus-visible:outline-accent">
-            {zh.headerQuote}
+            {t.headerQuote}
           </button>
         </div>
 
@@ -438,7 +438,7 @@ export function StructureHeader() {
             {formula && (
               <span
                 className="min-w-0 shrink truncate font-serif text-sm text-ink"
-                title={`${formulaText}\n${zh.headerFormulaTip}`}
+                title={`${formulaText}\n${t.headerFormulaTip}`}
               >
                 {formula.map(({ elem, count }) => (
                   <span key={elem}>
@@ -448,13 +448,13 @@ export function StructureHeader() {
                 ))}
               </span>
             )}
-            {!formula && <span className="text-xs text-ink-3" title="完整 ASU 组成未包含在当前显示范围中">{viewed.n_atoms} ASU 原子</span>}
+            {!formula && <span className="text-xs text-ink-3" title={t.crystal.hdrAsuNotInExtent}>{t.crystal.hdrAsuAtoms(viewed.n_atoms)}</span>}
             <KeyStat stem="R" sub="1" cur={r1} prev={inherited ? undefined : parent?.r1} digits={4} strong dim={dimR} comparable={canCompare("r1")} />
             <KeyStat stem="wR" sub="2" cur={wr2} prev={inherited ? undefined : parent?.wr2} digits={4} dim={dimR} comparable={canCompare("wr2")} />
             <KeyStat stem="GooF" cur={goof} prev={inherited ? undefined : parent?.goof} digits={2} ideal={1} dim={dimR} comparable={canCompare("goof")} />
             {inherited && (
-              <span className="font-mono text-2xs text-ink-3" title={zh.headerInheritedTip}>
-                {zh.headerInherited} {inh.from}
+              <span className="font-mono text-2xs text-ink-3" title={t.headerInheritedTip}>
+                {t.headerInherited} {inh.from}
               </span>
             )}
             {sceneCounts && (
@@ -471,9 +471,9 @@ export function StructureHeader() {
 
       {!open && (stale || viewed.asu?.detached || viewed.asu?.ghosts) ? (
         <div className="px-3 pb-1.5 text-xs text-warn">
-          {[stale ? zh.staleMetrics : null,
-            viewed.asu?.detached ? `${zh.asuFlagDetached} ${viewed.asu.detached}` : null,
-            viewed.asu?.ghosts ? `${zh.asuFlagGhosts} ${viewed.asu.ghosts}` : null].filter(Boolean).join(" · ")}
+          {[stale ? t.staleMetrics : null,
+            viewed.asu?.detached ? `${t.asuFlagDetached} ${viewed.asu.detached}` : null,
+            viewed.asu?.ghosts ? `${t.asuFlagGhosts} ${viewed.asu.ghosts}` : null].filter(Boolean).join(" · ")}
         </div>
       ) : null}
       {open && (
@@ -485,7 +485,7 @@ export function StructureHeader() {
           {formula && (
             <div
               className="truncate pt-0.5 font-serif text-2xl leading-none text-ink"
-              title={zh.headerFormulaTip}
+              title={t.headerFormulaTip}
             >
               {formula.map(({ elem, count }) => (
                 <span key={elem}>
@@ -562,31 +562,31 @@ export function StructureHeader() {
               {stale && (
                 <span
                   className="rounded-md bg-warn/10 px-1.5 py-0.5 text-warn"
-                  title={zh.staleMetricsTip}
+                  title={t.staleMetricsTip}
                 >
-                  {zh.staleMetrics}
+                  {t.staleMetrics}
                 </span>
               )}
               {inherited && (
                 <span
                   className="rounded-md bg-raised px-1.5 py-0.5 text-ink-3"
-                  title={zh.headerInheritedTip}
+                  title={t.headerInheritedTip}
                 >
-                  {zh.headerInherited} {inh.from}
+                  {t.headerInherited} {inh.from}
                 </span>
               )}
               {dRecomputed && (
                 <span
                   className="rounded-md bg-raised px-1.5 py-0.5 text-ink-3"
-                  title={zh.headerDataRecomputed}
+                  title={t.headerDataRecomputed}
                 >
-                  {zh.headerDataRecomputedChip}
+                  {t.headerDataRecomputedChip}
                 </span>
               )}
               {d?.hklf === 5 && (
                 <span
                   className="rounded-md bg-raised px-1.5 py-0.5 font-mono text-ink-2"
-                  title={zh.dataHklf5Tip}
+                  title={t.dataHklf5Tip}
                 >
                   HKLF5
                 </span>
@@ -597,12 +597,12 @@ export function StructureHeader() {
                * difference it is rather than as a contradiction */}
               {viewed.asu && viewed.asu.detached > 0 && (
                 <span className="rounded-md bg-warn/10 px-1.5 py-0.5 text-warn">
-                  {zh.asuFlagDetached} {viewed.asu.detached}
+                  {t.asuFlagDetached} {viewed.asu.detached}
                 </span>
               )}
               {viewed.asu && viewed.asu.ghosts > 0 && (
                 <span className="rounded-md bg-warn/10 px-1.5 py-0.5 text-warn">
-                  {zh.asuFlagGhosts} {viewed.asu.ghosts}
+                  {t.asuFlagGhosts} {viewed.asu.ghosts}
                 </span>
               )}
             </div>

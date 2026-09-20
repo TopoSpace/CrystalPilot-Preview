@@ -7,7 +7,7 @@ import type { ChatItem } from "../state/threadReducer";
 import { runningJobLine, runningJobs, type BackgroundJobInfo } from "./backgroundJobs";
 import { humanizeCommand } from "./humanizeCommand";
 import { humanizeTool } from "./toolCards";
-import { zh } from "./zh";
+import { t } from "./i18n";
 
 export function currentActionText(
   items: ChatItem[],
@@ -27,7 +27,7 @@ export function currentActionText(
     // the line; the job is still on its own system row
     return typeof primary === "string" ? `${primary} · ${line}` : primary;
   }
-  return primary ?? zh.stickyThinking;
+  return primary ?? t.stickyThinking;
 }
 
 function primaryAction(
@@ -39,7 +39,7 @@ function primaryAction(
     const it = items[i];
     if (it.type === "turn") break;
     if (it.type === "approval" && it.status === "pending") {
-      return zh.stickyApproval;
+      return t.stickyApproval;
     }
     if (
       it.type === "tool" &&
@@ -55,8 +55,8 @@ function primaryAction(
       return humanizeCommand(it.command).label;
     }
     if (it.type === "generic" && !it.done) {
-      if (it.family === "file_change") return zh.stickyEditingFile;
-      if (it.family === "webSearch") return zh.stickySearching;
+      if (it.family === "file_change") return t.stickyEditingFile;
+      if (it.family === "webSearch") return t.stickySearching;
     }
   }
   return null;

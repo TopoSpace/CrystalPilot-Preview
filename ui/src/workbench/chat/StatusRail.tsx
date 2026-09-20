@@ -17,7 +17,7 @@ import {
   useMotionPreference,
 } from "../../lib/motion";
 import { railModel, type RailStage } from "../../lib/statusRail";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { useThread } from "../../state/ThreadProvider";
 import { IconShield, IconSpark } from "../icons";
 import { turnDigestText } from "./TurnStatusRow";
@@ -80,9 +80,9 @@ export function StatusRail() {
   const { action } = model;
   const basisTitle =
     model.basis === "situation_report"
-      ? zh.stageBasisSituation
+      ? t.stageBasisSituation
       : model.basis === "tool"
-        ? zh.stageBasisTool
+        ? t.stageBasisTool
         : "";
   const jump = (id: string) => {
     document.getElementById(`turn-${id}`)?.scrollIntoView({
@@ -132,9 +132,9 @@ export function StatusRail() {
               aria-current={s.state === "current" ? "step" : undefined}
               title={
                 s.state === "visited"
-                  ? `${s.label} · 已进行`
+                  ? t.shell.railStageVisited(s.label)
                   : s.nTools > 0
-                    ? `${s.label} · ${s.nTools} ${zh.stageToolsUnit}`
+                    ? `${s.label} · ${s.nTools} ${t.stageToolsUnit}`
                     : s.label
               }
               className={cx(
@@ -196,7 +196,7 @@ export function StatusRail() {
         )}
         {action.kind === "working" && (
           <span className="hidden shrink-0 text-2xs text-ink-3 sm:inline">
-            · {zh.railSteerable}
+            · {t.railSteerable}
           </span>
         )}
       </div>
@@ -206,12 +206,12 @@ export function StatusRail() {
           <div className="mb-1 flex items-center gap-2 px-1 text-xs font-medium text-ink">
             {openStage.label}
             <span className="font-mono text-2xs text-ink-3">
-              {openStage.nTools} {zh.stageToolsUnit}
+              {openStage.nTools} {t.stageToolsUnit}
             </span>
           </div>
           {openStage.turnIds.length === 0 ? (
             <div className="px-1 py-1 text-2xs text-ink-3">
-              {zh.stageNoTurns}
+              {t.stageNoTurns}
             </div>
           ) : (
             <ul className="max-h-64 overflow-y-auto">
@@ -223,7 +223,7 @@ export function StatusRail() {
                     className="flex w-full items-baseline gap-2 rounded-md px-1 py-1 text-left hover:bg-raised"
                   >
                     <span className="shrink-0 font-mono text-2xs text-ink-3 tabular-nums">
-                      {zh.turnDone}
+                      {t.turnDone}
                     </span>
                     <span className="min-w-0 truncate font-mono text-2xs text-ink-2">
                       {tn.text || "—"}

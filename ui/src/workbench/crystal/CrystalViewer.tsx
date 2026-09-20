@@ -8,6 +8,7 @@
  */
 import { memo, useCallback, useEffect, useMemo, useRef } from "react";
 import { reportUiDiagnostic } from "../../lib/diagnostics";
+import { t } from "../../lib/i18n";
 import type { ComparisonCameras } from "../../lib/structureComparison";
 import { partHiddenOf, slabHiddenOf } from "./viewerVisibility";
 import { animateView, motionDuration, useMotionPreference } from "../../lib/motion";
@@ -99,7 +100,7 @@ function rangeCentre(range: SceneRange | undefined): Vec3 {
 function voidLabelText(v: VoidEntry): string {
   let s = `V${v.void} ${Math.round(v.volume_A3)} Å³`;
   if (typeof v.dimensionality === "number") {
-    s += v.dimensionality === 0 ? " · 腔" : ` · ${v.dimensionality}D`;
+    s += v.dimensionality === 0 ? ` · ${t.crystal.viewerCavity}` : ` · ${v.dimensionality}D`;
   }
   if (typeof v.lcd_A === "number") s += ` · LCD ${v.lcd_A.toFixed(1)} Å`;
   if (typeof v.pld_A === "number") s += ` · PLD ${v.pld_A.toFixed(1)} Å`;

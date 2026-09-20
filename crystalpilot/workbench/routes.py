@@ -21,6 +21,7 @@ from pydantic import BaseModel
 
 from . import registry
 from .core import ENGINE_ROOT, RESULTS_DIRNAME
+from .i18n import msg
 from .service import ProjectSession, WorkbenchPool
 
 router = APIRouter(prefix="/api")
@@ -64,7 +65,7 @@ def list_project_folders(path: str | None = None) -> dict:
     try:
         folder = folder.resolve(strict=True)
         if not folder.is_dir():
-            raise HTTPException(400, "请选择一个文件夹")
+            raise HTTPException(400, msg("请选择一个文件夹", "Choose a folder"))
         children = []
         for child in folder.iterdir():
             try:
@@ -76,9 +77,9 @@ def list_project_folders(path: str | None = None) -> dict:
         return {"path": str(folder), "parent": str(folder.parent) if folder.parent != folder else None,
                 "directories": children[:1000], "truncated": len(children) > 1000}
     except PermissionError as exc:
-        raise HTTPException(403, "无法访问这个文件夹，请选择其他位置") from exc
+        raise HTTPException(403, msg("无法访问这个文件夹，请选择其他位置", "This folder cannot be accessed; choose another location")) from exc
     except (FileNotFoundError, NotADirectoryError) as exc:
-        raise HTTPException(404, "文件夹不存在，请检查路径") from exc
+        raise HTTPException(404, msg("文件夹不存在，请检查路径", "The folder does not exist; check the path")) from exc
 
 
 class OpenProject(BaseModel):
@@ -115,15 +116,15 @@ async def import_structure_document(project: str = Form(...),
 
     target = Path(project).expanduser()
     if not target.is_absolute():
-        raise HTTPException(400, "请使用仓库外新项目的完整路径")
+        raise HTTPException(400, msg("请使用仓库外新项目的完整路径", "Give the full path of a new project outside the repository"))
     target = target.resolve()
     if target == ENGINE_ROOT or ENGINE_ROOT in target.parents:
-        raise HTTPException(400, "结构项目请放在程序仓库之外")
+        raise HTTPException(400, msg("结构项目请放在程序仓库之外", "Structure projects must live outside the program repository"))
     if Path(file.filename or "").suffix.lower() != ".cif":
-        raise HTTPException(400, "请选择 CIF 文件")
+        raise HTTPException(400, msg("请选择 CIF 文件", "Choose a CIF file"))
     content = await file.read(50 * 1024 * 1024 + 1)
     if len(content) > 50 * 1024 * 1024:
-        raise HTTPException(413, "CIF 超过 50 MB，请使用本地路径导入工具")
+        raise HTTPException(413, msg("CIF 超过 50 MB，请使用本地路径导入工具", "The CIF exceeds 50 MB; use the local-path import tool"))
     temporary_root = ENGINE_ROOT / "workdir" / "uploads"
     temporary_root.mkdir(parents=True, exist_ok=True)
     try:
@@ -407,7 +408,7 @@ def frames_probe(path: str) -> dict:
     stay in place; the staged import_frames tool reads them directly)."""
     d = Path(path).expanduser()
     if not d.is_dir():
-        raise HTTPException(404, f"目录不存在：{d}")
+        raise HTTPException(404, msg(f"目录不存在：{d}", f"Directory not found: {d}"))
     by_ext: dict[str, int] = {}
     total = 0
     n_other = 0
@@ -425,7 +426,7 @@ def frames_probe(path: str) -> dict:
             else:
                 n_other += 1
     except OSError as e:
-        raise HTTPException(400, f"无法读取目录：{e}") from e
+        raise HTTPException(400, msg(f"无法读取目录：{e}", f"The directory cannot be read: {e}")) from e
     n_frames = sum(by_ext.values())
     return {
         "path": str(d),
@@ -436,7 +437,8 @@ def frames_probe(path: str) -> dict:
         "sample": sample,
         "ok": n_frames > 0,
         "note": None if n_frames > 0 else
-        f"目录里没有已知格式的衍射帧（识别扩展名：{', '.join(_FRAME_EXTS)}）",
+        msg(f"目录里没有已知格式的衍射帧（识别扩展名：{', '.join(_FRAME_EXTS)}）",
+            f"No diffraction frames of a known format in this directory (recognised extensions: {', '.join(_FRAME_EXTS)})"),
     }
 
 

@@ -1,3 +1,4 @@
+import { t } from "./i18n";
 import type { NodeComparisonResponse, RefineNode, SceneAtom, SceneResponse } from "./wbTypes";
 
 export function matchesComparison(data: NodeComparisonResponse, node: RefineNode, baseline: RefineNode): boolean {
@@ -30,7 +31,7 @@ export function comparableMetric(data: NodeComparisonResponse | null, metric: "r
 }
 
 export function comparisonStatusLabel(status: string | undefined): string {
-  return status === "comparable" ? "条件可比" : status === "different" ? "条件不同" : "条件未明";
+  return status === "comparable" ? t.cmpCondComparable : status === "different" ? t.cmpCondDifferent : t.cmpCondUnknown;
 }
 
 export interface ComparisonSelection {

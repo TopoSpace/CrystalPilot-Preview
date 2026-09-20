@@ -17,7 +17,7 @@ import {
 import { ORIGIN_TILES } from "../../lib/tiles";
 import { getRefineTopology } from "../../lib/wbApi";
 import { cx } from "../../lib/format";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { useComposerDraft } from "../../state/ComposerDraft";
 import { useCrystal } from "../../state/CrystalProvider";
 import type {
@@ -66,7 +66,7 @@ function HistoryBanner() {
   return (
     <div className="flex shrink-0 items-center gap-2 border-b border-warn/30 bg-warn/10 px-3 py-1.5 text-xs text-warn">
       <span className="min-w-0 truncate">
-        {zh.historyViewingPrefix}{" "}
+        {t.historyViewingPrefix}{" "}
         <span className="font-mono font-medium">{state.viewNode}</span>
       </span>
       <button
@@ -74,7 +74,7 @@ function HistoryBanner() {
         onClick={followLatest}
         className="ml-auto shrink-0 rounded-pill border border-warn/40 px-2 py-0.5 font-medium transition-colors hover:bg-warn/15"
       >
-        {zh.backToLatest}
+        {t.backToLatest}
       </button>
     </div>
   );
@@ -98,18 +98,18 @@ function SelectionCard({ onCenter }: { onCenter: () => void }) {
           {a.label}
         </span>
         <span className="text-2xs text-ink-3">{a.elem}</span>
-        {a.sym && <span className="text-2xs text-ink-3">对称拷贝</span>}
+        {a.sym && <span className="text-2xs text-ink-3">{t.crystal.paneSymmetryCopy}</span>}
         <button
           type="button"
-          title={zh.selCenterTip}
+          title={t.selCenterTip}
           onClick={onCenter}
           className="ml-auto -mt-0.5 h-5 rounded px-1.5 text-2xs text-ink-3 hover:bg-raised hover:text-ink"
         >
-          {zh.selCenter}
+          {t.selCenter}
         </button>
         <button
           type="button"
-          aria-label={zh.cancel}
+          aria-label={t.cancel}
           onClick={() => select(null)}
           className="-mt-0.5 flex h-5 w-5 items-center justify-center rounded text-ink-3 hover:bg-raised hover:text-ink"
         >
@@ -121,7 +121,7 @@ function SelectionCard({ onCenter }: { onCenter: () => void }) {
           U<sub>eq</sub> {a.adp_known === false || a.u_eq === null ? "—" : a.u_eq.toFixed(4)}
         </span>
         <span>
-          {zh.selOccupancy} {a.occ.toFixed(2)}
+          {t.selOccupancy} {a.occ.toFixed(2)}
         </span>
       </div>
       {a.symop && (
@@ -129,7 +129,7 @@ function SelectionCard({ onCenter }: { onCenter: () => void }) {
           className="mt-0.5 truncate font-mono text-2xs text-ink-3"
           title={a.symop}
         >
-          {zh.selSymop} {a.symop}
+          {t.selSymop} {a.symop}
         </div>
       )}
       {adpReasons(a).map((reason) => (
@@ -146,7 +146,7 @@ function SelectionCard({ onCenter }: { onCenter: () => void }) {
         }}
         className="mt-2 h-6 w-full rounded-lg bg-accent/10 px-2 text-2xs font-medium text-accent transition-colors hover:bg-accent/15"
       >
-        {zh.selQuote}
+        {t.selQuote}
       </button>
     </div>
   );
@@ -169,7 +169,7 @@ function InteractionCard({
 }) {
   const draft = useComposerDraft();
   const { state } = useCrystal();
-  const kindName = zh.ixKind[row.kind] ?? row.kind;
+  const kindName = t.ixKind[row.kind] ?? row.kind;
   const geom = interactionGeometry(row);
   const crit = criteriaSummary(meta.criteria[row.kind]);
   const showH = row.kind === "hbond" || row.kind === "chx" || row.kind === "chpi";
@@ -184,11 +184,11 @@ function InteractionCard({
             row.passes ? "bg-ok/12 text-ok" : "bg-warn/12 text-warn",
           )}
         >
-          {row.passes ? zh.ixPasses : zh.ixFails}
+          {row.passes ? t.ixPasses : t.ixFails}
         </span>
         <button
           type="button"
-          aria-label={zh.cancel}
+          aria-label={t.cancel}
           onClick={onClose}
           className="ml-auto -mt-0.5 flex h-5 w-5 items-center justify-center rounded text-ink-3 hover:bg-raised hover:text-ink"
         >
@@ -206,26 +206,26 @@ function InteractionCard({
       </div>
       {(row.boundary || !isIdentityOp(row.sym)) && (
         <div className="mt-1 truncate font-mono text-2xs text-ink-3" title={row.sym}>
-          {row.boundary ? `${zh.ixBoundary} · ` : ""}
-          {zh.ixSymop} {row.sym}
+          {row.boundary ? `${t.ixBoundary} · ` : ""}
+          {t.ixSymop} {row.sym}
         </div>
       )}
       {showH && (
         <div className="mt-0.5 text-2xs text-ink-3">
-          {zh.ixHSource[meta.h_source] ?? meta.h_source}
+          {t.ixHSource[meta.h_source] ?? meta.h_source}
         </div>
       )}
       {crit && (
         <div className="mt-0.5 text-2xs text-ink-3">
-          {zh.ixCriteria}：{crit}
+          {t.ixCriteria}{t.colon}{crit}
         </div>
       )}
       {!meta.range.halo_sufficient && (
-        <div className="mt-0.5 text-2xs text-warn">⚠ {zh.ixHaloShort}</div>
+        <div className="mt-0.5 text-2xs text-warn">⚠ {t.ixHaloShort}</div>
       )}
       {trunc && (
         <div className="mt-0.5 text-2xs text-warn">
-          ⚠ {zh.ixTruncated} {trunc.cap} / {trunc.found}
+          ⚠ {t.ixTruncated} {trunc.cap} / {trunc.found}
         </div>
       )}
       <button
@@ -236,7 +236,7 @@ function InteractionCard({
         }}
         className="mt-2 h-6 w-full rounded-lg bg-accent/10 px-2 text-2xs font-medium text-accent transition-colors hover:bg-accent/15"
       >
-        {zh.ixQuote}
+        {t.ixQuote}
       </button>
     </div>
   );
@@ -260,7 +260,7 @@ function PeakCard({
   const { peak, index } = sel;
   const near =
     peak.nearest_atom !== null && peak.nearest_d !== null
-      ? `${zh.peakNearest} ${peak.nearest_atom}（${peak.nearest_d.toFixed(2)} Å）`
+      ? `${t.peakNearest} ${peak.nearest_atom}${t.paren(`${peak.nearest_d.toFixed(2)} Å`)}`
       : null;
   return (
     <div className="absolute bottom-12 left-2.5 z-10 w-60 rounded-card border border-line bg-bg/95 p-2.5 shadow-lg backdrop-blur-sm">
@@ -273,7 +273,7 @@ function PeakCard({
         </span>
         <button
           type="button"
-          aria-label={zh.cancel}
+          aria-label={t.cancel}
           onClick={onClose}
           className="ml-auto -mt-0.5 flex h-5 w-5 items-center justify-center rounded text-ink-3 hover:bg-raised hover:text-ink"
         >
@@ -291,7 +291,7 @@ function PeakCard({
        * users away from typing "Q7" into chat, where the agent's index
        * may point at a different peak. */}
       <div className="mt-1 text-2xs leading-snug text-ink-3">
-        {zh.peakOrdinalNote}
+        {t.peakOrdinalNote}
       </div>
       <button
         type="button"
@@ -301,7 +301,7 @@ function PeakCard({
         }}
         className="mt-2 h-6 w-full rounded-lg bg-accent/10 px-2 text-2xs font-medium text-accent transition-colors hover:bg-accent/15"
       >
-        {zh.peakQuote}
+        {t.peakQuote}
       </button>
     </div>
   );
@@ -383,7 +383,7 @@ function StructureTab({ compact = false }: { compact?: boolean }) {
       .slice(0, 8)
       .replaceAll(":", "");
     draft.attach([
-      new File([bytes], `视图-${state.scene?.node ?? "model"}-${stamp}.png`, {
+      new File([bytes], t.crystal.paneFrameFile(state.scene?.node ?? "model", stamp), {
         type: "image/png",
       }),
     ]);
@@ -484,7 +484,7 @@ function StructureTab({ compact = false }: { compact?: boolean }) {
     && layerCoverage.symmetry.drawnTiles < layerCoverage.symmetry.requestedTiles
   ) {
     layerLimitLabels.push(
-      `对称 ${layerCoverage.symmetry.drawnTiles}/${layerCoverage.symmetry.requestedTiles} 胞`,
+      t.crystal.paneSymmetryCoverage(layerCoverage.symmetry.drawnTiles, layerCoverage.symmetry.requestedTiles),
     );
   }
   if (
@@ -493,7 +493,7 @@ function StructureTab({ compact = false }: { compact?: boolean }) {
     && layerCoverage.peaks.drawnSpheres < layerCoverage.peaks.requestedSpheres
   ) {
     layerLimitLabels.push(
-      `Q峰 ${layerCoverage.peaks.drawnSpheres}/${layerCoverage.peaks.requestedSpheres} 点`,
+      t.crystal.panePeaksCoverage(layerCoverage.peaks.drawnSpheres, layerCoverage.peaks.requestedSpheres),
     );
   }
 
@@ -509,7 +509,7 @@ function StructureTab({ compact = false }: { compact?: boolean }) {
           fallback={
             <div className="flex h-full items-center justify-center gap-2 text-xs text-ink-3">
               <Spinner />
-              {zh.loading}
+              {t.loading}
             </div>
           }
         >
@@ -578,47 +578,47 @@ function StructureTab({ compact = false }: { compact?: boolean }) {
         </Suspense>
         {state.comparison && !displayedSceneReady && (
           <div className="absolute inset-0 z-10 flex items-center justify-center bg-surface text-sm text-ink-3" role="status">
-            {state.sceneStatus === "error" ? `无法加载 ${state.viewNode}` : `正在加载 ${state.viewNode}`}
+            {state.sceneStatus === "error" ? t.crystal.cannotLoadNode(state.viewNode) : t.crystal.loadingNode(state.viewNode)}
           </div>
         )}
         {state.sceneStatus === "loading" && (
           <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1.5 rounded-pill bg-bg/85 px-2.5 py-1 text-2xs text-ink-3 backdrop-blur-sm">
             <Spinner className="h-3 w-3" />
-            {zh.sceneLoading}
+            {t.sceneLoading}
           </div>
         )}
         {state.overlays.map && reflectionEvidenceAllowed && state.mapStatus === "loading" && (
           <div className="absolute top-9 right-2.5 z-10 flex items-center gap-1.5 rounded-pill bg-bg/85 px-2.5 py-1 text-2xs text-ink-3 backdrop-blur-sm">
             <Spinner className="h-3 w-3" />
-            {zh.mapLoading}
+            {t.mapLoading}
           </div>
         )}
         {state.overlays.peaks && reflectionEvidenceAllowed && state.peaksStatus === "loading" && (
           <div className="absolute top-[3.9rem] right-2.5 z-10 flex items-center gap-1.5 rounded-pill bg-bg/85 px-2.5 py-1 text-2xs text-ink-3 backdrop-blur-sm">
             <Spinner className="h-3 w-3" />
-            {zh.peaksLoading}
+            {t.peaksLoading}
           </div>
         )}
         {state.overlays.net && netStatus === "loading" && (
           <div className="absolute top-[7.1rem] right-2.5 z-10 flex items-center gap-1.5 rounded-pill bg-bg/85 px-2.5 py-1 text-2xs text-ink-3 backdrop-blur-sm">
             <Spinner className="h-3 w-3" />
-            {zh.netLoading}
+            {t.netLoading}
           </div>
         )}
         {state.overlays.net && netStatus === "error" && (
           <div className="absolute top-[7.1rem] right-2.5 z-10 rounded-pill bg-bg/85 px-2.5 py-1 text-2xs text-danger backdrop-blur-sm">
-            {zh.anTopologyFailed}
+            {t.anTopologyFailed}
           </div>
         )}
         {state.overlays.net && netProp !== null && netProp.nodes.length === 0 && (
           <div className="absolute top-[7.1rem] right-2.5 z-10 rounded-pill bg-bg/85 px-2.5 py-1 text-2xs text-ink-3 backdrop-blur-sm">
-            {zh.netEmpty}
+            {t.netEmpty}
           </div>
         )}
         {state.overlays.voids && state.voidsStatus === "loading" && (
           <div className="absolute top-[5.5rem] right-2.5 z-10 flex items-center gap-1.5 rounded-pill bg-bg/85 px-2.5 py-1 text-2xs text-ink-3 backdrop-blur-sm">
             <Spinner className="h-3 w-3" />
-            {zh.voidsLoading}
+            {t.voidsLoading}
           </div>
         )}
         {state.overlays.voids &&
@@ -627,7 +627,7 @@ function StructureTab({ compact = false }: { compact?: boolean }) {
           state.voidsMeta !== null &&
           (state.voidsMeta.n_voids === 0 ? (
             <div className="absolute top-[5.5rem] right-2.5 z-10 rounded-pill bg-bg/85 px-2.5 py-1 text-2xs text-ink-3 backdrop-blur-sm">
-              {zh.voidsNone}
+              {t.voidsNone}
             </div>
           ) : (
             /* the pore total is the number a solvent-mask / SQUEEZE
@@ -635,16 +635,16 @@ function StructureTab({ compact = false }: { compact?: boolean }) {
              * only as an isosurface you had to eyeball */
             <div className="absolute top-[5.5rem] right-2.5 z-10 flex items-center gap-1.5 rounded-pill bg-bg/85 py-1 pr-1 pl-2.5 text-2xs text-ink-2 backdrop-blur-sm">
               <span className="font-mono tabular-nums">
-                每胞 {state.voidsMeta.n_voids} 孔 ·{" "}
+                {t.crystal.paneVoidsPerCell(state.voidsMeta.n_voids)} ·{" "}
                 {typeof state.voidsMeta.solvent_volume_A3 === "number"
                   ? Math.round(state.voidsMeta.solvent_volume_A3) : "—"} Å³
                 {typeof state.voidsMeta.total_solvent_electrons_per_cell === "number"
                   ? ` · ${Math.round(state.voidsMeta.total_solvent_electrons_per_cell)} e`
-                  : ` · ${zh.electronsNotComputed}`}
+                  : ` · ${t.electronsNotComputed}`}
               </span>
               <button
                 type="button"
-                title={zh.voidsQuoteTip}
+                title={t.voidsQuoteTip}
                 onClick={() =>
                   draft.insert(
                     voidQuote(
@@ -656,7 +656,7 @@ function StructureTab({ compact = false }: { compact?: boolean }) {
                 }
                 className="h-4.5 rounded-pill px-1.5 text-2xs font-medium text-accent transition-colors hover:bg-accent/10"
               >
-                {zh.measureQuote}
+                {t.measureQuote}
               </button>
             </div>
           ))}
@@ -665,13 +665,13 @@ function StructureTab({ compact = false }: { compact?: boolean }) {
          * "56 原子" as the whole thing is a real misreading. This used to
          * be the word 已截断 in a 10 px corner string. */}
         <div className="absolute top-2 left-2 z-10 flex flex-wrap items-center gap-1.5">
-          <ExtentMenu onAssemble={() => draft.insert(zh.assembleTemplate)} />
+          <ExtentMenu onAssemble={() => draft.insert(t.assembleTemplate)} />
           {state.scene?.meta.truncated === true && state.sceneStatus !== "loading" && (
             <span
               className="rounded-pill border border-warn/40 bg-warn/10 px-2.5 py-1 text-2xs text-warn backdrop-blur-sm"
-              title={zh.sceneTruncatedTip}
+              title={t.sceneTruncatedTip}
             >
-              {zh.sceneTruncated}
+              {t.sceneTruncated}
             </span>
           )}
           {/* A SEPARATE pill from 显示已截断 on purpose (round-2 R2.2): the
@@ -686,18 +686,18 @@ function StructureTab({ compact = false }: { compact?: boolean }) {
             (state.scene.grow_all.budget_hit || state.scene.grow_all.periodic_edges > 0) && (
               <span
                 className="rounded-pill border border-warn/40 bg-warn/10 px-2.5 py-1 text-2xs text-warn backdrop-blur-sm"
-                title={zh.growAllTip}
+                title={t.growAllTip}
               >
-                {state.scene.grow_all.budget_hit ? zh.growAllBudget : zh.growAllPeriodic}
+                {state.scene.grow_all.budget_hit ? t.growAllBudget : t.growAllPeriodic}
               </span>
             )}
           {state.scene?.range?.tiles_truncated === true &&
             state.sceneStatus !== "loading" && (
               <span
                 className="rounded-pill border border-warn/40 bg-warn/10 px-2.5 py-1 text-2xs text-warn backdrop-blur-sm"
-                title={zh.layerRangeTruncatedTip}
+                title={t.layerRangeTruncatedTip}
               >
-                {zh.layerRangeTruncated(
+                {t.layerRangeTruncated(
                   state.scene.range.tiles.length,
                   state.scene.range.n_tiles,
                 )}
@@ -706,7 +706,7 @@ function StructureTab({ compact = false }: { compact?: boolean }) {
           {layerLimitLabels.length > 0 && state.sceneStatus !== "loading" && (
             <span
               className="rounded-pill border border-warn/40 bg-warn/10 px-2.5 py-1 text-2xs text-warn backdrop-blur-sm"
-              title="请求范围 / 实际绘制；各层资源限额独立"
+              title={t.crystal.paneLayerLimitTip}
             >
               {layerLimitLabels.join(" · ")}
             </span>
@@ -715,8 +715,8 @@ function StructureTab({ compact = false }: { compact?: boolean }) {
         {state.sceneStatus === "error" && (
           <div className="absolute inset-x-2.5 top-11 z-10">
             <AlertBanner>
-              {zh.sceneError}
-              {state.sceneError ? `：${state.sceneError}` : ""}
+              {t.sceneError}
+              {state.sceneError ? `${t.colon}${state.sceneError}` : ""}
             </AlertBanner>
           </div>
         )}
@@ -727,7 +727,7 @@ function StructureTab({ compact = false }: { compact?: boolean }) {
             </span>
             <button
               type="button"
-              title={zh.measureQuoteTip}
+              title={t.measureQuoteTip}
               onClick={() => {
                 draft.insert(measureQuote(
                   readout.text,
@@ -738,12 +738,12 @@ function StructureTab({ compact = false }: { compact?: boolean }) {
               }}
               className="h-4.5 rounded-pill px-1.5 text-2xs font-medium text-accent transition-colors hover:bg-accent/10"
             >
-              {zh.measureQuote}
+              {t.measureQuote}
             </button>
             <button
               type="button"
-              aria-label={zh.measureClear}
-              title={zh.measureClear}
+              aria-label={t.measureClear}
+              title={t.measureClear}
               onClick={() => setChain([])}
               className="flex h-4.5 w-4.5 items-center justify-center rounded-pill text-ink-3 hover:bg-raised hover:text-ink"
             >
@@ -789,12 +789,12 @@ function AnalysisWorkspace() {
     <div className="flex min-h-0 min-w-0 flex-1 flex-col" data-testid="analysis-workspace">
       {pinned && <div style={{ flexBasis: `${proportion}%` }} className="flex min-h-0 shrink-0 flex-col"><StructureTab compact /></div>}
       <div className="flex shrink-0 items-center gap-3 border-y border-line px-3 py-1">
-        <button type="button" aria-expanded={pinned} onClick={toggle} title={zh.analysisKeepStructure}
+        <button type="button" aria-expanded={pinned} onClick={toggle} title={t.analysisKeepStructure}
           className="shrink-0 rounded py-1 text-xs text-ink-2 hover:text-ink">
-          {pinned ? "收起结构" : "显示结构"}
+          {pinned ? t.crystal.paneCollapseStructure : t.crystal.paneShowStructure}
         </button>
         {pinned && <input type="range" min={30} max={70} step={5} value={proportion}
-          aria-label="结构显示比例" aria-valuetext={`结构 ${proportion}%`}
+          aria-label={t.crystal.paneStructureShareAria} aria-valuetext={t.crystal.paneStructureShareValue(proportion)}
           onChange={(e) => resize(Number(e.target.value))}
           className="h-1 min-w-0 flex-1 accent-(--color-accent)" />}
       </div>
@@ -808,11 +808,11 @@ function StructureOnlyNotice({ node }: { node?: RefineNode }) {
   const reported = node.reported_reference?.values;
   return (
     <div className="shrink-0 border-b border-line bg-surface/60 px-3 py-2 text-xs text-ink-2" data-testid="structure-only-notice">
-      <div className="font-medium">{zh.structureOnlyTitle}</div>
-      <div className="mt-0.5 text-2xs text-ink-3">{zh.structureOnlyNote}</div>
+      <div className="font-medium">{t.structureOnlyTitle}</div>
+      <div className="mt-0.5 text-2xs text-ink-3">{t.structureOnlyNote}</div>
       {reported && ["r1", "wr2", "goof"].some((key) => reported[key] != null) && (
         <details className="mt-1 text-2xs text-ink-3">
-          <summary className="cursor-pointer">{zh.structureReportedMetrics}</summary>
+          <summary className="cursor-pointer">{t.structureReportedMetrics}</summary>
           <div className="mt-1 font-mono">{[["r1", "R1"], ["wr2", "wR2"], ["goof", "GooF"]]
             .filter(([key]) => reported[key] != null).map(([key, label]) => `${label} ${reported[key]}`).join(" · ")}</div>
         </details>
@@ -842,20 +842,20 @@ export function CrystalPane({ tab }: { tab: CrystalTabId }) {
     return (
       <div className="flex flex-1 items-center justify-center gap-2 text-xs text-ink-3">
         <Spinner />
-        {zh.nodesLoading}
+        {t.nodesLoading}
       </div>
     );
   }
   if (state.nodes.length === 0) {
     return (
       <div className="flex flex-1 flex-col items-center justify-center gap-2 px-6 text-center">
-        <div className="text-sm text-ink-3">{zh.nodesEmpty}</div>
+        <div className="text-sm text-ink-3">{t.nodesEmpty}</div>
         <button
           type="button"
           onClick={refreshNodes}
           className="h-7 rounded-lg border border-line px-3 text-xs text-ink-2 transition-colors hover:bg-raised"
         >
-          {zh.refreshNodes}
+          {t.refreshNodes}
         </button>
       </div>
     );

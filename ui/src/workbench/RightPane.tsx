@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { useViewportWidth } from "./useViewport";
 import { useSearchParams } from "react-router-dom";
 import { cx } from "../lib/format";
-import { zh } from "../lib/zh";
+import { t } from "../lib/i18n";
 import { CrystalPane, type CrystalTabId } from "./crystal/CrystalPane";
 import { useValidationBadge } from "./crystal/ValidationPanel";
 import { IconFocus, IconPanelRight } from "./icons";
@@ -16,12 +16,12 @@ import { useResizable } from "./useResizable";
 import { PanelReveal } from "./PanelTransition";
 
 const TABS: { id: CrystalTabId; label: string }[] = [
-  { id: "structure", label: zh.tabStructure },
-  { id: "analysis", label: zh.tabAnalysis },
-  { id: "nodes", label: zh.tabNodes },
-  { id: "metrics", label: zh.tabMetrics },
-  { id: "validation", label: zh.tabValidation },
-  { id: "artifacts", label: zh.tabArtifacts },
+  { id: "structure", label: t.tabStructure },
+  { id: "analysis", label: t.tabAnalysis },
+  { id: "nodes", label: t.tabNodes },
+  { id: "metrics", label: t.tabMetrics },
+  { id: "validation", label: t.tabValidation },
+  { id: "artifacts", label: t.tabArtifacts },
 ];
 
 /** 聚焦: the structure takes this share of the window; the conversation
@@ -56,6 +56,7 @@ export function RightPane({ onCollapse, compact = false, open = true }: { onColl
     return () => window.removeEventListener("cp:right-tab", on);
   });
   const aCount = useValidationBadge();
+  const alertsTitle = aCount !== null ? t.shell.rightPaneAlertsTitle(aCount) : undefined;
   // default follows the window: ~30 % of it, never below the 380 px the
   // pane was designed at nor above 640 (a dragged width still wins)
   const resize = useResizable(
@@ -111,7 +112,7 @@ export function RightPane({ onCollapse, compact = false, open = true }: { onColl
     >
       {!compact && <ResizeHandle edge="left" resizable={resize} />}
       <div className="flex h-12 shrink-0 items-center gap-1 border-b border-line px-3">
-        <div role="group" aria-label="结构工作区页面"
+        <div role="group" aria-label={t.shell.rightPaneTabs}
           onKeyDown={(e) => {
             if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)) return;
             const buttons = Array.from(e.currentTarget.querySelectorAll<HTMLButtonElement>("button"));
@@ -144,7 +145,7 @@ export function RightPane({ onCollapse, compact = false, open = true }: { onColl
                     "inline-flex h-[15px] min-w-[15px] items-center justify-center rounded-pill px-1 font-mono text-2xs leading-none tabular-nums",
                     aCount > 0 ? "bg-danger text-bg" : "bg-raised text-ink-3",
                   )}
-                  title={`checkCIF A 级警报 ${aCount}`}
+                  title={alertsTitle}
                 >
                   {aCount}
                 </span>
@@ -154,8 +155,8 @@ export function RightPane({ onCollapse, compact = false, open = true }: { onColl
         </div>
         <button
           type="button"
-          title={focus ? zh.focusExit : zh.focusEnter}
-          aria-label={focus ? zh.focusExit : zh.focusEnter}
+          title={focus ? t.focusExit : t.focusEnter}
+          aria-label={focus ? t.focusExit : t.focusEnter}
           aria-pressed={focus}
           data-testid="focus-toggle"
           onClick={() => setFocus(!focus)}
@@ -168,8 +169,8 @@ export function RightPane({ onCollapse, compact = false, open = true }: { onColl
         </button>
         <button
           type="button"
-          title={zh.collapse}
-          aria-label={zh.collapse}
+          title={t.collapse}
+          aria-label={t.collapse}
           data-testid="right-collapse"
           onClick={onCollapse}
           className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-ink-3 transition-colors hover:bg-raised hover:text-ink"

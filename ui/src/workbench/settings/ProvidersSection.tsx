@@ -11,7 +11,7 @@ import {
   upsertProvider,
 } from "../../lib/wbApi";
 import type { ProviderAuthMode, ProviderInfo, ProviderTestResult } from "../../lib/wbTypes";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { useWorkbench } from "../../state/WorkbenchProvider";
 import { shortProviderName } from "../composer/ModelMenu";
 
@@ -73,17 +73,17 @@ export function mapToText(h: Record<string, string>): string {
   return Object.entries(h).map(([k, v]) => `${k}: ${v}`).join("\n");
 }
 
-export function textToMap(t: string, label = "mapping"): Record<string, string> {
+export function textToMap(source: string, label = "mapping"): Record<string, string> {
   const out: Record<string, string> = {};
-  for (const raw of t.split("\n")) {
+  for (const raw of source.split("\n")) {
     const line = raw.trim();
     if (!line) continue;
     const i = line.indexOf(":");
     if (i <= 0 || !line.slice(i + 1).trim()) {
-      throw new Error(`${label}: ${zh.providerMapLineInvalid}`);
+      throw new Error(`${label}: ${t.providerMapLineInvalid}`);
     }
     const key = line.slice(0, i).trim();
-    if (key in out) throw new Error(`${label}: ${zh.providerMapDuplicate} ${key}`);
+    if (key in out) throw new Error(`${label}: ${t.providerMapDuplicate} ${key}`);
     out[key] = line.slice(i + 1).trim();
   }
   return out;
@@ -95,14 +95,14 @@ export function jsonToStringMap(text: string): Record<string, string> {
   try {
     value = JSON.parse(text);
   } catch {
-    throw new Error(zh.providerQueryInvalid);
+    throw new Error(t.providerQueryInvalid);
   }
   if (!value || Array.isArray(value) || typeof value !== "object") {
-    throw new Error(zh.providerQueryInvalid);
+    throw new Error(t.providerQueryInvalid);
   }
   const entries = Object.entries(value);
   if (entries.some(([, item]) => typeof item !== "string")) {
-    throw new Error(zh.providerQueryInvalid);
+    throw new Error(t.providerQueryInvalid);
   }
   return Object.fromEntries(entries) as Record<string, string>;
 }
@@ -115,7 +115,7 @@ function optionalInteger(value: string, label: string, maximum: number): number 
   if (!value.trim()) return null;
   const parsed = Number(value);
   if (!Number.isInteger(parsed) || parsed < 0 || parsed > maximum) {
-    throw new Error(`${label}: ${zh.providerNumberInvalid} 0–${maximum}`);
+    throw new Error(`${label}: ${t.providerNumberInvalid} 0–${maximum}`);
   }
   return parsed;
 }
@@ -133,11 +133,11 @@ function TestResultLine({ r }: { r: ProviderTestResult }) {
     const info = r.key_info;
     return (
       <div className="text-2xs text-ok" data-testid="provider-test-ok">
-        {zh.providerTestOk}
-        {r.n_models !== undefined ? ` · ${r.n_models} ${zh.providerModelsUnit}` : ""}
+        {t.providerTestOk}
+        {r.n_models !== undefined ? ` · ${r.n_models} ${t.providerModelsUnit}` : ""}
         {r.latency_ms !== undefined ? ` · ${r.latency_ms} ms` : ""}
-        {r.used_stored_key ? `（${zh.providerKeySet}）` : ""}
-        {r.check === "model_catalogue" ? ` · ${zh.providerCatalogueOnly}` : ""}
+        {r.used_stored_key ? t.paren(t.providerKeySet) : ""}
+        {r.check === "model_catalogue" ? ` · ${t.providerCatalogueOnly}` : ""}
         {info && (
           <span className="ml-1 text-ink-3">
             {info.label ? `${info.label} · ` : ""}
@@ -150,9 +150,9 @@ function TestResultLine({ r }: { r: ProviderTestResult }) {
   }
   return (
     <div className="text-2xs text-danger" data-testid="provider-test-fail">
-      {zh.providerTestFail}
-      {r.status ? `（HTTP ${r.status}）` : ""}
-      {r.error ? `：${r.error}` : ""}
+      {t.providerTestFail}
+      {r.status ? t.paren(`HTTP ${r.status}`) : ""}
+      {r.error ? `${t.colon}${r.error}` : ""}
     </div>
   );
 }
@@ -279,7 +279,7 @@ export function ProvidersSection() {
         id: form.isNew ? null : form.id,
         base_url: form.base_url.trim(),
         api_key: form.api_key.trim() === "" ? null : form.api_key,
-        http_headers: textToMap(form.headers, zh.providerHeaders),
+        http_headers: textToMap(form.headers, t.providerHeaders),
         query_params: jsonToStringMap(form.query_params),
       });
     } catch (e) {
@@ -293,8 +293,8 @@ export function ProvidersSection() {
     setError(null);
     setMessage(null);
     try {
-      const headers = textToMap(form.headers, zh.providerHeaders);
-      const envHeaders = textToMap(form.env_headers, zh.providerEnvHeaders);
+      const headers = textToMap(form.headers, t.providerHeaders);
+      const envHeaders = textToMap(form.env_headers, t.providerEnvHeaders);
       const queryParams = jsonToStringMap(form.query_params);
       await upsertProvider({
         id: form.id.trim(),
@@ -309,19 +309,19 @@ export function ProvidersSection() {
         env_http_headers: envHeaders,
         query_params: queryParams,
         request_max_retries: optionalInteger(
-          form.request_max_retries, zh.providerRequestRetries, 100,
+          form.request_max_retries, t.providerRequestRetries, 100,
         ),
         stream_max_retries: optionalInteger(
-          form.stream_max_retries, zh.providerStreamRetries, 100,
+          form.stream_max_retries, t.providerStreamRetries, 100,
         ),
         stream_idle_timeout_ms: optionalInteger(
-          form.stream_idle_timeout_ms, zh.providerIdleTimeout, 86_400_000,
+          form.stream_idle_timeout_ms, t.providerIdleTimeout, 86_400_000,
         ),
       });
       await wb.refreshProviders();
       void wb.refreshSettings();
       setForm(null);
-      setMessage(zh.providerSaved);
+      setMessage(t.providerSaved);
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {
@@ -331,7 +331,7 @@ export function ProvidersSection() {
 
   const remove = async (p: ProviderInfo) => {
     if (busy) return;
-    if (!window.confirm(zh.providerDeleteConfirm)) return;
+    if (!window.confirm(t.providerDeleteConfirm)) return;
     setBusy(p.id);
     setError(null);
     try {
@@ -374,19 +374,19 @@ export function ProvidersSection() {
   return (
     <div className="flex flex-col gap-3">
       <div className="flex items-center justify-between">
-        <p className="text-xs leading-relaxed text-ink-3">{zh.providerKeyNote}</p>
+        <p className="text-xs leading-relaxed text-ink-3">{t.providerKeyNote}</p>
         <button
           type="button"
           data-testid="provider-add"
           onClick={() => beginEdit(null)}
           className="ml-3 h-8 shrink-0 rounded-lg bg-ink px-3 text-xs font-medium text-bg transition-opacity hover:opacity-85"
         >
-          {zh.providerAdd}
+          {t.providerAdd}
         </button>
       </div>
       {wb.kernel?.config_path && (
         <details className="text-2xs text-ink-3">
-          <summary className="cursor-pointer">{zh.providerCurrentConfig}</summary>
+          <summary className="cursor-pointer">{t.providerCurrentConfig}</summary>
           <code className="mt-1 block break-all">{wb.kernel.config_path}</code>
         </details>
       )}
@@ -404,7 +404,7 @@ export function ProvidersSection() {
           }}
         >
           <div className="text-sm font-medium text-ink">
-            {form.isNew ? zh.providerNew : form.name || form.id}
+            {form.isNew ? t.providerNew : form.name || form.id}
           </div>
           {form.isNew && (
             <div className="flex flex-wrap gap-1.5" data-testid="provider-presets">
@@ -422,19 +422,19 @@ export function ProvidersSection() {
           )}
           <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
             <label className="flex min-w-0 flex-col gap-1 text-2xs text-ink-3">
-              {zh.providerId}
+              {t.providerId}
               <input
                 value={form.id}
                 data-testid="provider-id"
                 disabled={!form.isNew}
-                placeholder={zh.providerIdHint}
+                placeholder={t.providerIdHint}
                 spellCheck={false}
                 onChange={(e) => setForm({ ...form, id: e.target.value.toLowerCase() })}
                 className={cx(inputCls, "font-mono")}
               />
             </label>
             <label className="flex flex-col gap-1 text-2xs text-ink-3">
-              {zh.providerName}
+              {t.providerName}
               <input
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -443,11 +443,11 @@ export function ProvidersSection() {
             </label>
           </div>
           <label className="flex flex-col gap-1 text-2xs text-ink-3">
-            {zh.providerBaseUrl}
+            {t.providerBaseUrl}
             <input
               value={form.base_url}
               data-testid="provider-base-url"
-              placeholder={zh.providerBaseUrlHint}
+              placeholder={t.providerBaseUrlHint}
               spellCheck={false}
               onChange={(e) => setForm({ ...form, base_url: e.target.value })}
               className={cx(inputCls, "font-mono")}
@@ -455,21 +455,21 @@ export function ProvidersSection() {
           </label>
           <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
             <label className="flex min-w-0 flex-col gap-1 text-2xs text-ink-3">
-              {zh.providerProtocol}
+              {t.providerProtocol}
               <select
                 value={form.wire_api}
                 data-testid="provider-protocol"
                 onChange={(e) => setForm({ ...form, wire_api: e.target.value })}
                 className={inputCls}
               >
-                <option value="responses">OpenAI Responses · {zh.providerNative}</option>
-                <option value="chat" disabled>Chat Completions · {zh.providerAdapterRequired}</option>
-                <option value="completions" disabled>Legacy Completions · {zh.providerAdapterRequired}</option>
-                <option value="anthropic_messages" disabled>Anthropic Messages · {zh.providerAdapterRequired}</option>
+                <option value="responses">OpenAI Responses · {t.providerNative}</option>
+                <option value="chat" disabled>Chat Completions · {t.providerAdapterRequired}</option>
+                <option value="completions" disabled>Legacy Completions · {t.providerAdapterRequired}</option>
+                <option value="anthropic_messages" disabled>Anthropic Messages · {t.providerAdapterRequired}</option>
               </select>
             </label>
             <label className="flex flex-col gap-1 text-2xs text-ink-3">
-              {zh.providerAuthMode}
+              {t.providerAuthMode}
               <select
                 value={form.auth_mode}
                 data-testid="provider-auth-mode"
@@ -482,18 +482,18 @@ export function ProvidersSection() {
                 className={inputCls}
               >
                 {form.auth_mode === "preserve" && (
-                  <option value="preserve">{zh.providerAuthPreserve}</option>
+                  <option value="preserve">{t.providerAuthPreserve}</option>
                 )}
-                <option value="managed_api_key">{zh.providerAuthManaged}</option>
-                <option value="environment">{zh.providerAuthEnvironment}</option>
-                <option value="none">{zh.providerAuthNone}</option>
+                <option value="managed_api_key">{t.providerAuthManaged}</option>
+                <option value="environment">{t.providerAuthEnvironment}</option>
+                <option value="none">{t.providerAuthNone}</option>
               </select>
             </label>
           </div>
-          <p className="text-2xs leading-relaxed text-ink-3">{zh.providerProtocolHelp}</p>
+          <p className="text-2xs leading-relaxed text-ink-3">{t.providerProtocolHelp}</p>
           {form.auth_mode === "environment" && (
             <label className="flex flex-col gap-1 text-2xs text-ink-3">
-              {zh.providerEnvKey}
+              {t.providerEnvKey}
               <input
                 value={form.env_key}
                 placeholder="OPENAI_API_KEY"
@@ -505,13 +505,13 @@ export function ProvidersSection() {
           )}
           {form.auth_mode === "managed_api_key" && (
             <label className="flex flex-col gap-1 text-2xs text-ink-3">
-              {zh.providerApiKey}
+              {t.providerApiKey}
               <span className="flex gap-1.5">
                 <input
                   type={showKey ? "text" : "password"}
                   value={form.api_key}
                   disabled={form.remove_api_key}
-                  placeholder={zh.providerKeyPlaceholder}
+                  placeholder={t.providerKeyPlaceholder}
                   autoComplete="off"
                   spellCheck={false}
                   data-testid="provider-key"
@@ -523,7 +523,7 @@ export function ProvidersSection() {
                   onClick={() => setShowKey((v) => !v)}
                   className={cx(btnCls, "h-8 shrink-0")}
                 >
-                  {showKey ? zh.providerHideKey : zh.providerShowKey}
+                  {showKey ? t.providerHideKey : t.providerShowKey}
                 </button>
               </span>
               {!form.isNew && wb.providers.find((p) => p.id === form.id)?.has_key && (
@@ -535,22 +535,22 @@ export function ProvidersSection() {
                       ...form, remove_api_key: e.target.checked, api_key: "",
                     })}
                   />
-                  {zh.providerRemoveKey}
+                  {t.providerRemoveKey}
                 </label>
               )}
             </label>
           )}
           {form.auth_mode === "preserve" && (
-            <p className="text-2xs text-warn">{zh.providerAuthPreserveHelp}</p>
+            <p className="text-2xs text-warn">{t.providerAuthPreserveHelp}</p>
           )}
           <details className="text-2xs text-ink-3" data-testid="provider-advanced">
-            <summary className="cursor-pointer">{zh.providerAdvanced}</summary>
+            <summary className="cursor-pointer">{t.providerAdvanced}</summary>
             <div className="mt-2 flex flex-col gap-2.5">
               <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
                 {([
-                  ["request_max_retries", zh.providerRequestRetries, "100"],
-                  ["stream_max_retries", zh.providerStreamRetries, "100"],
-                  ["stream_idle_timeout_ms", zh.providerIdleTimeout, "86400000"],
+                  ["request_max_retries", t.providerRequestRetries, "100"],
+                  ["stream_max_retries", t.providerStreamRetries, "100"],
+                  ["stream_idle_timeout_ms", t.providerIdleTimeout, "86400000"],
                 ] as const).map(([field, label, max]) => (
                   <label key={field} className="flex flex-col gap-1">
                     {label}
@@ -566,7 +566,7 @@ export function ProvidersSection() {
                 ))}
               </div>
               <label className="flex flex-col gap-1">
-                {zh.providerHeaders}
+                {t.providerHeaders}
                 <textarea
                   value={form.headers}
                   rows={3}
@@ -576,7 +576,7 @@ export function ProvidersSection() {
                 />
               </label>
               <label className="flex flex-col gap-1">
-                {zh.providerEnvHeaders}
+                {t.providerEnvHeaders}
                 <textarea
                   value={form.env_headers}
                   rows={2}
@@ -587,7 +587,7 @@ export function ProvidersSection() {
                 />
               </label>
               <label className="flex flex-col gap-1">
-                {zh.providerQueryParams}
+                {t.providerQueryParams}
                 <textarea
                   value={form.query_params}
                   rows={3}
@@ -600,7 +600,7 @@ export function ProvidersSection() {
             </div>
           </details>
           {testResults.__form && <TestResultLine r={testResults.__form} />}
-          {authNeedsSave && <p className="text-2xs text-ink-3">认证设置已变更，请保存后检查</p>}
+          {authNeedsSave && <p className="text-2xs text-ink-3">{t.providerAuthChanged}</p>}
           <div className="flex items-center gap-2">
             <button
               type="button"
@@ -609,11 +609,11 @@ export function ProvidersSection() {
               onClick={testCurrentForm}
               className={btnCls}
             >
-              {testing === "__form" ? zh.providerTesting : zh.providerTest}
+              {testing === "__form" ? t.providerTesting : t.providerTest}
             </button>
             <div className="flex-1" />
             <button type="button" onClick={() => setForm(null)} className={btnCls}>
-              {zh.settingsClose}
+              {t.settingsClose}
             </button>
             <button
               type="submit"
@@ -621,7 +621,7 @@ export function ProvidersSection() {
               data-testid="provider-save"
               className="h-7 rounded-md bg-ink px-3 text-xs font-medium text-bg transition-opacity hover:opacity-85 disabled:opacity-40"
             >
-              {saving ? zh.providerSaving : zh.providerSave}
+              {saving ? t.providerSaving : t.providerSave}
             </button>
           </div>
         </form>
@@ -644,15 +644,15 @@ export function ProvidersSection() {
                 <span className="text-sm font-medium text-ink" title={p.name}>
                   {shortProviderName(p.name, p.id)}
                 </span>
-                {!p.protocol_compatible && <span className="text-xs text-warn">{p.wire_api} · {zh.providerUnsupported}</span>}
+                {!p.protocol_compatible && <span className="text-xs text-warn">{p.wire_api} · {t.providerUnsupported}</span>}
                 {p.is_default && (
                   <span className="rounded-full bg-raised px-2 py-0.5 text-2xs text-ink-2">
-                    {zh.providerDefaultTag}
+                    {t.providerDefaultTag}
                   </span>
                 )}
                 {isCurrent && (
                   <span className="rounded-full bg-accent/8 px-2 py-0.5 text-2xs text-accent">
-                    {zh.providerUsedByProject}
+                    {t.providerUsedByProject}
                   </span>
                 )}
               </div>
@@ -660,22 +660,22 @@ export function ProvidersSection() {
                 {p.base_url ?? "—"}
               </div>
               <div className="mt-1 text-2xs">
-                <span className="text-ink-3">{zh.providerAuthMode}：</span>
+                <span className="text-ink-3">{t.providerAuthMode}{t.colon}</span>
                 {p.auth_mode === "legacy" ? (
-                  <span className="text-ink-2">{zh.providerAuthExternal}</span>
+                  <span className="text-ink-2">{t.providerAuthExternal}</span>
                 ) : p.auth_mode === "environment" ? (
                   <span className={p.has_key ? "text-ink-2" : "text-warn"}>
-                    {p.has_key ? zh.providerKeySet : zh.providerEnvUnavailable}（{p.env_key}）
+                    {p.has_key ? t.providerKeySet : t.providerEnvUnavailable}{t.paren(p.env_key ?? "")}
                   </span>
                 ) : p.auth_mode === "none" ? (
-                  <span className="text-ink-2">{zh.providerAuthNone}</span>
+                  <span className="text-ink-2">{t.providerAuthNone}</span>
                 ) : p.has_key ? (
                   <span className="text-ink-2">
-                    {zh.providerKeySet}
-                    {p.key_updated ? ` · ${zh.providerKeyUpdated} ${fmtKeyDate(p.key_updated)}` : ""}
+                    {t.providerKeySet}
+                    {p.key_updated ? ` · ${t.providerKeyUpdated} ${fmtKeyDate(p.key_updated)}` : ""}
                   </span>
                 ) : (
-                  <span className="text-warn">{zh.providerKeyUnset}</span>
+                  <span className="text-warn">{t.providerKeyUnset}</span>
                 )}
               </div>
               {r && (
@@ -685,7 +685,7 @@ export function ProvidersSection() {
               )}
               <div className="mt-2 flex flex-wrap items-center gap-1.5">
                 <button type="button" onClick={() => beginEdit(p)} className={btnCls}>
-                  {zh.providerEdit}
+                  {t.providerEdit}
                 </button>
                 <button
                   type="button"
@@ -693,7 +693,7 @@ export function ProvidersSection() {
                   onClick={() => void runTest(p.id, { id: p.id })}
                   className={btnCls}
                 >
-                  {testing === p.id ? zh.providerTesting : zh.providerTest}
+                  {testing === p.id ? t.providerTesting : t.providerTest}
                 </button>
                 {!p.is_default && (
                   <button
@@ -702,7 +702,7 @@ export function ProvidersSection() {
                     onClick={() => void makeDefault(p)}
                     className={linkCls}
                   >
-                    {zh.providerSetDefault}
+                    {t.providerSetDefault}
                   </button>
                 )}
                 {!isCurrent && wb.projectPath && (
@@ -712,7 +712,7 @@ export function ProvidersSection() {
                     onClick={() => void useInProject(p)}
                     className={linkCls}
                   >
-                    {zh.providerUseInProject}
+                    {t.providerUseInProject}
                   </button>
                 )}
                 <div className="flex-1" />
@@ -723,7 +723,7 @@ export function ProvidersSection() {
                     onClick={() => void remove(p)}
                     className={cx(linkCls, "text-ink-3 hover:text-danger")}
                   >
-                    {busy === p.id ? <Spinner className="h-3 w-3" /> : zh.providerDelete}
+                    {busy === p.id ? <Spinner className="h-3 w-3" /> : t.providerDelete}
                   </button>
                 )}
               </div>
@@ -731,7 +731,7 @@ export function ProvidersSection() {
           );
         })}
         {wb.providers.length === 0 && (
-          <div className="text-xs text-ink-3">{zh.modelLoading}</div>
+          <div className="text-xs text-ink-3">{t.modelLoading}</div>
         )}
       </div>
     </div>

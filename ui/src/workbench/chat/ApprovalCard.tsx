@@ -7,7 +7,7 @@
 import { cx } from "../../lib/format";
 import { humanizeCommand } from "../../lib/humanizeCommand";
 import { OBSERVE_TOOLS } from "../../lib/toolCards";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import type { ApprovalItem } from "../../state/threadReducer";
 import { IconShield } from "../icons";
 
@@ -25,7 +25,7 @@ export function describeApproval(
   // to run tool "<name>"?` - the decision row read as raw English next to
   // Chinese cards (visual review, 2026-09-05); the tool name is the fact
   const mcp = /^Allow the (\S+) MCP server to run tool "([^"]+)"\??$/.exec(message.trim());
-  if (mcp) message = `${zh.approvalMcpTool}${mcp[2]}`;
+  if (mcp) message = `${t.approvalMcpTool}${mcp[2]}`;
   const params: ParamRow[] = [];
   const detail = item.detail;
   if (detail && typeof detail === "object") {
@@ -61,7 +61,7 @@ export function describeApproval(
       const h = humanizeCommand(cmd);
       // the unrecognized fallback label already reads 运行命令：… - do not
       // stack the 执行命令 prefix on top of it (seen live: 执行命令：运行命令：)
-      message = h.recognized ? `${zh.approvalRunCommand}${h.label}` : h.label;
+      message = h.recognized ? `${t.approvalRunCommand}${h.label}` : h.label;
       if (!params.some((p) => p.name === "command")) {
         params.push({ name: "command", value: cmd });
       }
@@ -121,16 +121,16 @@ export function approvalFacets(item: ApprovalItem): ApprovalFacets {
   const isFileChange = changes !== undefined || /patch|file/i.test(item.method);
   let risk: string;
   if (tool !== null) {
-    if (UPLOAD_TOOLS.has(tool)) risk = zh.riskUpload;
-    else if (DELIVER_TOOLS.has(tool)) risk = zh.riskDeliver;
-    else if (OBSERVE_TOOLS.has(tool)) risk = zh.riskObserve;
-    else risk = zh.riskMutate;
+    if (UPLOAD_TOOLS.has(tool)) risk = t.riskUpload;
+    else if (DELIVER_TOOLS.has(tool)) risk = t.riskDeliver;
+    else if (OBSERVE_TOOLS.has(tool)) risk = t.riskObserve;
+    else risk = t.riskMutate;
   } else if (isCommand) {
-    risk = zh.riskShell;
+    risk = t.riskShell;
   } else if (isFileChange) {
-    risk = zh.riskFile;
+    risk = t.riskFile;
   } else {
-    risk = zh.riskUnknown;
+    risk = t.riskUnknown;
   }
   return { what: message, why, risk, files: Array.from(new Set(files)).slice(0, 8), tool };
 }
@@ -138,17 +138,17 @@ export function approvalFacets(item: ApprovalItem): ApprovalFacets {
 function statusLabel(status: ApprovalItem["status"]): string {
   switch (status) {
     case "accepted":
-      return zh.approvalAccepted;
+      return t.approvalAccepted;
     case "rejected":
-      return zh.approvalRejected;
+      return t.approvalRejected;
     case "auto":
-      return zh.approvalAuto;
+      return t.approvalAuto;
     case "timeout":
-      return zh.approvalTimeout;
+      return t.approvalTimeout;
     case "resolved":
-      return zh.approvalResolved;
+      return t.approvalResolved;
     default:
-      return zh.approvalPending;
+      return t.approvalPending;
   }
 }
 
@@ -185,7 +185,7 @@ export function ApprovalCard({ item }: { item: ApprovalItem }) {
         {message}
       </span>
       <span className="shrink-0 rounded-pill bg-warn/10 px-2 py-0.5 text-2xs text-warn">
-        {zh.approvalInComposer}
+        {t.approvalInComposer}
       </span>
     </div>
   );

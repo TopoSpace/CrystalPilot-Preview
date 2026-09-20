@@ -24,7 +24,7 @@ import {
 import { cx, fmtBytes } from "../../lib/format";
 import { artifactUrl } from "../../lib/wbApi";
 import type { ArtifactEntry, DeliveryMark } from "../../lib/wbTypes";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { useCrystal } from "../../state/CrystalProvider";
 import { useThreadOptional } from "../../state/ThreadProvider";
 
@@ -66,7 +66,7 @@ export function MarkdownPreview({ path }: { path: string }) {
     return (
       <div className="flex items-center gap-2 py-2 text-2xs text-ink-3">
         <Spinner className="h-3 w-3" />
-        {zh.loading}
+        {t.loading}
       </div>
     );
   }
@@ -109,7 +109,7 @@ function ArtifactRow({ artifact }: { artifact: ArtifactEntry }) {
               open ? "bg-raised text-ink" : "text-ink-3 hover:bg-raised hover:text-ink-2",
             )}
           >
-            {zh.previewArtifact}
+            {t.previewArtifact}
           </button>
         )}
         <a
@@ -118,7 +118,7 @@ function ArtifactRow({ artifact }: { artifact: ArtifactEntry }) {
           rel="noreferrer"
           className="h-5 shrink-0 rounded-md px-1.5 text-2xs leading-5 text-accent transition-colors hover:bg-accent/10"
         >
-          {zh.openArtifact}
+          {t.openArtifact}
         </a>
       </div>
       {open && isMd && <MarkdownPreview path={artifact.path} />}
@@ -136,7 +136,7 @@ function ArtifactRow({ artifact }: { artifact: ArtifactEntry }) {
 function GroupSection({ group, mark }: { group: ArtifactGroup; mark: DeliveryMark | null }) {
   const [all, setAll] = useState(false);
   const n = group.main.length + group.rest.length;
-  const label = group.dir === "" ? zh.artifactsTopLevel : group.dir;
+  const label = group.dir === "" ? t.artifactsTopLevel : group.dir;
   return (
     <section className="border-b border-line/60 pb-1 last:border-b-0" data-testid="artifact-group">
       <div className="flex items-baseline gap-2 px-3 pt-2 pb-1">
@@ -150,11 +150,11 @@ function GroupSection({ group, mark }: { group: ArtifactGroup; mark: DeliveryMar
         )}
         {mark && (
           <span className="shrink-0 font-mono text-2xs text-ink-3">
-            {zh.deliveryNode} {mark.node}
+            {t.deliveryNode} {mark.node}
           </span>
         )}
         <span className="ml-auto shrink-0 text-2xs text-ink-3 tabular-nums">
-          {n} {zh.deliveryFilesUnit}
+          {n} {t.deliveryFilesUnit}
         </span>
       </div>
       {group.main.map((a) => (
@@ -169,8 +169,8 @@ function GroupSection({ group, mark }: { group: ArtifactGroup; mark: DeliveryMar
             className="mx-3 my-0.5 h-6 rounded-md px-2 text-2xs text-ink-3 transition-colors hover:bg-raised hover:text-ink"
           >
             {all
-              ? zh.artifactsMainOnly
-              : `${zh.deliveryAllFiles} ${n} ${zh.deliveryFilesUnit}${group.main.length > 0 ? ` (+${group.rest.length})` : ""}`}
+              ? t.artifactsMainOnly
+              : `${t.deliveryAllFiles} ${n} ${t.deliveryFilesUnit}${group.main.length > 0 ? ` (+${group.rest.length})` : ""}`}
           </button>
           {all && group.rest.map((a) => <ArtifactRow key={a.rel} artifact={a} />)}
         </>
@@ -186,14 +186,14 @@ function LogsSection({ logs }: { logs: ArtifactEntry[] }) {
       <button
         type="button"
         aria-expanded={open}
-        title={zh.artifactsLogsTip}
+        title={t.artifactsLogsTip}
         onClick={() => setOpen((v) => !v)}
         className="flex w-full items-baseline gap-2 px-3 pt-2 pb-1 text-left"
       >
         <span className={cx("text-2xs text-ink-3 transition-transform", open && "rotate-90")}>▶</span>
-        <span className="text-xs font-medium text-ink-3">{zh.artifactsLogs}</span>
+        <span className="text-xs font-medium text-ink-3">{t.artifactsLogs}</span>
         <span className="ml-auto text-2xs text-ink-3 tabular-nums">
-          {logs.length} {zh.deliveryFilesUnit}
+          {logs.length} {t.deliveryFilesUnit}
         </span>
       </button>
       {open && logs.map((a) => <ArtifactRow key={a.rel} artifact={a} />)}
@@ -214,10 +214,10 @@ export function ArtifactsPanel() {
         {turnActive ? (
           <>
             <Spinner className="h-3.5 w-3.5" />
-            {zh.artifactsPending}
+            {t.artifactsPending}
           </>
         ) : (
-          zh.noArtifacts
+          t.noArtifacts
         )}
       </div>
     );

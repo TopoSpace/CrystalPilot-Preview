@@ -7,6 +7,7 @@
  * only - flags never mutate the model.
  */
 import type { SceneAtom } from "./wbTypes";
+import { t } from "./i18n";
 
 export const U_EQ_MIN = 0.002;
 export const U_EQ_MAX = 0.2;
@@ -22,18 +23,18 @@ export interface AdpAnomaly {
 export function adpReasons(a: SceneAtom): string[] {
   if (a.adp_known === false || a.u_eq === null || a.elem === "H" || a.flag === "removed") return [];
   const out: string[] = [];
-  if (a.ell?.npd) out.push("ADP 非正定（NPD）");
+  if (a.ell?.npd) out.push(t.libs.adpNpd);
   const r = a.ell?.r;
   if (r && r[2] > 1e-4) {
     const ratio = r[0] / r[2];
     if (ratio > AXIS_RATIO_MAX) {
-      out.push(`椭球轴比 ${ratio.toFixed(1)}：疑未拆无序或元素指认错误`);
+      out.push(t.libs.adpAxisRatio(ratio.toFixed(1)));
     }
   }
   if (a.u_eq > U_EQ_MAX) {
-    out.push(`U_eq ${a.u_eq.toFixed(3)} 过大：需核对占有率、无序和元素指认`);
+    out.push(t.libs.adpUeqHigh(a.u_eq.toFixed(3)));
   } else if (a.u_eq < U_EQ_MIN) {
-    out.push(`U_eq ${a.u_eq.toFixed(4)} 过小：需核对元素指认、数据与标度`);
+    out.push(t.libs.adpUeqLow(a.u_eq.toFixed(4)));
   }
   return out;
 }

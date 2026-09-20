@@ -8,7 +8,7 @@
  * The registry is data-first: `humanizeTool(item)` is the only consumer API.
  */
 import type { ReactNode } from "react";
-import { zh } from "./zh";
+import { t } from "./i18n";
 import type { ToolCardItem } from "../state/threadReducer";
 import { parseCheckcifTail } from "./checkcif";
 import { deliveryStatusLabel } from "./delivery";
@@ -89,14 +89,14 @@ export function envelopeChips(s: Rec): ToolChipSpec[] {
   if (!env) return [];
   const out: ToolChipSpec[] = [];
   const exec = str(env.execution);
-  if (exec === "timeout") out.push({ text: zh.envTimeout, tone: "warn" });
-  if (exec === "cancelled") out.push({ text: zh.envCancelled, tone: "warn" });
+  if (exec === "timeout") out.push({ text: t.envTimeout, tone: "warn" });
+  if (exec === "cancelled") out.push({ text: t.envCancelled, tone: "warn" });
   const nc = isObj(env.no_change) ? env.no_change : null;
-  if (nc?.value === true) out.push({ text: zh.envNoChange, tone: "warn" });
+  if (nc?.value === true) out.push({ text: t.envNoChange, tone: "warn" });
   const sci = isObj(env.scientific_outcome) ? env.scientific_outcome : null;
   const verdict = sci ? str(sci.verdict) : undefined;
-  if (verdict === "inconclusive") out.push({ text: zh.envInconclusive, tone: "warn" });
-  if (verdict === "against") out.push({ text: zh.envAgainst, tone: "danger" });
+  if (verdict === "inconclusive") out.push({ text: t.envInconclusive, tone: "warn" });
+  if (verdict === "against") out.push({ text: t.envAgainst, tone: "danger" });
   return out;
 }
 
@@ -109,7 +109,7 @@ function preflightConflicts(s: Rec): number {
 
 function nodeChip(s: Rec, item: ToolCardItem): ToolChipSpec | null {
   const node = str(s.node) ?? str(s.final_node) ?? item.summary?.node;
-  return node === undefined ? null : { text: `节点 ${node}` };
+  return node === undefined ? null : { text: t.toolCards.nodeChip(node) };
 }
 
 /** "R1 0.1036 → 0.0618 ▼" with a tone-colored direction glyph. */
@@ -141,32 +141,18 @@ function metricDelta(
   );
 }
 
-const refineModeZh: Record<string, string> = {
-  isotropic: "各向同性",
-  anisotropic: "各向异性",
-  scale_only: "仅标度",
-};
+const refineModeZh: Record<string, string> = t.toolCards.refineModes;
 
-const specialtyZh: Record<string, string> = {
-  space_group: "空间群",
-  chemistry: "化学建模",
-  density: "残余密度",
-  validation: "结构验证",
-  refinement_strategy: "精修策略",
-};
+const specialtyZh: Record<string, string> = t.toolCards.specialties;
 
-const confidenceZh: Record<string, string> = {
-  high: "高",
-  medium: "中",
-  low: "低",
-};
+const confidenceZh: Record<string, string> = t.toolCards.confidence;
 
 /** [a,b,c,α,β,γ] -> "12.34 5.67 8.90 Å". */
 function cellChipText(v: unknown): string | undefined {
   if (!Array.isArray(v) || v.length < 3) return undefined;
   const abc = v.slice(0, 3).map((x) => num(x));
   if (abc.some((x) => x === undefined)) return undefined;
-  return `晶胞 ${abc.map((x) => (x as number).toFixed(2)).join(" ")} Å`;
+  return t.toolCards.cellChip(abc.map((x) => (x as number).toFixed(2)).join(" "));
 }
 
 function strList(v: unknown): string[] {
@@ -175,18 +161,9 @@ function strList(v: unknown): string[] {
     .filter((x): x is string => x !== undefined);
 }
 
-const viewZh: Record<string, string> = {
-  a: "沿 a 轴",
-  b: "沿 b 轴",
-  c: "沿 c 轴",
-  oblique: "斜视",
-};
+const viewZh: Record<string, string> = t.toolCards.views;
 
-const stateZh: Record<string, string> = {
-  asu: "不对称单元",
-  cell: "单胞（P1 展开）",
-  supercell: "2×2×2 堆积",
-};
+const stateZh: Record<string, string> = t.toolCards.states;
 
 export interface ViewImage {
   path: string;
@@ -229,7 +206,7 @@ function viewStrip(images: unknown, fallbackState?: string): ReactNode {
           target="_blank"
           rel="noreferrer"
           className="group/img block"
-          title={im.label === "" ? "点击查看原图" : `${im.label} · 点击查看原图`}
+          title={im.label === "" ? t.toolCards.viewOpenFull : `${im.label} · ${t.toolCards.viewOpenFull}`}
         >
           <img
             src={artifactUrl(im.path)}
@@ -261,7 +238,7 @@ const registry: Record<string, ToolDef> = {
   refine: {
     running: (args) => {
       const m = str(args.mode);
-      return `正在最小二乘精修${m ? `（${refineModeZh[m] ?? m}）` : ""}…`;
+      return t.toolCards.refineRunning(m ? (refineModeZh[m] ?? m) : undefined);
     },
     done: (s, _args, item) => {
       const r1 = num(s.r1_strong) ?? item.summary?.r1;
@@ -272,14 +249,14 @@ const registry: Record<string, ToolDef> = {
       return {
         title: (
           <>
-            精修完成：{metricDelta("R1", prev, r1)}
-            {mask ? "，含溶剂掩膜" : ""}
+            {t.toolCards.refineDone}{metricDelta("R1", prev, r1)}
+            {mask ? t.toolCards.refineWithMask : ""}
           </>
         ),
         chips: chips(
           chip(f4(num(s.wr2) ?? item.summary?.wr2)?.replace(/^/, "wR2 ")),
           chip(f2(goof)?.replace(/^/, "GooF ")),
-          chip(peak !== undefined ? `残差 ${peak.toFixed(2)} eÅ⁻³` : undefined),
+          chip(peak !== undefined ? t.toolCards.residualPeak(peak.toFixed(2)) : undefined),
           nodeChip(s, item),
         ),
       };
@@ -287,7 +264,7 @@ const registry: Record<string, ToolDef> = {
   },
 
   run_shelxl: {
-    running: (a) => a.mode === "adopt" || a.mode === "adopt_wght" ? "正在进行 SHELXL 精修…" : "正在运行 SHELXL 交叉验证…",
+    running: (a) => a.mode === "adopt" || a.mode === "adopt_wght" ? t.toolCards.shelxlRefineRunning : t.toolCards.shelxlCrossRunning,
     done: (s, a, item) => {
       const sh = isObj(s.shelxl) ? s.shelxl : {};
       const r1 = num(sh.r1_strong) ?? item.summary?.r1;
@@ -303,19 +280,22 @@ const registry: Record<string, ToolDef> = {
       const nInc = num(counts.inconclusive) ?? 0;
       const nSup = num(counts.supported) ?? 0;
       const disChip =
-        nRevoke > 0 ? `无序 ${nRevoke} 组应撤销`
-          : nInc > 0 ? `无序 ${nInc} 组未定`
-            : nSup > 0 ? `无序 ${nSup} 组占比可测` : undefined;
+        nRevoke > 0 ? t.toolCards.disorderRevoke(nRevoke)
+          : nInc > 0 ? t.toolCards.disorderUndecided(nInc)
+            : nSup > 0 ? t.toolCards.disorderMeasurable(nSup) : undefined;
       const occupancyChips = arr(s.site_occupancies).filter(isObj).slice(0, 3).map((row) => {
         const value = num(row.occupancy), su = num(row.su);
         return chip(value === undefined ? undefined
-          : `${str(row.atom) ?? "原子"} 占有率 ${value.toFixed(4)}${su === undefined ? "（s.u. 未定）" : ` ± ${su.toPrecision(2)}`}`);
+          : t.toolCards.siteOccupancy(str(row.atom) ?? t.toolCards.atomFallback, value.toFixed(4), su === undefined ? undefined : su.toPrecision(2)));
       });
       return {
-        title: `${adopted ? "SHELXL 精修" : "SHELXL 交叉验证"}：${r1 === undefined ? "指标摘要未保留" : `R1 ${f4(r1)}`}${
-          !adopted && agrees !== null && d !== undefined ? `（Δ ${dTxt}，${agrees ? "一致" : "分歧"}）` : ""}`,
+        title: t.toolCards.shelxlTitle(
+          adopted ? t.toolCards.shelxlRefine : t.toolCards.shelxlCross,
+          r1 === undefined ? t.toolCards.metricsMissing : `R1 ${f4(r1)}`,
+          !adopted && agrees !== null && d !== undefined ? t.toolCards.shelxlDelta(dTxt, agrees) : "",
+        ),
         tone: nRevoke > 0 || agrees === false ? "warn" : agrees === true ? "ok" : null,
-        warn: r1 === undefined ? "当前记录没有完整的精修摘要；请展开原始结果，或查看该次精修节点的指标。" : null,
+        warn: r1 === undefined ? t.toolCards.shelxlNoSummary : null,
         chips: chips(
           chip(f4(num(sh.wr2))?.replace(/^/, "wR2 ")),
           chip(f2(num(sh.goof))?.replace(/^/, "GooF ")),
@@ -327,15 +307,15 @@ const registry: Record<string, ToolDef> = {
   },
 
   fit_fragment: {
-    running: () => "正在按配体模板拟合原子…",
+    running: () => t.toolCards.fitFragmentRunning,
     done: (s, _a, item) => {
       const added = arr(s.added);
       const refused = arr(s.refused);
       return {
-        title: `按配体模板补入 ${added.length} 个原子`,
+        title: t.toolCards.fitFragmentTitle(added.length),
         warn:
           refused.length > 0
-            ? `拒绝 ${refused.length} 个（密度不支持）`
+            ? t.toolCards.fitFragmentRefused(refused.length)
             : null,
         chips: chips(nodeChip(s, item)),
       };
@@ -343,14 +323,14 @@ const registry: Record<string, ToolDef> = {
   },
 
   add_atoms_from_difference_map: {
-    running: () => "正在从差值图挑选峰位补原子…",
+    running: () => t.toolCards.addFromMapRunning,
     done: (s, _a, item) => {
       const added = arr(s.added);
       const labels = added
         .map((x) => (isObj(x) ? str(x.label) : undefined))
         .filter((x): x is string => x !== undefined);
       return {
-        title: `从差值图补入 ${added.length} 个原子`,
+        title: t.toolCards.addFromMapTitle(added.length),
         chips: chips(
           chip(labels.length > 0 ? labels.join(" · ") : undefined),
           nodeChip(s, item),
@@ -360,7 +340,7 @@ const registry: Record<string, ToolDef> = {
   },
 
   edit_atoms: {
-    running: () => "正在编辑模型…",
+    running: () => t.toolCards.editAtomsRunning,
     done: (s, _a, item) => {
       const applied = arr(s.applied);
       const parts = applied
@@ -369,7 +349,7 @@ const registry: Record<string, ToolDef> = {
         )
         .filter((x): x is string => x !== undefined);
       return {
-        title: `编辑模型（${applied.length} 项操作）`,
+        title: t.toolCards.editAtomsTitle(applied.length),
         chips: chips(
           chip(parts.length > 0 ? parts.join(" · ") : undefined),
           nodeChip(s, item),
@@ -379,18 +359,18 @@ const registry: Record<string, ToolDef> = {
   },
 
   add_hydrogens: {
-    running: () => "正在添加骑乘氢…",
+    running: () => t.toolCards.addHRunning,
     done: (s, args, item) => {
       const n = num(s.n_h_added) ?? 0;
       const elements = arr(args.elements)
         .map((e) => str(e))
         .filter((e): e is string => e !== undefined);
       return {
-        title: `添加 ${n} 个骑乘氢${elements.length > 0 ? `（${elements.join("、")}）` : ""}`,
+        title: t.toolCards.addHTitle(n, elements),
         chips: chips(
           chip(
             num(s.n_carriers) !== undefined
-              ? `载体 ${num(s.n_carriers)}`
+              ? t.toolCards.carriers(num(s.n_carriers) as number)
               : undefined,
           ),
           nodeChip(s, item),
@@ -400,14 +380,14 @@ const registry: Record<string, ToolDef> = {
   },
 
   optimize_weights: {
-    running: () => "正在优化权重方案…",
+    running: () => t.toolCards.optimizeWeightsRunning,
     done: (s, _a, item) => {
       const goofAfter = num(s.goof_after) ?? num(s.goof);
       const w = isObj(s.weights) ? s.weights : {};
       return {
         title: (
           <>
-            权重优化：
+            {t.toolCards.weightsOptimized}
             {metricDelta("GooF", num(s.goof_before), goofAfter, 2) ?? "GooF - "}
           </>
         ),
@@ -426,15 +406,15 @@ const registry: Record<string, ToolDef> = {
   },
 
   solvent_mask: {
-    running: () => "正在计算溶剂掩膜…",
+    running: () => t.toolCards.solventMaskRunning,
     done: (s, _a, item) => {
       const nMasked = num(s.n_voids_masked) ?? 0;
       const e = num(s.total_solvent_electrons_per_cell);
       const pct = num(s.solvent_volume_pct_of_cell);
       return {
-        title: `溶剂掩膜：${nMasked} 个孔洞${e !== undefined ? ` · ~${Math.round(e)} e⁻` : ""}`,
+        title: t.toolCards.solventMaskTitle(nMasked, e !== undefined ? Math.round(e) : undefined),
         chips: chips(
-          chip(pct !== undefined ? `溶剂体积 ${pct.toFixed(1)}%` : undefined),
+          chip(pct !== undefined ? t.toolCards.solventVolume(pct.toFixed(1)) : undefined),
           nodeChip(s, item),
         ),
       };
@@ -443,7 +423,7 @@ const registry: Record<string, ToolDef> = {
 
   search_fragment_pose: {
     observe: true,
-    running: () => "正在搜索整片段姿态…",
+    running: () => t.toolCards.searchPoseRunning,
     done: (s) => {
       const cands = arr(s.candidates).filter(isObj);
       const top = cands[0];
@@ -453,20 +433,19 @@ const registry: Record<string, ToolDef> = {
       const frag = isObj(s.fragment) ? s.fragment : null;
       const formula = frag ? (str(frag.formula) ?? str(frag.smiles)) : undefined;
       const folded = top && isObj(top.symmetry_folded) ? num(top.symmetry_folded.n_unique) : undefined;
-      const tail = formula ? `（${formula}）` : "";
       return {
-        title: cands.length === 0 ? `片段姿态搜索：无候选${tail}` : `片段姿态搜索：${cands.length} 个候选${tail}`,
+        title: t.toolCards.searchPoseTitle(cands.length, formula),
         chips: chips(
-          chip(top ? `首选 ${str(top.id) ?? "c01"} · 直接峰 ${direct} · 弱密度 ${weak} · 仅几何 ${geo}` : undefined),
-          chip(folded !== undefined ? `对称折叠 → ${folded} 个独立原子` : undefined),
+          chip(top ? t.toolCards.searchPoseTop(str(top.id) ?? "c01", direct, weak, geo) : undefined),
+          chip(folded !== undefined ? t.toolCards.searchPoseFolded(folded) : undefined),
         ),
         tone: cands.length === 0 ? "warn" : geo > 0 ? "warn" : "ok",
-        warn: str(s.timeout) ?? (geo > 0 ? `${geo} 个原子只有几何支持，密度不支持` : null),
+        warn: str(s.timeout) ?? (geo > 0 ? t.toolCards.searchPoseGeoOnly(geo) : null),
       };
     },
   },
   accept_fragment_pose: {
-    running: () => "正在把候选片段收入模型…",
+    running: () => t.toolCards.acceptPoseRunning,
     done: (s, _a, item) => {
       const added = arr(s.added);
       const fv = num(s.fvar_index);
@@ -474,9 +453,9 @@ const registry: Record<string, ToolDef> = {
       const part = num(s.part);
       const cards = arr(s.cards_added);
       return {
-        title: `接受片段候选 ${str(s.candidate_id) ?? ""}：加入 ${added.length} 个原子`,
+        title: t.toolCards.acceptPoseTitle(str(s.candidate_id) ?? "", added.length),
         chips: chips(
-          chip(fv !== undefined ? `FVAR${fv} = ${occ === undefined ? "?" : occ.toFixed(2)}` : occ === undefined ? undefined : `占有率 ${occ.toFixed(2)}`),
+          chip(fv !== undefined ? `FVAR${fv} = ${occ === undefined ? "?" : occ.toFixed(2)}` : occ === undefined ? undefined : t.toolCards.occupancyChip(occ.toFixed(2))),
           chip(part === undefined ? undefined : `PART ${part}`),
           chip(cards.length > 0 ? "EADP" : undefined),
           nodeChip(s, item),
@@ -486,71 +465,69 @@ const registry: Record<string, ToolDef> = {
     },
   },
   set_restraints: {
-    running: () => "正在更新约束…",
+    running: () => t.toolCards.setRestraintsRunning,
     done: (s, args, item) => {
       const action = str(args.action) ?? "";
       const n = arr(s.restraints).length;
       const conflicts = preflightConflicts(s);
       return {
-        title: `约束 ${action}：现有 ${n} 条`,
+        title: t.toolCards.setRestraintsTitle(action, n),
         chips: chips(nodeChip(s, item)),
         tone: conflicts > 0 ? "warn" : null,
-        warn: conflicts > 0 ? `${conflicts} 项跨非零 PART，SHELXL 不会施加` : null,
+        warn: conflicts > 0 ? t.toolCards.restraintsCrossPart(conflicts) : null,
       };
     },
   },
   preflight_restraints: {
     observe: true,
-    running: () => "正在预检约束…",
+    running: () => t.toolCards.preflightRunning,
     done: (s) => {
       const pf = isObj(s.restraints_preflight) ? s.restraints_preflight : {};
       const n = num(pf.requested) ?? 0;
       const conflicts = arr(pf.shelx_part_conflicts).length;
       const bad = arr(pf.not_representable).length;
       const warns = arr(pf.warnings).length;
-      const parts: string[] = [`${n} 条`];
-      if (conflicts > 0) parts.push(`跨 PART ${conflicts} 项`);
-      if (bad > 0) parts.push(`不可表达 ${bad} 项`);
-      if (warns > 0) parts.push(`提示 ${warns} 条`);
+      const parts: string[] = [t.toolCards.preflightCount(n)];
+      if (conflicts > 0) parts.push(t.toolCards.preflightCrossPart(conflicts));
+      if (bad > 0) parts.push(t.toolCards.preflightNotRepresentable(bad));
+      if (warns > 0) parts.push(t.toolCards.preflightWarnings(warns));
       return {
-        title: `约束预检：${parts.join(" · ")}`,
+        title: t.toolCards.preflightTitle(parts.join(" · ")),
         tone: conflicts > 0 || bad > 0 ? "warn" : "ok",
-        warn: conflicts > 0 ? `SHELXL 不施加跨非零 PART 的距离/平面约束（${conflicts} 项）` : null,
+        warn: conflicts > 0 ? t.toolCards.preflightCrossPartWarn(conflicts) : null,
       };
     },
   },
 
   branch: {
-    running: () => "正在新建分支…",
+    running: () => t.toolCards.branchRunning,
     done: (s) => ({
-      title: `新建分支 ${str(s.branch) ?? "—"}（自 ${str(s.at) ?? "—"}）`,
+      title: t.toolCards.branchTitle(str(s.branch) ?? "—", str(s.at) ?? "—"),
     }),
   },
 
   checkout: {
-    running: () => "正在检出节点…",
+    running: () => t.toolCards.checkoutRunning,
     done: (s, _a, item) => ({
-      title: `检出 ${str(s.node) ?? item.summary?.node ?? "—"}${
-        str(s.branch) !== undefined ? `（${str(s.branch)}）` : ""
-      }`,
+      title: t.toolCards.checkoutTitle(str(s.node) ?? item.summary?.node ?? "—", str(s.branch)),
     }),
   },
 
   run_checkcif: {
-    running: () => "正在运行 checkCIF…",
+    running: () => t.ccRunning,
     done: (s, _a, item) => checkcifHumanized("checkCIF", s, item),
   },
 
   submit_iucr_checkcif: {
-    running: () => "正在提交 IUCr 官方 checkCIF…",
-    done: (s, _a, item) => checkcifHumanized("IUCr 官方 checkCIF", s, item),
+    running: () => t.toolCards.iucrRunning,
+    done: (s, _a, item) => checkcifHumanized(t.toolCards.iucrPrefix, s, item),
   },
 
   // -------------------------------------------------- specialist subagent
   consult_specialist: {
     running: (args) => {
       const sp = str(args.specialty);
-      return `正在咨询${sp !== undefined ? (specialtyZh[sp] ?? sp) : ""}专家…`;
+      return t.toolCards.consultRunning(sp !== undefined ? (specialtyZh[sp] ?? sp) : "");
     },
     done: (s, args) => {
       const sp = str(s.specialty) ?? str(args.specialty) ?? "";
@@ -564,16 +541,16 @@ const registry: Record<string, ToolDef> = {
         (num(cost.input_tokens) ?? 0) + (num(cost.output_tokens) ?? 0);
       const costParts = [
         num(cost.n_tool_calls) !== undefined
-          ? `${num(cost.n_tool_calls)} 次工具调用`
+          ? t.toolCards.toolCalls(num(cost.n_tool_calls) as number)
           : null,
         tokens > 0 ? `${tokens.toLocaleString()} tokens` : null,
       ].filter((x): x is string => x !== null);
       const evidence = strList(v.evidence);
       const risks = strList(v.risks);
       return {
-        title: `专家咨询（${specialtyZh[sp] ?? sp}）完成`,
+        title: t.toolCards.consultTitle(specialtyZh[sp] ?? sp),
         chips: chips(
-          chip(`置信度 ${confidenceZh[conf] ?? conf}`, confTone),
+          chip(t.toolCards.confidenceChip(confidenceZh[conf] ?? conf), confTone),
           chip(costParts.length > 0 ? costParts.join(" · ") : undefined),
         ),
         body:
@@ -588,13 +565,13 @@ const registry: Record<string, ToolDef> = {
           <div className="flex flex-col gap-1.5">
             {str(v.recommendation) !== undefined && (
               <div>
-                <span className="font-medium text-ink-2">建议：</span>
+                <span className="font-medium text-ink-2">{t.toolCards.recommendationLabel}</span>
                 {str(v.recommendation)}
               </div>
             )}
             {evidence.length > 0 && (
               <div>
-                <span className="font-medium text-ink-2">证据：</span>
+                <span className="font-medium text-ink-2">{t.toolCards.evidenceLabel}</span>
                 <ul className="mt-0.5 list-disc pl-4">
                   {evidence.map((e, i) => (
                     <li key={i}>{e}</li>
@@ -604,7 +581,7 @@ const registry: Record<string, ToolDef> = {
             )}
             {risks.length > 0 && (
               <div>
-                <span className="font-medium text-ink-2">风险：</span>
+                <span className="font-medium text-ink-2">{t.toolCards.risksLabel}</span>
                 <ul className="mt-0.5 list-disc pl-4">
                   {risks.map((r, i) => (
                     <li key={i}>{r}</li>
@@ -620,49 +597,49 @@ const registry: Record<string, ToolDef> = {
 
   // ----------------------------------------------- analysis / model tools
   check_symmetry: {
-    running: () => "正在审计空间群对称性…",
+    running: () => t.toolCards.checkSymmetryRunning,
     done: (s) => {
       const extra = arr(s.extra_ops_matched).length;
       const suggested = str(s.suggested_space_group);
       return {
-        title: str(s.verdict) ?? "对称性审计完成",
+        title: str(s.verdict) ?? t.toolCards.checkSymmetryDone,
         tone: extra > 0 ? "warn" : null,
         chips: chips(
           chip(
             str(s.current_space_group) !== undefined
-              ? `当前 ${str(s.current_space_group)}`
+              ? t.toolCards.currentSg(str(s.current_space_group) as string)
               : undefined,
           ),
           chip(
             extra > 0 && suggested !== undefined
-              ? `建议 ${suggested}`
+              ? t.toolCards.suggestedSg(suggested)
               : undefined,
             "warn",
           ),
           chip(
-            s.metric_pseudo_symmetry === true ? "晶格存在赝对称" : undefined,
+            s.metric_pseudo_symmetry === true ? t.toolCards.metricPseudoSymmetry : undefined,
           ),
         ),
         warn:
           extra > 0
-            ? "模型服从额外对称操作，需在更高对称群中重精修验证，并如实披露"
+            ? t.toolCards.extraSymmetryWarn
             : null,
       };
     },
   },
 
   rename_atoms: {
-    running: () => "正在规范重标号…",
+    running: () => t.toolCards.renameRunning,
     done: (s) => {
       if (s.no_state_change === true) {
-        return { title: "原子标号已规范，无需重命名" };
+        return { title: t.toolCards.renameNoChange };
       }
       const renames = isObj(s.renames) ? s.renames : {};
       const pairs = Object.entries(renames).filter(
         (kv): kv is [string, string] => typeof kv[1] === "string",
       );
       return {
-        title: `规范重标号 ${num(s.n_renamed) ?? pairs.length} 个原子`,
+        title: t.toolCards.renameTitle(num(s.n_renamed) ?? pairs.length),
         detail:
           pairs.length > 0 ? (
             <div className="grid grid-cols-2 gap-x-4 gap-y-0.5 font-mono text-2xs sm:grid-cols-3">
@@ -678,15 +655,15 @@ const registry: Record<string, ToolDef> = {
   },
 
   import_cif_model: {
-    running: () => "正在导入外部 CIF 结构…",
+    running: () => t.toolCards.importCifRunning,
     done: (s) => {
       const notes = strList(s.conversion_notes);
       return {
-        title: `导入外部结构：${num(s.imported_atoms) ?? "?"} 原子，空间群 ${str(s.space_group) ?? "—"}`,
+        title: t.toolCards.importCifTitle(num(s.imported_atoms) ?? "?", str(s.space_group) ?? "—"),
         chips: chips(
           chip(
             num(s.n_aniso) !== undefined && (num(s.n_aniso) as number) > 0
-              ? `各向异性 ${num(s.n_aniso)}`
+              ? t.toolCards.anisoCount(num(s.n_aniso) as number)
               : undefined,
           ),
           chip(
@@ -694,7 +671,7 @@ const registry: Record<string, ToolDef> = {
               ? `λ ${num(s.wavelength_A)} Å`
               : undefined,
           ),
-          chip(str(s.start_node) !== undefined ? `节点 ${str(s.start_node)}` : undefined),
+          chip(str(s.start_node) !== undefined ? t.toolCards.nodeChip(str(s.start_node) as string) : undefined),
         ),
         detail:
           notes.length > 0 ? (
@@ -704,24 +681,22 @@ const registry: Record<string, ToolDef> = {
               ))}
             </ul>
           ) : null,
-        warn: notes.length > 0 ? `${notes.length} 条转换说明（展开技术详情查看）` : null,
+        warn: notes.length > 0 ? t.toolCards.conversionNotes(notes.length) : null,
       };
     },
   },
 
   // ------------------------------------------ raw frames pipeline (DIALS)
   import_frames: {
-    running: () => "正在导入衍射帧…",
+    running: () => t.toolCards.importFramesRunning,
     done: (s) => ({
-      title: `导入衍射帧：${num(s.n_images) ?? "?"} 张图像${
-        num(s.n_sweeps) !== undefined ? `（${num(s.n_sweeps)} 个扫描）` : ""
-      }`,
+      title: t.toolCards.importFramesTitle(num(s.n_images) ?? "?", num(s.n_sweeps)),
       chips: chips(
         chip(strList(s.formats).join("/") || undefined),
         chip(str(s.vendor_software)),
         chip(
           num(s.n_background) !== undefined && (num(s.n_background) as number) > 0
-            ? `本底 ${num(s.n_background)}`
+            ? t.toolCards.backgroundFrames(num(s.n_background) as number)
             : undefined,
         ),
       ),
@@ -729,9 +704,9 @@ const registry: Record<string, ToolDef> = {
   },
 
   find_spots: {
-    running: () => "正在寻找衍射斑点…",
+    running: () => t.toolCards.findSpotsRunning,
     done: (s) => ({
-      title: `寻峰：${num(s.n_strong_spots)?.toLocaleString() ?? "?"} 个强斑点`,
+      title: t.toolCards.findSpotsTitle(num(s.n_strong_spots)?.toLocaleString() ?? "?"),
       chips: chips(
         chip(
           num(s.d_min) !== undefined ? `d_min ${num(s.d_min)} Å` : undefined,
@@ -741,43 +716,41 @@ const registry: Record<string, ToolDef> = {
   },
 
   index_frames: {
-    running: () => "正在指标化…",
+    running: () => t.toolCards.indexRunning,
     done: (s) => ({
-      title: `指标化：${num(s.n_indexed)?.toLocaleString() ?? "?"} 个反射${
-        num(s.pct_indexed) !== undefined ? `（${num(s.pct_indexed)}%）` : ""
-      }`,
+      title: t.toolCards.indexTitle(num(s.n_indexed)?.toLocaleString() ?? "?", num(s.pct_indexed)),
       chips: chips(chip(cellChipText(s.cell))),
       warn:
         num(s.pct_indexed) !== undefined && (num(s.pct_indexed) as number) < 50
-          ? "指标化率偏低，晶胞/取向可能有误"
+          ? t.toolCards.indexLowWarn
           : null,
     }),
   },
 
   integrate_frames: {
-    running: () => "正在积分强度…",
+    running: () => t.toolCards.integrateRunning,
     done: (s) => ({
-      title: `积分：${num(s.n_integrated)?.toLocaleString() ?? "?"} 个反射`,
+      title: t.toolCards.integrateTitle(num(s.n_integrated)?.toLocaleString() ?? "?"),
       chips: chips(chip(cellChipText(s.cell_refined))),
     }),
   },
 
   scale_and_export: {
-    running: () => "正在标定并导出…",
+    running: () => t.toolCards.scaleRunning,
     done: (s) => {
       const sc = isObj(s.scaling) ? s.scaling : {};
       const parts = [
         num(sc.cc_half) !== undefined ? `CC½ ${num(sc.cc_half)}` : null,
         num(sc.r_merge) !== undefined ? `Rmerge ${num(sc.r_merge)}` : null,
         num(sc.completeness) !== undefined
-          ? `完整度 ${num(sc.completeness)}%`
+          ? t.toolCards.completenessPct(num(sc.completeness) as number)
           : null,
       ].filter((x): x is string => x !== null);
       return {
-        title: `标定导出${parts.length > 0 ? `：${parts.join(" · ")}` : "完成"}`,
+        title: t.toolCards.scaleTitle(parts.length > 0 ? parts.join(" · ") : null),
         chips: chips(
           chip(
-            num(sc.d_min) !== undefined ? `分辨率 ${num(sc.d_min)} Å` : undefined,
+            num(sc.d_min) !== undefined ? t.toolCards.resolutionChip(num(sc.d_min) as number) : undefined,
           ),
           chip(
             num(sc.i_over_sigma) !== undefined
@@ -786,12 +759,12 @@ const registry: Record<string, ToolDef> = {
           ),
           chip(
             num(sc.n_unique) !== undefined
-              ? `独立反射 ${num(sc.n_unique)?.toLocaleString()}`
+              ? t.toolCards.uniqueReflections((num(sc.n_unique) as number).toLocaleString())
               : undefined,
           ),
           chip(
             str(s.space_group_suggestion) !== undefined
-              ? `建议空间群 ${str(s.space_group_suggestion)}`
+              ? t.toolCards.suggestedSpaceGroup(str(s.space_group_suggestion) as string)
               : undefined,
           ),
         ),
@@ -801,54 +774,52 @@ const registry: Record<string, ToolDef> = {
   },
 
   create_start_model: {
-    running: () => "正在构建初始模型…",
+    running: () => t.toolCards.startModelRunning,
     done: (s) => ({
-      title: `初始模型：${num(s.n_atoms) ?? "?"} 原子（粗解 R1 ${
-        f4(num(s.solved_r1)) ?? "—"
-      }）`,
+      title: t.toolCards.startModelTitle(num(s.n_atoms) ?? "?", f4(num(s.solved_r1)) ?? "—"),
       chips: chips(
         chip(str(s.space_group)),
         chip(
           num(s.z_estimated) !== undefined ? `Z=${num(s.z_estimated)}` : undefined,
         ),
-        chip(str(s.node) !== undefined ? `节点 ${str(s.node)}` : undefined),
+        chip(str(s.node) !== undefined ? t.toolCards.nodeChip(str(s.node) as string) : undefined),
       ),
     }),
   },
 
   finalize_delivery: {
-    running: () => "正在封存交付…",
+    running: () => t.toolCards.finalizeRunning,
     done: (s) => {
       const waived = arr(s.waived);
       return {
-        title: s.status === "diagnostic" ? "诊断性交付已封存" : s.status === "final" ? "交付已定稿" : `交付：${deliveryStatusLabel(str(s.status) ?? null) || "状态未报告"}`,
+        title: s.status === "diagnostic" ? t.toolCards.deliveryDiagnosticSealed : s.status === "final" ? t.toolCards.deliveryFinal : t.toolCards.deliveryTitle(deliveryStatusLabel(str(s.status) ?? null) || t.toolCards.statusUnreported),
         chips: chips(
           chip(str(s.delivery) ? str(s.delivery)!.split(/[\\/]/).slice(-1)[0] : undefined),
-          chip(waived.length > 0 ? `豁免 ${waived.length} 项` : undefined),
+          chip(waived.length > 0 ? t.toolCards.waivedCount(waived.length) : undefined),
         ),
-        warn: waived.length > 0 ? "有豁免项：理由已记入 REPORT.json，报告里须逐条说明" : null,
+        warn: waived.length > 0 ? t.toolCards.waivedWarn : null,
       };
     },
   },
   ghost_test: {
-    running: (args) => `正在做幽灵原子批量测试（${strList(args.atoms).length || "?"} 个）…`,
+    running: (args) => t.toolCards.ghostRunning(strList(args.atoms).length || "?"),
     done: (s) => {
       const rows = arr(s.rows).filter(isObj);
       const n = (v: string) => rows.filter((r) => str(r.verdict) === v).length;
       const notTested = arr(s.not_tested);
       return {
-        title: `幽灵测试：${num(s.n_tested) ?? rows.length} 个原子，真 ${n("real")} / 幽灵 ${n("ghost")} / 不定 ${n("inconclusive")}`,
+        title: t.toolCards.ghostTitle(num(s.n_tested) ?? rows.length, n("real"), n("ghost"), n("inconclusive")),
         chips: chips(
-          chip(notTested.length > 0 ? `未测 ${notTested.length}（预算）` : undefined),
+          chip(notTested.length > 0 ? t.toolCards.notTestedBudget(notTested.length) : undefined),
           chip(isObj(s.baseline) && str((s.baseline as Record<string, unknown>).node)
-            ? `基线 ${str((s.baseline as Record<string, unknown>).node)}` : undefined),
+            ? t.toolCards.baselineChip(str((s.baseline as Record<string, unknown>).node) as string) : undefined),
         ),
-        warn: notTested.length > 0 ? "超出时间预算：未测候选已列出，再调一次即可" : null,
+        warn: notTested.length > 0 ? t.toolCards.budgetExceededWarn : null,
       };
     },
   },
   element_scan: {
-    running: (args) => `正在扫描 ${str(args.site) ?? "位点"} 的候选元素…`,
+    running: (args) => t.toolCards.elementScanRunning(str(args.site) ?? t.toolCards.siteFallback),
     done: (s) => {
       const rows = arr(s.rows).filter(isObj);
       const readiness = isObj(s.readiness) ? s.readiness : {};
@@ -856,16 +827,14 @@ const registry: Record<string, ToolDef> = {
       const tied = strList(s.tied_at_top);
       const top = rows[0] ?? {};
       return {
-        title: `元素扫描：${num(s.n_tested) ?? rows.length} 个候选，证据首位 ${
-          str(top.element) ?? "?"
-        }${tied.length > 1 ? `（并列：${tied.join("/")}）` : ""}`,
+        title: t.toolCards.elementScanTitle(num(s.n_tested) ?? rows.length, str(top.element) ?? "?", tied),
         chips: chips(
-          chip(blockers.length > 0 ? `未就绪 ${blockers.length}` : "就绪"),
-          chip(arr(s.not_tested).length > 0 ? `未测 ${arr(s.not_tested).length}` : undefined),
+          chip(blockers.length > 0 ? t.toolCards.notReadyCount(blockers.length) : t.toolCards.ready),
+          chip(arr(s.not_tested).length > 0 ? t.toolCards.notTested(arr(s.not_tested).length) : undefined),
         ),
         warn: blockers.length > 0
-          ? `R 差在此模型上无意义：${blockers.slice(0, 2).join("；")}`
-          : "元素由化学定（配位数/键长/簇型/吸收边），R 只是旁证",
+          ? t.toolCards.elementScanBlocked(blockers.slice(0, 2).join(t.toolCards.listSeparator))
+          : t.toolCards.elementScanHint,
       };
     },
   },
@@ -874,7 +843,7 @@ const registry: Record<string, ToolDef> = {
       const els = [str(args.element), ...strList(args.elements)].filter(
         (e): e is string => e !== undefined,
       );
-      return `正在试建 ${els.length > 0 ? els.join("/") : "候选原子"}（占有率自由精修）…`;
+      return t.toolCards.probeRunning(els.length > 0 ? els.join("/") : t.toolCards.candidateAtomFallback);
     },
     done: (s) => {
       const rows = arr(s.rows).filter(isObj);
@@ -887,33 +856,33 @@ const registry: Record<string, ToolDef> = {
       const e = num(best.electrons_refined);
       const notTested = arr(s.not_tested);
       return {
-        title: `低占有试建：${rows.length} 个候选，支持 ${n("supported")} / 不支持 ${n("not_supported")} / 临界 ${n("borderline")}`,
+        title: t.toolCards.probeTitle(rows.length, n("supported"), n("not_supported"), n("borderline")),
         tone: n("supported") > 0 ? "ok" : n("borderline") > 0 ? "warn" : null,
         chips: chips(
           chip(
             str(best.element) !== undefined && occ !== undefined
-              ? `${str(best.element)} 占有 ${occ.toFixed(3)}${e !== undefined ? `（${e.toFixed(1)} e）` : ""}`
+              ? t.toolCards.probeOccupancy(str(best.element) as string, occ.toFixed(3), e !== undefined ? e.toFixed(1) : undefined)
               : undefined,
           ),
-          chip(maskOff ? "掩膜已关（位点在空腔内）" : undefined, "warn"),
-          chip(notTested.length > 0 ? `未测 ${notTested.length}（预算）` : undefined),
+          chip(maskOff ? t.toolCards.maskOffInVoid : undefined, "warn"),
+          chip(notTested.length > 0 ? t.toolCards.notTestedBudget(notTested.length) : undefined),
           chip(isObj(s.baseline) && str((s.baseline as Rec).node)
-            ? `基线 ${str((s.baseline as Rec).node)}` : undefined),
+            ? t.toolCards.baselineChip(str((s.baseline as Rec).node) as string) : undefined),
         ),
         warn: notTested.length > 0
-          ? "超出时间预算：未测候选已列出，再调一次即可"
-          : "占有率×Z 才是数据钉住的量：低占有重原子只有几个电子，别拿满占有电子数当尺子",
+          ? t.toolCards.budgetExceededWarn
+          : t.toolCards.probeHint,
       };
     },
   },
   write_outputs: {
-    running: () => "正在写出成果文件…",
+    running: () => t.toolCards.writeOutputsRunning,
     done: (s, _a, item) => {
       const files = arr(s.files);
       const pub = s.publication_cif === true;
       const metrics = isObj(s.metrics) ? s.metrics : {};
       return {
-        title: `输出 ${files.length} 个成果文件${pub ? "（发表级 CIF+fcf）" : ""}`,
+        title: t.toolCards.writeOutputsTitle(files.length, pub),
         chips: chips(
           chip(f4(num(metrics.r1_strong))?.replace(/^/, "R1 ")),
           nodeChip(s, item),
@@ -923,11 +892,11 @@ const registry: Record<string, ToolDef> = {
   },
 
   fourier_complete: {
-    running: () => "正在做傅里叶补全…",
+    running: () => t.toolCards.fourierRunning,
     done: (s, _a, item) => {
       const added = arr(s.added);
       return {
-        title: `傅里叶补全：补入 ${added.length} 个原子`,
+        title: t.toolCards.fourierTitle(added.length),
         chips: chips(nodeChip(s, item)),
       };
     },
@@ -936,55 +905,53 @@ const registry: Record<string, ToolDef> = {
   // ------------------------------------------------------- observe tools
   get_project_brief: {
     observe: true,
-    running: () => "正在读取项目简报…",
-    done: () => ({ title: "读取项目简报" }),
+    running: () => t.toolCards.briefRunning,
+    done: () => ({ title: t.toolCards.briefTitle }),
   },
   inspect_model: {
     observe: true,
-    running: () => "正在查看模型…",
+    running: () => t.toolCards.inspectModelRunning,
     done: (s) => {
       const n = num(s.n_atoms);
       const suspects = Array.isArray(s.suspects) ? s.suspects.length : undefined;
       const isolated = Array.isArray(s.isolated_atoms) ? s.isolated_atoms.length : undefined;
       return {
-        title: `查看模型${n !== undefined ? `（${n} 原子）` : ""}`,
+        title: t.toolCards.inspectModelTitle(n),
         chips: chips(chip(str(s.space_group)),
-          chip(suspects !== undefined ? `可疑原子 ${suspects}` : undefined),
-          chip(isolated !== undefined ? `孤立原子 ${isolated}` : undefined)),
+          chip(suspects !== undefined ? t.toolCards.suspectAtoms(suspects) : undefined),
+          chip(isolated !== undefined ? t.toolCards.isolatedAtoms(isolated) : undefined)),
         tone: (suspects ?? 0) > 0 || (isolated ?? 0) > 0 ? "warn" : null,
       };
     },
   },
   inspect_map: {
     observe: true,
-    running: () => "正在检查差值密度…",
-    done: (s) => ({ title: "检查差值密度", chips: chips(
+    running: () => t.toolCards.inspectMapRunning,
+    done: (s) => ({ title: t.toolCards.inspectMapTitle, chips: chips(
       chip(f2(num(s.diff_map_max)) !== undefined ? `Δρ max ${f2(num(s.diff_map_max))} e/Å³` : undefined),
       chip(f2(num(s.diff_map_min)) !== undefined ? `min ${f2(num(s.diff_map_min))} e/Å³` : undefined),
     ) }),
   },
   check_ligand: {
     observe: true,
-    running: () => "正在比对配体模板…",
-    done: () => ({ title: "比对配体" }),
+    running: () => t.toolCards.checkLigandRunning,
+    done: () => ({ title: t.toolCards.checkLigandTitle }),
   },
   get_geometry: {
     observe: true,
-    running: () => "正在生成几何表…",
+    running: () => t.toolCards.geometryRunning,
     done: (s) => {
       const nb = num(s.n_bonds) ?? 0;
       const na = num(s.n_angles) ?? 0;
       const esd = str(s.esd_source) !== undefined;
       return {
-        title: `几何表：${nb} 键 ${na} 角${esd ? "（含 SHELXL esd）" : "（无 esd）"}${
-          s.truncated === true ? "，已截断" : ""
-        }`,
+        title: t.toolCards.geometryTitle(nb, na, esd, s.truncated === true),
       };
     },
   },
   analyze_packing: {
     observe: true,
-    running: () => "正在生成堆积 / 孔道 / 相互作用测量表…",
+    running: () => t.toolCards.packingRunning,
     done: (s) => {
       const ix = isObj(s.interactions) ? (s.interactions as Rec) : null;
       const counts = ix && isObj(ix.counts) ? (ix.counts as Rec) : null;
@@ -997,26 +964,24 @@ const registry: Record<string, ToolDef> = {
       const pk = isObj(s.packing) ? (s.packing as Rec) : null;
       const pi = pk ? num(pk.packing_index_pct) : undefined;
       return {
-        title: `堆积分析：相互作用 ${nIx} 行 · 孔道 ${nV}${
-          pi !== undefined ? ` · 堆积 ${pi.toFixed(1)} %` : ""
-        }${cards ? ` · HTAB 卡 ${cards}` : ""}`,
+        title: t.toolCards.packingTitle(nIx, nV, pi !== undefined ? pi.toFixed(1) : undefined, cards),
       };
     },
   },
   validate_structure: {
     observe: true,
-    running: () => "正在做结构验证…",
+    running: () => t.toolCards.validateRunning,
     done: (s) => {
       const n = num(s.n_alerts) ?? 0;
       return {
-        title: `结构验证：${n} 项提醒`,
+        title: t.toolCards.validateTitle(n),
         tone: n > 0 ? "warn" : null,
       };
     },
   },
   audit_reflection_data: {
     observe: true,
-    running: () => "正在体检反射数据（孪晶/对称性征兆）…",
+    running: () => t.toolCards.auditReflRunning,
     done: (s) => {
       const alarm = isObj(s.twin_alarm);
       const hints = Array.isArray(s.hints) ? s.hints : [];
@@ -1028,10 +993,10 @@ const registry: Record<string, ToolDef> = {
       const nSigns = Array.isArray(signs) ? signs.length : 0;
       return {
         title: alarm
-          ? `反射数据体检：孪晶警示征 ×${nSigns}`
+          ? t.toolCards.auditReflTwin(nSigns)
           : clean
-            ? "反射数据体检：无孪晶/对称性征兆"
-            : `反射数据体检：${hints.length} 条提示`,
+            ? t.toolCards.auditReflClean
+            : t.toolCards.auditReflHints(hints.length),
         tone: alarm ? "warn" : clean ? "ok" : hints.length > 0 ? "warn" : null,
         warn: alarm ? (str(hints[hints.length - 1]) ?? null) : null,
       };
@@ -1039,7 +1004,7 @@ const registry: Record<string, ToolDef> = {
   },
   integrate_difference_density: {
     observe: true,
-    running: () => "正在积分区域残差电子数…",
+    running: () => t.toolCards.integrateDensityRunning,
     done: (s) => {
       const pos = num(s.electrons_positive);
       const neg = num(s.electrons_negative);
@@ -1049,16 +1014,16 @@ const registry: Record<string, ToolDef> = {
       if (pos !== undefined && neg !== undefined) {
         bits.push(`+${pos.toFixed(1)}e / ${neg.toFixed(1)}e`);
       }
-      if (claimed !== undefined) bits.push(`模型声称 ${claimed.toFixed(1)}e`);
-      if (expected !== undefined) bits.push(`期望 ${expected.toFixed(1)}e`);
+      if (claimed !== undefined) bits.push(t.toolCards.modelClaims(claimed.toFixed(1)));
+      if (expected !== undefined) bits.push(t.toolCards.expectedElectrons(expected.toFixed(1)));
       return {
-        title: `残差电子数积分${bits.length > 0 ? `：${bits.join(" · ")}` : ""}`,
+        title: t.toolCards.integrateDensityTitle(bits.length > 0 ? bits.join(" · ") : null),
       };
     },
   },
   audit_element_assignment: {
     observe: true,
-    running: () => "正在审计 C/N/O 元素指认证据…",
+    running: () => t.toolCards.auditElementRunning,
     done: (s) => {
       const idle = Array.isArray(s.idle_n_o) ? s.idle_n_o.length : 0;
       const hi = Array.isArray(s.ueq_high_vs_neighbours)
@@ -1071,28 +1036,28 @@ const registry: Record<string, ToolDef> = {
       return {
         title:
           n > 0
-            ? `元素指认证据：${n} 处需判读（闲置 N/O ×${idle}）`
-            : "元素指认证据：无异常信号",
+            ? t.toolCards.auditElementTitle(n, idle)
+            : t.toolCards.auditElementClean,
         tone: n > 0 ? "warn" : "ok",
       };
     },
   },
   // ------------------------------------------------ data ingest / reduction
   ingest_vendor_data: {
-    running: () => "正在摄入厂商数据…",
+    running: () => t.toolCards.ingestRunning,
     done: (s, _args, item) => {
       const merge = isObj(s.merge) ? s.merge : {};
       const chosen = isObj(s.chosen) ? s.chosen : {};
       const mismatch = str(s.hklf_mismatch) ?? str(s.twin_data_note);
       const hklf5 = isObj(s.hklf5) ? s.hklf5 : null;
       return {
-        title: `摄入厂商数据：${str(chosen.hkl) ?? "?"}`,
+        title: t.toolCards.ingestTitle(str(chosen.hkl) ?? "?"),
         chips: chips(
-          chip(hklf5 !== null ? `HKLF5 · ${num(hklf5.n_domains) ?? "?"} 域` : undefined,
+          chip(hklf5 !== null ? t.toolCards.hklf5Domains(num(hklf5.n_domains) ?? "?") : undefined,
                hklf5 !== null ? "warn" : undefined),
           chip(str(merge.space_group)),
           chip(num(merge.r_int) === undefined ? undefined : `Rint ${f4(num(merge.r_int))}`),
-          chip(num(s.n_atoms) === undefined ? undefined : `${num(s.n_atoms)} 原子`),
+          chip(num(s.n_atoms) === undefined ? undefined : t.toolCards.atomsCount(num(s.n_atoms) as number)),
           nodeChip(s, item),
         ),
         warn: mismatch ?? null,
@@ -1100,7 +1065,7 @@ const registry: Record<string, ToolDef> = {
     },
   },
   reduce_with_crysalis: {
-    running: () => "正在用 CrysAlisPro 还原数据（峰搜 / 索引 / 积分）…",
+    running: () => t.toolCards.crysalisRunning,
     done: (s) => {
       const steps = arr(s.steps).filter(isObj);
       const evidence = steps
@@ -1109,13 +1074,11 @@ const registry: Record<string, ToolDef> = {
       const secs = steps.reduce((a, st) => a + (num(st.elapsed_s) ?? 0), 0);
       const hkl = str(s.hkl);
       return {
-        title: `CrysAlisPro 还原完成：${
-          num(s.n_hkl_rows)?.toLocaleString() ?? "?"
-        } 行反射`,
+        title: t.toolCards.crysalisTitle(num(s.n_hkl_rows)?.toLocaleString() ?? "?"),
         chips: chips(
           chip(hkl ? hkl.split(/[\\/]/).pop() : undefined),
           chip(secs > 0 ? `${Math.round(secs)} s` : undefined),
-          chip(`${steps.length} 步`),
+          chip(t.toolCards.stepsCount(steps.length)),
         ),
         warn: strList(s.existing_model_in_directory).length > 0
           ? str(s.independence_note) ?? null
@@ -1136,7 +1099,7 @@ const registry: Record<string, ToolDef> = {
   estimate_resolution: {
     // NOT observe: the shell curves are the point, and a collapsed gray
     // row would hide them
-    running: () => "正在评估分辨率截断证据…",
+    running: () => t.toolCards.estimateResRunning,
     done: (s) => {
       const d = num(s.suggested_d_min);
       const cur = num(s.current_d_min);
@@ -1144,14 +1107,12 @@ const registry: Record<string, ToolDef> = {
       return {
         title:
           d === undefined
-            ? "分辨率评估：无 shell 达标（数据弱或已合并）"
-            : `分辨率评估：建议 d_min ${d.toFixed(2)} Å${
-                cur === undefined ? "" : `（当前 ${cur.toFixed(2)}）`
-              }`,
+            ? t.toolCards.estimateResNone
+            : t.toolCards.estimateResTitle(d.toFixed(2), cur === undefined ? undefined : cur.toFixed(2)),
         chips: chips(
-          chip(shells.length > 0 ? `${shells.length} 壳层` : undefined),
+          chip(shells.length > 0 ? t.toolCards.shellsCount(shells.length) : undefined),
           chip(str(s.centring_inferred) === undefined
-            ? undefined : `点阵 ${str(s.centring_inferred)}`),
+            ? undefined : t.toolCards.latticeChip(str(s.centring_inferred) as string)),
           chip(str(s.merge_laue_class)),
         ),
         warn: str(s.warning) ?? null,
@@ -1160,38 +1121,37 @@ const registry: Record<string, ToolDef> = {
     },
   },
   export_twin_hklf5: {
-    running: () => "正在导出双域 HKLF5 数据…",
+    running: () => t.toolCards.exportHklf5Running,
     done: (s) => {
       const c = isObj(s.overlap_census) ? s.overlap_census : {};
       const sc = isObj(s.scaling) ? s.scaling : {};
       const a = isObj(sc.domain_A) ? sc.domain_A : {};
       return {
-        title: `导出 HKLF5：${num(c.composites)?.toLocaleString() ?? "?"} 复合 · ${
-          num(c.major_clean)?.toLocaleString() ?? "?"
-        } 主域净反射`,
+        title: t.toolCards.exportHklf5Title(
+          num(c.composites)?.toLocaleString() ?? "?",
+          num(c.major_clean)?.toLocaleString() ?? "?",
+        ),
         chips: chips(
           chip(num(a.completeness) === undefined
-            ? undefined : `完整度 ${(num(a.completeness) as number).toFixed(3)}`),
+            ? undefined : t.toolCards.completenessValue((num(a.completeness) as number).toFixed(3))),
           chip(num(a.r_meas) === undefined ? undefined : `Rmeas ${f4(num(a.r_meas))}`),
-          chip(s.reused_integration === true ? "复用积分缓存" : undefined),
+          chip(s.reused_integration === true ? t.toolCards.reusedIntegration : undefined),
         ),
         warn: str(s.disclosure_note) ?? str(s.completeness_note) ?? null,
       };
     },
   },
   swap_reflection_data: {
-    running: (args) => `正在换用反射数据 ${str(args.hkl) ?? ""}…`,
+    running: (args) => t.toolCards.swapRunning(str(args.hkl) ?? ""),
     done: (s) => {
       const merge = isObj(s.merge) ? s.merge : {};
       return {
-        title: `换用数据：${str(s.swapped_to) ?? "?"}（HKLF${num(s.hklf) ?? "?"}${
-          num(s.n_domains) === undefined ? "" : ` · ${num(s.n_domains)} 域`
-        }）`,
+        title: t.toolCards.swapTitle(str(s.swapped_to) ?? "?", num(s.hklf) ?? "?", num(s.n_domains)),
         chips: chips(
           chip(num(s.n_obs)?.toLocaleString() === undefined
-            ? undefined : `${num(s.n_obs)?.toLocaleString()} 观测`),
+            ? undefined : t.toolCards.observations((num(s.n_obs) as number).toLocaleString())),
           chip(num(merge.n_unique) === undefined
-            ? undefined : `${num(merge.n_unique)?.toLocaleString()} 独立`),
+            ? undefined : t.toolCards.uniqueCount((num(merge.n_unique) as number).toLocaleString())),
           chip(num(merge.r_int) === undefined ? undefined : `Rint ${f4(num(merge.r_int))}`),
         ),
         warn: str(s.mask_cleared) ?? str(s.hklf5_note) ?? null,
@@ -1199,28 +1159,26 @@ const registry: Record<string, ToolDef> = {
     },
   },
   set_experiment: {
-    running: () => "正在登记实验元数据…",
+    running: () => t.toolCards.setExperimentRunning,
     done: (s) => {
       const rec = isObj(s.recorded) ? Object.keys(s.recorded) : [];
       const absent = strList(s.remove_requested_but_absent);
       return {
-        title: `登记实验元数据：${rec.length > 0 ? rec.join(" / ") : "（无）"}`,
+        title: t.toolCards.setExperimentTitle(rec.length > 0 ? rec.join(" / ") : null),
         chips: chips(chip(strList(s.removed).length > 0
-          ? `删除 ${strList(s.removed).length} 项` : undefined)),
-        warn: absent.length > 0 ? `请求删除但不存在：${absent.join(" ")}` : null,
+          ? t.toolCards.removedCount(strList(s.removed).length) : undefined)),
+        warn: absent.length > 0 ? t.toolCards.removeAbsent(absent.join(" ")) : null,
       };
     },
   },
 
   // ------------------------------------------------------ structure solution
   solve_charge_flipping: {
-    running: () => "正在电荷翻转求解…",
+    running: () => t.toolCards.chargeFlipRunning,
     done: (s) => ({
-      title: `电荷翻转求解：图相关 ${f2(num(s.map_correlation)) ?? "?"} · ${
-        num(s.n_peaks) ?? "?"
-      } 个峰`,
+      title: t.toolCards.chargeFlipTitle(f2(num(s.map_correlation)) ?? "?", num(s.n_peaks) ?? "?"),
       chips: chips(
-        chip(num(s.seed) === undefined ? undefined : `种子 ${num(s.seed)}`),
+        chip(num(s.seed) === undefined ? undefined : t.toolCards.seedChip(num(s.seed) as number)),
         chip(num(s.d_min) === undefined ? undefined : `d_min ${num(s.d_min)} Å`),
         chip(num(s.elapsed_s) === undefined
           ? undefined : `${(num(s.elapsed_s) as number).toFixed(0)} s`),
@@ -1228,52 +1186,48 @@ const registry: Record<string, ToolDef> = {
     }),
   },
   solve_superflip: {
-    running: () => "正在用 Superflip 求解…",
+    running: () => t.toolCards.superflipRunning,
     done: (s) => {
       const sym = isObj(s.symmetry_agreement) ? s.symmetry_agreement : {};
       const overall = num(sym.overall);
       // >~0.25 means the model density does NOT obey the assumed operators
       const bad = overall !== undefined && overall > 0.25;
       return {
-        title: `Superflip 求解：R ${
-          num(s.final_r_percent)?.toFixed(1) ?? "?"
-        }% · ${num(s.n_peaks) ?? "?"} 个峰`,
+        title: t.toolCards.superflipTitle(num(s.final_r_percent)?.toFixed(1) ?? "?", num(s.n_peaks) ?? "?"),
         chips: chips(
-          chip(overall === undefined ? undefined : `对称一致性 ${f2(overall)}`,
+          chip(overall === undefined ? undefined : t.toolCards.symmetryAgreement(f2(overall) as string),
                bad ? "warn" : "ok"),
-          chip(num(s.n_cycles) === undefined ? undefined : `${num(s.n_cycles)} 轮`),
+          chip(num(s.n_cycles) === undefined ? undefined : t.toolCards.cyclesCount(num(s.n_cycles) as number)),
         ),
         tone: bad ? "warn" : null,
         warn: bad
-          ? "密度不遵守假定的对称算符，空间群存疑，先查对称再继续"
+          ? t.toolCards.superflipSymWarn
           : null,
       };
     },
   },
   run_shelxt: {
-    running: () => "正在用 SHELXT 双空间求解…",
+    running: () => t.toolCards.shelxtRunning,
     done: (s) => {
       const sols = arr(s.solutions).filter(isObj);
       const best = sols[0] ?? {};
       const adopted = s.adopted === true;
       return {
         title: adopted
-          ? `SHELXT 求解并采纳：${str(s.space_group) ?? "?"} · ${
-              num(s.n_atoms) ?? "?"
-            } 原子`
-          : `SHELXT 求解：${sols.length} 个候选（未采纳）`,
+          ? t.toolCards.shelxtAdoptedTitle(str(s.space_group) ?? "?", num(s.n_atoms) ?? "?")
+          : t.toolCards.shelxtTitle(sols.length),
         chips: chips(
           chip(num(best.r1) === undefined ? undefined : `R1 ${f4(num(best.r1))}`),
           chip(num(best.rweak) === undefined ? undefined : `Rweak ${f2(num(best.rweak))}`),
           chip(str(best.space_group) === undefined
-            ? undefined : `最佳 ${str(best.space_group)}`),
+            ? undefined : t.toolCards.bestChip(str(best.space_group) as string)),
         ),
         warn: adopted ? null : (str(s.note) ?? null),
       };
     },
   },
   interpret_peaks: {
-    running: () => "正在把峰列表解释为原子…",
+    running: () => t.toolCards.interpretRunning,
     done: (s) => {
       const counts = isObj(s.element_counts) ? s.element_counts : {};
       const comp = Object.entries(counts)
@@ -1281,16 +1235,16 @@ const registry: Record<string, ToolDef> = {
         .join(" ");
       const unassigned = num(s.n_probable_unassigned_heavy_sites) ?? 0;
       return {
-        title: `解释峰为原子：${num(s.n_atoms) ?? "?"} 个${comp ? `（${comp}）` : ""}`,
+        title: t.toolCards.interpretTitle(num(s.n_atoms) ?? "?", comp),
         chips: chips(
           chip(num(s.n_symmetry_ghosts_removed) === undefined
-            ? undefined : `剔对称幽灵 ${num(s.n_symmetry_ghosts_removed)}`),
-          chip(s.composition_known === false ? "组成未知" : undefined, "warn"),
+            ? undefined : t.toolCards.symmetryGhostsRemoved(num(s.n_symmetry_ghosts_removed) as number)),
+          chip(s.composition_known === false ? t.toolCards.compositionUnknown : undefined, "warn"),
         ),
         tone: unassigned > 0 ? "warn" : null,
         warn:
           unassigned > 0
-            ? `${unassigned} 个疑似未指认重原子位，元素指认可能有误`
+            ? t.toolCards.unassignedHeavyWarn(unassigned)
             : null,
       };
     },
@@ -1299,25 +1253,23 @@ const registry: Record<string, ToolDef> = {
   // ---------------------------------------------------------------- symmetry
   screen_space_groups: {
     observe: true,
-    running: () => "正在筛查候选空间群…",
+    running: () => t.toolCards.screenSgRunning,
     done: (s) => {
       const cands = arr(s.candidates).filter(isObj);
       const top = cands[0] ?? {};
       const est = isObj(s.e_statistics) ? s.e_statistics : {};
       const hint = str(est.hint);
       return {
-        title: `空间群筛查：首选 ${str(top.space_group) ?? "?"}（${
-          cands.length
-        }/${num(s.n_candidates_total) ?? "?"} 候选）`,
+        title: t.toolCards.screenSgTitle(str(top.space_group) ?? "?", cands.length, num(s.n_candidates_total) ?? "?"),
         chips: chips(
           chip(hint === "centrosymmetric"
-            ? "E 统计偏心"
+            ? t.toolCards.eStatsCentro
             : hint === "non_centrosymmetric"
-              ? "E 统计偏非心"
+              ? t.toolCards.eStatsNonCentro
               : undefined),
           chip(str(s.laue_class_used)),
           chip(num(top.violation_rate) === undefined
-            ? undefined : `违背率 ${((num(top.violation_rate) as number) * 100).toFixed(1)}%`),
+            ? undefined : t.toolCards.violationRate(((num(top.violation_rate) as number) * 100).toFixed(1))),
         ),
         // the metric Laue class can exceed the true symmetry - the tool
         // says so in `note`; surface it instead of burying it in JSON
@@ -1327,7 +1279,7 @@ const registry: Record<string, ToolDef> = {
   },
   audit_heavy_sites: {
     observe: true,
-    running: () => "正在审计重原子位点…",
+    running: () => t.toolCards.auditHeavyRunning,
     done: (s) => {
       const readiness = isObj(s.readiness) ? s.readiness : {};
       const anomalous = isObj(s.anomalous) ? s.anomalous : {};
@@ -1336,86 +1288,80 @@ const registry: Record<string, ToolDef> = {
       const blockers = strList(readiness.blockers);
       const ready = readiness.ready_for_r_vs_z === true;
       return {
-        title: `重位点审计：${num(s.n_sites) ?? "?"} 个位点，R-vs-Z ${
-          ready ? "可做" : "未就绪"
-        }`,
+        title: t.toolCards.auditHeavyTitle(num(s.n_sites) ?? "?", ready),
         chips: chips(
-          chip(edgeList.length > 0 ? `吸收边：${edgeList.join("/")}` : undefined),
-          chip(blockers.length > 0 ? `阻碍 ${blockers.length}` : undefined),
+          chip(edgeList.length > 0 ? t.toolCards.absorptionEdges(edgeList.join("/")) : undefined),
+          chip(blockers.length > 0 ? t.toolCards.blockersCount(blockers.length) : undefined),
           chip(num(anomalous.wavelength_A) !== undefined
             ? `λ ${num(anomalous.wavelength_A)} Å` : undefined),
         ),
-        warn: !ready && blockers.length > 0 ? blockers.slice(0, 2).join("；") : null,
+        warn: !ready && blockers.length > 0 ? blockers.slice(0, 2).join(t.toolCards.listSeparator) : null,
       };
     },
   },
   reflection_statistics: {
     observe: true,
-    running: () => "正在统计反射数据…",
+    running: () => t.toolCards.reflStatsRunning,
     done: (s) => {
       const merge = isObj(s.merge) ? s.merge : {};
       const est = isObj(s.e_statistics) ? s.e_statistics : {};
       const hint = str(est.hint);
       const centring = str(s.centring_implied_by_file);
       return {
-        title: `反射统计：${str(s.laue_class) ?? "?"} 类，${
-          num(merge.n_unique)?.toLocaleString() ?? "?"
-        } 独立`,
+        title: t.toolCards.reflStatsTitle(str(s.laue_class) ?? "?", num(merge.n_unique)?.toLocaleString() ?? "?"),
         chips: chips(
           chip(num(merge.r_int) === undefined ? undefined : `Rint ${f4(num(merge.r_int))}`),
           chip(num(merge.completeness) === undefined
-            ? undefined : `完整度 ${((num(merge.completeness) as number) * 100).toFixed(1)}%`),
+            ? undefined : t.toolCards.completenessPct(((num(merge.completeness) as number) * 100).toFixed(1))),
           chip(num(est.mean_abs_e2_minus_1) === undefined
             ? undefined : `⟨|E²−1|⟩ ${(num(est.mean_abs_e2_minus_1) as number).toFixed(3)}`),
           chip(hint === "centrosymmetric"
-            ? "E 统计偏心"
+            ? t.toolCards.eStatsCentro
             : hint === "non_centrosymmetric"
-              ? "E 统计偏非心"
+              ? t.toolCards.eStatsNonCentro
               : undefined),
-          chip(centring && centring !== "P" ? `文件含 ${centring} 心` : undefined),
-          chip(arr(s.laue_scan).length > 0 ? `劳厄扫描 ${arr(s.laue_scan).length} 类` : undefined),
+          chip(centring && centring !== "P" ? t.toolCards.fileCentring(centring) : undefined),
+          chip(arr(s.laue_scan).length > 0 ? t.toolCards.laueScan(arr(s.laue_scan).length) : undefined),
         ),
       };
     },
   },
   change_space_group: {
-    running: (args) => `正在改用空间群 ${str(args.space_group) ?? ""}…`,
+    running: (args) => t.toolCards.changeSgRunning(str(args.space_group) ?? ""),
     done: (s) => {
       if (str(s.mode) === "atomless_declaration") {
         const merge = isObj(s.merge) ? s.merge : {};
         return {
-          title: `声明空间群：${str(s.declared_space_group) ?? "?"}`,
+          title: t.toolCards.declareSgTitle(str(s.declared_space_group) ?? "?"),
           chips: chips(
             chip(num(merge.r_int) === undefined ? undefined : `Rint ${f4(num(merge.r_int))}`),
             chip(num(merge.n_unique) === undefined
-              ? undefined : `${num(merge.n_unique)?.toLocaleString()} 独立`),
+              ? undefined : t.toolCards.uniqueCount((num(merge.n_unique) as number).toLocaleString())),
           ),
         };
       }
       const dropped = strList(s.dropped_metadata);
       const ops = arr(s.added_ops_verified).filter(isObj);
       return {
-        title: `改换空间群：${str(s.old_space_group) ?? "?"} → ${
-          str(s.new_space_group) ?? "?"
-        }`,
+        title: t.toolCards.changeSgTitle(str(s.old_space_group) ?? "?", str(s.new_space_group) ?? "?"),
         chips: chips(
           chip(num(s.n_atoms_before) !== undefined && num(s.n_atoms_after) !== undefined
-            ? `原子 ${num(s.n_atoms_before)} → ${num(s.n_atoms_after)}`
+            ? t.toolCards.atomsDelta(num(s.n_atoms_before) as number, num(s.n_atoms_after) as number)
             : undefined),
-          chip(ops.length > 0 ? `新增算符 ${ops.length} 已验证` : undefined),
+          chip(ops.length > 0 ? t.toolCards.opsVerified(ops.length) : undefined),
           chip(num(s.n_h_stripped) !== undefined && (num(s.n_h_stripped) as number) > 0
-            ? `剥氢 ${num(s.n_h_stripped)}` : undefined),
+            ? t.toolCards.hStripped(num(s.n_h_stripped) as number) : undefined),
         ),
         warn:
           dropped.length > 0
-            ? `丢失会话状态：${dropped.join(" / ")}（需重建）`
+            ? t.toolCards.droppedState(dropped.join(" / "))
             : (str(s.adp_note) ?? null),
       };
     },
   },
   ncs_audit: {
     observe: true,
-    running: () => "正在审计赝对称（平移/反演假设）…",
+    running: () => t.toolCards.ncsRunning,
     done: (s) => {
       const hyp = isObj(s.hypotheses) ? s.hypotheses : {};
       const rows = ["translation", "inversion"]
@@ -1431,30 +1377,28 @@ const registry: Record<string, ToolDef> = {
       const strong = (frac ?? 0) >= 0.7;
       return {
         title: best
-          ? `赝对称审计：${best.k === "inversion" ? "反演" : "平移"}假设匹配 ${
-              ((frac ?? 0) * 100).toFixed(0)
-            }%`
-          : "赝对称审计",
+          ? t.toolCards.ncsTitle(best.k === "inversion", ((frac ?? 0) * 100).toFixed(0))
+          : t.toolCards.ncsTitlePlain,
         chips: chips(
           chip(best && num(best.v.rmsd_A) !== undefined
             ? `rmsd ${(num(best.v.rmsd_A) as number).toFixed(3)} Å` : undefined),
-          chip(rational ? "算符落在有理分数" : undefined, "warn"),
+          chip(rational ? t.toolCards.rationalOperator : undefined, "warn"),
           chip(best ? str(best.v.operator) : undefined),
         ),
         tone: strong && rational ? "warn" : null,
         warn: strong && rational
-          ? "强匹配 + 有理算符 = 可能漏了晶体学对称，先查对称/怀疑晶胞"
+          ? t.toolCards.ncsWarn
           : null,
       };
     },
   },
   assemble_asu: {
-    running: () => "正在装配连贯的不对称单元…",
+    running: () => t.toolCards.assembleRunning,
     done: (s) => {
       const ghosts = arr(s.ghost_suspects_remaining).filter(isObj);
       if (s.no_state_change === true && s.dry_run !== true) {
         return {
-          title: `ASU 已连贯（${num(s.n_fragments) ?? "?"} 个碎片）`,
+          title: t.toolCards.asuCoherent(num(s.n_fragments) ?? "?"),
           tone: "ok",
         };
       }
@@ -1464,19 +1408,19 @@ const registry: Record<string, ToolDef> = {
       return {
         title:
           s.dry_run === true
-            ? `ASU 装配预演：${plan.length} 步（离散原子 ${before ?? "?"}）`
-            : `装配 ASU：${plan.length} 步，离散原子 ${before ?? "?"} → ${after ?? "?"}`,
+            ? t.toolCards.asuDryRun(plan.length, before ?? "?")
+            : t.toolCards.asuAssembled(plan.length, before ?? "?", after ?? "?"),
         chips: chips(
-          chip(num(s.n_atoms) === undefined ? undefined : `${num(s.n_atoms)} 原子`),
+          chip(num(s.n_atoms) === undefined ? undefined : t.toolCards.atomsCount(num(s.n_atoms) as number)),
           chip(arr(s.occupancy_rescaled).length > 0
-            ? `占据重标 ${arr(s.occupancy_rescaled).length}` : undefined),
+            ? t.toolCards.occupancyRescaled(arr(s.occupancy_rescaled).length) : undefined),
         ),
         warn:
           ghosts.length > 0
-            ? `仍有 ${ghosts.length} 个幽灵原子嫌疑：${ghosts
+            ? t.toolCards.ghostSuspects(ghosts.length, ghosts
                 .slice(0, 3)
                 .map((g) => str(g.label) ?? "?")
-                .join(" ")}`
+                .join(" "))
             : null,
       };
     },
@@ -1484,17 +1428,17 @@ const registry: Record<string, ToolDef> = {
 
   // ------------------------------------------------- refinement / twin state
   run_olex2: {
-    running: () => "正在用 olex2.refine 独立复核…",
+    running: () => t.toolCards.olex2Running,
     done: (s) => {
       const r1 = num(s.r1_gt) ?? num(s.r1_console);
       const d = num(s.delta_r1_vs_session);
       const diverged = d !== undefined && Math.abs(d) > 0.01;
       return {
-        title: `olex2 独立复核：R1 ${f4(r1) ?? "?"}`,
+        title: t.toolCards.olex2Title(f4(r1) ?? "?"),
         chips: chips(
           chip(num(s.wr2) === undefined ? undefined : `wR2 ${f4(num(s.wr2))}`),
           chip(num(s.goof) === undefined ? undefined : `GooF ${f2(num(s.goof))}`),
-          chip(d === undefined ? undefined : `与本会话差 ${d >= 0 ? "+" : ""}${f4(d)}`,
+          chip(d === undefined ? undefined : t.toolCards.deltaVsSession(`${d >= 0 ? "+" : ""}${f4(d)}`),
                diverged ? "warn" : "ok"),
         ),
         tone: diverged ? "warn" : null,
@@ -1503,14 +1447,15 @@ const registry: Record<string, ToolDef> = {
     },
   },
   set_weights: {
-    running: () => "正在设置权重方案…",
+    running: () => t.toolCards.setWeightsRunning,
     done: (s) => {
       const o = isObj(s.old) ? s.old : {};
       const n = isObj(s.new) ? s.new : {};
       return {
-        title: `设置权重 WGHT：${f4(num(o.a)) ?? "?"}/${f4(num(o.b)) ?? "?"} → ${
-          f4(num(n.a)) ?? "?"
-        }/${f4(num(n.b)) ?? "?"}`,
+        title: t.toolCards.setWeightsTitle(
+          `${f4(num(o.a)) ?? "?"}/${f4(num(o.b)) ?? "?"}`,
+          `${f4(num(n.a)) ?? "?"}/${f4(num(n.b)) ?? "?"}`,
+        ),
         warn: str(s.warning) ?? null,
         tone: str(s.warning) !== undefined ? "warn" : null,
       };
@@ -1519,24 +1464,22 @@ const registry: Record<string, ToolDef> = {
   set_resolution_limit: {
     running: (args) =>
       args.d_min === null
-        ? "正在移除分辨率截断…"
-        : `正在设置分辨率截断 d_min ${str(args.d_min) ?? num(args.d_min) ?? ""}…`,
+        ? t.toolCards.removeResRunning
+        : t.toolCards.setResRunning(str(args.d_min) ?? num(args.d_min) ?? ""),
     done: (s) => ({
       title:
         s.removed === true
-          ? "移除分辨率截断（恢复全分辨率）"
-          : `分辨率截断：${str(s.shel) ?? "?"}`,
+          ? t.toolCards.removeResTitle
+          : t.toolCards.setResTitle(str(s.shel) ?? "?"),
       chips: chips(chip(str(s.reason))),
     }),
   },
   set_z: {
-    running: () => "正在设置 Z 值…",
+    running: () => t.toolCards.setZRunning,
     done: (s) => ({
-      title: `设置 Z：${num(s.old_z) ?? "?"} → ${num(s.new_z) ?? "?"}（Z' ${
-        num(s.z_prime)?.toFixed(2) ?? "?"
-      }）`,
+      title: t.toolCards.setZTitle(num(s.old_z) ?? "?", num(s.new_z) ?? "?", num(s.z_prime)?.toFixed(2) ?? "?"),
       chips: chips(
-        chip(num(s.sg_order) === undefined ? undefined : `群阶 ${num(s.sg_order)}`),
+        chip(num(s.sg_order) === undefined ? undefined : t.toolCards.groupOrder(num(s.sg_order) as number)),
         chip(str(s.reason)),
       ),
       warn: str(s.warning) ?? null,
@@ -1546,37 +1489,36 @@ const registry: Record<string, ToolDef> = {
   model_disorder: {
     running: (args) =>
       str(args.undo) !== undefined
-        ? `正在撤销无序拆分（${str(args.undo)}）…`
-        : `正在拆分无序位点${strList(args.atoms).length > 0
-          ? `（${strList(args.atoms).slice(0, 4).join(" ")}）` : ""}…`,
+        ? t.toolCards.undoDisorderRunning(str(args.undo) as string)
+        : t.toolCards.splitDisorderRunning(strList(args.atoms).slice(0, 4).join(" ")),
     done: (s) => {
       if (str(s.undone) !== undefined) {
         const merged = arr(s.merged).filter(isObj);
         const gone = strList(s.deleted_atoms);
         return {
-          title: `撤销无序拆分 ${str(s.undone)}：${merged.length} 对合并回单一位点`,
+          title: t.toolCards.undoDisorderTitle(str(s.undone) as string, merged.length),
           chips: chips(
-            chip(gone.length > 0 ? `删除 ${gone.slice(0, 4).join(" ")}` : undefined),
-            chip(num(s.n_atoms) === undefined ? undefined : `${num(s.n_atoms)} 原子`),
-            chip(isObj(s.fvar_renumbered) ? "FVAR 重新编号" : undefined),
+            chip(gone.length > 0 ? t.toolCards.deletedAtoms(gone.slice(0, 4).join(" ")) : undefined),
+            chip(num(s.n_atoms) === undefined ? undefined : t.toolCards.atomsCount(num(s.n_atoms) as number)),
+            chip(isObj(s.fvar_renumbered) ? t.toolCards.fvarRenumbered : undefined),
           ),
           warn: arr(s.restraints_pruned).length > 0
-            ? `同时清理了 ${arr(s.restraints_pruned).length} 条指向被删原子的限制` : null,
+            ? t.toolCards.restraintsPruned(arr(s.restraints_pruned).length) : null,
         };
       }
       const split = arr(s.split).filter(isObj);
       const folded = split.filter((x) => str(x.note) !== undefined).length;
       return {
-        title: `拆分无序：${split.length} 个位点（PART 1/2，占比待 SHELXL 精修判定）`,
+        title: t.toolCards.splitDisorderTitle(split.length),
         chips: chips(
           chip(num(s.occupancy_a) === undefined
-            ? undefined : `A 占据 ${f2(num(s.occupancy_a))}（起始值）`),
+            ? undefined : t.toolCards.occupancyAStart(f2(num(s.occupancy_a)) as string)),
           chip(num(s.fvar_index) === undefined
             ? undefined : `FVAR ${num(s.fvar_index)}`),
-          chip(num(s.n_atoms) === undefined ? undefined : `${num(s.n_atoms)} 原子`),
-          chip(isObj(s.restraint_suggestion) ? "附 SADI/SIMU 建议" : undefined),
+          chip(num(s.n_atoms) === undefined ? undefined : t.toolCards.atomsCount(num(s.n_atoms) as number)),
+          chip(isObj(s.restraint_suggestion) ? t.toolCards.restraintSuggestion : undefined),
         ),
-        warn: folded > 0 ? `${folded} 个 B 位点经对称折算到胞内` : null,
+        warn: folded > 0 ? t.toolCards.bSitesFolded(folded) : null,
       };
     },
   },
@@ -1584,62 +1526,62 @@ const registry: Record<string, ToolDef> = {
     running: (args) => {
       const law = str(args.law);
       return law === "suggest"
-        ? "正在列举可能的孪晶定律…"
+        ? t.toolCards.twinSuggestRunning
         : law === "remove"
-          ? "正在移除孪晶设置…"
-          : "正在设置孪晶定律…";
+          ? t.toolCards.twinRemoveRunning
+          : t.toolCards.twinSetRunning;
     },
     done: (s) => {
       if (arr(s.candidates).length > 0) {
         return {
-          title: `孪晶定律候选：${arr(s.candidates).length} 条（未应用）`,
-          chips: chips(chip("仅列举")),
+          title: t.toolCards.twinCandidatesTitle(arr(s.candidates).length),
+          chips: chips(chip(t.toolCards.listOnly)),
         };
       }
-      if (isObj(s.removed)) return { title: "移除孪晶设置" };
-      if (s.no_state_change === true) return { title: "孪晶设置未改变" };
-      const t = isObj(s.twin) ? s.twin : {};
-      const basf = arr(t.basf).map((x) => num(x)).filter((x) => x !== undefined);
+      if (isObj(s.removed)) return { title: t.toolCards.twinRemovedTitle };
+      if (s.no_state_change === true) return { title: t.toolCards.twinUnchanged };
+      const tw = isObj(s.twin) ? s.twin : {};
+      const basf = arr(tw.basf).map((x) => num(x)).filter((x) => x !== undefined);
       return {
-        title: `设置孪晶：${num(t.n) ?? 2} 组分`,
+        title: t.toolCards.twinSetTitle(num(tw.n) ?? 2),
         chips: chips(
           chip(basf.length > 0
             ? `BASF ${basf.map((b) => (b as number).toFixed(3)).join(" ")}` : undefined),
-          chip(arr(t.matrix).length === 9
-            ? arr(t.matrix).slice(0, 9).map((x) => num(x)).join(" ") : undefined),
+          chip(arr(tw.matrix).length === 9
+            ? arr(tw.matrix).slice(0, 9).map((x) => num(x)).join(" ") : undefined),
         ),
-        warn: "孪晶激活期间 smtbx refine 不可用，精修走 run_shelxl",
+        warn: t.toolCards.twinRefineWarn,
       };
     },
   },
   set_adp: {
-    running: () => "正在转换原子 ADP…",
+    running: () => t.toolCards.setAdpRunning,
     done: (s) => ({
-      title: s.no_state_change === true ? "ADP 表示未改变" : `${s.mode === "anisotropic" ? "各向异性" : "各向同性"} ADP：${arr(s.atoms).length} 个原子`,
-      chips: chips(chip("保留 AFIX 与孪晶")),
+      title: s.no_state_change === true ? t.toolCards.adpUnchanged : t.toolCards.adpTitle(s.mode === "anisotropic", arr(s.atoms).length),
+      chips: chips(chip(t.toolCards.keepsAfixTwin)),
     }),
   },
   set_afix: {
-    running: () => "正在更新刚体约束…",
+    running: () => t.toolCards.setAfixRunning,
     done: (s) => ({
-      title: `刚体约束：${arr(s.groups).length} 组`,
+      title: t.toolCards.setAfixTitle(arr(s.groups).length),
       chips: chips(chip(isObj(s.group) ? `AFIX ${num(s.group.afix)}` : undefined)),
     }),
   },
   set_site_occupancy: {
-    running: () => "正在设置单点占有率…",
+    running: () => t.toolCards.setOccRunning,
     done: (s) => ({
-      title: `${str(s.atom) ?? "原子"}：${s.mode === "free" ? "自由占有率" : "固定占有率"}`,
-      chips: chips(chip(num(s.occupancy) === undefined ? undefined : `${s.mode === "free" ? "初值" : "占有率"} ${num(s.occupancy)?.toFixed(4)}`)),
+      title: t.toolCards.setOccTitle(str(s.atom) ?? t.toolCards.atomFallback, s.mode === "free"),
+      chips: chips(chip(num(s.occupancy) === undefined ? undefined : t.toolCards.setOccChip(s.mode === "free", (num(s.occupancy) as number).toFixed(4)))),
     }),
   },
   invert_structure: {
-    running: () => "正在反转结构手性…",
+    running: () => t.toolCards.invertRunning,
     done: (s) => ({
-      title: `反转手性：${str(s.operation) ?? "?"} → ${str(s.space_group) ?? "?"}`,
+      title: t.toolCards.invertTitle(str(s.operation) ?? "?", str(s.space_group) ?? "?"),
       chips: chips(
-        chip(num(s.n_atoms) === undefined ? undefined : `${num(s.n_atoms)} 原子`),
-        chip(s.group_changed === true ? "空间群已变（对映体对）" : undefined, "warn"),
+        chip(num(s.n_atoms) === undefined ? undefined : t.toolCards.atomsCount(num(s.n_atoms) as number)),
+        chip(s.group_changed === true ? t.toolCards.groupChangedEnantiomorph : undefined, "warn"),
       ),
       warn: s.group_changed === true ? (str(s.note) ?? null) : null,
     }),
@@ -1648,7 +1590,7 @@ const registry: Record<string, ToolDef> = {
   // ---------------------------------------------------------------- evidence
   audit_guest_evidence: {
     observe: true,
-    running: () => "正在做客体三项检验…",
+    running: () => t.toolCards.guestRunning,
     done: (s) => {
       const verdict = strList(s.verdict);
       const against = verdict.filter((v) => /AGAINST|WARNS/.test(v)).length;
@@ -1662,12 +1604,12 @@ const registry: Record<string, ToolDef> = {
       const work = den && isObj(den.working_occupancy) ? num(den.working_occupancy.occupancy_mean) : undefined;
       const prior = isObj(s.conditioned_by_prior) && s.conditioned_by_prior.value === true;
       return {
-        title: `客体证据：支持 ${supports} · 反对/警示 ${against}${open > 0 ? ` · 未定 ${open}` : ""}`,
+        title: t.toolCards.guestTitle(supports, against, open),
         chips: chips(
-          chip(work === undefined || work >= 0.995 ? undefined : `工作占有率 ${work.toFixed(2)}`),
-          chip(modeled === undefined ? undefined : `模型 ${modeled.toFixed(1)}e`),
-          chip(expected === undefined ? undefined : `期望 ${expected.toFixed(1)}e`),
-          chip(prior ? "受限制/共享变量约束" : undefined),
+          chip(work === undefined || work >= 0.995 ? undefined : t.toolCards.workingOccupancy(work.toFixed(2))),
+          chip(modeled === undefined ? undefined : t.toolCards.modelElectrons(modeled.toFixed(1))),
+          chip(expected === undefined ? undefined : t.toolCards.expectedElectrons(expected.toFixed(1))),
+          chip(prior ? t.toolCards.conditionedByPrior : undefined),
         ),
         tone: against > 0 ? "warn" : open > 0 ? "warn" : supports > 0 ? "ok" : null,
         warn: str(s.mask_warning) ?? (against > 0
@@ -1680,12 +1622,12 @@ const registry: Record<string, ToolDef> = {
   // ------------------------------------------------------------------ skills
   list_skills: {
     observe: true,
-    running: () => "正在检索技能卡…",
+    running: () => t.toolCards.listSkillsRunning,
     done: (s) => {
       const n = num(s.n_skills) ?? 0;
       const miss = isObj(s.near_misses_per_word);
       return {
-        title: n === 0 ? "技能检索：无匹配" : `技能检索：${n} 张卡`,
+        title: n === 0 ? t.toolCards.listSkillsNone : t.toolCards.listSkillsTitle(n),
         chips: chips(
           chip(
             arr(s.skills).length > 0
@@ -1695,24 +1637,24 @@ const registry: Record<string, ToolDef> = {
               : undefined,
           ),
         ),
-        warn: miss ? "无卡同时命中全部关键词，已给出逐词近邻建议" : null,
+        warn: miss ? t.toolCards.listSkillsNearMiss : null,
       };
     },
   },
   read_skill: {
     observe: true,
-    running: (args) => `正在读技能卡 ${str(args.name) ?? ""}…`,
+    running: (args) => t.toolCards.readSkillRunning(str(args.name) ?? ""),
     done: (s, args) => ({
-      title: `读技能卡：${str(s.name) ?? str(args.name) ?? "?"}`,
+      title: t.toolCards.readSkillTitle(str(s.name) ?? str(args.name) ?? "?"),
       chips: chips(
         chip(num(s.n_chars_total) === undefined
-          ? undefined : `${num(s.n_chars_total)?.toLocaleString()} 字符`),
-        chip(s.truncated === true ? "已分页（需续读）" : undefined, "warn"),
+          ? undefined : t.toolCards.charsCount((num(s.n_chars_total) as number).toLocaleString())),
+        chip(s.truncated === true ? t.toolCards.paginated : undefined, "warn"),
       ),
     }),
   },
   set_investigation: {
-    running: () => "正在记录研究目标与未试方向…",
+    running: () => t.toolCards.investigationRunning,
     done: (s) => {
       const inv = isObj(s.investigation) ? s.investigation : {};
       const tiers = isObj(inv.tiers) ? inv.tiers : {};
@@ -1720,36 +1662,34 @@ const registry: Record<string, ToolDef> = {
       const dirs = strList(inv.open_directions);
       const changed = strList(s.changed);
       const goal = str(inv.goal);
-      const zh: Record<string, string> = { unmet: "未达", met: "已达", not_applicable: "不适用" };
+      const tierLabels = t.toolCards.tierLabels;
       return {
-        title: changed.length === 0 ? "研究目标：无新内容" : `研究目标已记录${goal ? `：${goal}` : ""}`,
+        title: changed.length === 0 ? t.toolCards.investigationNoChange : t.toolCards.investigationTitle(goal),
         chips: chips(
-          chip(`候选完整 ${zh[str(tiers.candidate_complete) ?? "unmet"] ?? "未达"}`),
-          chip(`科学确立 ${zh[str(tiers.scientifically_established) ?? "unmet"] ?? "未达"}`),
-          chip(num(inv.n_ruled_out) ? `已否决 ${num(inv.n_ruled_out)}` : undefined),
-          chip(dirs.length > 0 ? `未试方向 ${dirs.length}` : undefined),
+          chip(t.toolCards.tierCandidateComplete(tierLabels[str(tiers.candidate_complete) ?? "unmet"] ?? tierLabels.unmet)),
+          chip(t.toolCards.tierScientificallyEstablished(tierLabels[str(tiers.scientifically_established) ?? "unmet"] ?? tierLabels.unmet)),
+          chip(num(inv.n_ruled_out) ? t.toolCards.ruledOut(num(inv.n_ruled_out) as number) : undefined),
+          chip(dirs.length > 0 ? t.toolCards.openDirections(dirs.length) : undefined),
         ),
         tone: unmet.length > 0 && dirs.length === 0 && changed.length > 0 ? "warn" : "ok",
         warn: unmet.length > 0 && dirs.length === 0 && changed.length > 0
-          ? "有未达层级但没有记录未试方向"
+          ? t.toolCards.investigationWarn
           : null,
       };
     },
   },
   save_skill: {
-    running: (args) => `正在保存技能卡 ${str(args.name) ?? ""}…`,
+    running: (args) => t.toolCards.saveSkillRunning(str(args.name) ?? ""),
     done: (s) => ({
-      title: `${str(s.action) === "updated" ? "更新" : "新建"}技能卡：${
-        str(s.saved) ?? "?"
-      }`,
+      title: t.toolCards.saveSkillTitle(str(s.action) === "updated", str(s.saved) ?? "?"),
       chips: chips(chip(str(s.reason))),
     }),
   },
   delete_skill: {
-    running: (args) => `正在删除技能卡 ${str(args.name) ?? ""}…`,
+    running: (args) => t.toolCards.deleteSkillRunning(str(args.name) ?? ""),
     done: (s) => ({
-      title: `删除技能卡：${str(s.deleted) ?? "?"}`,
-      chips: chips(chip(str(s.reason)), chip("可从 git 历史恢复")),
+      title: t.toolCards.deleteSkillTitle(str(s.deleted) ?? "?"),
+      chips: chips(chip(str(s.reason)), chip(t.toolCards.recoverableFromGit)),
     }),
   },
 
@@ -1757,7 +1697,7 @@ const registry: Record<string, ToolDef> = {
   view_structure: {
     running: (args) => {
       const st = str(args.state) ?? "asu";
-      return `正在渲染结构图（${stateZh[st] ?? st}）…`;
+      return t.toolCards.viewStructureRunning(stateZh[st] ?? st);
     },
     done: (s, args) => {
       const st = str(s.state) ?? str(args.state) ?? "asu";
@@ -1765,19 +1705,17 @@ const registry: Record<string, ToolDef> = {
       const n = num(s.n_atoms_drawn);
       const hi = strList(args.highlight);
       return {
-        title: `看结构：${stateZh[st] ?? st}${
-          views.length > 0 ? `（${views.join(" / ")}）` : ""
-        }`,
+        title: t.toolCards.viewStructureTitle(stateZh[st] ?? st, views.join(" / ")),
         chips: chips(
-          chip(n === undefined ? undefined : `${n} 原子`),
-          chip(hi.length > 0 ? `标记 ${hi.slice(0, 4).join(" ")}` : undefined),
+          chip(n === undefined ? undefined : t.toolCards.atomsCount(n)),
+          chip(hi.length > 0 ? t.toolCards.highlighted(hi.slice(0, 4).join(" ")) : undefined),
         ),
         body: viewStrip(s.images, stateZh[st]),
       };
     },
   },
   situation_report: {
-    running: () => "正在汇总全局现状（数据 / 模型 / 轨迹 / 交叉证据）…",
+    running: () => t.toolCards.situationRunning,
     done: (s) => {
       const conflicts = strList(s.conflicts);
       const narrative = strList(s.narrative);
@@ -1789,17 +1727,17 @@ const registry: Record<string, ToolDef> = {
       return {
         title:
           conflicts.length > 0
-            ? `全局现状：${conflicts.length} 处证据冲突`
-            : "全局现状综述",
+            ? t.toolCards.situationConflicts(conflicts.length)
+            : t.toolCards.situationTitle,
         tone: conflicts.length > 0 ? "warn" : null,
         chips: chips(
           chip(r1 === undefined ? undefined : `R1 ${f4(r1)}`),
           chip(
             compl === undefined
               ? undefined
-              : `完整度 ${(compl * (compl <= 1 ? 100 : 1)).toFixed(1)}%`,
+              : t.toolCards.completenessPct((compl * (compl <= 1 ? 100 : 1)).toFixed(1)),
           ),
-          chip(nAtoms === undefined ? undefined : `${nAtoms} 原子`),
+          chip(nAtoms === undefined ? undefined : t.toolCards.atomsCount(nAtoms)),
         ),
         warn: conflicts.length > 0 ? conflicts[0] : null,
         body: (
@@ -1819,17 +1757,17 @@ const registry: Record<string, ToolDef> = {
   },
   list_nodes: {
     observe: true,
-    running: () => "正在查看节点列表…",
-    done: () => ({ title: "查看节点列表" }),
+    running: () => t.toolCards.listNodesRunning,
+    done: () => ({ title: t.toolCards.listNodesTitle }),
   },
   compare_nodes: {
     observe: true,
-    running: () => "正在对比节点…",
+    running: () => t.toolCards.compareNodesRunning,
     done: (_s, args) => {
       const a = str(args.a);
       const b = str(args.b);
       return {
-        title: `对比节点${a !== undefined && b !== undefined ? ` ${a} ↔ ${b}` : ""}`,
+        title: t.toolCards.compareNodesTitle(a, b),
       };
     },
   },
@@ -1858,7 +1796,7 @@ function checkcifHumanized(
     const b = num(counts.B) ?? 0;
     const c = num(counts.C) ?? 0;
     return {
-      title: `${prefix}：A×${a} · B×${b} · C×${c}`,
+      title: t.toolCards.checkcifCounts(prefix, a, b, c),
       tone: a > 0 ? "danger" : b > 0 ? "warn" : "ok",
     };
   }
@@ -1873,15 +1811,15 @@ function checkcifHumanized(
       .filter((lv) => sc[lv] > 0)
       .map((lv) => `${lv}${ge}${sc[lv]}`);
     return {
-      title: `${prefix}：${parts.length > 0 ? parts.join(" · ") : "已完成"}`,
+      title: t.toolCards.checkcifSalvaged(prefix, parts.length > 0 ? parts.join(" · ") : null),
       tone: sc.A > 0 ? "danger" : sc.B > 0 ? "warn" : null,
       warn:
         salvaged.partial
-          ? "结果尾部被截断，仅恢复部分警报；完整列表见右侧「验证」页"
+          ? t.toolCards.checkcifTruncated
           : null,
     };
   }
-  return { title: `${prefix} 完成（结果不可解析，见「验证」页）` };
+  return { title: t.toolCards.checkcifUnparsed(prefix) };
 }
 
 // ------------------------------------------------------------- entry point
@@ -1898,11 +1836,11 @@ function genericHumanized(item: ToolCardItem): ToolHumanized {
   return {
     title: item.tool,
     chips: chips(
-      chip(s?.node !== undefined ? `节点 ${s.node}` : undefined),
+      chip(s?.node !== undefined ? t.toolCards.nodeChip(s.node) : undefined),
       chip(s?.r1 !== undefined ? `R1 ${s.r1.toFixed(4)}` : undefined),
       chip(s?.wr2 !== undefined ? `wR2 ${s.wr2.toFixed(4)}` : undefined),
       chip(s?.goof !== undefined ? `GooF ${s.goof.toFixed(2)}` : undefined),
-      chip(s?.nAtoms !== undefined ? `${s.nAtoms} 原子` : undefined),
+      chip(s?.nAtoms !== undefined ? t.toolCards.atomsCount(s.nAtoms) : undefined),
     ),
     warn: null,
     observe: false,
@@ -1937,7 +1875,7 @@ function humanizeToolUncached(item: ToolCardItem): ToolHumanized {
         ? def.running(args).replace(/^正在|…$/g, "")
         : item.tool,
       chips: [],
-      warn: item.status === "no_result" ? zh.toolNoResult : zh.toolInterrupted,
+      warn: item.status === "no_result" ? t.toolNoResult : t.toolInterrupted,
       observe: false,
       tone: "warn",
       body: null,
@@ -1958,7 +1896,7 @@ function humanizeToolUncached(item: ToolCardItem): ToolHumanized {
     const msg =
       item.error ??
       payloadError ??
-      (item.summary?.ok === false ? "工具返回 ok=false" : "失败");
+      (item.summary?.ok === false ? t.toolCards.toolReturnedNotOk : t.toolFailed);
     // defensive refusals state that the model was left untouched - they are
     // "the guard worked", not a crash; tone them amber, not red
     const refusal =
@@ -1967,7 +1905,7 @@ function humanizeToolUncached(item: ToolCardItem): ToolHumanized {
       );
     return {
       title: def?.running ? def.running(args).replace(/^正在|…$/g, "") : item.tool,
-      chips: refusal ? [{ text: "已拒绝执行，模型未改动", tone: "warn" }] : [],
+      chips: refusal ? [{ text: t.toolCards.refusedNoChange, tone: "warn" }] : [],
       warn: firstLine(msg),
       observe: false,
       tone: refusal ? "warn" : "danger",
@@ -1978,7 +1916,7 @@ function humanizeToolUncached(item: ToolCardItem): ToolHumanized {
 
   if (item.status === "running") {
     return {
-      title: def?.running ? def.running(args) : `正在运行 ${item.tool}…`,
+      title: def?.running ? def.running(args) : t.toolCards.runningTool(item.tool),
       chips: [],
       warn: null,
       observe: def?.observe ?? false,

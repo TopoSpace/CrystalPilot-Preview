@@ -24,6 +24,9 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+from . import i18n
+from .i18n import msg
+
 
 TERMINAL_STATUSES = frozenset({"ready", "partial", "error", "cancelled"})
 
@@ -78,6 +81,7 @@ class _Job:
     revision: int = 1
     result_revision: int = 1
     cache_hit: bool = False
+    language: str = "zh"  # interface language of the request that started the job
     finished_at: float | None = None
     stage_started: dict[str, float] = field(default_factory=dict)
     observers: set[str] = field(default_factory=set)
@@ -148,7 +152,7 @@ class AnalysisJobManager:
                 if pending >= self.max_pending:
                     raise AnalysisQueueFull("analysis pending-job capacity reached")
                 _ensure_prewarmed()
-            job = _Job(job_id=uuid.uuid4().hex, project_key=key[0],
+            job = _Job(job_id=uuid.uuid4().hex, language=i18n.current(), project_key=key[0],
                        node=analysis.node, analysis=analysis,
                        result=cached if cached is not None else analysis.empty_result(),
                        cache_hit=cached is not None)
@@ -269,7 +273,7 @@ class AnalysisJobManager:
             if state["status"] == "waiting":
                 apply_analysis_update(job.result, {
                     "stage": stage, "status": "cancelled", "elapsed_s": 0.0,
-                    "error": None, "note": "已取消，未开始计算", "value": None,
+                    "error": None, "note": msg("已取消，未开始计算", "Cancelled before computation started", job.language), "value": None,
                 })
                 job.result_revision += 1
         if job.future is not None and job.future.cancel():
@@ -343,7 +347,7 @@ class AnalysisJobManager:
                         apply_analysis_update(job.result, {
                             "stage": stage, "status": "error", "elapsed_s": 0.0,
                             "error": f"{type(exc).__name__}: {exc}",
-                            "note": "分析任务失败", "value": None,
+                            "note": msg("分析任务失败", "The analysis job failed", job.language), "value": None,
                         })
                         job.result_revision += 1
         finally:

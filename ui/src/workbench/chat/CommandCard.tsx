@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { humanizeCommand } from "../../lib/humanizeCommand";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { useThreadOptional } from "../../state/ThreadProvider";
 import { ProcessDetails } from "./ProcessDetails";
 import type { CommandCardItem } from "../../state/threadReducer";
@@ -40,7 +40,7 @@ function FullOutput({ item }: { item: CommandCardItem }) {
     thread
       .commandOutput(item.itemId as string)
       .then((t) => setText(t))
-      .catch(() => setError(zh.commandFullOutputMissing))
+      .catch(() => setError(t.commandFullOutputMissing))
       .finally(() => setBusy(false));
   };
   return (
@@ -53,8 +53,8 @@ function FullOutput({ item }: { item: CommandCardItem }) {
         className="h-6 rounded-pill border border-line px-2.5 text-2xs text-ink-3 transition-colors hover:bg-raised hover:text-ink disabled:opacity-60"
       >
         {busy
-          ? zh.loading
-          : `${zh.commandFullOutput}（${item.outputLen.toLocaleString()}${zh.commandFullOutputChars}）`}
+          ? t.loading
+          : `${t.commandFullOutput}${t.shell.paren(`${item.outputLen.toLocaleString()} ${t.commandFullOutputChars}`)}`}
       </button>
       {error !== null && <span className="text-2xs text-ink-2">{error}</span>}
     </div>
@@ -73,7 +73,7 @@ function DetailBlocks({ item }: { item: CommandCardItem }) {
       {h.inner !== item.command && (
         <details>
           <summary className="cursor-pointer list-none text-2xs text-ink-3 select-none hover:text-ink-2">
-            {zh.rawCommand}
+            {t.rawCommand}
           </summary>
           <MonoBlock
             text={item.command}
@@ -99,19 +99,19 @@ export function CommandCard({ item }: { item: CommandCardItem }) {
   const noResult = item.done && !failed && item.status === "no_result";
   const interrupted = item.done && !failed && !noResult && item.status !== "completed";
   const h = humanizeCommand(item.command);
-  const issue = failed ? (item.exitCode === null ? zh.toolFailed : `${zh.exitCode} ${item.exitCode}`)
-    : noResult ? zh.toolNoResult : interrupted ? zh.toolInterrupted : undefined;
+  const issue = failed ? (item.exitCode === null ? t.toolFailed : `${t.exitCode} ${item.exitCode}`)
+    : noResult ? t.toolNoResult : interrupted ? t.toolInterrupted : undefined;
   const dataStatus = running ? "running" : failed ? "failed" : noResult ? "no_result" : interrupted ? "interrupted" : "completed";
   return (
     <ProcessDetails className="activity-row row-in" running={running}
       data-testid="command-row" data-status={dataStatus}>
       <ActivitySummary icon={<ActivityIcon kind={commandGlyph(item.command)} />} running={running} issue={issue} title={item.command}>
-        {running ? "正在" : noResult ? `${zh.toolNoResult} · ` : interrupted ? "已中断 · " : failed ? "未完成 · " : "已"}{h.label}
+        {running ? t.shell.commandRunning(h.label) : noResult ? `${t.toolNoResult} · ${h.label}` : interrupted ? `${t.turnInterrupted} · ${h.label}` : failed ? `${t.toolInterrupted} · ${h.label}` : t.shell.commandDone(h.label)}
       </ActivitySummary>
       <div className="activity-body">
         {issue && <div className="text-sm text-ink-2">{issue}</div>}
-        {noResult && <div className="text-sm leading-relaxed text-ink-2" data-testid="tool-boundary-hint">{zh.toolNoResultHint}</div>}
-        {interrupted && <div className="text-sm leading-relaxed text-ink-2" data-testid="tool-boundary-hint">{zh.toolInterruptedHint}</div>}
+        {noResult && <div className="text-sm leading-relaxed text-ink-2" data-testid="tool-boundary-hint">{t.toolNoResultHint}</div>}
+        {interrupted && <div className="text-sm leading-relaxed text-ink-2" data-testid="tool-boundary-hint">{t.toolInterruptedHint}</div>}
         <DetailBlocks item={item} />
         <RawEvents raw={item.raw} />
       </div>

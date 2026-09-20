@@ -18,7 +18,7 @@ from collections import deque
 from pathlib import Path
 from typing import Any
 
-from . import registry
+from . import i18n, registry
 from .attachments import compose_message, resolve_attachments
 from .agent_roles import (SUBAGENT_POLICIES, delegation_tier,
                           effective_model, ensure_agent_roles, normalize_subagent_policy,
@@ -950,9 +950,10 @@ class ProjectSession:
                 return
         settings = dict(self.wb.project.settings)
         model, provider = model_for(settings), provider_for(settings)
+        lang = i18n.current()  # the naming thread below runs outside the request
         context = naming_context(self.wb.project.path, settings, message, attachments)
         with self._title_lock:
-            claimed = self.wb.claim_auto_title(thread_id, fallback_title(context), model)
+            claimed = self.wb.claim_auto_title(thread_id, fallback_title(context, lang), model)
         if claimed is None:
             return
         self._push(thread_id, {"kind": "thread_renamed", "title": claimed["title"]})
@@ -963,7 +964,7 @@ class ProjectSession:
                 if self._closed or rec.get("title_source") != "auto_pending":
                     return
             try:
-                title = generate_title(context, model=model, provider=provider)
+                title = generate_title(context, model=model, provider=provider, lang=lang)
             except Exception:  # naming must never interrupt a scientific turn or expose credentials
                 title = None
             with self._title_lock:

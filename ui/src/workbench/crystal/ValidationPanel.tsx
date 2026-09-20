@@ -29,17 +29,17 @@ import { artifactUrl, getValidationSource } from "../../lib/wbApi";
 import { cx } from "../../lib/format";
 import { alertQuote, checkcifQuote, withAnchor } from "../../lib/quote";
 import { useCrystal } from "../../state/CrystalProvider";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { useComposerDraft } from "../../state/ComposerDraft";
 import { useThreadOptional } from "../../state/ThreadProvider";
 import { IconChevronRight } from "../icons";
 import { MarkdownPreview } from "./ArtifactsPanel";
 
 const LEVEL_LABEL: Record<AlertLevel, string> = {
-  A: zh.ccLevelA,
-  B: zh.ccLevelB,
-  C: zh.ccLevelC,
-  G: zh.ccLevelG,
+  A: t.ccLevelA,
+  B: t.ccLevelB,
+  C: t.ccLevelC,
+  G: t.ccLevelG,
 };
 
 /** Chip + accent classes per level (letter is the primary encoding). */
@@ -113,7 +113,7 @@ function AlertRow({ alert, sourceNode }: { alert: CheckcifAlert; sourceNode?: st
         <span
           role="button"
           tabIndex={0}
-          title={zh.ccQuoteAlertTip}
+          title={t.ccQuoteAlertTip}
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
@@ -124,7 +124,7 @@ function AlertRow({ alert, sourceNode }: { alert: CheckcifAlert; sourceNode?: st
           }}
           className="mt-0.5 shrink-0 rounded-pill px-1.5 py-0.5 text-2xs text-ink-3 opacity-0 transition-colors group-hover:opacity-100 hover:bg-accent/10 hover:text-accent"
         >
-          {zh.headerQuote}
+          {t.headerQuote}
         </span>
       </summary>
       <div className="mx-3 mb-2 ml-[34px] rounded-lg bg-surface p-2.5 text-2xs leading-relaxed">
@@ -133,7 +133,7 @@ function AlertRow({ alert, sourceNode }: { alert: CheckcifAlert; sourceNode?: st
             {kb.meaning !== undefined && (
               <div>
                 <dt className="inline font-medium text-ink">
-                  {zh.ccKbMeaning}：
+                  {t.ccKbMeaning}{t.colon}
                 </dt>
                 <dd className="inline text-ink-2">{kb.meaning}</dd>
               </div>
@@ -141,7 +141,7 @@ function AlertRow({ alert, sourceNode }: { alert: CheckcifAlert; sourceNode?: st
             {kb.causes !== undefined && (
               <div>
                 <dt className="inline font-medium text-ink">
-                  {zh.ccKbCauses}：
+                  {t.ccKbCauses}{t.colon}
                 </dt>
                 <dd className="inline text-ink-2">{kb.causes}</dd>
               </div>
@@ -149,14 +149,14 @@ function AlertRow({ alert, sourceNode }: { alert: CheckcifAlert; sourceNode?: st
             {kb.remedy !== undefined && (
               <div>
                 <dt className="inline font-medium text-ink">
-                  {zh.ccKbRemedy}：
+                  {t.ccKbRemedy}{t.colon}
                 </dt>
                 <dd className="inline text-ink-2">{kb.remedy}</dd>
               </div>
             )}
           </dl>
         ) : (
-          <span className="text-ink-3">{zh.ccNoKb}</span>
+          <span className="text-ink-3">{t.ccNoKb}</span>
         )}
       </div>
     </details>
@@ -179,8 +179,8 @@ function ValidationOrigin({ data }: { data: CheckcifData | null }) {
   }, [project, source?.target, source?.delivery_revision, artifacts]);
   const status = checkcifOriginStatus(data, state.viewNode ?? state.activeNode, current);
   const warning = status === "different_node" || status === "outdated_delivery";
-  const label = { same_node: zh.ccSourceSameNode, different_node: zh.ccSourceDifferentNode,
-    outdated_delivery: zh.ccSourceOlderDelivery, unknown: zh.ccSourceUnknown }[status];
+  const label = { same_node: t.ccSourceSameNode, different_node: t.ccSourceDifferentNode,
+    outdated_delivery: t.ccSourceOlderDelivery, unknown: t.ccSourceUnknown }[status];
   return (
     <div className={cx("mb-2 text-2xs leading-relaxed", warning ? "text-warn" : "text-ink-3")}
       data-testid="validation-origin" data-status={status}>
@@ -188,10 +188,10 @@ function ValidationOrigin({ data }: { data: CheckcifData | null }) {
       {source?.node && (
         <div className="mt-0.5 flex flex-wrap items-center gap-1.5">
           <span className="font-mono">{source.node}{source.revision ? ` · r${source.revision}` : ""}
-            {source.delivery_revision ? ` · ${zh.ccDeliveryVersion} ${source.delivery_revision}` : ""}</span>
+            {source.delivery_revision ? ` · ${t.ccDeliveryVersion} ${source.delivery_revision}` : ""}</span>
           {status === "different_node" && state.nodes.some((n) => n.id === source.node) && (
             <button type="button" onClick={() => viewNode(source.node!)}
-              className="rounded px-1 text-accent hover:bg-raised">{zh.ccViewSourceNode}</button>
+              className="rounded px-1 text-accent hover:bg-raised">{t.ccViewSourceNode}</button>
           )}
         </div>
       )}
@@ -238,9 +238,9 @@ export function ValidationPanel() {
     return (
       <div className="flex flex-1 flex-col items-center justify-center gap-1.5 px-6 text-center">
         <div className="text-sm font-medium text-ink-2">
-          {zh.ccEmptyTitle}
+          {t.ccEmptyTitle}
         </div>
-        <div className="text-xs text-ink-3">{zh.ccEmptyDesc}</div>
+        <div className="text-xs text-ink-3">{t.ccEmptyDesc}</div>
       </div>
     );
   }
@@ -261,7 +261,7 @@ export function ValidationPanel() {
       {/* header: counts + source + report toggle */}
       <div className="shrink-0 border-b border-line px-3 py-2">
         <p className="mb-2 text-2xs leading-relaxed text-ink-3" role="note">
-          {zh.ccReportScope}
+          {t.ccReportScope}
         </p>
         {data !== null && <ValidationOrigin key={`${data?.source?.target ?? "unknown"}:${data?.source?.delivery_revision ?? ""}`} data={data} />}
         <div className="flex flex-wrap items-center gap-1.5">
@@ -281,24 +281,24 @@ export function ValidationPanel() {
               )}
               {approx && (
                 <span className="text-2xs text-ink-3">
-                  {zh.ccCountsUnknown}
+                  {t.ccCountsUnknown}
                 </span>
               )}
             </>
           ) : running ? (
             <span className="flex items-center gap-2 text-xs text-ink-3">
               <Spinner className="h-3 w-3" />
-              {zh.ccRunning}
+              {t.ccRunning}
             </span>
           ) : failed ? (
-            <span className="text-xs text-danger">{zh.ccFailed}</span>
+            <span className="text-xs text-danger">{t.ccFailed}</span>
           ) : (
-            <span className="text-xs text-ink-3">{zh.ccCountsUnknown}</span>
+            <span className="text-xs text-ink-3">{t.ccCountsUnknown}</span>
           )}
           {(data?.alerts.length ?? 0) > 0 && (
             <button
               type="button"
-              title={zh.ccQuoteAllTip}
+              title={t.ccQuoteAllTip}
               onClick={() =>
                 draft.insert(
                   withAnchor(checkcifQuote({
@@ -311,7 +311,7 @@ export function ValidationPanel() {
               }
               className="ml-auto shrink-0 rounded-pill px-1.5 py-0.5 text-2xs text-ink-3 transition-colors hover:bg-accent/10 hover:text-accent"
             >
-              {zh.headerQuote}
+              {t.headerQuote}
             </button>
           )}
           {latest !== null && (
@@ -321,13 +321,13 @@ export function ValidationPanel() {
                 (data?.alerts.length ?? 0) === 0 && "ml-auto",
               )}
             >
-              {isIucr ? zh.ccSourceIucr : zh.ccSourceLocal}
+              {isIucr ? t.ccSourceIucr : t.ccSourceLocal}
             </span>
           )}
         </div>
         {failed && data?.error && (
           <div role="status" className="mt-2 break-words text-xs text-danger">
-            {data.execution === "timeout" ? "检查超时 · " : data.execution === "cancelled" ? "检查已取消 · " : ""}
+            {data.execution === "timeout" ? t.crystal.valTimeoutPrefix : data.execution === "cancelled" ? t.crystal.valCancelledPrefix : ""}
             {data.error}
           </div>
         )}
@@ -351,7 +351,7 @@ export function ValidationPanel() {
                 : "border-line text-ink-2 hover:bg-raised",
             )}
           >
-            {showReport ? zh.ccViewAlerts : zh.ccViewReport}
+            {showReport ? t.ccViewAlerts : t.ccViewReport}
           </button>
         )}
       </div>
@@ -365,12 +365,12 @@ export function ValidationPanel() {
         <div className="min-h-0 flex-1">
           {data?.partial && (
             <div className="border-b border-warn/25 bg-warn/8 px-3 py-1.5 text-2xs leading-snug text-warn">
-              {zh.ccPartialNote}
+              {t.ccPartialNote}
             </div>
           )}
           {data === null && !running && !failed && validationMd !== null && (
             <div className="px-3 py-2 text-xs text-ink-3">
-              {zh.ccEmptyDesc}
+              {t.ccEmptyDesc}
             </div>
           )}
           {ALERT_LEVELS.map((lv) =>

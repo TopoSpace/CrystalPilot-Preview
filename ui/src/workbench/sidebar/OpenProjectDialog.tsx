@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { AlertBanner, Spinner } from "../../components/ui";
 import { importStructureDocument } from "../../lib/wbApi";
 import { cx } from "../../lib/format";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { useWorkbench } from "../../state/WorkbenchProvider";
 import { IconFolder, IconX } from "../icons";
 import { useDialogFocus } from "../useDialogFocus";
@@ -45,7 +45,7 @@ export function OpenProjectDialog({ onClose }: { onClose: () => void }) {
     try {
       if (mode === "cif") {
         if (!cif) {
-          setError(zh.cifChooseFile);
+          setError(t.cifChooseFile);
           return;
         }
         await importStructureDocument(trimmed, cif, block);
@@ -55,7 +55,7 @@ export function OpenProjectDialog({ onClose }: { onClose: () => void }) {
         onClose();
         navigate(projectHomeUrl(trimmed) + (mode === "cif" ? "&view=structure" : ""));
       } else {
-        setError(wb.openError ?? "打开失败");
+        setError(wb.openError ?? t.shell.openFailed);
       }
     } catch (error) {
       setError(error instanceof Error ? error.message : String(error));
@@ -72,15 +72,15 @@ export function OpenProjectDialog({ onClose }: { onClose: () => void }) {
       }}
       role="dialog"
       aria-modal="true"
-      aria-label={zh.openProjectTitle}
+      aria-label={t.openProjectTitle}
     >
       <div ref={dialogRef} tabIndex={-1} className="dialog-surface max-h-[90vh] w-[520px] max-w-[92vw] overflow-y-auto bg-bg p-6">
-        <div className="flex items-center justify-between gap-3"><div className="flex items-center gap-2.5 text-lg font-medium"><IconFolder size={20} className="text-accent" />{zh.openProjectTitle}</div>
-        <button type="button" className="chrome-button" onClick={onClose} aria-label="关闭项目选择"><IconX size={16} /></button></div>
+        <div className="flex items-center justify-between gap-3"><div className="flex items-center gap-2.5 text-lg font-medium"><IconFolder size={20} className="text-accent" />{t.openProjectTitle}</div>
+        <button type="button" className="chrome-button" onClick={onClose} aria-label={t.shell.closeProjectPicker}><IconX size={16} /></button></div>
         {picking && <FolderBrowser initial={path.trim()} onCancel={() => closeBrowser()} onChoose={closeBrowser} />}
         <div hidden={picking}>
-        <div className="mt-3 flex gap-1 rounded-lg bg-surface p-1" role="group" aria-label={zh.openProjectMode}>
-          {([['folder', zh.openFolderMode], ['cif', zh.openCifMode]] as const).map(([value, label]) => (
+        <div className="mt-3 flex gap-1 rounded-lg bg-surface p-1" role="group" aria-label={t.openProjectMode}>
+          {([['folder', t.openFolderMode], ['cif', t.openCifMode]] as const).map(([value, label]) => (
             <button key={value} type="button" disabled={busy} aria-pressed={mode === value}
               onClick={() => { setMode(value); setError(null); }}
               className={cx("flex-1 rounded-md px-3 py-1.5 text-sm", mode === value ? "bg-bg text-ink shadow-sm" : "text-ink-2 hover:text-ink")}>
@@ -88,22 +88,22 @@ export function OpenProjectDialog({ onClose }: { onClose: () => void }) {
             </button>
           ))}
         </div>
-        <p className="mt-2 text-xs leading-relaxed text-ink-3">{mode === "cif" ? zh.cifImportHint : zh.openProjectHint}</p>
+        <p className="mt-2 text-xs leading-relaxed text-ink-3">{mode === "cif" ? t.cifImportHint : t.openProjectHint}</p>
         {mode === "cif" && (
           <div className="mt-3 space-y-2">
             <label className="block text-xs text-ink-2">
-              {zh.cifChooseFile}
+              {t.cifChooseFile}
               <input type="file" accept=".cif" disabled={busy}
                 onChange={(event) => setCif(event.target.files?.[0] ?? null)}
                 className="mt-1 block w-full text-xs text-ink-2 file:mr-2 file:rounded-md file:border-0 file:bg-raised file:px-3 file:py-1.5 file:text-ink" />
             </label>
             <details className="text-xs text-ink-3">
-              <summary className="cursor-pointer">{zh.cifBlockLabel}</summary>
+              <summary className="cursor-pointer">{t.cifBlockLabel}</summary>
               <input value={block} onChange={(event) => setBlock(event.target.value)} disabled={busy}
-                aria-label={zh.cifBlockLabel} placeholder={zh.cifBlockHint}
+                aria-label={t.cifBlockLabel} placeholder={t.cifBlockHint}
                 className="mt-1 w-full rounded-md border border-line bg-bg px-2 py-1.5 font-mono text-ink" />
             </details>
-            <div className="text-xs text-ink-2">{zh.cifDestination}</div>
+            <div className="text-xs text-ink-2">{t.cifDestination}</div>
           </div>
         )}
         <form
@@ -117,20 +117,20 @@ export function OpenProjectDialog({ onClose }: { onClose: () => void }) {
             ref={inputRef}
             value={path}
             onChange={(e) => setPath(e.target.value)}
-            placeholder={wb.kernel?.config_path?.startsWith("/") ? (mode === "cif" ? "/home/…/projects/sample-view" : "/home/…/projects/sample") : mode === "cif" ? zh.cifDestinationHint : zh.pathPlaceholder}
-            aria-label={mode === "cif" ? zh.cifDestination : zh.openProjectHint}
+            placeholder={wb.kernel?.config_path?.startsWith("/") ? (mode === "cif" ? "/home/…/projects/sample-view" : "/home/…/projects/sample") : mode === "cif" ? t.cifDestinationHint : t.pathPlaceholder}
+            aria-label={mode === "cif" ? t.cifDestination : t.openProjectHint}
             spellCheck={false}
             className="col-span-2 h-10 min-w-0 w-full rounded-lg border border-line bg-bg px-3 font-mono text-sm text-ink placeholder:text-ink-3 focus:border-accent focus:outline-none"
           />
           <button
             type="button"
             disabled={busy || picking}
-            title={zh.browseFolder}
+            title={t.browseFolder}
             data-testid="browse-folder"
             onClick={() => void browse()}
             className="h-9 justify-self-start rounded-lg border border-line px-3 text-sm text-ink transition-colors hover:bg-raised disabled:opacity-40"
           >
-            {picking ? zh.browsing : zh.browseFolder}
+            {picking ? t.browsing : t.browseFolder}
           </button>
           <button
             type="submit"
@@ -138,14 +138,14 @@ export function OpenProjectDialog({ onClose }: { onClose: () => void }) {
             className="flex h-9 items-center gap-1.5 rounded-lg bg-ink px-4 text-sm font-medium text-bg transition-opacity hover:opacity-85 disabled:pointer-events-none disabled:opacity-40"
           >
             {busy && <Spinner className="h-3 w-3" />}
-            {busy ? zh.opening : mode === "cif" ? zh.cifImport : zh.open}
+            {busy ? t.opening : mode === "cif" ? t.cifImport : t.open}
           </button>
         </form>
         {error && <AlertBanner className="mt-2.5">{error}</AlertBanner>}
         {mode === "folder" && wb.recent.length > 0 && (
           <div className="mt-4 border-t border-line pt-3">
             <div className="text-2xs font-medium text-ink-3">
-              {zh.recentProjects}
+              {t.recentProjects}
             </div>
             <div className="mt-1.5 flex max-h-52 flex-col gap-0.5 overflow-y-auto">
               {wb.recent.slice(0, 8).map((r) => (

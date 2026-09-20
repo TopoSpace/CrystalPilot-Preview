@@ -13,14 +13,18 @@
         let preference = "system";
         let palette = "anthropic";
         let fontSize = 14;
+        let language = "zh";
         try {
           const storedTheme = localStorage.getItem("crystalpilot-theme");
           const storedPalette = localStorage.getItem("crystalpilot-palette");
           const storedFont = Number(localStorage.getItem("crystalpilot-font-size"));
+          const storedLanguage = localStorage.getItem("crystalpilot-language");
           if (["system", "light", "dark"].includes(storedTheme)) preference = storedTheme;
           if (palettes.includes(storedPalette)) palette = storedPalette;
           if (fonts.includes(storedFont)) fontSize = storedFont;
+          if (["zh", "en"].includes(storedLanguage)) language = storedLanguage;
         } catch {}
+        root.lang = language === "en" ? "en-US" : "zh-CN";
         const dark = preference === "dark" ||
           (preference === "system" && matchMedia("(prefers-color-scheme: dark)").matches);
         root.classList.toggle("dark", dark);

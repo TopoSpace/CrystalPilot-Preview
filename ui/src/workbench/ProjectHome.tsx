@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { sendMessage } from "../lib/wbApi";
 import type { AttachmentRef } from "../lib/wbTypes";
-import { zh } from "../lib/zh";
+import { t } from "../lib/i18n";
 import { useWorkbench } from "../state/WorkbenchProvider";
 import { useCrystal } from "../state/CrystalProvider";
 import { Composer } from "./composer/Composer";
@@ -40,19 +40,19 @@ export function ProjectHome({ project }: { project: string }) {
         <div className="w-full max-w-2xl py-10 text-center">
           <BrandMark variant="app" size={56} className="mx-auto mb-4" />
           <h1 className="text-4xl leading-snug font-semibold tracking-tight text-balance">
-            {structureOnly ? zh.structureOnlyTitle : zh.heroTitle}
+            {structureOnly ? t.structureOnlyTitle : t.heroTitle}
           </h1>
           <p className="mt-2.5 text-base text-ink-2">
-            {projectLabel(project, wb.settings?.display_name)} · {structureOnly ? zh.cifImportHint : zh.projectHeroSubtitle}
+            {projectLabel(project, wb.settings?.display_name)} · {structureOnly ? t.cifImportHint : t.projectHeroSubtitle}
           </p>
           <p className="mt-2 text-xs text-ink-3" data-testid="new-thread-target">
-            {zh.newThreadIn} <span className="font-mono">{project}</span> ·{" "}
+            {t.newThreadIn} <span className="font-mono">{project}</span> ·{" "}
             <button
               type="button"
               onClick={() => setDialogOpen(true)}
               className="underline decoration-line underline-offset-2 transition-colors hover:text-ink"
             >
-              {zh.changeProject}
+              {t.changeProject}
             </button>
           </p>
           <StorageCard project={project} />

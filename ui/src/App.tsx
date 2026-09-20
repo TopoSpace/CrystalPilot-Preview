@@ -10,7 +10,7 @@ import { ErrorBoundary } from "./components/ErrorBoundary";
 import LegacyHome from "./legacy/pages/Home";
 import LegacyRunView from "./legacy/pages/RunView";
 import { ThemeProvider } from "./lib/theme";
-import { zh } from "./lib/zh";
+import { t } from "./lib/i18n";
 import { ProjectHome } from "./workbench/ProjectHome";
 import { ThreadView } from "./workbench/ThreadView";
 import { WelcomeView } from "./workbench/WelcomeView";
@@ -30,9 +30,9 @@ function HomeSwitch() {
 function NotFound() {
   return (
     <div className="flex h-dvh flex-col items-center justify-center gap-2 bg-bg text-ink">
-      <div className="text-base font-medium">{zh.notFound}</div>
+      <div className="text-base font-medium">{t.notFound}</div>
       <Link to="/" className="text-sm font-medium text-accent hover:underline">
-        {zh.backHome}
+        {t.backHome}
       </Link>
     </div>
   );

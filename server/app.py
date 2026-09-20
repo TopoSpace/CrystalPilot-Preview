@@ -64,6 +64,18 @@ def _origin_ok(origin: str) -> bool:
 
 
 @app.middleware("http")
+async def _interface_language(request, call_next):
+    """Bind the browser's interface language for the duration of the request."""
+    from crystalpilot.workbench import i18n as wb_i18n
+
+    token = wb_i18n.bind(request.headers.get(wb_i18n.HEADER) or request.query_params.get("lang"))
+    try:
+        return await call_next(request)
+    finally:
+        wb_i18n.reset(token)
+
+
+@app.middleware("http")
 async def _local_guard(request, call_next):
     host = (request.headers.get("host") or "").split(":", 1)[0].lower()
     if host not in ("localhost", "127.0.0.1", "[::1]", "::1"):

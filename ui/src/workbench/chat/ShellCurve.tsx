@@ -10,6 +10,7 @@
  * No cutoff line is drawn: what counts as "far enough" depends on the
  * crystal and the question, and painting a threshold onto the plot would
  * be answering that for the reader. */
+import { t } from "../../lib/i18n";
 
 export interface Shell {
   d_min?: number;
@@ -47,7 +48,7 @@ const SERIES: Series[] = [
   },
   {
     key: "completeness",
-    label: "完整度",
+    label: t.dataCompleteness,
     color: "var(--color-ok)",
     norm: (v) => (v > 1 ? v / 100 : v),
   },
@@ -126,7 +127,7 @@ export function ShellCurve({ shells }: { shells: Shell[] }) {
         width={W}
         height={H}
         role="img"
-        aria-label={`分辨率壳层曲线，${dLo.toFixed(2)} 到 ${dHi.toFixed(2)} Å`}
+        aria-label={t.shell.shellCurveLabel(dLo.toFixed(2), dHi.toFixed(2))}
       >
         {[0, 0.5, 1].map((t) => (
           <line
@@ -188,7 +189,7 @@ export function ShellCurve({ shells }: { shells: Shell[] }) {
             <span className="text-ink-3">
               {s.label}
               {s.key === "i_over_sigma" && isoMax > 0
-                ? `（满刻度 ${isoMax.toFixed(0)}）`
+                ? t.shell.shellCurveFullScale(isoMax.toFixed(0))
                 : ""}
             </span>
           </span>

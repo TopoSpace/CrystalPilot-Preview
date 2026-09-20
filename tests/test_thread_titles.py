@@ -81,7 +81,7 @@ def test_selected_model_and_dataset_are_used_once_and_manual_rename_wins(tmp_pat
         assert wb.project.threads[0]["title"] == "我的样品 · 最终验证"
         assert wb.project.threads[0]["title_source"] == "manual"
     assert len(calls) == 1
-    assert calls[0][1] == {"model": "gpt-5.6-luna", "provider": "test-provider"}
+    assert calls[0][1] == {"model": "gpt-5.6-luna", "provider": "test-provider", "lang": "zh"}
     assert "alanine_042.hkl" in calls[0][0]["data_files"]
 
 

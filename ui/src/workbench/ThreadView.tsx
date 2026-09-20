@@ -3,7 +3,7 @@
  * this view just consumes it. */
 import { useParams } from "react-router-dom";
 import { cx } from "../lib/format";
-import { zh } from "../lib/zh";
+import { t } from "../lib/i18n";
 import { useViewMode, type ViewMode } from "../state/ViewMode";
 import { useWorkbench } from "../state/WorkbenchProvider";
 import { ChatPane } from "./chat/ChatPane";
@@ -33,11 +33,11 @@ function ViewModeToggle() {
   return (
     <div
       role="group"
-      title={zh.viewModeTitle}
+      title={t.viewModeTitle}
       className="ml-auto flex shrink-0 items-center gap-0.5 rounded-pill bg-raised p-0.5"
     >
-      {seg("concise", zh.viewConcise)}
-      {seg("verbose", zh.viewVerbose)}
+      {seg("concise", t.viewConcise)}
+      {seg("verbose", t.viewVerbose)}
     </div>
   );
 }

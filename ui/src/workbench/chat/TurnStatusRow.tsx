@@ -2,7 +2,7 @@
  * plus a one-line turn digest (nodes committed, R1 movement, top tools).
  * turn-started markers render nothing; the status rail carries activity. */
 import { fmtMmSs } from "../../lib/format";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import type { TurnAggregate, TurnStatusItem } from "../../state/threadReducer";
 import { useViewMode } from "../../state/ViewMode";
 
@@ -36,13 +36,13 @@ export function humanTurnError(raw: string): string {
   }
   const low = msg.toLowerCase();
   if (low.includes("timeout") || low.includes("timed out")) {
-    return `${zh.turnErrTimeout}（${msg.slice(0, 120)}）`;
+    return `${t.turnErrTimeout}${t.shell.paren(msg.slice(0, 120))}`;
   }
   if (low.includes("429") || low.includes("rate limit")) {
-    return zh.turnErrRateLimit;
+    return t.turnErrRateLimit;
   }
   if (/\b5\d\d\b/.test(low) || low.includes("internal server")) {
-    return `${zh.turnErrUpstream}（${msg.slice(0, 120)}）`;
+    return `${t.turnErrUpstream}${t.shell.paren(msg.slice(0, 120))}`;
   }
   return msg.length > 200 ? `${msg.slice(0, 200)}…` : msg;
 }
@@ -55,19 +55,19 @@ export function TurnStatusRow({ item }: { item: TurnStatusItem }) {
   let text: string;
   let cls = "text-ink-3";
   if (item.phase === "failed") {
-    text = `! ${zh.turnFailed}${
-      item.error ? `：${humanTurnError(item.error)}` : ""
+    text = `! ${t.turnFailed}${
+      item.error ? `${t.shell.colon}${humanTurnError(item.error)}` : ""
     }`;
     cls = "text-ink-2";
   } else if (item.status === "interrupted") {
-    text = zh.turnInterrupted;
+    text = t.turnInterrupted;
     cls = "text-ink-2";
   } else if (item.status === "failed") {
-    text = `! ${zh.turnFailed}`;
+    text = `! ${t.turnFailed}`;
     cls = "text-ink-2";
   } else {
     const d = fmtMmSs(item.durationMs);
-    text = d ? `${zh.turnDone} · ${d}` : zh.turnDone;
+    text = d ? `${t.turnDone} · ${d}` : t.turnDone;
   }
 
   return (
@@ -93,10 +93,10 @@ export function TurnStatusRow({ item }: { item: TurnStatusItem }) {
 export function turnDigestText(agg: TurnAggregate): string {
   const bits: string[] = [];
   if (agg.nodes.length === 1) {
-    bits.push(`${zh.digestNodes} ${agg.nodes[0]}`);
+    bits.push(`${t.digestNodes} ${agg.nodes[0]}`);
   } else if (agg.nodes.length > 1) {
     bits.push(
-      `${zh.digestNodes} ${agg.nodes[0]}…${agg.nodes[agg.nodes.length - 1]}（${agg.nodes.length}）`,
+      `${t.digestNodes} ${agg.nodes[0]}…${agg.nodes[agg.nodes.length - 1]}${t.shell.paren(agg.nodes.length)}`,
     );
   }
   if (

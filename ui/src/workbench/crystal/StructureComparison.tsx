@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { cx } from "../../lib/format";
+import { t } from "../../lib/i18n";
 import { metricDelta } from "../../lib/metricDelta";
 import { comparableMetric, comparisonNumber, comparisonStatusLabel, signedDifference } from "../../lib/structureComparison";
 import { withAnchor } from "../../lib/quote";
@@ -14,17 +15,9 @@ const METRICS = [
   { key: "goof", label: "GooF", digits: 3, ideal: 1 },
 ] as const;
 
-const fieldNames: Record<string, string> = {
-  data_revision: "反射数据", data_binding: "数据来源", engine: "精修引擎",
-  weights: "权重", weighting: "权重", wght: "权重", h: "氢处理", hydrogen: "氢处理",
-  mask: "掩膜", twin: "孪晶", cutoff: "反射范围", shel: "SHEL", omit: "OMIT",
-  hklf: "HKLF", scale: "数据尺度", scale_k: "拟合尺度", cell: "晶胞",
-  space_group: "空间群", wavelength: "波长", metrics_source: "指标来源",
-  "cutoff.selected_reflections": "精修反射数", "cutoff.applied": "实际反射范围",
-  "cutoff.requested": "请求反射范围", metric_definition: "指标定义", hydrogens: "氢处理",
-};
+const fieldNames: Record<string, string> = t.crystal.cmpFieldNames;
 const fieldLabel = (field: string) => fieldNames[field] ?? field;
-const display = (value: unknown): string => value == null ? "未记录"
+const display = (value: unknown): string => value == null ? t.crystal.cmpNotRecorded
   : typeof value === "object" ? JSON.stringify(value) : String(value);
 
 function Source({ node, source }: { node: RefineNode; source: NodeComparisonSource | undefined }) {
@@ -34,15 +27,15 @@ function Source({ node, source }: { node: RefineNode; source: NodeComparisonSour
   const selectedReflections = cutoff && "selected_reflections" in cutoff && typeof cutoff.selected_reflections === "number"
     ? cutoff.selected_reflections : null;
   return <div className="min-w-0 break-words" data-source-node={node.id}>
-    <div className="font-mono">{node.id} · 修订 {source?.model_revision ?? node.revision ?? "未知"}</div>
-    <div>{source?.data_binding === "structure_only" ? "仅结构" : source?.data_revision ? `数据 ${source.data_revision}` : "历史数据未绑定"}</div>
-    <div>{metricSource ? `${metricSource.engine ?? "引擎未记录"} · ${metricSource.node}` : "指标来源未完整记录"}</div>
-    {!node.metrics_current && <div>沿用指标，非本节点精修</div>}
+    <div className="font-mono">{node.id} · {t.crystal.cmpRevision} {source?.model_revision ?? node.revision ?? t.crystal.cmpUnknown}</div>
+    <div>{source?.data_binding === "structure_only" ? t.crystal.cmpStructureOnly : source?.data_revision ? t.crystal.cmpData(source.data_revision) : t.crystal.cmpLegacyUnbound}</div>
+    <div>{metricSource ? `${metricSource.engine ?? t.crystal.cmpEngineNotRecorded} · ${metricSource.node}` : t.crystal.cmpMetricSourceIncomplete}</div>
+    {!node.metrics_current && <div>{t.crystal.cmpInheritedNote}</div>}
     {conditions && <>
-      <div>精修反射 {comparisonNumber(selectedReflections, 0)}</div>
-      <div className="font-mono">WGHT {conditions.weights ? `${comparisonNumber(conditions.weights.a, 4)} ${comparisonNumber(conditions.weights.b, 4)}` : "未记录"}</div>
-      <div>反射范围 {cutoff?.application === "ignored" ? "请求指令未应用" : cutoff?.application === "unknown" ? "应用情况未明"
-        : Array.isArray(cutoff?.applied) ? cutoff.applied.join(" · ") || "无附加范围指令" : "未记录"}</div>
+      <div>{t.crystal.cmpRefinedReflections} {comparisonNumber(selectedReflections, 0)}</div>
+      <div className="font-mono">WGHT {conditions.weights ? `${comparisonNumber(conditions.weights.a, 4)} ${comparisonNumber(conditions.weights.b, 4)}` : t.crystal.cmpNotRecorded}</div>
+      <div>{t.crystal.cmpCutoff} {cutoff?.application === "ignored" ? t.crystal.cmpCutoffIgnored : cutoff?.application === "unknown" ? t.crystal.cmpCutoffUnknown
+        : Array.isArray(cutoff?.applied) ? cutoff.applied.join(" · ") || t.crystal.cmpCutoffNone : t.crystal.cmpNotRecorded}</div>
     </>}
   </div>;
 }
@@ -73,10 +66,24 @@ export function StructureComparison() {
   const currentScene = sceneReady ? state.scene : null;
   const quote = () => {
     const describe = (item: RefineNode, source: NodeComparisonSource | undefined) => withAnchor(
-      `${item.id}：${METRICS.map(({ key, label, digits }) => `${label} ${comparisonNumber(item[key], digits)}`).join(" · ")}；模型 ASU ${item.n_atoms} 原子；数据 ${source?.data_revision ?? "未知"}；指标来源 ${source?.metrics_source?.node ?? "未完整记录"}${item.metrics_current ? "" : "（沿用）"}`,
+      t.crystal.cmpQuoteNode(
+        item.id,
+        METRICS.map(({ key, label, digits }) => `${label} ${comparisonNumber(item[key], digits)}`).join(" · "),
+        item.n_atoms,
+        source?.data_revision ?? t.crystal.cmpUnknown,
+        source?.metrics_source?.node ?? t.crystal.cmpNotFullyRecorded,
+        !item.metrics_current,
+      ),
       item.id,
     );
-    draft.insert(`${describe(baseline, data?.sources.baseline)}\n${describe(node, data?.sources.node)}\n${METRICS.map(({ key, label }) => `${label}：${comparisonStatusLabel(statusFor(key))}`).join("；")}。${data?.frame.status === "compatible" ? "坐标系可共用镜头，但跨节点原子身份未确认" : data?.frame.status === "different" ? "坐标系不同，分别查看" : "坐标系未确认，分别查看"}。仅查看比较，未检出节点。`);
+    const frameNote = data?.frame.status === "compatible" ? t.crystal.cmpFrameCompatibleQuote
+      : data?.frame.status === "different" ? t.crystal.cmpFrameDifferent : t.crystal.cmpFrameUnknown;
+    draft.insert(t.crystal.cmpQuote(
+      describe(baseline, data?.sources.baseline),
+      describe(node, data?.sources.node),
+      METRICS.map(({ key, label }) => t.crystal.cmpQuoteMetric(label, comparisonStatusLabel(statusFor(key)))),
+      frameNote,
+    ));
   };
   return <section data-testid="structure-comparison" data-node={node.id} data-baseline={baseline.id}
     data-comparability={status} className="shrink-0 border-b border-line px-3 py-2 text-sm"
@@ -87,7 +94,7 @@ export function StructureComparison() {
       else endComparison();
     }}>
     <div className="flex flex-wrap items-center gap-1.5">
-      <div role="group" aria-label="比较结构" className="flex min-w-0 rounded-lg bg-raised/70 p-0.5"
+      <div role="group" aria-label={t.crystal.cmpGroupAria} className="flex min-w-0 rounded-lg bg-raised/70 p-0.5"
         onKeyDown={(event) => {
           if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
           event.preventDefault();
@@ -100,29 +107,29 @@ export function StructureComparison() {
           buttons[next]?.focus();
         }}>
         {([baseline, node]).map((item, index) => <button key={item.id} type="button"
-          aria-pressed={state.viewNode === item.id} aria-label={`查看${index === 0 ? "基线" : "对比"} ${item.id}`}
+          aria-pressed={state.viewNode === item.id} aria-label={t.crystal.cmpViewAria(index === 0, item.id)}
           onClick={() => comparisonSide(item.id)}
           className={cx("rounded-md px-2 py-1 font-mono", state.viewNode === item.id ? "bg-bg text-ink shadow-sm" : "text-ink-2 hover:text-ink")}>
-          {chronological ? index === 0 ? "前" : "后" : index === 0 ? "基线" : "查看"} {item.id}
+          {chronological ? index === 0 ? t.crystal.cmpBefore : t.crystal.cmpAfter : index === 0 ? t.crystal.cmpBaseline : t.crystal.cmpView} {item.id}
         </button>)}
       </div>
       <button type="button" aria-expanded={details} onClick={() => setDetails(!details)}
         className="rounded-md px-1.5 py-1 text-ink-2 hover:bg-raised">{comparisonStatusLabel(status)}</button>
       <div className="ml-auto flex items-center gap-1">
-        <button type="button" onClick={quote} className="rounded-md px-1.5 py-1 text-ink-2 hover:bg-raised">引用对比</button>
-        <button type="button" onClick={endComparison} className="rounded-md px-1.5 py-1 text-ink-2 hover:bg-raised">退出对比</button>
+        <button type="button" onClick={quote} className="rounded-md px-1.5 py-1 text-ink-2 hover:bg-raised">{t.crystal.cmpQuoteBtn}</button>
+        <button type="button" onClick={endComparison} className="rounded-md px-1.5 py-1 text-ink-2 hover:bg-raised">{t.crystal.cmpExitBtn}</button>
       </div>
     </div>
-    <table className="mt-1 w-full table-fixed border-collapse tabular-nums" aria-label="节点数值对比">
-      <thead><tr className="text-right text-ink-3"><th className="w-[19%] text-left font-normal">指标</th>
+    <table className="mt-1 w-full table-fixed border-collapse tabular-nums" aria-label={t.crystal.cmpTableAria}>
+      <thead><tr className="text-right text-ink-3"><th className="w-[19%] text-left font-normal">{t.crystal.cmpMetricCol}</th>
         <th className="font-mono font-normal">{baseline.id}</th><th className="font-mono font-normal">{node.id}</th>
-        <th className="w-[25%] font-normal" title="查看节点减基线；条件未明或不同时仅显示中性数值">变化</th></tr></thead>
+        <th className="w-[25%] font-normal" title={t.crystal.cmpChangeTip}>{t.crystal.cmpChangeCol}</th></tr></thead>
       <tbody>{METRICS.map(({ key, label, digits, ...options }) => {
         const comparable = comparableMetric(data, key, node, baseline);
         const delta = metricDelta(node[key], baseline[key], digits, "ideal" in options ? options.ideal : undefined,
           !node.metrics_current || !baseline.metrics_current, comparable);
         return <tr key={key} data-testid={`comparison-${key}`} data-comparable={comparable ? "true" : "false"}
-          title={`${comparisonStatusLabel(statusFor(key))}${!node.metrics_current || !baseline.metrics_current ? " · 含沿用指标" : ""}`}>
+          title={`${comparisonStatusLabel(statusFor(key))}${!node.metrics_current || !baseline.metrics_current ? t.crystal.cmpInheritedSuffix : ""}`}>
           <th className="py-0.5 text-left font-normal text-ink-2">{label}</th>
           <td className="text-right font-mono text-ink">{comparisonNumber(baseline[key], digits)}</td>
           <td className="text-right font-mono text-ink">{comparisonNumber(node[key], digits)}</td>
@@ -132,43 +139,43 @@ export function StructureComparison() {
           </td>
         </tr>;
       })}
-      <tr><th className="py-0.5 text-left font-normal text-ink-2">模型 ASU</th>
+      <tr><th className="py-0.5 text-left font-normal text-ink-2">{t.crystal.cmpModelAsu}</th>
         <td className="text-right font-mono">{baseline.n_atoms}</td><td className="text-right font-mono">{node.n_atoms}</td>
         <td className="text-right font-mono text-ink-3">{signedDifference(node.n_atoms, baseline.n_atoms, 0)}</td></tr>
       </tbody>
     </table>
     <div className="mt-1 flex flex-wrap gap-x-3 gap-y-0.5 text-ink-3" aria-live="polite">
-      <span title="绘制数不含已隐藏元素/PART及分数剖面外原子；相机遮挡不改变计数">{currentScene ? `${currentScene.node} · 绘制 ${drawnAtomCount(currentScene, state.hiddenElems, state.partFilter, state.slab)} / 场景 ${currentScene.meta.n_atoms} 原子${currentScene.meta.truncated ? "（已截断）" : ""}`
-        : state.sceneStatus === "error" ? "结构加载失败" : `正在加载 ${state.viewNode}`}</span>
-      {currentScene && <span>空间群 {currentScene.space_group}</span>}
-      <span>{data?.frame.status === "compatible" ? "相机同步 · 选择独立" : data?.frame.status === "different" ? "坐标系不同，分别查看" : "坐标系未确认，分别查看"}</span>
+      <span title={t.crystal.cmpDrawnTip}>{currentScene ? t.crystal.cmpDrawnLine(currentScene.node, drawnAtomCount(currentScene, state.hiddenElems, state.partFilter, state.slab), currentScene.meta.n_atoms, currentScene.meta.truncated)
+        : state.sceneStatus === "error" ? t.crystal.cmpSceneFailed : t.crystal.loadingNode(state.viewNode)}</span>
+      {currentScene && <span>{t.dataSpaceGroup} {currentScene.space_group}</span>}
+      <span>{data?.frame.status === "compatible" ? t.crystal.cmpFrameCompatible : data?.frame.status === "different" ? t.crystal.cmpFrameDifferent : t.crystal.cmpFrameUnknown}</span>
     </div>
-    {comparisonInfo.status === "error" && <div className="mt-1 text-ink-3">暂无法核对条件，仍可查看结构</div>}
+    {comparisonInfo.status === "error" && <div className="mt-1 text-ink-3">{t.crystal.cmpConditionsUnavailable}</div>}
     {details && <div className="mt-2 max-h-52 space-y-2 overflow-y-auto border-t border-line pt-2 text-ink-2">
       <div className="grid grid-cols-2 gap-3"><Source node={baseline} source={data?.sources.baseline} /><Source node={node} source={data?.sources.node} /></div>
       <div className="grid grid-cols-2 gap-3">
         {([data?.sources.baseline, data?.sources.node]).map((source, index) => <div key={index} className="min-w-0 break-words font-mono">
-          <div>CELL {source?.frame.cell?.map((value) => comparisonNumber(value, 4)).join(" · ") ?? "未记录"}</div>
-          <div>{source?.frame.space_group_operations?.length ?? "未知"} 个空间群操作</div>
+          <div>CELL {source?.frame.cell?.map((value) => comparisonNumber(value, 4)).join(" · ") ?? t.crystal.cmpNotRecorded}</div>
+          <div>{t.crystal.cmpSymops(source?.frame.space_group_operations?.length ?? t.crystal.cmpUnknown)}</div>
         </div>)}
       </div>
-      <table className="w-full table-fixed" aria-label="其它节点事实"><tbody>
-        {([['参数', 'n_params'], ['残峰', 'diff_map_max'], ['残洞', 'diff_map_min']] as const).map(([label, key]) =>
+      <table className="w-full table-fixed" aria-label={t.crystal.cmpFactsAria}><tbody>
+        {([[t.paramsLabel, 'n_params'], [t.headerPeak, 'diff_map_max'], [t.headerHole, 'diff_map_min']] as const).map(([label, key]) =>
           <tr key={key}><th className="text-left font-normal">{label}</th>
             <td className="text-right font-mono">{comparisonNumber(key === 'n_params' && (baseline[key] ?? 0) < 0 ? null : baseline[key], key === 'n_params' ? 0 : 3)}</td>
             <td className="text-right font-mono">{comparisonNumber(key === 'n_params' && (node[key] ?? 0) < 0 ? null : node[key], key === 'n_params' ? 0 : 3)}</td>
           </tr>)}
       </tbody></table>
       {METRICS.map(({ key, label }) => <div key={key}>{label} · {comparisonStatusLabel(statusFor(key))}
-        {data?.metrics[key].reasons.length ? <span className="break-words"> · {data.metrics[key].reasons.map(fieldLabel).join("、")}</span> : null}</div>)}
+        {data?.metrics[key].reasons.length ? <span className="break-words"> · {data.metrics[key].reasons.map(fieldLabel).join(t.crystal.listSeparator)}</span> : null}</div>)}
       {(data?.differences ?? []).map((difference) => <div key={difference.field} className="break-words">
-        {fieldLabel(difference.field)}：{display(difference.baseline)} → {display(difference.node)}
+        {t.crystal.cmpDiffLine(fieldLabel(difference.field), display(difference.baseline), display(difference.node))}
       </div>)}
-      {!!data?.unknown_fields.length && <div className="break-words">未记录：{data.unknown_fields.map(fieldLabel).join("、")}</div>}
+      {!!data?.unknown_fields.length && <div className="break-words">{t.crystal.cmpUnrecordedPrefix}{data.unknown_fields.map(fieldLabel).join(t.crystal.listSeparator)}</div>}
       {(!data || data.sources.node.data_binding === "legacy_unknown" || data.sources.baseline.data_binding === "legacy_unknown") &&
-        <div>历史数据未绑定；不使用当前反射替算。
+        <div>{t.crystal.cmpLegacyNote}
           <button type="button" className="ml-1 rounded px-1 text-accent hover:bg-raised" onClick={() => draft.insert(
-            `请核对节点 ${baseline.id} 与 ${node.id} 的历史反射数据来源及逐指标比较条件。无法确认的绑定保持未知，不要把当前 HKL 自动绑定到历史节点；请先说明可验证的来源和需要我确认的内容。`)}>请求核对来源</button>
+            t.crystal.cmpRequestVerify(baseline.id, node.id))}>{t.crystal.cmpRequestVerifyBtn}</button>
         </div>}
     </div>}
   </section>;

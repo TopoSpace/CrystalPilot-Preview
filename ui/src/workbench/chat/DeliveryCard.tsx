@@ -12,7 +12,7 @@ import {
   type DeliveryFacts,
 } from "../../lib/delivery";
 import { cx } from "../../lib/format";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { useThread } from "../../state/ThreadProvider";
 
 /** Ask the right pane to show a tab (it owns the URL param). */
@@ -43,7 +43,7 @@ export function DeliveryCard({ facts }: { facts: DeliveryFacts }) {
       className="rounded-card border border-line bg-surface px-4 py-3"
     >
       <div className="flex flex-wrap items-center gap-2 text-sm">
-        <span className="font-medium text-ink">{zh.deliveryTitle}</span>
+        <span className="font-medium text-ink">{t.deliveryTitle}</span>
         {statusLabel !== "" && (
           <span
             className={cx(
@@ -57,12 +57,12 @@ export function DeliveryCard({ facts }: { facts: DeliveryFacts }) {
         )}
         {facts.waived > 0 && (
           <span className="rounded-pill bg-warn/10 px-1.5 py-px text-2xs text-warn">
-            {zh.deliveryWaived} {facts.waived}
+            {t.deliveryWaived} {facts.waived}
           </span>
         )}
         {facts.node !== null && (
           <span className="font-mono text-2xs text-ink-3">
-            {zh.deliveryNode} {facts.node}
+            {t.deliveryNode} {facts.node}
           </span>
         )}
         {facts.cifGrade !== null && (
@@ -72,7 +72,7 @@ export function DeliveryCard({ facts }: { facts: DeliveryFacts }) {
               "rounded-pill px-1.5 py-px text-2xs",
               facts.cifGrade === "model" ? "bg-warn/10 text-warn" : "bg-raised text-ink-3",
             )}
-            title={facts.cifGrade === "model" ? zh.deliveryCifGradeModelTip : facts.cifGrade}
+            title={facts.cifGrade === "model" ? t.deliveryCifGradeModelTip : facts.cifGrade}
           >
             {cifGradeLabel(facts.cifGrade)}
           </span>
@@ -85,7 +85,7 @@ export function DeliveryCard({ facts }: { facts: DeliveryFacts }) {
         )}
       </div>
       {main.length === 0 && total === 0 ? (
-        <div className="mt-1.5 text-2xs text-ink-3">{zh.deliveryNoFiles}</div>
+        <div className="mt-1.5 text-2xs text-ink-3">{t.deliveryNoFiles}</div>
       ) : (
         <div className="mt-2 flex flex-wrap items-center gap-1.5">
           {main.map(({ name, artifact }) =>
@@ -115,8 +115,8 @@ export function DeliveryCard({ facts }: { facts: DeliveryFacts }) {
               onClick={() => requestRightTab("artifacts")}
               className="rounded-pill px-2 py-0.5 text-2xs text-ink-3 transition-colors hover:bg-raised hover:text-ink"
             >
-              {zh.deliveryAllFiles} {total} {zh.deliveryFilesUnit} →{" "}
-              {zh.deliveryOpenArtifacts}
+              {t.deliveryAllFiles} {total} {t.deliveryFilesUnit} →{" "}
+              {t.deliveryOpenArtifacts}
             </button>
           )}
         </div>
@@ -128,11 +128,11 @@ export function DeliveryCard({ facts }: { facts: DeliveryFacts }) {
           title={facts.handover.notes.join("\n") || undefined}
         >
           {facts.handover.missing.length === 0
-            ? zh.deliveryHandoverReady
-            : `${zh.deliveryHandoverMissing} ${facts.handover.missing.join(" / ")}`}
+            ? t.deliveryHandoverReady
+            : `${t.deliveryHandoverMissing} ${facts.handover.missing.join(" / ")}`}
         </div>
       )}
-      <div className="mt-1.5 text-2xs text-ink-3">{zh.deliveryFromTools}</div>
+      <div className="mt-1.5 text-2xs text-ink-3">{t.deliveryFromTools}</div>
     </div>
   );
 }

@@ -40,7 +40,7 @@ import {
   type UniqueInteractionRow,
   type VoidEntry,
 } from "../../lib/wbTypes";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { useComposerDraft } from "../../state/ComposerDraft";
 import { useCrystal } from "../../state/CrystalProvider";
 import { useWorkbench } from "../../state/WorkbenchProvider";
@@ -101,7 +101,7 @@ function QuoteButton({ onClick }: { onClick: () => void }) {
       onClick={onClick}
       className="shrink-0 rounded-md px-2 py-1 text-xs text-ink-3 hover:bg-raised hover:text-ink focus-visible:outline-2 focus-visible:outline-accent"
     >
-      {zh.anQuote}
+      {t.anQuote}
     </button>
   );
 }
@@ -141,29 +141,29 @@ function KindBlock({
   return (
     <div className="border-b border-line/60">
       <div className="flex flex-wrap items-baseline gap-x-2 px-3 pt-2 text-xs">
-        <span className="font-medium text-ink">{zh.ixKind[kind] ?? kind}</span>
+        <span className="font-medium text-ink">{t.ixKind[kind] ?? kind}</span>
         <span className="font-mono text-2xs text-ink-3 tabular-nums">
-          {zh.anPassing} {passing} / {zh.anOf} {rows.length}
-          {nIntra > 0 ? ` · ${zh.anIntra} ${nIntra}` : ""}
+          {t.anPassingOf(passing, rows.length)}
+          {nIntra > 0 ? ` · ${t.anIntra} ${nIntra}` : ""}
         </span>
       </div>
       {crit && (
         <details className="px-3 py-1 text-xs text-ink-3">
-          <summary className="cursor-pointer">{zh.ixCriteria}</summary>
+          <summary className="cursor-pointer">{t.ixCriteria}</summary>
           <div className="mt-1 break-words leading-relaxed">{crit}</div>
         </details>
       )}
       {trunc && (
         <div className="px-3 pb-1 text-2xs text-warn">
-          {zh.anTruncated} {trunc.cap} / {trunc.found}
+          {t.anTruncated} {trunc.cap} / {trunc.found}
         </div>
       )}
       {missingRings.length > 0 && (
-        <div className="px-3 pb-1 text-2xs text-warn" title={zh.anMissingRingsTail}>
-          {zh.anMissingRings} {missingRings.length}：
-          {missingRings.map((r) => `${r.key} × ${r.op}（${r.size} 元）`).join("；")}
+        <div className="px-3 pb-1 text-2xs text-warn" title={t.anMissingRingsTail}>
+          {t.anMissingRings} {missingRings.length}{t.crystal.colon}
+          {t.crystal.anMissingRingList(missingRings)}
           {" · "}
-          {zh.anMissingRingsTail}
+          {t.anMissingRingsTail}
         </div>
       )}
       <ul className="pb-1">
@@ -181,9 +181,9 @@ function KindBlock({
                 "mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full",
                 r.passes ? "bg-ok" : "bg-ink-3/50",
               )}
-              title={r.passes ? zh.ixPasses : zh.ixFails}
+              title={r.passes ? t.ixPasses : t.ixFails}
             />
-            <button type="button" aria-label={`定位 ${interactionLabel(r)}`} aria-pressed={interactionIdentity(r) === activeKey}
+            <button type="button" aria-label={t.crystal.locateAria(interactionLabel(r))} aria-pressed={interactionIdentity(r) === activeKey}
               onClick={() => inspectInteraction(node, r)}
               className="min-w-0 flex-1 rounded py-1 text-left focus-visible:outline-2 focus-visible:outline-accent">
               <span className="flex flex-wrap items-baseline gap-x-2">
@@ -193,7 +193,7 @@ function KindBlock({
                 )}
                 {r.intra && (
                   <span className="rounded-pill bg-raised px-1.5 text-2xs text-ink-3">
-                    {zh.anIntra}
+                    {t.anIntra}
                   </span>
                 )}
               </span>
@@ -202,7 +202,7 @@ function KindBlock({
                   .map(([n, v]) => `${n} ${v}`)
                   .join(" · ")}
               </span>
-              <span className="sr-only">{r.passes ? zh.ixPasses : zh.ixFails}</span>
+              <span className="sr-only">{r.passes ? t.ixPasses : t.ixFails}</span>
             </button>
             <QuoteButton
               onClick={() =>
@@ -226,7 +226,7 @@ function KindBlock({
           className="mb-1.5 ml-3 text-2xs text-accent hover:underline"
           onClick={() => setAll((a) => !a)}
         >
-          {all ? zh.anLess : `${zh.anMore} (${rows.length})`}
+          {all ? t.anLess : `${t.anMore} (${rows.length})`}
         </button>
       )}
     </div>
@@ -252,15 +252,15 @@ function InteractionsSection({
   );
   const meta = inter.counts.n_unique
     ? `${nPassing} / ${inter.counts.n_unique}`
-    : zh.anNone;
-  const hNote = zh.ixHSource[inter.h_source] ?? inter.h_source;
+    : t.anNone;
+  const hNote = t.ixHSource[inter.h_source] ?? inter.h_source;
   return (
     <section data-stage="interactions" data-status="ready">
       {(Object.keys(inter.truncated).length > 0 || !inter.range.halo_sufficient) &&
-        <div className="px-3 pt-2 text-xs text-warn">关系覆盖不完整 · {Object.keys(inter.truncated).length > 0 ? zh.anTruncated : zh.ixHaloShort}</div>}
-      {inter.h_source === "unknown" && <div className="px-3 pt-2 text-xs text-warn">氢原子来源未知</div>}
+        <div className="px-3 pt-2 text-xs text-warn">{t.crystal.anCoverageIncomplete} · {Object.keys(inter.truncated).length > 0 ? t.anTruncated : t.ixHaloShort}</div>}
+      {inter.h_source === "unknown" && <div className="px-3 pt-2 text-xs text-warn">{t.crystal.anHSourceUnknown}</div>}
       <SectionHeader
-        title={zh.anInteractions}
+        title={t.anInteractions}
         meta={meta}
         open={open}
         onToggle={toggle}
@@ -272,11 +272,11 @@ function InteractionsSection({
           </div>
           {!inter.range.halo_sufficient && (
             <div className="px-3 pb-1 text-2xs text-warn">
-              {zh.ixHaloShort} {inter.range.halo_advised_A.toFixed(1)} Å
+              {t.ixHaloShort} {inter.range.halo_advised_A.toFixed(1)} Å
             </div>
           )}
           {kinds.length === 0 ? (
-            <div className="px-3 pb-2 text-xs text-ink-3">{zh.anNoInteractions}</div>
+            <div className="px-3 pb-2 text-xs text-ink-3">{t.anNoInteractions}</div>
           ) : (
             kinds.map((k) => (
               <KindBlock key={k} kind={k} rows={inter.unique[k] ?? []} inter={inter} node={node} />
@@ -293,7 +293,7 @@ function InteractionsSection({
 function dimLabel(v: VoidEntry): string {
   const d = v.dimensionality;
   if (typeof d !== "number") return "";
-  return zh.anDim[d] ?? `${d}D`;
+  return t.anDim[d] ?? `${d}D`;
 }
 
 function fracText(f: [number, number, number] | undefined | null): string {
@@ -303,22 +303,22 @@ function fracText(f: [number, number, number] | undefined | null): string {
 function PoreRow({ v, onQuote }: { v: VoidEntry; onQuote: () => void }) {
   const dirs = (v.directions ?? []).map((d) => `[${d.join(" ")}]`).join(" ");
   const facts: string[] = [];
-  if (typeof v.lcd_A === "number") facts.push(`${zh.anLcd} ${v.lcd_A.toFixed(1)} Å`);
+  if (typeof v.lcd_A === "number") facts.push(`${t.anLcd} ${v.lcd_A.toFixed(1)} Å`);
   if (typeof v.pld_A === "number") {
     const err = typeof v.pld_error_A === "number" ? ` ± ${v.pld_error_A.toFixed(2)}` : "";
-    facts.push(`${zh.anPld} ${v.pld_A.toFixed(1)}${err} Å`);
+    facts.push(`${t.anPld} ${v.pld_A.toFixed(1)}${err} Å`);
   }
   if (v.pld_along) {
     const ax = (x: number | null) => (typeof x === "number" ? x.toFixed(1) : "—");
-    facts.push(`${zh.anPldAlong} ${ax(v.pld_along.a)}/${ax(v.pld_along.b)}/${ax(v.pld_along.c)} Å`);
+    facts.push(`${t.anPldAlong} ${ax(v.pld_along.a)}/${ax(v.pld_along.b)}/${ax(v.pld_along.c)} Å`);
   }
   if (typeof v.grid_step_A === "number") facts.push(`±${v.grid_step_A.toFixed(2)} Å`);
-  if (typeof v.electrons === "number") facts.push(`${Math.round(v.electrons)} ${zh.anElectrons}`);
+  if (typeof v.electrons === "number") facts.push(`${Math.round(v.electrons)} ${t.anElectrons}`);
   const centre =
     v.dimensionality === 0 && v.centre_frac
-      ? `${zh.anCentroid} ${fracText(v.centre_frac)}`
+      ? `${t.anCentroid} ${fracText(v.centre_frac)}`
       : v.inscribed_centre_frac
-        ? `${zh.anCentre} ${fracText(v.inscribed_centre_frac)}`
+        ? `${t.anCentre} ${fracText(v.inscribed_centre_frac)}`
         : "";
   return (
     <li className="group flex items-start gap-2 px-3 py-1 text-xs hover:bg-raised/50">
@@ -348,14 +348,14 @@ function PoresSection({ pores, node }: { pores: NonNullable<AnalysisResponse["po
     typeof pores.solvent_volume_pct_of_cell === "number"
       ? ` · ${pores.solvent_volume_pct_of_cell.toFixed(1)} %`
       : "";
-  const meta = voids.length ? `${voids.length}${pct}` : zh.anNone;
+  const meta = voids.length ? `${voids.length}${pct}` : t.anNone;
   return (
     <section data-testid="analysis-pores" data-stage="pores" data-status="ready">
-      <SectionHeader title={`${zh.anPores} · 每胞`} meta={meta} open={open} onToggle={toggle} />
+      <SectionHeader title={`${t.anPores} · ${t.crystal.perCell}`} meta={meta} open={open} onToggle={toggle} />
       {open && (
         <>
           {voids.length === 0 ? (
-            <div className="px-3 py-2 text-xs text-ink-3">{zh.anNoVoids}</div>
+            <div className="px-3 py-2 text-xs text-ink-3">{t.anNoVoids}</div>
           ) : (
             <ul className="py-1">
               {voids.map((v) => (
@@ -368,11 +368,11 @@ function PoresSection({ pores, node }: { pores: NonNullable<AnalysisResponse["po
               className="px-3 pb-1 font-mono text-2xs text-ink-2 tabular-nums"
               title={[pores.packing.reading, pores.packing.note].filter(Boolean).join("\n")}
             >
-              {zh.anPacking} {pores.packing.packing_index_pct.toFixed(1)}
+              {t.anPacking} {pores.packing.packing_index_pct.toFixed(1)}
               {typeof pores.packing.packing_index_error_pct === "number"
                 ? ` ± ${pores.packing.packing_index_error_pct.toFixed(1)}`
                 : ""}{" "}
-              % · {pores.packing.volume_per_non_h_atom_A3.toFixed(1)} {zh.anPerAtom}
+              % · {pores.packing.volume_per_non_h_atom_A3.toFixed(1)} {t.anPerAtom}
             </div>
           )}
           {typeof pores.total_solvent_electrons_per_cell === "number" && (() => {
@@ -384,18 +384,18 @@ function PoresSection({ pores, node }: { pores: NonNullable<AnalysisResponse["po
             return (
               <div
                 className="px-3 pb-1 font-mono text-2xs text-ink-2 tabular-nums"
-                title={unconverged ? zh.anElectronsUnconverged : disagree ? zh.anElectronsDisagree : undefined}
+                title={unconverged ? t.anElectronsUnconverged : disagree ? t.anElectronsDisagree : undefined}
                 data-recount={unconverged ? "unconverged" : disagree ? "disagree" : "ok"}
               >
-                {zh.anElectronsRecomputed} {rec.toFixed(1)} {zh.anElectronsPerCell}
-                {unconverged ? ` · ${zh.anElectronsUnconverged}` : ""}
-                {snapNum !== null ? ` · ${zh.anElectronsSnapshot} ${snapNum.toFixed(1)} ${zh.anElectronsPerCell}` : ""}
+                {t.anElectronsRecomputed} {rec.toFixed(1)} {t.anElectronsPerCell}
+                {unconverged ? ` · ${t.anElectronsUnconverged}` : ""}
+                {snapNum !== null ? ` · ${t.anElectronsSnapshot} ${snapNum.toFixed(1)} ${t.anElectronsPerCell}` : ""}
                 {disagree && !unconverged ? " ⚠" : ""}
               </div>
             );
           })()}
           <div className="border-b border-line/60 px-3 pb-2 text-2xs text-ink-3">
-            {pores.params_source === "node" ? zh.anParamsNode : zh.anParamsDefaults}
+            {pores.params_source === "node" ? t.anParamsNode : t.anParamsDefaults}
             {pores.pore_note ? ` · ${pores.pore_note}` : ""}
             {pores.packing_note ? ` · ${pores.packing_note}` : ""}
           </div>
@@ -410,10 +410,10 @@ function PoresSection({ pores, node }: { pores: NonNullable<AnalysisResponse["po
 function GuestRow({ g, onQuote }: { g: GuestEntry; onQuote: () => void }) {
   const facts: string[] = [];
   if (g.void_id !== null && g.void_id !== undefined) facts.push(`V${g.void_id}`);
-  if (g.host_fragment) facts.push(`${zh.anHost} ${g.host_fragment}`);
-  if (typeof g.clearance_A === "number") facts.push(`${zh.anClearance} ${g.clearance_A.toFixed(2)} Å`);
+  if (g.host_fragment) facts.push(`${t.anHost} ${g.host_fragment}`);
+  if (typeof g.clearance_A === "number") facts.push(`${t.anClearance} ${g.clearance_A.toFixed(2)} Å`);
   if (typeof g.d_to_inscribed_centre_A === "number")
-    facts.push(`${zh.anToCentre} ${g.d_to_inscribed_centre_A.toFixed(1)} Å`);
+    facts.push(`${t.anToCentre} ${g.d_to_inscribed_centre_A.toFixed(1)} Å`);
   const c = g.nearest_host_contacts?.[0];
   if (c) facts.push(`${c.atom}···${c.host_atom} ${c.d.toFixed(2)} Å${isIdentityOp(c.sym) ? "" : ` (${c.sym})`}`);
   return (
@@ -422,13 +422,13 @@ function GuestRow({ g, onQuote }: { g: GuestEntry; onQuote: () => void }) {
         <div className="flex flex-wrap items-baseline gap-x-2">
           <span className="font-medium text-ink">{g.formula}</span>
           <span className="font-mono text-2xs text-ink-3">
-            {g.fragment} · {g.copies} {zh.anGuestCopies}
+            {g.fragment} · {g.copies} {t.anGuestCopies}
           </span>
           <span className="rounded-pill bg-raised px-1.5 text-2xs text-ink-2">
-            {zh.anSite[g.site] ?? g.site}
+            {t.anSite[g.site] ?? g.site}
           </span>
           {g.straddles_regions && (
-            <span className="text-2xs text-warn">{"跨区域"}</span>
+            <span className="text-2xs text-warn">{t.crystal.anStraddles}</span>
           )}
         </div>
         <div className="font-mono text-2xs text-ink-2 tabular-nums">{facts.join(" · ")}</div>
@@ -447,16 +447,16 @@ function GuestsSection({ data }: { data: AnalysisResponse }) {
     ? g.guests.length
       ? Object.entries(g.summary)
           .filter(([, n]) => n > 0)
-          .map(([k, n]) => `${zh.anSite[k] ?? k} ${n}`)
+          .map(([k, n]) => `${t.anSite[k] ?? k} ${n}`)
           .join(" · ")
-      : zh.anNone
-    : zh.anPending;
+      : t.anNone
+    : t.anPending;
   return (
     <section data-stage="guests" data-status={g ? "ready" : "error"}>
-      <SectionHeader title={zh.anGuests} meta={meta} open={open} onToggle={toggle} />
+      <SectionHeader title={t.anGuests} meta={meta} open={open} onToggle={toggle} />
       {open && !g && (
         <div className="px-3 py-2 text-xs text-ink-3">
-          {zh.anGuestsFailed}
+          {t.anGuestsFailed}
           {data.guests_error ? (
             <div className="font-mono text-2xs">{data.guests_error}</div>
           ) : null}
@@ -466,10 +466,10 @@ function GuestsSection({ data }: { data: AnalysisResponse }) {
         <>
           <div className="px-3 py-1.5 text-2xs text-ink-3">
             {g.host.selection_rule} ·{" "}
-            {g.host.fragments.map((f) => `${f.key} ${f.formula}${f.dimensionality ? ` ${f.dimensionality}D` : ""}`).join("，")}
+            {g.host.fragments.map((f) => `${f.key} ${f.formula}${f.dimensionality ? ` ${f.dimensionality}D` : ""}`).join(t.sepComma)}
           </div>
           {g.guests.length === 0 ? (
-            <div className="px-3 pb-2 text-xs text-ink-3">{zh.anNoGuests}</div>
+            <div className="px-3 pb-2 text-xs text-ink-3">{t.anNoGuests}</div>
           ) : (
             <ul className="pb-1">
               {g.guests.map((x) => (
@@ -482,13 +482,13 @@ function GuestsSection({ data }: { data: AnalysisResponse }) {
             className="mb-1.5 ml-3 text-2xs text-accent hover:underline"
             onClick={() => setShowCriteria((s) => !s)}
           >
-            {zh.anCriteria}
+            {t.anCriteria}
           </button>
           {showCriteria && (
             <dl className="border-b border-line/60 px-3 pb-2 text-2xs text-ink-3">
               {(["cage_cavity", "channel", "cavity", "interstitial"] as const).map((k) => (
                 <div key={k} className="py-0.5">
-                  <dt className="inline font-medium text-ink-2">{zh.anSite[k]}：</dt>
+                  <dt className="inline font-medium text-ink-2">{t.anSite[k]}{t.colon}</dt>
                   <dd className="inline">{String(g.criteria[k] ?? "")}</dd>
                 </div>
               ))}
@@ -515,18 +515,18 @@ function labelsShort(labels: string[], n = 4): string {
 function FragmentRow({ f, onQuote }: { f: FiniteFragment; onQuote: () => void }) {
   const facts: string[] = [];
   const c = f.largest_cycle;
-  facts.push(c.size ? `${zh.anLargestCycle} ${c.size}${c.truncated ? "（截断）" : ""}` : zh.anNoRing);
-  if (typeof f.shape?.sphericity === "number") facts.push(`${zh.anSphericity} ${f.shape.sphericity.toFixed(2)}`);
+  facts.push(c.size ? `${t.anLargestCycle} ${c.size}${c.truncated ? t.crystal.anTruncatedParen : ""}` : t.anNoRing);
+  if (typeof f.shape?.sphericity === "number") facts.push(`${t.anSphericity} ${f.shape.sphericity.toFixed(2)}`);
   if (f.shape?.aspect && f.shape.aspect.length === 2)
-    facts.push(`${zh.anAspect} ${f.shape.aspect.map((x) => x.toFixed(2)).join(" / ")}`);
-  if (typeof f.shape?.longest_axis_A === "number") facts.push(`${zh.anLongest} ${f.shape.longest_axis_A.toFixed(1)} Å`);
+    facts.push(`${t.anAspect} ${f.shape.aspect.map((x) => x.toFixed(2)).join(" / ")}`);
+  if (typeof f.shape?.longest_axis_A === "number") facts.push(`${t.anLongest} ${f.shape.longest_axis_A.toFixed(1)} Å`);
   return (
     <li className="group flex items-start gap-2 px-3 py-1 text-xs hover:bg-raised/50">
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-baseline gap-x-2">
           <span className="font-medium text-ink">{f.fragment}</span>
           <span className="font-mono text-2xs text-ink-3">
-            {f.n_atoms} · {f.role === "host" ? zh.anHostRole : zh.anGuestRole} · {f.copies} {zh.anGuestCopies} ·{" "}
+            {f.n_atoms} · {f.role === "host" ? t.anHostRole : t.anGuestRole} · {f.copies} {t.anGuestCopies} ·{" "}
             {labelsShort(f.asu_labels)}
           </span>
         </div>
@@ -537,32 +537,32 @@ function FragmentRow({ f, onQuote }: { f: FiniteFragment; onQuote: () => void })
   );
 }
 
-function NetsBlock({ t, node }: { t: AnalysisTopology; node: string }) {
+function NetsBlock({ topo, node }: { topo: AnalysisTopology; node: string }) {
   const draft = useComposerDraft();
-  const nets = t.nets;
+  const nets = topo.nets;
   return (
     <div className="group flex items-start gap-2 px-3 py-1.5 text-xs hover:bg-raised/50">
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-baseline gap-x-2">
-          <span className="font-medium text-ink">{zh.anNets}</span>
+          <span className="font-medium text-ink">{t.anNets}</span>
           {nets.n_nets === 0 ? (
-            <span className="text-2xs text-ink-3">{zh.anNoNets}</span>
+            <span className="text-2xs text-ink-3">{t.anNoNets}</span>
           ) : (
             <span className="font-mono text-2xs text-ink-2 tabular-nums">
               {nets.nets
                 .map(
                   (n) =>
-                    `${n.id}: ${zh.anDim[n.dimensionality] ?? `${n.dimensionality}D`}${n.direction ? ` [${n.direction.join(" ")}]` : ""} · ${n.n_atoms_p1}`,
+                    `${n.id}: ${t.anDim[n.dimensionality] ?? `${n.dimensionality}D`}${n.direction ? ` [${n.direction.join(" ")}]` : ""} · ${n.n_atoms_p1}`,
                 )
-                .join("；")}
+                .join(t.sepClause)}
             </span>
           )}
           {nets.interpenetrated === true ? (
-            <span className="rounded-pill bg-accent/12 px-1.5 text-2xs text-accent">{zh.anInterpenetratedYes}</span>
+            <span className="rounded-pill bg-accent/12 px-1.5 text-2xs text-accent">{t.anInterpenetratedYes}</span>
           ) : nets.interpenetrated === false && nets.symmetry_related ? (
-            <span className="rounded-pill bg-raised px-1.5 text-2xs text-ink-2">{zh.anInterpenetratedNo}</span>
+            <span className="rounded-pill bg-raised px-1.5 text-2xs text-ink-2">{t.anInterpenetratedNo}</span>
           ) : nets.symmetry_related ? (
-            <span className="rounded-pill bg-raised px-1.5 text-2xs text-ink-2">{zh.anInterpenetrated}</span>
+            <span className="rounded-pill bg-raised px-1.5 text-2xs text-ink-2">{t.anInterpenetrated}</span>
           ) : null}
         </div>
         {nets.relations.length > 0 && (
@@ -576,9 +576,9 @@ function NetsBlock({ t, node }: { t: AnalysisTopology; node: string }) {
           </div>
         )}
         {nets.interlocked_1d === true ? (
-          <div className="text-2xs text-ink-2">{zh.anInterlockedYes}</div>
+          <div className="text-2xs text-ink-2">{t.anInterlockedYes}</div>
         ) : nets.symmetry_related_1d ? (
-          <div className="text-2xs text-ink-3">{zh.anInterlocked}</div>
+          <div className="text-2xs text-ink-3">{t.anInterlocked}</div>
         ) : null}
         {nets.notes.map((n, i) => (
           <div key={i} className="text-2xs text-ink-3">
@@ -586,7 +586,7 @@ function NetsBlock({ t, node }: { t: AnalysisTopology; node: string }) {
           </div>
         ))}
       </div>
-      <QuoteButton onClick={() => draft.insert(withAnchor(topologyQuote(t), node))} />
+      <QuoteButton onClick={() => draft.insert(withAnchor(topologyQuote(topo), node))} />
     </div>
   );
 }
@@ -598,21 +598,21 @@ function SimplifiedNetBlock({ net }: { net: AnalysisTopology["simplified_net"] }
   return (
     <div className="px-3 py-1.5 text-xs">
       <div className="flex flex-wrap items-baseline gap-x-2">
-        <span className="font-medium text-ink">{zh.anSimplifiedNet}</span>
+        <span className="font-medium text-ink">{t.anSimplifiedNet}</span>
         {net.n_nodes_per_cell > 0 ? (
           <span className="font-mono text-2xs text-ink-2 tabular-nums">
-            {net.n_nodes_per_cell} {zh.anNodes} / {net.n_edges_per_cell} {zh.anEdges} · {hist}
+            {net.n_nodes_per_cell} {t.anNodes} / {net.n_edges_per_cell} {t.anEdges} · {hist}
           </span>
         ) : (
-          <span className="text-2xs text-ink-3">{net.note ?? zh.anNone}</span>
+          <span className="text-2xs text-ink-3">{net.note ?? t.anNone}</span>
         )}
       </div>
       {net.n_nodes_per_cell > 0 && (
         <ul className="font-mono text-2xs text-ink-2">
           {net.nodes.slice(0, 12).map((n) => (
             <li key={n.id}>
-              N{n.id} {zh.anNodeKind[n.kind] ?? n.kind} · {n.connectivity}-c · {labelsShort(n.atoms)}
-              {n.periodic ? ` · ${zh.anRod}` : ""}
+              N{n.id} {t.anNodeKind[n.kind] ?? n.kind} · {n.connectivity}-c · {labelsShort(n.atoms)}
+              {n.periodic ? ` · ${t.anRod}` : ""}
             </li>
           ))}
           {net.nodes.length > 12 && <li>… {net.nodes.length}</li>}
@@ -621,7 +621,7 @@ function SimplifiedNetBlock({ net }: { net: AnalysisTopology["simplified_net"] }
       <div className="text-2xs text-ink-3">{rcsrLine(net)}</div>
       {net.systre_error && (
         <div className="text-2xs text-warn">
-          {zh.anSystreError}：{net.systre_error}
+          {t.anSystreError}{t.colon}{net.systre_error}
         </div>
       )}
       {net.confidence && <div className="text-2xs text-ink-3">{net.confidence}</div>}
@@ -635,7 +635,7 @@ export function rcsrLine(net: AnalysisTopology["simplified_net"]): string {
   const syms = net.rcsr_symbols ?? [];
   if (syms.length > 1) {
     const uniq = Array.from(new Set(syms));
-    return `RCSR ${uniq.join(" / ")} × ${syms.length}（${syms.length} ${zh.anRcsrComponents}）`;
+    return `RCSR ${uniq.join(" / ")} × ${syms.length}${t.paren(`${syms.length} ${t.anRcsrComponents}`)}`;
   }
   return net.rcsr_symbol ? `RCSR ${net.rcsr_symbol}` : net.rcsr_status;
 }
@@ -654,16 +654,16 @@ export function ringsThroughSymmetry(crit: Record<string, unknown> | undefined):
 function HelicesBlock({ helices }: { helices: AnalysisTopology["helices"] }) {
   return (
     <div className="px-3 py-1.5 text-xs">
-      <span className="font-medium text-ink">{zh.anHelices}</span>{" "}
+      <span className="font-medium text-ink">{t.anHelices}</span>{" "}
       {helices.length === 0 ? (
-        <span className="text-2xs text-ink-3">{zh.anNoHelices}</span>
+        <span className="text-2xs text-ink-3">{t.anNoHelices}</span>
       ) : (
         <ul className="font-mono text-2xs text-ink-2 tabular-nums">
           {helices.map((h) => (
             <li key={h.fragment}>
               {h.fragment} {h.screw}{" "}
-              {h.racemic ? zh.anRacemic : h.handedness ? (zh.anHand[h.handedness] ?? h.handedness) : zh.anAchiral} · [
-              {h.chain_direction.join(" ")}] · {zh.anPitch} {h.pitch_A.toFixed(2)} Å · {labelsShort(h.asu_labels)}
+              {h.racemic ? t.anRacemic : h.handedness ? (t.anHand[h.handedness] ?? h.handedness) : t.anAchiral} · [
+              {h.chain_direction.join(" ")}] · {t.anPitch} {h.pitch_A.toFixed(2)} Å · {labelsShort(h.asu_labels)}
             </li>
           ))}
         </ul>
@@ -682,37 +682,37 @@ function TopologySection({
   const draft = useComposerDraft();
   const [open, toggle] = useSection("an.topology", true);
   const [showDef, setShowDef] = useState(false);
-  const t = data.topology;
-  const meta = t
-    ? t.nets.n_nets === 0
-      ? zh.anNoNetsShort
-      : `${t.nets.n_nets} ${zh.anNetsUnit}${
-        t.nets.interpenetrated === true
-          ? ` · ${zh.anInterpenetratedYes}`
-          : t.nets.symmetry_related
-            ? ` · ${t.nets.interpenetrated === false ? zh.anInterpenetratedNo : zh.anInterpenetrated}`
+  const topo = data.topology;
+  const meta = topo
+    ? topo.nets.n_nets === 0
+      ? t.anNoNetsShort
+      : `${topo.nets.n_nets} ${t.anNetsUnit}${
+        topo.nets.interpenetrated === true
+          ? ` · ${t.anInterpenetratedYes}`
+          : topo.nets.symmetry_related
+            ? ` · ${topo.nets.interpenetrated === false ? t.anInterpenetratedNo : t.anInterpenetrated}`
             : ""
       }`
-    : zh.anPending;
+    : t.anPending;
   return (
-    <section data-testid="analysis-topology" data-stage="topology" data-status={t ? "ready" : "error"}>
-      <SectionHeader title={zh.anTopology} meta={meta} open={open} onToggle={toggle} />
-      {open && !t && (
+    <section data-testid="analysis-topology" data-stage="topology" data-status={topo ? "ready" : "error"}>
+      <SectionHeader title={t.anTopology} meta={meta} open={open} onToggle={toggle} />
+      {open && !topo && (
         <div className="px-3 py-2 text-xs text-ink-3">
-          {zh.anTopologyFailed}
+          {t.anTopologyFailed}
           {data.topology_error ? <div className="font-mono text-2xs">{data.topology_error}</div> : null}
         </div>
       )}
-      {open && t && (
+      {open && topo && (
         <>
-          {show.has("nets") && <NetsBlock t={t} node={data.node} />}
-          {show.has("simplified_net") && <SimplifiedNetBlock net={t.simplified_net} />}
-          {show.has("helices") && <HelicesBlock helices={t.helices} />}
-          {show.has("fragments") && t.finite_fragments.length > 0 && (
+          {show.has("nets") && <NetsBlock topo={topo} node={data.node} />}
+          {show.has("simplified_net") && <SimplifiedNetBlock net={topo.simplified_net} />}
+          {show.has("helices") && <HelicesBlock helices={topo.helices} />}
+          {show.has("fragments") && topo.finite_fragments.length > 0 && (
             <div className="pb-1 text-xs">
-              <div className="px-3 pt-1 font-medium text-ink">{zh.anFinite}</div>
+              <div className="px-3 pt-1 font-medium text-ink">{t.anFinite}</div>
               <ul>
-                {t.finite_fragments.map((f) => (
+                {topo.finite_fragments.map((f) => (
                   <FragmentRow
                     key={f.fragment}
                     f={f}
@@ -727,14 +727,14 @@ function TopologySection({
             className="mb-1.5 ml-3 text-2xs text-accent hover:underline"
             onClick={() => setShowDef((s) => !s)}
           >
-            {zh.anDefinition}
+            {t.anDefinition}
           </button>
           {showDef && (
             <div className="border-b border-line/60 px-3 pb-2 text-2xs text-ink-3">
-              <p>{t.nets.definition}</p>
-              <p className="pt-1">{t.simplified_net.definition}</p>
-              {t.helices[0]?.definition && <p className="pt-1">{t.helices[0].definition}</p>}
-              {t.note && <p className="pt-1">{t.note}</p>}
+              <p>{topo.nets.definition}</p>
+              <p className="pt-1">{topo.simplified_net.definition}</p>
+              {topo.helices[0]?.definition && <p className="pt-1">{topo.helices[0].definition}</p>}
+              {topo.note && <p className="pt-1">{topo.note}</p>}
             </div>
           )}
         </>
@@ -766,16 +766,16 @@ function StructureClassBar({
   return (
     <div className="border-b border-line px-3 py-1.5 text-2xs text-ink-3" data-testid="structure-class-bar">
       <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-        <span className="text-ink-2" title={zh.scTip}>
-          {zh.scTitle}
+        <span className="text-ink-2" title={t.scTip}>
+          {t.scTitle}
         </span>
         <select
-          aria-label={zh.scTitle}
+          aria-label={t.scTitle}
           value={cls ?? ""}
           onChange={(e) => onChange(isStructureClass(e.target.value) ? e.target.value : null)}
           className="h-6 rounded-md border border-line bg-bg px-1.5 text-2xs text-ink"
         >
-          <option value="">{zh.scAuto}</option>
+          <option value="">{t.scAuto}</option>
           {STRUCTURE_CLASSES.map((c) => (
             <option key={c} value={c}>
               {structureClassLabel(c)}
@@ -785,14 +785,14 @@ function StructureClassBar({
         {cls === null && suggestion !== null && (
           <>
             <span>
-              {zh.scSuggested}：<span className="text-ink-2">{structureClassLabel(suggestion.cls)}</span>
+              {t.scSuggested}{t.colon}<span className="text-ink-2">{structureClassLabel(suggestion.cls)}</span>
             </span>
             <button
               type="button"
               onClick={() => onChange(suggestion.cls)}
               className="rounded-pill bg-raised px-2 py-0.5 text-2xs text-ink-2 transition-colors hover:text-ink"
             >
-              {zh.scAdopt}
+              {t.scAdopt}
             </button>
           </>
         )}
@@ -802,19 +802,19 @@ function StructureClassBar({
             onClick={onToggleShowAll}
             className="ml-auto text-2xs text-accent hover:underline"
           >
-            {showAll ? zh.scShowByClass : zh.scShowAll}
+            {showAll ? t.scShowByClass : t.scShowAll}
           </button>
         )}
       </div>
       {cls === null && suggestion !== null && (
         <div className="pt-0.5">
-          {zh.scBasis}：{suggestion.basis.join("；")}
+          {t.scBasis}{t.colon}{suggestion.basis.join(t.sepClause)}
         </div>
       )}
       {hidden.length > 0 && !showAll && (
         <div className="pt-0.5">
-          {zh.scHiddenPrefix}
-          {hidden.join("、")}
+          {t.scHiddenPrefix}
+          {hidden.join(t.sepList)}
         </div>
       )}
     </div>
@@ -822,14 +822,14 @@ function StructureClassBar({
 }
 
 const SECTION_LABELS: Record<SectionId, () => string> = {
-  interactions: () => zh.anInteractions,
-  pores: () => zh.anPores,
-  packing: () => zh.anPacking,
-  guests: () => zh.anGuests,
-  nets: () => zh.anNets,
-  simplified_net: () => zh.anSimplifiedNet,
-  helices: () => zh.anHelices,
-  fragments: () => zh.anFinite,
+  interactions: () => t.anInteractions,
+  pores: () => t.anPores,
+  packing: () => t.anPacking,
+  guests: () => t.anGuests,
+  nets: () => t.anNets,
+  simplified_net: () => t.anSimplifiedNet,
+  helices: () => t.anHelices,
+  fragments: () => t.anFinite,
 };
 
 const STAGE_ORDER: AnalysisStageName[] = ["interactions", "topology", "guests", "pores"];
@@ -841,12 +841,12 @@ function StageNotice({ name, stage }: { name: AnalysisStageName; stage?: Analysi
       data-testid={`analysis-stage-${name}`} data-stage={name} data-status={status}>
       <div className="flex items-center gap-2">
         {status === "running" && <Spinner className="h-3 w-3" />}
-        <span className="font-medium text-ink-2">{zh.analysisStageNames[name]}</span>
-        <span>{zh.analysisStageStates[status]}</span>
+        <span className="font-medium text-ink-2">{t.analysisStageNames[name]}</span>
+        <span>{t.analysisStageStates[status]}</span>
       </div>
       {stage?.note && <p className="mt-1 leading-relaxed">{stage.note}</p>}
       {stage?.error && <details className="mt-1 text-2xs text-warn">
-        <summary className="cursor-pointer">{zh.analysisErrorDetails}</summary>
+        <summary className="cursor-pointer">{t.analysisErrorDetails}</summary>
         <div className="mt-1 break-words font-mono">{stage.error}</div>
       </details>}
     </div>
@@ -862,16 +862,16 @@ function AnalysisProgress({ job, paused, stopping, onStop, onRetry }: {
     <div className="border-b border-line bg-surface/50 px-3 py-2 text-2xs text-ink-2" data-testid="analysis-progress">
       <div className="flex flex-wrap items-center gap-2">
         <span className={running && !paused ? "shimmer-text" : ""}>
-          {paused ? zh.analysisPaused : job.cache_hit ? zh.analysisCached : running ? zh.analysisWorking : zh.analysisFinished}
+          {paused ? t.analysisPaused : job.cache_hit ? t.analysisCached : running ? t.analysisWorking : t.analysisFinished}
         </span>
         <span className="font-mono text-ink-3">{ready}/4 · {job.elapsed_s.toFixed(1)} s</span>
         {running && !paused && <button type="button" disabled={stopping} onClick={onStop}
-          className="ml-auto rounded px-1.5 py-0.5 text-ink-2 hover:bg-raised disabled:opacity-50">{zh.analysisStop}</button>}
+          className="ml-auto rounded px-1.5 py-0.5 text-ink-2 hover:bg-raised disabled:opacity-50">{t.analysisStop}</button>}
         {(paused || job.status === "partial" || job.status === "error" || job.status === "cancelled") &&
-          <button type="button" onClick={onRetry} className="ml-auto rounded px-1.5 py-0.5 text-accent hover:bg-raised">{zh.anRetry}</button>}
+          <button type="button" onClick={onRetry} className="ml-auto rounded px-1.5 py-0.5 text-accent hover:bg-raised">{t.anRetry}</button>}
       </div>
-      {paused && <div className="mt-1 text-ink-3">{zh.analysisPauseNote}</div>}
-      {job.status === "cancelling" && <div className="mt-1 text-ink-3">{zh.analysisCancelNote}</div>}
+      {paused && <div className="mt-1 text-ink-3">{t.analysisPauseNote}</div>}
+      {job.status === "cancelling" && <div className="mt-1 text-ink-3">{t.analysisCancelNote}</div>}
     </div>
   );
 }
@@ -892,7 +892,7 @@ export function AnalysisPanel() {
   if (!node) {
     return (
       <div className="flex flex-1 items-center justify-center text-xs text-ink-3">
-        {zh.anNoNode}
+        {t.anNoNode}
       </div>
     );
   }
@@ -900,21 +900,21 @@ export function AnalysisPanel() {
     return (
       <div className="flex flex-1 items-center justify-center gap-2 text-xs text-ink-3">
         <Spinner />
-        {zh.anLoading}
+        {t.anLoading}
       </div>
     );
   }
   if (status.kind === "error") {
     return (
       <div className="flex flex-1 flex-col items-center justify-center gap-2 px-6 text-center">
-        <div className="text-xs text-danger">{zh.anError}</div>
+        <div className="text-xs text-danger">{t.anError}</div>
         <div className="font-mono text-2xs text-ink-3">{status.message}</div>
         <button
           type="button"
           onClick={retry}
           className="h-7 rounded-lg border border-line px-3 text-xs text-ink-2 transition-colors hover:bg-raised"
         >
-          {zh.anRetry}
+          {t.anRetry}
         </button>
       </div>
     );
@@ -935,19 +935,19 @@ export function AnalysisPanel() {
     <div className="min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto [overflow-wrap:anywhere]" data-testid="analysis-panel">
       <AnalysisInspector />
       <details className="border-b border-line text-xs" open={state.selection?.atom.m || undefined}>
-        <summary className="cursor-pointer px-3 py-2 font-medium text-ink">当前显示配位</summary>
+        <summary className="cursor-pointer px-3 py-2 font-medium text-ink">{t.crystal.anCurrentCoordination}</summary>
         <CoordinationSection />
       </details>
       <div className="border-b border-line px-3 py-1.5 text-2xs text-ink-3">
-        {zh.anScope} · <span className="font-mono">{data.node}</span>
+        {t.anScope} · <span className="font-mono">{data.node}</span>
       </div>
       {status.job && <AnalysisProgress job={status.job} paused={paused} stopping={stopping}
         onStop={() => void stop()} onRetry={retry} />}
       {status.message && <div className="border-b border-line px-3 py-2 text-xs text-warn">
-        {status.message}<button type="button" onClick={retry} className="ml-2 text-accent">{zh.anRetry}</button>
+        {status.message}<button type="button" onClick={retry} className="ml-2 text-accent">{t.anRetry}</button>
       </div>}
       <details className="border-b border-line text-xs text-ink-3">
-        <summary className="cursor-pointer px-3 py-2">显示区块{hiddenWithContent.length > 0 ? ` · 已折叠 ${hiddenWithContent.join("、")}` : ""}</summary>
+        <summary className="cursor-pointer px-3 py-2">{t.crystal.anSectionsSummary(hiddenWithContent)}</summary>
         <StructureClassBar
           data={data}
           cls={declared}
@@ -988,7 +988,7 @@ const ALL_SECTION_IDS: readonly SectionId[] = [
 /** Whether a section would show anything beyond "none" - used to tell the
  * user what the class gate is folding away. */
 function sectionHasContent(id: SectionId, d: AnalysisResponse): boolean {
-  const t = d.topology;
+  const topo = d.topology;
   switch (id) {
     case "interactions":
       return (d.interactions?.counts?.n_unique ?? 0) > 0;
@@ -999,13 +999,13 @@ function sectionHasContent(id: SectionId, d: AnalysisResponse): boolean {
     case "guests":
       return (d.guests?.guests.length ?? 0) > 0;
     case "nets":
-      return (t?.nets.n_nets ?? 0) > 0;
+      return (topo?.nets.n_nets ?? 0) > 0;
     case "simplified_net":
-      return (t?.simplified_net.n_nodes_per_cell ?? 0) > 0;
+      return (topo?.simplified_net.n_nodes_per_cell ?? 0) > 0;
     case "helices":
-      return (t?.helices.length ?? 0) > 0;
+      return (topo?.helices.length ?? 0) > 0;
     case "fragments":
-      return (t?.finite_fragments.length ?? 0) > 0;
+      return (topo?.finite_fragments.length ?? 0) > 0;
     default:
       return false;
   }

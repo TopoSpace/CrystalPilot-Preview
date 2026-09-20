@@ -10,7 +10,7 @@
  * hidden without a way to show it (`sectionsFor` only chooses what is
  * open by default; the panel keeps a 显示全部 toggle). */
 import type { AnalysisResponse } from "./wbTypes";
-import { zh } from "./zh";
+import { t } from "./i18n";
 
 export const STRUCTURE_CLASSES = [
   "small_molecule",
@@ -26,7 +26,7 @@ export function isStructureClass(v: unknown): v is StructureClass {
 }
 
 export function structureClassLabel(cls: StructureClass | null): string {
-  return cls === null ? zh.scAuto : (zh.scClasses[cls] ?? cls);
+  return cls === null ? t.scAuto : (t.scClasses[cls] ?? cls);
 }
 
 export type SectionId =
@@ -95,9 +95,9 @@ export function suggestStructureClass(d: AnalysisResponse): ClassSuggestion {
   const nets = top?.nets;
   if (nets && nets.n_nets > 0) {
     const dims = nets.nets.map((n) => n.dimensionality).join("/");
-    basis.push(`${nets.n_nets} 个周期网（维度 ${dims}）`);
-    if (nets.interpenetrated === true) basis.push("互穿多网（环穿越判定）");
-    else if (nets.symmetry_related) basis.push(nets.interpenetrated === false ? "对称相关多网（不互穿）" : "对称相关多网（互穿未判定）");
+    basis.push(t.libs.scBasisNets(nets.n_nets, dims));
+    if (nets.interpenetrated === true) basis.push(t.libs.scBasisInterpenetrated);
+    else if (nets.symmetry_related) basis.push(nets.interpenetrated === false ? t.libs.scBasisSymRelatedNot : t.libs.scBasisSymRelatedUnknown);
     return { cls: "framework", basis };
   }
   const frags = top?.finite_fragments ?? [];
@@ -112,24 +112,20 @@ export function suggestStructureClass(d: AnalysisResponse): ClassSuggestion {
       sph >= CAGE_MIN_SPHERICITY &&
       ring >= CAGE_MIN_RING
     ) {
-      basis.push(
-        `最大宿主片段 ${big.fragment}：${big.n_atoms} 原子、球形度 ${sph.toFixed(2)}（≥ ${CAGE_MIN_SPHERICITY}）、最大无弦环 ${ring}`,
-      );
+      basis.push(t.libs.scBasisCage(big.fragment, big.n_atoms, sph.toFixed(2), CAGE_MIN_SPHERICITY, ring));
       return { cls: "cage", basis };
     }
     if (ring >= MACROCYCLE_MIN_RING) {
-      basis.push(`最大宿主片段 ${big.fragment} 的最大无弦环 ${ring} 元（≥ ${MACROCYCLE_MIN_RING}）`);
+      basis.push(t.libs.scBasisMacrocycle(big.fragment, ring, MACROCYCLE_MIN_RING));
       return { cls: "macrocycle", basis };
     }
   }
   const sizeable = frags.filter((f) => f.n_atoms >= ION_MIN_ATOMS);
   const nGuests = d.guests?.guests.length ?? 0;
   if (sizeable.length >= 2 && nGuests >= 1) {
-    basis.push(
-      `${sizeable.length} 种 ≥ ${ION_MIN_ATOMS} 原子的独立片段，其中 ${nGuests} 种按宿主规则算客体 / 抗衡离子`,
-    );
+    basis.push(t.libs.scBasisSalt(sizeable.length, ION_MIN_ATOMS, nGuests));
     return { cls: "salt_cocrystal", basis };
   }
-  basis.push(big ? `单一分子片段 ${big.fragment}（${big.n_atoms} 原子），无周期网` : "无周期网、无有限片段记录");
+  basis.push(big ? t.libs.scBasisSingle(big.fragment, big.n_atoms) : t.libs.scBasisNothing);
   return { cls: "small_molecule", basis };
 }

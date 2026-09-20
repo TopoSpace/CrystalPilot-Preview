@@ -7,7 +7,7 @@ import type { SceneInteractions, UniqueInteractionRow } from "./wbTypes";
 /** A display row (viewer) or a canonical row (analysis product): the
  * canonical one has no `sym` / `boundary` - its operator is `op`. */
 export type InteractionRowLike = UniqueInteractionRow;
-import { zh } from "./zh";
+import { t } from "./i18n";
 
 const IDENTITY = "x,y,z";
 
@@ -32,11 +32,11 @@ export function interactionLabel(row: InteractionRowLike): string {
     case "halogen":
       return `${row.c ?? "?"}–${row.x ?? "?"}···${row.a ?? "?"}`;
     case "pipi":
-      return `环 ${row.ring_a ?? "?"} ⋯ 环 ${row.ring_b ?? "?"}`;
+      return t.libs.ixLabelPipi(row.ring_a ?? "?", row.ring_b ?? "?");
     case "chpi":
-      return `${row.c ?? "?"}–${row.h ?? "?"}···环 ${row.ring ?? "?"}`;
+      return t.libs.ixLabelChpi(row.c ?? "?", row.h ?? "?", row.ring ?? "?");
     case "anion_pi":
-      return `${row.anion_name ?? row.anion ?? "阴离子"} ··· 环 ${row.ring ?? "?"}`;
+      return t.libs.ixLabelAnionPi(row.anion_name ?? row.anion ?? t.libs.ixAnionFallback, row.ring ?? "?");
     default:
       return row.kind;
   }
@@ -53,7 +53,7 @@ export function interactionGeometry(row: InteractionRowLike): [string, string][]
     case "hbond":
       push("D···A", row.d_DA);
       if (row.status) {
-        out.push(["H", zh.ixHSource.absent]);
+        out.push(["H", t.ixHSource.absent]);
       } else {
         push("H···A", row.d_HA);
         push("∠D–H···A", row.angle, 1, "°");
@@ -69,24 +69,24 @@ export function interactionGeometry(row: InteractionRowLike): [string, string][]
       push("∠C–X···A", row.angle, 1, "°");
       break;
     case "pipi":
-      push("质心距", row.d_cc);
-      push("法线夹角 α", row.alpha, 1, "°");
-      out.push(["垂直距离 a→b / b→a",
+      push(t.libs.ixGeomCentroidDist, row.d_cc);
+      push(t.libs.ixGeomNormalAngle, row.alpha, 1, "°");
+      out.push([t.libs.ixGeomPerpAB,
         `${num(row.d_perp_ab, 2) ?? "—"} / ${num(row.d_perp_ba, 2) ?? "—"} Å`]);
-      out.push(["滑移 a→b / b→a",
+      out.push([t.libs.ixGeomSlipAB,
         `${num(row.slip_ab, 2) ?? "—"} / ${num(row.slip_ba, 2) ?? "—"} Å`]);
       break;
     case "chpi":
       push("H···Cg", row.d_HCg);
-      push("垂直距离", row.d_perp);
-      push("偏移", row.offset);
+      push(t.libs.ixGeomPerp, row.d_perp);
+      push(t.libs.ixGeomOffset, row.offset);
       push("∠C–H···Cg", row.angle, 1, "°");
       break;
     case "anion_pi":
-      push("质心距", row.d_cc);
-      push("垂直距离", row.d_perp);
-      push("偏移", row.offset);
-      if (row.strength) out.push(["强度", String(row.strength)]);
+      push(t.libs.ixGeomCentroidDist, row.d_cc);
+      push(t.libs.ixGeomPerp, row.d_perp);
+      push(t.libs.ixGeomOffset, row.offset);
+      if (row.strength) out.push([t.libs.ixGeomStrength, String(row.strength)]);
       break;
     default:
       push("d", row.dist);
@@ -110,7 +110,7 @@ export function criteriaSummary(
     parts.push(`${k.replace(/_(A|deg)$/, "")} ${v}${unit}`);
   }
   const set = typeof crit.set === "string" ? crit.set : "";
-  return `${set}${set && parts.length ? ": " : ""}${parts.join("、")}`;
+  return `${set}${set && parts.length ? ": " : ""}${parts.join(t.libs.sepList)}`;
 }
 
 /** Quote-to-chat text for one interaction row. */
@@ -118,24 +118,28 @@ export function interactionQuote(
   row: InteractionRowLike,
   meta: Pick<SceneInteractions, "h_source" | "criteria">,
 ): string {
-  const kind = zh.ixKind[row.kind] ?? row.kind;
+  const kind = t.ixKind[row.kind] ?? row.kind;
   const opStr = row.sym ?? row.op;
-  const sym = isIdentityOp(opStr) ? "" : `（${zh.ixSymop} ${opStr}）`;
+  const sym = isIdentityOp(opStr) ? "" : t.libs.parens(`${t.ixSymop} ${opStr}`);
   const geom = interactionGeometry(row)
     .map(([n, v]) => `${n} ${v}`)
-    .join("、");
+    .join(t.libs.sepList);
   const crit = criteriaSummary(meta.criteria[row.kind]);
-  const verdict = row.passes ? "满足" : "不满足";
+  const verdict = row.passes ? t.libs.ixVerdictPass : t.libs.ixVerdictFail;
   const hNote =
     (row.kind === "hbond" || row.kind === "chx" || row.kind === "chpi")
     && (meta.h_source === "riding" || meta.h_source === "mixed")
-      ? `；${zh.ixHSource[meta.h_source]}`
+      ? `${t.libs.sepClause}${t.ixHSource[meta.h_source]}`
       : "";
-  const boundary = row.boundary ? `；${zh.ixBoundary}` : "";
-  const intra = row.intra ? `（${zh.anIntra}）` : "";
-  const tail =
-    row.kind === "hbond"
-      ? "这条氢键合理吗？要不要进 HTAB 表？"
-      : "这条相互作用可信吗？对堆积的解释有什么影响？";
-  return `${kind} ${interactionLabel(row)}${sym}${intra}：${geom}；${verdict}${crit ? ` ${crit} ` : ""}判据${hNote}${boundary}。${tail}`;
+  const boundary = row.boundary ? `${t.libs.sepClause}${t.ixBoundary}` : "";
+  const intra = row.intra ? t.libs.parens(t.anIntra) : "";
+  const tail = row.kind === "hbond" ? t.libs.ixTailHbond : t.libs.ixTailOther;
+  return t.libs.ixQuote(
+    `${kind} ${interactionLabel(row)}${sym}${intra}`,
+    geom,
+    verdict,
+    crit,
+    `${hNote}${boundary}`,
+    tail,
+  );
 }

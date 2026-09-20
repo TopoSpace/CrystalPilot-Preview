@@ -24,7 +24,8 @@ import {
   setGlobalConfig,
 } from "../../lib/wbApi";
 import type { GlobalConfig, ModelEntry, UiBuildInfo } from "../../lib/wbTypes";
-import { formatEffort, zh } from "../../lib/zh";
+import { LANGUAGES, LANGUAGE_NAMES, formatEffort, language, setLanguage, t } from "../../lib/i18n";
+import { rememberSettingsSection } from "../../lib/settingsReopen";
 import { useThreadOptional } from "../../state/ThreadProvider";
 import { useWorkbench, type SettingsSection } from "../../state/WorkbenchProvider";
 import { Switch } from "../composer/Switch";
@@ -33,22 +34,22 @@ import { useDialogFocus } from "../useDialogFocus";
 import { ProvidersSection } from "./ProvidersSection";
 
 const SECTIONS: { id: SettingsSection; label: string }[] = [
-  { id: "providers", label: zh.secProviders },
-  { id: "models", label: zh.secModels },
-  { id: "context", label: zh.secContext },
-  { id: "appearance", label: zh.secAppearance },
-  { id: "advanced", label: zh.secAdvanced },
-  { id: "about", label: zh.secAbout },
+  { id: "providers", label: t.secProviders },
+  { id: "models", label: t.secModels },
+  { id: "context", label: t.secContext },
+  { id: "appearance", label: t.secAppearance },
+  { id: "advanced", label: t.secAdvanced },
+  { id: "about", label: t.secAbout },
 ];
 
 const SECTION_ICONS = { providers: IconTool, models: IconSpark, context: IconFile, appearance: IconSun, advanced: IconSettings, about: IconCrystal };
 const SECTION_DESCRIPTIONS: Record<SettingsSection, string> = {
-  providers: "连接模型服务，管理本机凭据与可用模型。",
-  models: "选择默认模型与思考深度，平衡能力、速度和使用成本。",
-  context: "控制会话记忆与压缩时机，让长时间研究保持连贯。",
-  appearance: "选择适合你的配色、明暗模式与阅读字号。",
-  advanced: "查看运行环境，并在需要时维护项目引擎。",
-  about: "CrystalPilot · 让数据、结构与研究过程保持联系。",
+  providers: t.secDescProviders,
+  models: t.secDescModels,
+  context: t.secDescContext,
+  appearance: t.secDescAppearance,
+  advanced: t.secDescAdvanced,
+  about: t.secDescAbout,
 };
 
 const inputCls =
@@ -139,7 +140,7 @@ function ModelsSection() {
       });
       await reload();
       void wb.refreshSettings();
-      setMsg(zh.providerSaved);
+      setMsg(t.providerSaved);
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {
@@ -149,20 +150,20 @@ function ModelsSection() {
 
   return (
     <div className="flex flex-col gap-3">
-      <p className="text-xs leading-relaxed text-ink-3">{zh.cfgNote}</p>
+      <p className="text-xs leading-relaxed text-ink-3">{t.cfgNote}</p>
       {loadError && <AlertBanner>{loadError}</AlertBanner>}
       {error && <AlertBanner>{error}</AlertBanner>}
-      <Field label={zh.cfgDefaultProvider}>
+      <Field label={t.cfgDefaultProvider}>
         <select value={provider} onChange={(e) => setProvider(e.target.value)} className={inputCls}>
           <option value="">openai</option>
           {wb.providers.map((p) => (
             <option key={p.id} value={p.id}>
-              {p.name}（{p.id}）
+              {p.name}{t.paren(p.id)}
             </option>
           ))}
         </select>
       </Field>
-      <Field label={zh.cfgDefaultModel}>
+      <Field label={t.cfgDefaultModel}>
         <input
           list="cp-global-models"
           value={model}
@@ -178,13 +179,13 @@ function ModelsSection() {
           ))}
         </datalist>
       </Field>
-      <Field label={zh.cfgDefaultEffort}>
+      <Field label={t.cfgDefaultEffort}>
         {ladder.length > 0 ? (
           <select value={effort} onChange={(e) => setEffort(e.target.value)} className={inputCls}>
-            <option value="">{zh.modelDefaultTag}</option>
+            <option value="">{t.modelDefaultTag}</option>
             {ladder.map((e) => (
               <option key={e} value={e}>
-                {formatEffort(e)}（{e}）
+                {formatEffort(e)}{t.paren(e)}
               </option>
             ))}
           </select>
@@ -194,7 +195,7 @@ function ModelsSection() {
       </Field>
       <div className="flex items-center gap-2">
         <button type="button" disabled={saving || !cfg} onClick={() => void save()} className={primaryCls}>
-          {saving ? zh.providerSaving : zh.cfgSave}
+          {saving ? t.providerSaving : t.cfgSave}
         </button>
         {msg && <span className="text-xs text-ok">{msg}</span>}
       </div>
@@ -238,7 +239,7 @@ function ContextSection() {
       });
       await reload();
       void wb.refreshSettings();
-      setMsg(zh.providerSaved);
+      setMsg(t.providerSaved);
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {
@@ -255,7 +256,7 @@ function ContextSection() {
     });
     setSaving(null);
     if (err !== null) setError(err);
-    else setMsg(zh.providerSaved);
+    else setMsg(t.providerSaved);
   };
   const compactNow = async () => {
     if (!threadId) return;
@@ -264,7 +265,7 @@ function ContextSection() {
     setError(null);
     try {
       await compactThread(threadId, wb.projectPath);
-      setMsg(zh.ctxCompactSent);
+      setMsg(t.ctxCompactSent);
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {
@@ -279,64 +280,64 @@ function ContextSection() {
 
   return (
     <div className="flex flex-col gap-4">
-      <p className="text-xs leading-relaxed text-ink-3">{zh.ctxHint}</p>
+      <p className="text-xs leading-relaxed text-ink-3">{t.ctxHint}</p>
       {loadError && <AlertBanner>{loadError}</AlertBanner>}
       {error && <AlertBanner>{error}</AlertBanner>}
       {msg && <div className="text-xs text-ok">{msg}</div>}
 
       <div className="rounded-card border border-line p-3">
-        <div className="mb-2 text-sm font-medium text-ink">{zh.ctxGlobal}</div>
+        <div className="mb-2 text-sm font-medium text-ink">{t.ctxGlobal}</div>
         <div className="grid grid-cols-2 gap-2.5">
-          <Field label={zh.ctxWindow}>
+          <Field label={t.ctxWindow}>
             <input value={gWindow} inputMode="numeric" onChange={(e) => setGWindow(e.target.value)} className={cx(inputCls, "font-mono")} />
           </Field>
-          <Field label={zh.ctxAutoCompact}>
+          <Field label={t.ctxAutoCompact}>
             <input value={gCompact} inputMode="numeric" onChange={(e) => setGCompact(e.target.value)} className={cx(inputCls, "font-mono")} />
           </Field>
         </div>
         <button type="button" disabled={saving !== null || !cfg} onClick={() => void saveGlobal()} className={cx(primaryCls, "mt-2.5")}>
-          {saving === "global" ? zh.providerSaving : zh.providerSave}
+          {saving === "global" ? t.providerSaving : t.providerSave}
         </button>
       </div>
 
       <div className="rounded-card border border-line p-3">
-        <div className="mb-2 text-sm font-medium text-ink">{zh.ctxProject}</div>
+        <div className="mb-2 text-sm font-medium text-ink">{t.ctxProject}</div>
         {!wb.projectPath ? (
-          <div className="text-xs text-ink-3">{zh.settingsNoProject}</div>
+          <div className="text-xs text-ink-3">{t.settingsNoProject}</div>
         ) : (
           <>
             <div className="grid grid-cols-2 gap-2.5">
-              <Field label={zh.ctxWindow}>
+              <Field label={t.ctxWindow}>
                 <input value={pWindow} inputMode="numeric" onChange={(e) => setPWindow(e.target.value)} className={cx(inputCls, "font-mono")} />
               </Field>
-              <Field label={zh.ctxAutoCompact}>
+              <Field label={t.ctxAutoCompact}>
                 <input value={pCompact} inputMode="numeric" onChange={(e) => setPCompact(e.target.value)} className={cx(inputCls, "font-mono")} />
               </Field>
             </div>
             <div className="mt-2 text-2xs text-ink-3">
-              {zh.ctxEngineNow}：{zh.ctxWindowShort}{" "}
+              {t.ctxEngineNow}{t.colon}{t.ctxWindowShort}{" "}
               <span className="font-mono tabular-nums">
                 {engine?.context_window ? fmtTokens(engine.context_window) : "—"}
               </span>
               {" · "}
-              {zh.ctxCompactShort}{" "}
+              {t.ctxCompactShort}{" "}
               <span className="font-mono tabular-nums">
                 {engine?.auto_compact_limit ? fmtTokens(engine.auto_compact_limit) : "—"}
               </span>
-              {engine?.restart_pending ? <span className="text-warn"> · {zh.modelRestartPending}</span> : null}
+              {engine?.restart_pending ? <span className="text-warn"> · {t.modelRestartPending}</span> : null}
             </div>
             <div className="mt-2.5 flex items-center gap-2">
               <button type="button" disabled={saving !== null} onClick={() => void saveProject()} className={primaryCls}>
-                {saving === "project" ? zh.providerSaving : zh.providerSave}
+                {saving === "project" ? t.providerSaving : t.providerSave}
               </button>
               <button
                 type="button"
                 disabled={saving !== null || !threadId}
-                title={threadId ? "" : zh.noteNeedThread}
+                title={threadId ? "" : t.noteNeedThread}
                 onClick={() => void compactNow()}
                 className={btnCls}
               >
-                {saving === "compact" ? <Spinner className="h-3 w-3" /> : zh.ctxCompactNow}
+                {saving === "compact" ? <Spinner className="h-3 w-3" /> : t.ctxCompactNow}
               </button>
             </div>
           </>
@@ -345,11 +346,11 @@ function ContextSection() {
 
       {usage && (
         <div className="rounded-card border border-line p-3">
-          <div className="mb-1 text-sm font-medium text-ink">{zh.ctxCurrentUsage}</div>
+          <div className="mb-1 text-sm font-medium text-ink">{t.ctxCurrentUsage}</div>
           <div className="font-mono text-2xs text-ink-2 tabular-nums">
-            {used !== null ? `${zh.ctxTipUsed} ${fmtTokens(used)}` : ""}
-            {usage.contextWindow ? ` / ${zh.ctxTipTotal} ${fmtTokens(usage.contextWindow)}` : ""}
-            {usage.total ? ` · ${zh.tokensUsed} ${fmtTokens(usage.total.input_tokens + usage.total.output_tokens)}` : ""}
+            {used !== null ? `${t.ctxTipUsed} ${fmtTokens(used)}` : ""}
+            {usage.contextWindow ? ` / ${t.ctxTipTotal} ${fmtTokens(usage.contextWindow)}` : ""}
+            {usage.total ? ` · ${t.tokensUsed} ${fmtTokens(usage.total.input_tokens + usage.total.output_tokens)}` : ""}
           </div>
         </div>
       )}
@@ -359,9 +360,9 @@ function ContextSection() {
 
 // ---------------------------------------------------------------- appearance
 const THEME_OPTIONS: { value: ThemePreference; label: string }[] = [
-  { value: "system", label: zh.themeSystem },
-  { value: "light", label: zh.themeLight },
-  { value: "dark", label: zh.themeDark },
+  { value: "system", label: t.themeSystem },
+  { value: "light", label: t.themeLight },
+  { value: "dark", label: t.themeDark },
 ];
 
 const PALETTE_OPTIONS: {
@@ -379,12 +380,25 @@ function AppearanceSection() {
     presentation, setPresentation, presentationName, setPresentationName } = useTheme();
   return (
     <div className="flex flex-col gap-5" data-testid="appearance-settings">
+      <div className="flex flex-col gap-1.5" data-testid="language-settings">
+        <span className="text-xs font-medium text-ink-2">{t.language}</span>
+        <Segmented
+          options={LANGUAGES.map((code) => ({ value: code, label: LANGUAGE_NAMES[code] }))}
+          value={language}
+          onChange={(next) => {
+            if (next === language) return;
+            rememberSettingsSection("appearance");
+            setLanguage(next);
+          }}
+        />
+        <p className="text-2xs leading-relaxed text-ink-3">{t.languageHint}</p>
+      </div>
       <div className="flex flex-col gap-2">
         <div className="flex items-baseline justify-between gap-3">
-          <span className="text-xs font-medium text-ink-2">配色</span>
-          <span className="text-2xs text-ink-3">风格参考 · 非官方主题</span>
+          <span className="text-xs font-medium text-ink-2">{t.appPalette}</span>
+          <span className="text-2xs text-ink-3">{t.appPaletteNote}</span>
         </div>
-        <div className="grid grid-cols-3 gap-2" aria-label="配色" role="group">
+        <div className="grid grid-cols-3 gap-2" aria-label={t.appPalette} role="group">
           {PALETTE_OPTIONS.map((option) => {
             const active = palette === option.value;
             return (
@@ -417,15 +431,15 @@ function AppearanceSection() {
         </div>
       </div>
       <div className="flex flex-col gap-1.5">
-        <span className="text-xs font-medium text-ink-2">明暗</span>
+        <span className="text-xs font-medium text-ink-2">{t.appTheme}</span>
         <Segmented options={THEME_OPTIONS} value={preference} onChange={setPreference} />
       </div>
       <div className="flex flex-col gap-1.5">
-        <span className="text-xs font-medium text-ink-2">{zh.fontSize}</span>
+        <span className="text-xs font-medium text-ink-2">{t.fontSize}</span>
         <Segmented
           options={FONT_SIZES.map((n) => ({
             value: String(n),
-            label: zh.fontSizeNames[n] ?? String(n),
+            label: t.fontSizeNames[n] ?? String(n),
             title: `${n} px`,
           }))}
           value={String(fontSize)}
@@ -434,12 +448,12 @@ function AppearanceSection() {
       </div>
       <div className="flex flex-col gap-3 border-t border-line pt-4" data-testid="presentation-settings">
         <div className="flex items-center justify-between gap-3">
-          <span className="text-sm font-medium text-ink-2">展示模式</span>
-          <Switch label="展示模式" checked={presentation} onToggle={() => setPresentation(!presentation)} />
+          <span className="text-sm font-medium text-ink-2">{t.appPresentation}</span>
+          <Switch label={t.appPresentation} checked={presentation} onToggle={() => setPresentation(!presentation)} />
         </div>
-        <Field label="左上角显示名称" hint="开启后使用自定义名称；关闭或留空时显示 CrystalPilot。">
-          <input aria-label="左上角显示名称" value={presentationName} onChange={e => setPresentationName(e.target.value)} disabled={!presentation}
-            maxLength={48} placeholder="例如：TopoSpace Crystal" className={inputCls} />
+        <Field label={t.appBrandName} hint={t.appBrandNameHint}>
+          <input aria-label={t.appBrandName} value={presentationName} onChange={e => setPresentationName(e.target.value)} disabled={!presentation}
+            maxLength={48} placeholder={t.appBrandNamePlaceholder} className={inputCls} />
         </Field>
       </div>
     </div>
@@ -475,14 +489,14 @@ function AdvancedSection() {
       await restartEngine(wb.projectPath);
       void wb.refreshSettings();
       void wb.refreshKernel();
-      setMsg(zh.modelEngineRestarted);
+      setMsg(t.modelEngineRestarted);
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {
       setBusy(null);
     }
   };
-  const counts = zh.advCatalogCounts
+  const counts = t.advCatalogCounts
     .replace("{b}", String(k?.catalog?.n_bundled ?? "?"))
     .replace("{c}", String(k?.catalog?.n_custom ?? "?"));
 
@@ -491,48 +505,48 @@ function AdvancedSection() {
       {error && <AlertBanner>{error}</AlertBanner>}
       {msg && <div className="text-xs text-ok">{msg}</div>}
       <div className="flex items-center justify-between rounded-card border border-line p-3">
-        <span className="text-sm text-ink" title={zh.advSpecialistsTip}>
-          {zh.advSpecialists}
+        <span className="text-sm text-ink" title={t.advSpecialistsTip}>
+          {t.advSpecialists}
         </span>
         <span className="flex items-center gap-2">
           {busy === "spec" && <Spinner className="h-3 w-3 text-ink-3" />}
           <Switch
             checked={specOn}
             disabled={busy !== null || !wb.projectPath}
-            title={zh.advSpecialistsTip}
+            title={t.advSpecialistsTip}
             onToggle={() => void toggleSpecialists()}
-            label={zh.advSpecialists}
+            label={t.advSpecialists}
           />
         </span>
       </div>
 
       <div className="rounded-card border border-line p-3" data-testid="kernel-info">
-        <div className="mb-2 text-sm font-medium text-ink">{zh.advKernel}</div>
+        <div className="mb-2 text-sm font-medium text-ink">{t.advKernel}</div>
         <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-2xs">
-          <dt className="text-ink-3">{zh.advKernelVersion}</dt>
+          <dt className="text-ink-3">{t.advKernelVersion}</dt>
           <dd className="font-mono text-ink">
             codex {k?.version ?? "—"}
             {k?.newest_installed && k.newest_installed !== k.version ? (
-              <span className="ml-1 text-warn">（{zh.advKernelNewer} {k.newest_installed}）</span>
+              <span className="ml-1 text-warn">{t.paren(`${t.advKernelNewer} ${k.newest_installed}`)}</span>
             ) : null}
           </dd>
-          <dt className="text-ink-3">{zh.advKernelSource}</dt>
+          <dt className="text-ink-3">{t.advKernelSource}</dt>
           <dd className="font-mono text-ink-2">{k?.source ?? "—"}</dd>
-          <dt className="text-ink-3">{zh.advKernelPath}</dt>
+          <dt className="text-ink-3">{t.advKernelPath}</dt>
           <dd className="truncate font-mono text-ink-2" title={k?.path ?? ""}>{k?.path ?? "—"}</dd>
-          <dt className="text-ink-3">{zh.advSdk}</dt>
+          <dt className="text-ink-3">{t.advSdk}</dt>
           <dd className="font-mono text-ink-2">{k?.sdk_version ?? "—"}</dd>
-          <dt className="text-ink-3">{zh.advCatalog}</dt>
+          <dt className="text-ink-3">{t.advCatalog}</dt>
           <dd className="text-ink-2">
             {counts}
             {k?.catalog?.error ? <span className="ml-1 text-danger">{k.catalog.error}</span> : null}
           </dd>
-          <dt className="text-ink-3">{zh.advConfigPath}</dt>
+          <dt className="text-ink-3">{t.advConfigPath}</dt>
           <dd className="truncate font-mono text-ink-2" title={k?.config_path ?? ""}>{k?.config_path ?? "—"}</dd>
         </dl>
         <p className="mt-2 text-2xs leading-relaxed text-ink-3">
-          {zh.advKernelUpdate}
-          {k?.update_hint && k.update_hint !== zh.advKernelUpdate ? (
+          {t.advKernelUpdate}
+          {k?.update_hint && k.update_hint !== t.advKernelUpdate ? (
             <span className="ml-1 font-mono">{k.update_hint}</span>
           ) : null}
         </p>
@@ -549,14 +563,14 @@ function AdvancedSection() {
 
       <div className="rounded-card border border-line p-3">
         <div className="mb-2 flex items-center justify-between">
-          <span className="text-sm font-medium text-ink">{zh.advOpenProjects}</span>
+          <span className="text-sm font-medium text-ink">{t.advOpenProjects}</span>
           <button
             type="button"
             disabled={busy !== null || !wb.projectPath}
             onClick={() => void restart()}
             className={btnCls}
           >
-            {busy === "restart" ? zh.advEngineRestarting : zh.advEngineRestart}
+            {busy === "restart" ? t.advEngineRestarting : t.advEngineRestart}
           </button>
         </div>
         <div className="flex flex-col gap-1 font-mono text-2xs text-ink-2">
@@ -564,8 +578,8 @@ function AdvancedSection() {
             <div key={p.path} className="flex items-center gap-2">
               <span className="min-w-0 flex-1 truncate" title={p.path}>{p.path}</span>
               <span className="text-ink-3">{p.kernel_version ?? "?"}</span>
-              {p.busy && <span className="text-ok">{zh.running}</span>}
-              {p.restart_pending && <span className="text-warn">{zh.modelRestartPending}</span>}
+              {p.busy && <span className="text-ok">{t.running}</span>}
+              {p.restart_pending && <span className="text-warn">{t.modelRestartPending}</span>}
             </div>
           ))}
           {(k?.open_projects ?? []).length === 0 && <span className="text-ink-3">—</span>}
@@ -593,18 +607,18 @@ function AboutSection() {
   return (
     <div className="flex flex-col gap-3 text-xs text-ink-2">
       <div>
-        <span className="text-ink-3">{zh.aboutBuild}：</span>
+        <span className="text-ink-3">{t.aboutBuild}{t.colon}</span>
         <span className="font-mono">{build?.version ?? "—"}</span>
         {build?.built_at ? <span className="ml-1 font-mono text-ink-3">{build.built_at}</span> : null}
-        {build?.stale && <div className="mt-0.5 text-warn">{zh.buildStale}</div>}
+        {build?.stale && <div className="mt-0.5 text-warn">{t.buildStale}</div>}
       </div>
       <div>
-        <span className="text-ink-3">{zh.advKernel}：</span>
+        <span className="text-ink-3">{t.advKernel}{t.colon}</span>
         <span className="font-mono">codex {wb.kernel?.version ?? "—"}</span>
         <span className="ml-1 font-mono text-ink-3">SDK {wb.kernel?.sdk_version ?? "—"}</span>
       </div>
       <Link to="/legacy" onClick={wb.closeSettings} className="text-ink-2 underline underline-offset-2 hover:text-ink">
-        {zh.aboutLegacy}
+        {t.aboutLegacy}
       </Link>
     </div>
   );
@@ -626,12 +640,12 @@ export function SettingsDialog() {
       }}
       role="dialog"
       aria-modal="true"
-      aria-label={zh.settingsTitle}
+      aria-label={t.settingsTitle}
       data-testid="settings-dialog"
     >
       <div ref={dialogRef} tabIndex={-1} className="settings-surface flex h-[650px] max-h-[92vh] w-[900px] max-w-[96vw] flex-col overflow-hidden bg-bg sm:flex-row">
         <nav className="flex w-full shrink-0 flex-row gap-px overflow-x-auto border-b border-line bg-surface p-2 sm:w-44 sm:flex-col sm:overflow-y-auto sm:border-r sm:border-b-0">
-          <div className="hidden px-2 pt-1 pb-2 text-base font-semibold text-ink sm:block">{zh.settingsTitle}</div>
+          <div className="hidden px-2 pt-1 pb-2 text-base font-semibold text-ink sm:block">{t.settingsTitle}</div>
           {SECTIONS.map((s) => {
             const Icon = SECTION_ICONS[s.id];
             return (
@@ -657,8 +671,8 @@ export function SettingsDialog() {
             </h2><p className="mt-1.5 text-sm leading-relaxed text-ink-3">{SECTION_DESCRIPTIONS[section]}</p></div>
             <button
               type="button"
-              title={zh.settingsClose}
-              aria-label={zh.settingsClose}
+              title={t.settingsClose}
+              aria-label={t.settingsClose}
               onClick={close}
               className="flex h-7 w-7 items-center justify-center rounded-lg text-ink-3 transition-colors hover:bg-raised hover:text-ink"
             >

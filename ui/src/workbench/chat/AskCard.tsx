@@ -11,7 +11,7 @@
  */
 import { useState } from "react";
 import { latestOpenAsk, priorReply, type AskBlock } from "../../lib/askCard";
-import { zh } from "../../lib/zh";
+import { t } from "../../lib/i18n";
 import { motionScrollBehavior, useMotionPreference } from "../../lib/motion";
 import { useComposerDraft } from "../../state/ComposerDraft";
 import { useThread } from "../../state/ThreadProvider";
@@ -21,21 +21,21 @@ function AskFacts({ ask }: { ask: AskBlock }) {
     <dl className="grid grid-cols-[auto_1fr] gap-x-2 gap-y-0.5 text-xs">
       {ask.settled && (
         <>
-          <dt className="text-ink-3">{zh.askSettled}</dt>
+          <dt className="text-ink-3">{t.askSettled}</dt>
           <dd className="text-ink-2">{ask.settled}</dd>
         </>
       )}
       {ask.dispute && (
         <>
-          <dt className="text-ink-3">{zh.askDispute}</dt>
+          <dt className="text-ink-3">{t.askDispute}</dt>
           <dd className="text-ink-2">{ask.dispute}</dd>
         </>
       )}
-      <dt className="text-ink-3">{zh.askQuestion}</dt>
+      <dt className="text-ink-3">{t.askQuestion}</dt>
       <dd className="text-sm font-medium text-ink">{ask.question}</dd>
       {ask.fallback && (
         <>
-          <dt className="text-ink-3">{zh.askFallback}</dt>
+          <dt className="text-ink-3">{t.askFallback}</dt>
           <dd className="text-ink-2">{ask.fallback}</dd>
         </>
       )}
@@ -50,7 +50,7 @@ export function AskCardStatic({ ask }: { ask: AskBlock }) {
       className="my-2 rounded-card border border-accent/40 bg-accent/5 px-4 py-3"
       data-testid="ask-card"
     >
-      <div className="mb-1 text-2xs font-medium text-accent">{zh.askTitle}</div>
+      <div className="mb-1 text-2xs font-medium text-accent">{t.askTitle}</div>
       <AskFacts ask={ask} />
       {ask.options.length > 0 && (
         <div className="mt-2 flex flex-wrap gap-1.5">
@@ -118,7 +118,7 @@ export function ComposerAsk() {
             onClick={jumpToCard}
             className="mb-1 block text-2xs font-medium text-accent hover:underline"
           >
-            {zh.askTitle}
+            {t.askTitle}
           </button>
           <AskFacts ask={ask} />
           <div className="mt-2 flex flex-wrap items-center gap-1.5">
@@ -139,10 +139,10 @@ export function ComposerAsk() {
               onClick={() => draft.insert(priorReply(ask, ""))}
               className="rounded-pill border border-line px-3 py-1 text-xs text-ink-2 transition-colors hover:bg-raised disabled:opacity-50"
             >
-              {zh.askAnswerSelf}
+              {t.askAnswerSelf}
             </button>
           </div>
-          <div className="mt-1 text-2xs text-ink-3">{zh.askHint}</div>
+          <div className="mt-1 text-2xs text-ink-3">{t.askHint}</div>
           {error !== null && <div className="mt-1 text-2xs text-danger">{error}</div>}
         </div>
       </div>
